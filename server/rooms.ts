@@ -2068,7 +2068,7 @@ export class GameRoom extends BasicRoom {
 			connection?.popup(`Your replay could not be saved because Config.customreplaysdir is missing or invalid.`);
 			return;
 		}
-		FS(`${Config.customreplaysdir}/${id}.json`).writeUpdate(() => JSON.stringify({
+		FS(`${Config.customreplaysdir}/${id}.json`).writeUpdate(() => `${JSON.stringify({
 			id,
 			password,
 			private: hidden,
@@ -2078,7 +2078,7 @@ export class GameRoom extends BasicRoom {
 			rating: rating || null,
 			log,
 			inputlog: battle.inputLog?.join('\n') || null,
-		}));
+		})}\n`);
 		const url = `https://replay.generationssd.co.uk/${id}${password ? `-${password}` : ''}`;
 		connection?.popup(
 			`|html|<p>Your replay is being saved. It will be available shortly at:</p><p> ` +

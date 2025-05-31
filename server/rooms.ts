@@ -2061,60 +2061,70 @@ export class GameRoom extends BasicRoom {
 			battle.replaySaved = true;
 		}
 
+		// GENERATIONS
+		// We store our replays as JSON files
+		// They get served by an external app
+		if(typeof Config.customreplaysdir !== 'string') {
+			connection?.popup(`Your replay could not be saved because Config.customreplaysdir is missing or invalid.`);
+			return;
+		}
+		connection?.popup(`Your replay would be saved at ${Config.customreplaysdir}`);
+		//await FS(`${Config.customreplaysdir}/${id}`).safeWrite(JSON.stringify({id,password}));
+
 		// If we have a direct connetion to a Replays database, just upload the replay
 		// directly.
 
-		if (Replays.db) {
-			const idWithServer = Config.serverid === 'showdown' ? id : `${Config.serverid}-${id}`;
-			try {
-				const fullid = await Replays.add({
-					id: idWithServer,
-					log,
-					players: battle.players.map(p => p.name),
-					format: format.name,
-					rating: rating || null,
-					private: hidden,
-					password,
-					inputlog: battle.inputLog?.join('\n') || null,
-					uploadtime: Math.trunc(Date.now() / 1000),
-				});
-				const url = `https://${Config.routes.replays}/${fullid}`;
-				connection?.popup(
-					`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
-					`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
-					`<copytext value="${url}">Copy</copytext>`
-				);
-			} catch (e) {
-				connection?.popup(`Your replay could not be saved: ${e}`);
-				throw e;
-			}
-			return;
-		}
+		// if (Replays.db) {
+		// 	const idWithServer = Config.serverid === 'showdown' ? id : `${Config.serverid}-${id}`;
+		// 	try {
+		// 		const fullid = await Replays.add({
+		// 			id: idWithServer,
+		// 			log,
+		// 			players: battle.players.map(p => p.name),
+		// 			format: format.name,
+		// 			rating: rating || null,
+		// 			private: hidden,
+		// 			password,
+		// 			inputlog: battle.inputLog?.join('\n') || null,
+		// 			uploadtime: Math.trunc(Date.now() / 1000),
+		// 		});
+		// 		const url = `https://${Config.routes.replays}/${fullid}`;
+		// 		connection?.popup(
+		// 			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
+		// 			`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+		// 			`<copytext value="${url}">Copy</copytext>`
+		// 		);
+		// 	} catch (e) {
+		// 		connection?.popup(`Your replay could not be saved: ${e}`);
+		// 		throw e;
+		// 	}
+		// 	return;
+		// }
 
 		// Otherwise, (we're probably a side server), upload the replay through LoginServer
 
-		const [result] = await LoginServer.request('addreplay', {
-			id,
-			log,
-			players: battle.players.map(p => p.name).join(','),
-			format: format.name,
-			rating, // will probably do nothing
-			hidden: hidden === 0 ? '' : hidden,
-			inputlog: battle.inputLog?.join('\n') || undefined,
-			password,
-		});
-		if (result?.errorip) {
-			connection?.popup(`This server's request IP ${result.errorip} is not a registered server.`);
-			return;
-		}
+		// const [result] = await LoginServer.request('addreplay', {
+		// 	id,
+		// 	log,
+		// 	players: battle.players.map(p => p.name).join(','),
+		// 	format: format.name,
+		// 	rating, // will probably do nothing
+		// 	hidden: hidden === 0 ? '' : hidden,
+		// 	inputlog: battle.inputLog?.join('\n') || undefined,
+		// 	password,
+		// });
+		// if (result?.errorip) {
+		// 	connection?.popup(`This server's request IP ${result.errorip} is not a registered server.`);
+		// 	return;
+		// }
 
-		const fullid = result?.replayid;
-		const url = `https://${Config.routes.replays}/${fullid}`;
-		connection?.popup(
-			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
-			`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
-			`<copytext value="${url}">Copy</copytext>`
-		);
+		// const fullid = result?.replayid;
+		// const url = `https://${Config.routes.replays}/${fullid}`;
+		// connection?.popup(
+		// 	`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
+		// 	`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+		// 	`<copytext value="${url}">Copy</copytext>`
+		// );
 	}
 
 	getReplayData() {

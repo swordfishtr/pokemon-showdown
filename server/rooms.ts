@@ -2068,8 +2068,23 @@ export class GameRoom extends BasicRoom {
 			connection?.popup(`Your replay could not be saved because Config.customreplaysdir is missing or invalid.`);
 			return;
 		}
-		connection?.popup(`Your replay would be saved at ${Config.customreplaysdir}`);
-		//await FS(`${Config.customreplaysdir}/${id}`).safeWrite(JSON.stringify({id,password}));
+		FS(`${Config.customreplaysdir}/${id}.json`).writeUpdate(() => JSON.stringify({
+			id,
+			password,
+			private: hidden,
+			uploadtime: Math.trunc(Date.now() / 1000),
+			format: format.name,
+			players: battle.players.map(p => p.name),
+			rating: rating || null,
+			log,
+			inputlog: battle.inputLog?.join('\n') || null,
+		}));
+		const url = `https://replay.generationssd.co.uk/${id}${password ? `-${password}` : ''}`;
+		connection?.popup(
+			`|html|<p>Your replay is being saved. It will be available shortly at:</p><p> ` +
+			`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+			`<copytext value="${url}">Copy</copytext>`
+		);
 
 		// If we have a direct connetion to a Replays database, just upload the replay
 		// directly.

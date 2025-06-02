@@ -2062,8 +2062,8 @@ export class GameRoom extends BasicRoom {
 		}
 
 		// GENERATIONS
-		// We store our replays as JSON files
-		// They get served by an external app
+		// We store our replays as JSON files on disk to be served by an external app
+		// See: https://github.com/swordfishtr/replay-server
 		if(typeof Config.customreplaysdir !== 'string') {
 			connection?.popup(`Your replay could not be saved because Config.customreplaysdir is missing or invalid.`);
 			return;

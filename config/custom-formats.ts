@@ -1,0 +1,320 @@
+export const Formats: import('../sim/dex-formats').FormatList = [
+	{
+		section: 'Generations Draft'
+	},
+	{
+		section: '35 Pokes'
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Jun 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Arbok', 'Archeops', 'Arctozolt', 'Bruxish', 'Calyrex-Base', 'Ditto', 'Drakloak', 'Dugtrio-Alola', 'Electrode-Base',
+			'Escavalier', 'Espeon', 'Furfrou', 'Glimmora', 'Grapploct', 'Honchkrow', 'Klawf', 'Lunatone', 'Luvdisc',
+			'Masquerain', 'Mienshao', 'Mimikyu-Base', 'Orbeetle', 'Primeape', 'Purugly', 'Quaquaval', 'Rabsca', 'Simipour',
+			'Simisage', 'Slowking-Base', 'Slowking-Galar', 'Smeargle', 'Tangrowth', 'Toedscruel', 'Tyranitar-Base', 'Uxie',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [May 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Inteleon', 'Dragonair', 'Vivillon', 'Heatmor', 'Cinccino', 'Lopunny-Base', 'Politoed', 'Skarmory', 'Maushold',
+			'Nidoking', 'Jumpluff', 'Ribombee-Base', 'Mudsdale', 'Drednaw', 'Meganium', 'Kecleon', 'Barraskewda', 'Goodra-Base',
+			'Carbink', 'Raichu-Base', 'Honchkrow', 'Venusaur-Base', 'Cofagrigus', 'Lokix', 'Frosmoth', 'Pinsir-Base', 'Empoleon',
+			'Shiinotic', 'Hitmontop', 'Claydol', 'Tangrowth', 'Swoobat', 'Swellow', 'Mienshao', 'Ninetales-Base',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Apr 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Kingdra', 'Crustle', 'Corsola-Base', 'Dipplin', 'Dusknoir', 'Drampa', 'Pincurchin', 'Type: Null', 'Camerupt-Base',
+			'Rotom-Base', 'Raticate-Base', 'Bombirdier', 'Cradily', 'Beedrill-Base', 'Gastrodon', 'Donphan', 'Chimecho', 'Coalossal',
+			'Dustox', 'Dedenne', 'Kecleon', 'Flareon', 'Cyclizar', 'Grumpig', 'Tentacruel', 'Miltank', 'Arcanine-Base',
+			'Shelgon', 'Spinda', 'Wormadam-Sandy', 'Exploud', 'Marowak-Base', 'Hypno', 'Furret', 'Bastiodon',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Mar 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Gourgeist-Small', 'Kingler', 'Rapidash-Base', 'Accelgor', 'Ariados', 'Magcargo', 'Sudowoodo', 'Qwilfish-Base', 'Eldegoss',
+			'Stunfisk-Base', 'Raichu-Base', 'Klawf', 'Scolipede', 'Gabite', 'Jynx', 'Linoone-Base', 'Unfezant', 'Revavroom',
+			'Appletun', 'Kabutops', 'Wyrdeer', 'Charizard-Base', 'Grafaiai', 'Golem-Base', 'Medicham-Base', 'Thievul', 'Lucario-Base',
+			'Mantine', 'Wormadam-Trash', 'Morpeko-Base', 'Drifblim', 'Granbull', 'Swalot', 'Aggron-Base', 'Luxray',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Feb 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Rapidash-Galar', 'Whiscash', 'Scrafty', 'Uxie', 'Arbok', 'Zangoose', 'Carnivine', 'Persian-Alola', 'Emolga',
+			'Araquanid-Base', 'Pincurchin', 'Hitmonchan', 'Maractus', 'Dewgong', 'Spinda', 'Breloom', 'Parasect', 'Sigilyph',
+			'Ambipom', 'Zygarde-10%', 'Tauros-Base', 'Glalie-Base', 'Golduck', 'Pangoro', 'Weezing-Base', 'Zweilous', 'Pinsir-Base',
+			'Musharna', 'Cacturne', 'Regigigas', 'Arctozolt', 'Bewear', 'Kecleon', 'Alcremie', 'Togedemaru-Base',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Jan 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Clodsire', 'Comfey', 'Probopass', 'Bellibolt', 'Wugtrio', 'Unown', 'Shiftry', 'Swanna', 'Houndoom-Base',
+			'Oricorio-Pom-Pom', 'Cursola', 'Slowbro-Base', 'Goodra-Base', 'Torkoal', 'Shaymin-Base', 'Infernape', 'Mesprit', 'Alcremie',
+			'Golurk', 'Dachsbun', 'Vileplume', 'Scyther', 'Donphan', 'Toedscruel', 'Sawsbuck', 'Reuniclus', 'Spiritomb',
+			'Type: Null', 'Virizion', 'Absol-Base', 'Flapple', 'Crawdaunt', 'Kecleon', 'Jynx', 'Kingdra',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Dec 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Golem-Alola', 'Zoroark-Base', 'Pyukumuku', 'Guzzlord', 'Wugtrio', 'Garbodor', 'Aurorus', 'Morpeko-Base', 'Walrein',
+			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
+			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
+			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Nov 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Wishiwashi-Base', 'Ampharos-Base', 'Tsareena', 'Glaceon', 'Centiskorch', 'Frosmoth', 'Exeggutor-Base', 'Shelgon', 'Granbull',
+			'Guzzlord', 'Reuniclus', 'Spiritomb', 'Unown', 'Shedinja', 'Lurantis-Base', 'Gabite', 'Gourgeist-Base', 'Ledian',
+			'Golduck', 'Qwilfish-Base', 'Pinsir-Base', 'Gumshoos-Base', 'Wigglytuff', 'Arbok', 'Dusknoir', 'Araquanid-Base', 'Kecleon',
+			'Exeggutor-Alola', 'Trapinch', 'Appletun', 'Turtonator', 'Drampa', 'Gorebyss', 'Gourgeist-Super', 'Galvantula',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Oct 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Ninjask', 'Perrserker', 'Klinklang', 'Snorlax', 'Houndstone', 'Amoonguss', 'Seviper', 'Rhydon', 'Vigoroth',
+			'Bellossom', 'Sandaconda', 'Samurott-Base', 'Honchkrow', 'Scyther', 'Clawitzer', 'Bisharp', 'Sinistcha-Base', 'Guzzlord',
+			'Porygon-Z', 'Sylveon', 'Sudowoodo', 'Vikavolt-Base', 'Noivern', 'Blastoise-Base', 'Dudunsparce', 'Dugtrio-Alola', 'Gengar-Base',
+			'Emboar', 'Munkidori', 'Zoroark-Hisui', 'Stoutland', 'Accelgor', 'Stunfisk-Base', 'Magmortar', 'Doublade',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Sep 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Starmie', 'Muk-Alola', 'Krookodile', 'Slowking-Galar', 'Gabite', 'Florges', 'Bellibolt', 'Rotom-Fan', 'Beartic',
+			'Hatterene', 'Fearow', 'Simisage', 'Pyroar', 'Politoed', 'Mudsdale', 'Manectric-Base', 'Rhydon', 'Simisear',
+			'Basculin-White-Striped', 'Swalot', 'Wyrdeer', 'Klawf', 'Flareon', 'Wugtrio', 'Glimmora', 'Clodsire', 'Armaldo',
+			'Togedemaru-Base', 'Toxicroak', 'Arctibax', 'Komala', 'Spidops', 'Sandslash-Alola', 'Dustox', 'Accelgor',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Aug 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mandibuzz', 'Braviary-Base', 'Dusclops', 'Sawk', 'Corsola-Base', 'Maushold-Base', 'Vivillon-Base', 'Runerigus', 'Chesnaught',
+			'Rotom-Heat', 'Dhelmise', 'Illumise', 'Seviper', 'Boltund', 'Braviary-Hisui', 'Mamoswine', 'Charizard-Base', 'Smeargle',
+			'Donphan', 'Musharna', 'Muk-Alola', 'Frosmoth', 'Sableye-Base', 'Blissey', 'Heracross-Base', 'Eelektross', 'Trapinch',
+			'Fezandipiti', 'Golem-Alola', 'Lanturn', 'Quagsire', 'Squawkabilly-Yellow', 'Cradily', 'Scizor-Base', 'Vanilluxe',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Jul 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Venusaur-Base', 'Shiftry', 'Mabosstiff', 'Donphan', 'Rotom-Heat', 'Garbodor', 'Blastoise-Base', 'Oricorio-Pom-Pom', 'Tinkaton',
+			'Lilligant-Base', 'Claydol', 'Brambleghast', 'Noctowl', 'Aggron-Base', 'Rapidash-Galar', 'Muk-Base', 'Rampardos', 'Houndoom-Base',
+			'Masquerain', 'Dachsbun', 'Cloyster', 'Rotom-Mow', 'Flareon', 'Eiscue-Base', 'Hitmontop', 'Charizard-Base', 'Primeape',
+			'Shedinja', 'Pawmot', 'Goodra-Base', 'Mantine', 'Furret', 'Slurpuff', 'Torterra', 'Scrafty', 'Yanmega',
+			'Mamoswine', 'Dondozo', 'Porygon2', 'Kingdra', 'Chesnaught', 'Ferrothorn', 'Zebstrika', 'Regice',
+			'Slowking-Base', 'Klawf', 'Trapinch',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Jun 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mimikyu-Base', 'Cacturne', 'Mabosstiff', 'Cyclizar', 'Raticate-Alola', 'Wyrdeer', 'Pincurchin', 'Slowbro-Galar', 'Arboliva',
+			'Heliolisk', 'Trapinch', 'Runerigus', 'Gabite', 'Illumise', 'Probopass', 'Banette-Base', 'Exeggutor-Base', 'Registeel',
+			'Squawkabilly-Base', 'Delphox', 'Spidops', 'Indeedee-Base', 'Scyther', 'Fearow', 'Magcargo', 'Walrein', 'Crabominable',
+			'Toxicroak', 'Bellibolt', 'Rotom-Wash', 'Avalugg-Base', 'Raichu-Alola', 'Sirfetch’d', 'Talonflame', 'Kricketune',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [May 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Carbink', 'Mantine', 'Dusknoir', 'Cryogonal', 'Milotic', 'Mr. Mime-Base', 'Hitmonchan', 'Shiinotic', 'Beheeyem',
+			'Drampa', 'Oinkologne-F', 'Dustox', 'Sunflora', 'Raichu-Alola', 'Meowstic-Base', 'Dachsbun', 'Calyrex-Base', 'Arbok',
+			'Octillery', 'Maushold-Base', 'Grafaiai', 'Torkoal', 'Miltank', 'Froslass', 'Ariados', 'Sableye-Base', 'Cherrim-Base',
+			'Simisear', 'Salazzle-Base', 'Zoroark-Base', 'Emolga', 'Wobbuffet', 'Klawf', 'Delcatty', 'Drakloak',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Apr 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Lokix', 'Sandslash-Alola', 'Altaria-Base', 'Gengar-Base', 'Drampa', 'Dugtrio-Alola', 'Stoutland', 'Golisopod', 'Abomasnow-Base',
+			'Frosmoth', 'Fezandipiti', 'Golduck', 'Vespiquen', 'Decidueye-Base', 'Charizard-Base', 'Hippowdon', 'Rabsca', 'Coalossal',
+			'Houndstone', 'Leafeon', 'Glaceon', 'Slowking-Base', 'Manectric-Base', 'Alomomola', 'Accelgor', 'Mismagius', 'Dachsbun',
+			'Tentacruel', 'Sandslash-Base', 'Tinkaton', 'Roserade', 'Sableye-Base', 'Palossand', 'Cobalion', 'Garbodor',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Mar 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Oricorio-Base', 'Wigglytuff', 'Phione', 'Politoed', 'Ninjask', 'Samurott-Base', 'Galvantula', 'Mesprit', 'Scrafty',
+			'Rotom-Fan', 'Greedent', 'Seaking', 'Swampert-Base', 'Weezing-Galar', 'Shelgon', 'Leafeon', 'Cacturne', 'Turtonator',
+			'Magmortar', 'Lilligant-Base', 'Sirfetch’d', 'Oricorio-Sensu', 'Persian-Alola', 'Farigiraf', 'Pinsir-Base', 'Primeape', 'Tatsugiri',
+			'Dugtrio-Alola', 'Flygon', 'Regice', 'Ditto', 'Grafaiai', 'Pidgeot-Base', 'Palossand', 'Ribombee-Base',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Feb 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Tauros-Paldea-Blaze', 'Ceruledge', 'Klinklang', 'Houndstone', 'Gothitelle', 'Snorlax', 'Sandslash-Base', 'Morpeko-Base', 'Sawk',
+			'Nidoqueen', 'Lickilicky', 'Shiftry', 'Vanilluxe', 'Jynx', 'Wormadam-Trash', 'Vigoroth', 'Mr. Rime', 'Skarmory',
+			'Tyrantrum', 'Aromatisse', 'Primarina', 'Golem-Alola', 'Maushold-Base', 'Pangoro', 'Malamar', 'Clodsire', 'Klawf',
+			'Meganium', 'Quagsire', 'Toxicroak', 'Wugtrio', 'Walrein', 'Raichu-Base', 'Serperior', 'Zebstrika',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Jan 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Hatterene', 'Drakloak', 'Luvdisc', 'Tangrowth', 'Snorlax', 'Starmie', 'Ursaring', 'Appletun', 'Stoutland',
+			'Musharna', 'Chatot', 'Masquerain', 'Gorebyss', 'Kecleon', 'Avalugg-Hisui', 'Rhyperior', 'Beedrill-Base', 'Meowstic-F',
+			'Probopass', 'Dewgong', 'Braviary-Base', 'Houndoom-Base', 'Gothitelle', 'Crobat', 'Tentacruel', 'Eldegoss', 'Seaking',
+			'Lapras', 'Ferrothorn', 'Dubwool', 'Araquanid-Base', 'Yanmega', 'Dudunsparce', 'Slowking-Base', 'Lucario-Base',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Dec 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mabosstiff', 'Eelektross', 'Camerupt-Base', 'Grapploct', 'Drifblim', 'Ampharos-Base', 'Lurantis-Base', 'Gyarados-Base', 'Hypno',
+			'Druddigon', 'Durant', 'Chesnaught', 'Gastrodon', 'Eldegoss', 'Pelipper', 'Dodrio', 'Wailord', 'Emolga',
+			'Dachsbun', 'Drampa', 'Trevenant', 'Passimian', 'Beautifly', 'Tyranitar-Base', 'Regirock', 'Stunfisk-Galar', 'Morpeko-Base',
+			'Jumpluff', 'Heatmor', 'Froslass', 'Audino-Base', 'Cetitan', 'Pincurchin', 'Cradily', 'Ninetales-Base',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Nov 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Copperajah', 'Dhelmise', 'Mudsdale', 'Veluza', 'Bellossom', 'Tropius', 'Cramorant-Base', 'Jellicent', 'Boltund',
+			'Scolipede', 'Typhlosion-Base', 'Klefki', 'Metagross-Base', 'Swoobat', 'Honchkrow', 'Cursola', 'Revavroom', 'Swampert-Base',
+			'Garbodor', 'Electivire', 'Slurpuff', 'Jynx', 'Bombirdier', 'Mismagius', 'Wyrdeer', 'Lanturn', 'Carnivine',
+			'Kangaskhan-Base', 'Bellibolt', 'Kingdra', 'Perrserker', 'Steelix-Base', 'Alcremie', 'Heliolisk', 'Beartic',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Oct 2023 B]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Shuckle', 'Emboar',
+			'Doublade', 'Phione', 'Lumineon', 'Toucannon', 'Mandibuzz', 'Cinccino', 'Avalugg-Hisui', 'Sceptile-Base', 'Toedscruel',
+			'Hitmontop', 'Golem-Alola', 'Dugtrio-Base', 'Mr. Rime', 'Ariados', 'Pachirisu', 'Ambipom', 'Volbeat', 'Centiskorch',
+			'Shiinotic', 'Poliwrath', 'Stoutland', 'Banette-Base', 'Aurorus', 'Mawile-Base', 'Xatu', 'Sableye-Base', 'Orthworm',
+			'Rotom-Mow', 'Sandslash-Alola', 'Toxicroak', 'Roserade', 'Lopunny-Base', 'Luxray', 'Solrock', 'Cryogonal', 'Noctowl',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Oct 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Mimikyu-Base', 'Scovillain',
+			'Lycanroc-Base', 'Jolteon', 'Bisharp', 'Togekiss', 'Starmie', 'Shuckle', 'Emboar', 'Doublade', 'Phione',
+			'Lumineon', 'Toucannon', 'Mandibuzz', 'Rotom-Base', 'Falinks', 'Magnezone', 'Dondozo', 'Brambleghast', 'Goodra-Base',
+			'Articuno-Base', 'Cinccino', 'Avalugg-Hisui', 'Sceptile-Base', 'Toedscruel', 'Hitmontop', 'Golem-Alola', 'Dugtrio-Base',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Sep 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Zoroark-Hisui', 'Yanmega', 'Mothim', 'Rapidash-Galar', 'Drapion', 'Chimecho', 'Espeon', 'Vaporeon', 'Mamoswine',
+			'Vespiquen', 'Barbaracle', 'Shedinja', 'Alakazam-Base', 'Glaceon', 'Staraptor', 'Electrode-Hisui', 'Lickilicky', 'Whiscash',
+			'Cherrim-Base', 'Armaldo', 'Slowking-Base', 'Kingler', 'Dudunsparce', 'Watchog', 'Flygon', 'Granbull', 'Decidueye-Base',
+			'Flareon', 'Bronzong', 'Rampardos', 'Fearow', 'Relicanth', 'Hitmonlee', 'Altaria-Base', 'Tinkaton',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Aug 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Vileplume', 'Swanna', 'Yanmega', 'Heracross-Base', 'Nidoking', 'Leafeon', 'Kricketune', 'Swellow', 'Comfey',
+			'Bibarel', 'Empoleon', 'Ludicolo', 'Tangrowth', 'Simisear', 'Parasect', 'Krookodile', 'Eelektross', 'Abomasnow-Base',
+			'Avalugg-Base', 'Bastiodon', 'Dusclops', 'Minior-Base', 'Masquerain', 'Victreebel', 'Rabsca', 'Linoone-Base', 'Omastar',
+			'Politoed', 'Ledian', 'Donphan', 'Magcargo', 'Bombirdier', 'Dedenne', 'Butterfree', 'Jynx',
+		],
+	},
+	{
+		name: "[Gen 9] National Dex 35 Pokes [Jul 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Leavanny', 'Masquerain', 'Eiscue-Base', 'Torterra', 'Dragonair', 'Runerigus', 'Swalot', 'Muk-Alola', 'Musharna',
+			'Hippowdon', 'Alomomola', 'Aggron-Base', 'Umbreon', 'Galvantula', 'Pawmot', 'Quagsire', 'Slurpuff', 'Sigilyph',
+			'Vaporeon', 'Blastoise-Base', 'Aegislash-Base', 'Scizor-Base', 'Spiritomb', 'Golisopod', 'Clawitzer', 'Ninetales-Base', 'Delphox',
+			'Typhlosion-Base', 'Marowak-Base', 'Porygon-Z', 'Jumpluff', 'Absol-Base', 'Porygon2', 'Rotom-Frost', 'Rotom-Mow',
+		],
+	},
+	{
+		section: '35 Pokes OM'
+	},
+	{
+		section: '35 Pokes Extended'
+	},
+	{
+		section: 'Misc'
+	}
+];

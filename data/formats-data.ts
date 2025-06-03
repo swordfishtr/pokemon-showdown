@@ -6040,6 +6040,6 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	evisempra: {
 		isNonstandard: 'Custom',
-		tier: 'OU',
+		tier: 'Illegal',
 	},
 };

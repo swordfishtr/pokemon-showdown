@@ -1,9 +1,11 @@
 export const Formats: import('../sim/dex-formats').FormatList = [
 	{
-		section: 'Generations Draft'
+		section: 'Generations Draft',
+		column: 5,
 	},
 	{
-		section: '35 Pokes'
+		section: '35 Pokes 2025',
+		column: 5,
 	},
 	{
 		name: "[Gen 9] National Dex 35 Pokes [Jun 2025]",
@@ -76,6 +78,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Golurk', 'Dachsbun', 'Vileplume', 'Scyther', 'Donphan', 'Toedscruel', 'Sawsbuck', 'Reuniclus', 'Spiritomb',
 			'Type: Null', 'Virizion', 'Absol-Base', 'Flapple', 'Crawdaunt', 'Kecleon', 'Jynx', 'Kingdra',
 		],
+	},
+	{
+		section: '35 Pokes 2024',
+		column: 5,
 	},
 	{
 		name: "[Gen 9] National Dex 35 Pokes [Dec 2024]",
@@ -224,6 +230,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		section: '35 Pokes 2023',
+		column: 5,
+	},
+	{
 		name: "[Gen 9] National Dex 35 Pokes [Dec 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
@@ -309,12 +319,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		section: '35 Pokes OM'
+		section: '35 Pokes OM',
+		column: 5
 	},
 	{
-		section: '35 Pokes Extended'
+		section: '35 Pokes Extended',
+		column: 5,
 	},
 	{
-		section: 'Misc'
-	}
+		section: 'Misc',
+		column: 5,
+	},
+	{
+		name: "[Gen 9] Test",
+		desc: `Format for testing new things.`,
+		mod: 'gen9',
+		ruleset: ['Standard', 'Unban Fakemons'],
+	},
 ];

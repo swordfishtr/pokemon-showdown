@@ -19809,4 +19809,15 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		gen: 5,
 	},
+	evisempra: {
+		num: -6000,
+		name: "Evisempra",
+		types: ["Water", "Steel"],
+		baseStats: { hp: 65, atk: 145, def: 165, spa: 45, spd: 45, spe: 90 },
+		abilities: { 0: "Regenerator" },
+		heightm: 1,
+		weightkg: 1,
+		color: "Red",
+		eggGroups: ["Water 3"],
+	},
 };

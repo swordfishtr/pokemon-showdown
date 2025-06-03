@@ -3111,4 +3111,12 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	unbanfakemons: {
+		effectType: 'ValidatorRule',
+		name: 'Unban Fakemons',
+		desc: "Allows bringing fakemons from Generations draft league.",
+		unbanlist: [
+			'Evisempra',
+		],
+	},
 };

@@ -99887,4 +99887,17 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			{generation: 5, level: 47, moves: ["darkpulse", "flamethrower", "hyperbeam", "icebeam"]},
 		],
 	},
+	evisempra: {
+		learnset: {
+			aquacutter: ["9M"],
+			crabhammer: ["9M"],
+			kowtowcleave: ["9M"],
+			smartstrike: ["9M"],
+			ironhead: ["9M"],
+			slash: ["9M"],
+		},
+		eventData: [
+			{generation: 9, level: 16, gender: "F", nature: "Gentle", ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 30}, abilities: ["angershell"], moves: ["visegrip", "rocksmash", "block", "rocktomb"]},
+		],
+	},
 };

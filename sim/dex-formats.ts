@@ -596,7 +596,7 @@ export class DexFormats {
 			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
 		}
 		if (customFormats) Formats = mergeFormatLists(Formats as any, customFormats);
-		console.log(`Formats: ${[...Formats.keys()].join(' ')}`);
+		console.log(`Formats: ${[...Formats.values()].map(x => x.name ?? x.section ?? '?').join(' | ')}`);
 
 		let section = '';
 		let column = 1;

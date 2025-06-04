@@ -592,6 +592,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		searchShow: false,
 		ruleset: ['Standard', 'Unban Fakemons'],
-	},
+	}
 
 ];

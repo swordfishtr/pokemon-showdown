@@ -23,14 +23,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: 'Generations Draft',
-		column: 5,
+		column: 1,
 	},
 
 	// 35 Pokes Main
 
 	{
 		section: '35 Pokes 2025',
-		column: 5,
+		column: 2,
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2025]",
@@ -106,7 +106,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		section: '35 Pokes 2024',
-		column: 5,
+		column: 2,
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2024]",
@@ -256,7 +256,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		section: '35 Pokes 2023',
-		column: 5,
+		column: 2,
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2023]",
@@ -348,18 +348,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: '35 Pokes OM',
-		column: 5
+		column: 3
 	},
 	{
 		section: '35 Pokes Extended',
-		column: 5,
+		column: 3,
 	},
 
 	// Miscellaneous
 
 	{
 		section: 'Misc',
-		column: 5,
+		column: 4,
 	},
 	{
 		name: "[Gen 9] Broken Cup",

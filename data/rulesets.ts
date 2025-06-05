@@ -3084,6 +3084,48 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	standardgenerations: {
+		effectType: 'ValidatorRule',
+		name: 'Standard Generations',
+		desc: "The custom Generations Draft League ruleset",
+		teraPreviewDefault: true,
+		ruleset: [
+			'Obtainable', '+Unreleased', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause',
+			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
+			'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', '+Unobtainable', '+Past', 'Min Source Gen = 1',
+			'Z-Move Clause', 'DryPass Clause',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Attract', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Revival Blessing', 'Take Heart',
+			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene', // TODO: gems except normal
+			'Shadow Tag', 'Moody', 'Quick Draw', 'Cute Charm',
+		],
+		onValidateSet(set, format, setHas, teamHas) {
+			const problems: string[] = [];
+			for(const x of set.moves) {
+				const move = Dex.moves.get(x);
+				const onlyConfuses = (
+					move.category === 'Status' &&
+					move.volatileStatus === 'confusion' &&
+					move.secondary === null
+				);
+				if(onlyConfuses) {
+					problems.push(`${move.name} is a move used solely to confuse the opponent, which is banned in Generations Draft.`);
+				}
+				const onlyDropsAccuracy = (
+					move.category === 'Status' &&
+					move.boosts?.accuracy &&
+					move.boosts.accuracy < 0
+				);
+				if(onlyDropsAccuracy) {
+					problems.push(`${move.name} is a move used solely to lower the opponent's accuracy, which is banned in Generations Draft.`);
+				}
+			}
+			return problems;
+		},
+		// TODO: slowbrogalar must not mega evolve
+	},
 	standard35pokes: {
 		effectType: 'ValidatorRule',
 		name: 'Standard 35 Pokes',
@@ -3118,5 +3160,30 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		unbanlist: [
 			'Evisempra',
 		],
+	},
+	evasionabilitiesextendedclause: {
+		effectType: 'ValidatorRule',
+		name: 'Evasion Abilities Extended Clause',
+		desc: "Bans abilities that boost Evasion",
+		banlist: ['Sand Veil', 'Snow Cloak', 'Tangled Feet'],
+		onBegin() {
+			this.add('rule', 'Evasion Abilities Extended Clause: Evasion abilities are banned');
+		},
+	},
+	accuracyclausemod: {
+		effectType: 'Rule',
+		name: 'Accuracy Clause Mod',
+		desc: 'Prevents accuracy stat stages from being lowered',
+		onBegin() {
+			this.add('rule', 'Accuracy Clause Mod: Accuracy stat stages can not be lowered');
+		},
+		onModifyBoost(boosts, pokemon) {
+			if(boosts.accuracy && boosts.accuracy < 0) {
+				this.add('-message', 'Accuracy Clause Mod activated.');
+				this.hint("Accuracy Clause Mod prevents accuracy stat stages from being lowered in any way.");
+				delete boosts.accuracy;
+				return boosts;
+			}
+		},
 	},
 };

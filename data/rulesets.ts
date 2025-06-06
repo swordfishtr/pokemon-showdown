@@ -3186,4 +3186,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+
+	// Please keep this at the bottom
+	rulesetsbottom: {
+		name: 'Rulesets Bottom',
+	}
 };

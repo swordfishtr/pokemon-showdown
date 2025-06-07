@@ -270,6 +270,8 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	isConfusionSelfHit?: boolean;
 	stallingMove?: boolean;
 	baseMove?: ID;
+
+	clauseData?: ClauseData;
 }
 
 export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
@@ -284,7 +286,14 @@ export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 export interface MoveDataTable { [moveid: IDEntry]: MoveData }
 export interface ModdedMoveDataTable { [moveid: IDEntry]: ModdedMoveData }
 
-export interface Move extends Readonly<BasicEffect & MoveData> {
+export interface MoveMiscData {
+	clauseData?: ClauseData;
+}
+export type ModdedMoveMiscData = MoveMiscData | Partial<MoveMiscData> & { inherit: true };
+export interface MoveMiscDataTable { [moveid: IDEntry]: MoveMiscData }
+export interface ModdedMoveMiscDataTable { [moveid: IDEntry]: ModdedMoveMiscData }
+
+export interface Move extends Readonly<BasicEffect & MoveData & MoveMiscData> {
 	readonly effectType: 'Move';
 }
 

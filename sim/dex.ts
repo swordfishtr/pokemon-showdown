@@ -51,6 +51,9 @@ const DATA_TYPES: DataType[] = [
 	'Abilities', 'Rulesets', 'FormatsData', 'Items', 'Learnsets', 'Moves',
 	'Natures', 'Pokedex', 'Scripts', 'Conditions', 'TypeChart', 'PokemonGoData',
 ];
+const MISC_DATA_TYPES: Extract<DataType, 'Moves'>[] = [
+	/* 'Abilities', 'Items', */ 'Moves',
+];
 
 const DATA_FILES = {
 	Abilities: 'abilities',
@@ -84,6 +87,11 @@ interface DexTableData {
 	Scripts: DexTable<AnyObject>;
 	Conditions: DexTable<import('./dex-conditions').ConditionData>;
 	TypeChart: DexTable<import('./dex-data').TypeData>;
+}
+interface DexTableMiscData {
+	// Abilities: DexTable<import('./dex-abilities').AbilityMiscData>;
+	// Items: DexTable<import('./dex-items').ItemMiscData>;
+	Moves: DexTable<import('./dex-moves').MoveMiscData>;
 }
 interface TextTableData {
 	Abilities: DexTable<AbilityText>;
@@ -440,9 +448,9 @@ export class ModdedDex {
 		return searchResults;
 	}
 
-	loadDataFile(basePath: string, dataType: DataType): AnyObject | void {
+	loadDataFile(basePath: string, dataType: DataType, misc?: boolean): AnyObject | void {
 		try {
-			const filePath = basePath + DATA_FILES[dataType];
+			const filePath = basePath + DATA_FILES[dataType] + (misc ? '-misc' : '');
 			const dataObject = require(filePath);
 			if (!dataObject || typeof dataObject !== 'object') {
 				throw new TypeError(`${filePath}, if it exists, must export a non-null object`);
@@ -600,6 +608,7 @@ export class ModdedDex {
 		if (this.dataCache) return this.dataCache;
 		dexes['base'].includeMods();
 		const dataCache: { [k in keyof DexTableData]?: any } = {};
+		const miscDataCache: { [k in keyof DexTableMiscData]?: any } = {};
 
 		const basePath = this.dataDir + '/';
 
@@ -630,6 +639,9 @@ export class ModdedDex {
 				}
 			}
 		}
+		for (const dataType of MISC_DATA_TYPES) {
+			miscDataCache[dataType] = this.loadDataFile(basePath, dataType, true);
+		}
 		if (parentDex) {
 			for (const dataType of DATA_TYPES) {
 				const parentTypedData: DexTable<any> = parentDex.data[dataType];
@@ -653,6 +665,38 @@ export class ModdedDex {
 						// Merge parent and child's entry, with child overwriting parent.
 						childTypedData[entryId] = { ...parentTypedData[entryId], ...childTypedData[entryId] };
 					}
+				}
+			}
+			// Repeat the above for misc data
+			for (const dataType of MISC_DATA_TYPES) {
+				const parentTypedData: DexTable<any> = parentDex.data[dataType];
+				if (!miscDataCache[dataType] && !init) {
+					miscDataCache[dataType] = parentTypedData;
+					continue;
+				}
+				const childTypedData: DexTable<any> = miscDataCache[dataType] || (miscDataCache[dataType] = {});
+				for (const entryId in parentTypedData) {
+					if (childTypedData[entryId] === null) {
+						delete childTypedData[entryId];
+					} else if (!(entryId in childTypedData)) {
+						childTypedData[entryId] = parentTypedData[entryId];
+					} else if (childTypedData[entryId]?.inherit) {
+						delete childTypedData[entryId].inherit;
+						childTypedData[entryId] = { ...parentTypedData[entryId], ...childTypedData[entryId] };
+					}
+				}
+			}
+		}
+
+		// Merge misc data onto dataCache
+		for (const x in miscDataCache) {
+			const xx = x as keyof DexTableData;
+			const xxm = x as keyof DexTableMiscData;
+			dataCache[xx] ??= {}; // Moves, ...
+			for (const y in miscDataCache[xxm]) {
+				dataCache[xx][y] ??= {}; // agility, ...
+				for (const z in miscDataCache[xxm][y]) {
+					dataCache[xx][y][z] ??= miscDataCache[xxm][y][z]; // clauseData, ...
 				}
 			}
 		}

@@ -270,10 +270,7 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	isConfusionSelfHit?: boolean;
 	stallingMove?: boolean;
 	baseMove?: ID;
-
-	clauseData?: ClauseData;
 }
-
 export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 	inherit: true,
 	igniteBoosted?: boolean,
@@ -282,7 +279,6 @@ export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 	longWhipBoost?: boolean,
 	gen?: number,
 };
-
 export interface MoveDataTable { [moveid: IDEntry]: MoveData }
 export interface ModdedMoveDataTable { [moveid: IDEntry]: ModdedMoveData }
 

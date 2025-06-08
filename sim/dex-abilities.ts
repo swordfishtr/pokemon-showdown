@@ -20,7 +20,7 @@ interface AbilityFlags {
 	notransform?: 1; // Disables the Ability if the user is Transformed
 }
 
-export interface AbilityData extends Partial<Ability>, AbilityEventMethods, PokemonEventMethods, AbilityMiscData {
+export interface AbilityData extends Partial<Ability>, AbilityEventMethods, PokemonEventMethods {
 	name: string;
 }
 export type ModdedAbilityData = AbilityData | Partial<AbilityData> & { inherit: true };
@@ -34,7 +34,7 @@ export type ModdedAbilityMiscData = AbilityMiscData | Partial<AbilityMiscData> &
 export interface AbilityMiscDataTable { [moveid: IDEntry]: AbilityMiscData }
 export interface ModdedAbilityMiscDataTable { [moveid: IDEntry]: ModdedAbilityMiscData }
 
-export class Ability extends BasicEffect implements Readonly<BasicEffect> {
+export class Ability extends BasicEffect implements Readonly<BasicEffect>, AbilityMiscData {
 	declare readonly effectType: 'Ability';
 
 	/** Rating from -1 Detrimental to +5 Essential; see `data/abilities.ts` for details. */
@@ -42,6 +42,8 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 	readonly suppressWeather: boolean;
 	readonly flags: AbilityFlags;
 	declare readonly condition?: ConditionData;
+
+	declare readonly clauseData?: ClauseData | undefined;
 
 	constructor(data: AnyObject) {
 		super(data);

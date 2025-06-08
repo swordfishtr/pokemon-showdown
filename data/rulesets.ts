@@ -3084,6 +3084,146 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	limitstatpass: {
+		effectType: 'ValidatorRule',
+		name: 'Limit Stat Pass',
+		desc: 'Limits the number of Pok&eacute;mon with Baton Pass that has any way to boost stats, and their stat boost sources. Usage: Limit Stat Pass = Passers [Value] / Sources [Value], e.g. "Limit Stat Pass = Passers 2 / Sources 1"',
+		hasValue: true,
+		onValidateRule(input) {
+			if (!['singles', 'rotation', 'freeforall'].includes(this.format.gameType)) {
+				throw new Error('Baton Pass restrictions are only supported in singles battles currently');
+			}
+
+			input = input.replace(/\s/g, '').toLowerCase();
+			if (!input) throw new Error('To remove Stat Pass limitations, use "! Limit Stat Pass"');
+
+			const regex = /^(passers|sources)(\d{1,3})$/;
+			const stage1 = input.split('/');
+			const stage2 = stage1.map(x => regex.exec(x));
+
+			stage2.forEach((value, i) => {
+				if (!value) throw new Error(`Invalid input "${stage1[i]}" in Limit Stat Pass rule`);
+			});
+
+			return input;
+		},
+		onValidateTeam(team, format, teamHas) {
+			const input = this.ruleTable.valueRules.get('limitstatpass')!;
+			const maxPassers = Number(/passers(\d{1,3})/.exec(input)?.[1]);
+			const maxSources = Number(/sources(\d{1,3})/.exec(input)?.[1]);
+			// console.log(`Passers: ${maxPassers} / Sources: ${maxSources}`);
+
+			const problems: string[] = [];
+			const boostPassers: string[] = [];
+
+			// Exceptions can be specified by unbanning 'Baton Pass + exception'
+			const bprule = this.dex.formats.validateRule('+move:batonpass', format).slice(1) as string;
+			const checkUnban = (test: string) => {
+				// console.log(`checking ${test}`);
+				const rule = this.dex.formats.validateRule(test, format).slice(1) as string;
+				const unban = this.ruleTable.complexBans.some(x => x[2] > 0 && x[3].includes(rule) && x[3].includes(bprule));
+				// console.log(unban);
+				return unban;
+			};
+
+			const checkBoosts = (effect: Move | Item | Ability, set: PokemonSet) => {
+				// console.log(`checking ${effect.name}`);
+				const alias = effect.clauseData?.canStatBoost;
+				const boosts = typeof alias === 'function' ? alias.call(this, set) : alias;
+				// console.log(boosts);
+				return boosts;
+			};
+
+			for (const set of team) {
+				// These are user input and can be invalid, which crashes the validator, so always check exists first.
+				const moves = set.moves.map(x => this.dex.moves.get(x));
+				const item = this.dex.items.get(set.item);
+				const ability = this.dex.abilities.get(set.ability);
+
+				if (!moves.some(x => x.id === 'batonpass')) continue;
+				const boostSources: string[] = [];
+
+				// moves (including cfz and hacked max)
+				for (const move of moves) {
+					if (move.exists && !checkUnban(`+move:${move.id}`) && checkBoosts(move, set)) {
+						boostSources.push(move.name);
+					}
+				}
+
+				// item
+				if (item.exists && !checkUnban(`+item:${item.id}`) && checkBoosts(item, set)) {
+					boostSources.push(item.name);
+				}
+
+				// ability
+				if (ability.exists && !checkUnban(`+ability:${ability.id}`) && checkBoosts(ability, set)) {
+					boostSources.push(ability.name);
+				}
+
+				// ability of mega
+				if (item.exists && !checkUnban(`+item:${item.id}`) && item.megaStone && set.species === item.megaEvolves) {
+					const mega = this.dex.species.get(item.megaStone);
+					const megaAbilities = Object.values(mega.abilities).map(x => this.dex.abilities.get(x));
+					// If the set and its mega have the same ability, skip this check.
+					if (!megaAbilities.some(x => x.name === ability.name)) {
+						for (const megaAbility of megaAbilities) {
+							if (!checkUnban(`+ability:${megaAbility.id}`) && checkBoosts(megaAbility, set)) {
+								boostSources.push(`${megaAbility.name} after mega evolution`);
+							}
+						}
+					}
+				}
+
+				// z moves
+				if (item.exists && !checkUnban(`+item:${item.id}`) && item.zMove) {
+					if (item.zMoveType && moves.some(x => x.zMove?.boost && x.type === item.zMoveType)) {
+						// status
+						boostSources.push(item.name);
+					} else if (item.zMoveFrom && moves.some(x => x.name === item.zMoveFrom)) {
+						// signature
+						const zMove = this.dex.moves.get(this.toID(item.zMove));
+						if (checkBoosts(zMove, set)) boostSources.push(item.name);
+					}
+				}
+
+				// max moves
+				// FIXME: call checkUnban with something here so that an exception can be made for passing boosts after dynamax.
+				if (this.dex.gen === 8 && !this.ruleTable.has('dynamaxclause')) {
+					const boostingTypes = ['Fighting', 'Steel', 'Poison', 'Ground', 'Flying'];
+					if (moves.some(x => x.category !== 'Status' && boostingTypes.includes(x.type))) {
+						boostSources.push('Dynamax stat boosts');
+					}
+				}
+
+				// Ogerpon is hardcoded to transform and receive Embody Aspect upon tera.
+				if (this.dex.gen === 9 && !this.ruleTable.has('terastalclause')) {
+					if (set.species === 'Ogerpon' && !checkUnban('+ability:embodyaspectteal')) {
+						boostSources.push('Embody Aspect (Teal)');
+					} else if (set.species === 'Ogerpon-Wellspring' && !checkUnban('+ability:embodyaspectwellspring')) {
+						boostSources.push('Embody Aspect (Wellspring)');
+					} else if (set.species === 'Ogerpon-Hearthflame' && !checkUnban('+ability:embodyaspecthearthflame')) {
+						boostSources.push('Embody Aspect (Hearthflame)');
+					} else if (set.species === 'Ogerpon-Cornerstone' && !checkUnban('+ability:embodyaspectcornerstone')) {
+						boostSources.push('Embody Aspect (Cornerstone)');
+					}
+				}
+
+				if (boostSources.length) {
+					const pokemonName = set.name || set.species;
+					boostPassers.push(pokemonName);
+					if (boostSources.length > maxSources) {
+						problems.push(`${pokemonName} has Baton Pass and ${boostSources.join(', ')}; which is more sources of stat boosts than the limit of ${maxSources} set by Limit Stat Pass rule.`);
+					}
+				}
+			}
+
+			if (boostPassers.length > maxPassers) {
+				problems.push(`${boostPassers.join(', ')} have Baton Pass and a way to boost their stats; which is more Pokemon than the limit of ${maxPassers} set by Limit Stat Pass rule.`);
+			}
+
+			if (problems.length) return problems;
+		},
+	},
 	standardgenerations: {
 		effectType: 'ValidatorRule',
 		name: 'Standard Generations',

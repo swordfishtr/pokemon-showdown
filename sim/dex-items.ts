@@ -9,7 +9,7 @@ interface FlingData {
 	effect?: CommonHandlers['ResultMove'];
 }
 
-export interface ItemData extends Partial<Item>, PokemonEventMethods, ItemMiscData {
+export interface ItemData extends Partial<Item>, PokemonEventMethods {
 	name: string;
 }
 export type ModdedItemData = ItemData | Partial<Omit<ItemData, 'name'>> & {
@@ -26,7 +26,7 @@ export type ModdedItemMiscData = ItemMiscData | Partial<ItemMiscData> & { inheri
 export interface ItemMiscDataTable { [moveid: IDEntry]: ItemMiscData }
 export interface ModdedItemMiscDataTable { [moveid: IDEntry]: ModdedItemMiscData }
 
-export class Item extends BasicEffect implements Readonly<BasicEffect> {
+export class Item extends BasicEffect implements Readonly<BasicEffect>, ItemMiscData {
 	declare readonly effectType: 'Item';
 
 	/** just controls location on the item spritesheet */
@@ -111,6 +111,8 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly onUse?: ((this: Battle, pokemon: Pokemon) => void) | false;
 	declare readonly onStart?: (this: Battle, target: Pokemon) => void;
 	declare readonly onEnd?: (this: Battle, target: Pokemon) => void;
+
+	declare readonly clauseData?: ClauseData | undefined;
 
 	constructor(data: AnyObject) {
 		super(data);

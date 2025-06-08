@@ -3177,13 +3177,20 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onBegin() {
 			this.add('rule', 'Accuracy Clause Mod: Accuracy stat stages can not be lowered');
 		},
-		onModifyBoost(boosts, pokemon) {
-			if(boosts.accuracy && boosts.accuracy < 0) {
+		onChangeBoost(boost, target, source, effect) {
+			if(boost.accuracy && boost.accuracy < 0) {
 				this.add('-message', 'Accuracy Clause Mod activated.');
 				this.hint("Accuracy Clause Mod prevents accuracy stat stages from being lowered in any way.");
-				delete boosts.accuracy;
-				return boosts;
+				delete boost.accuracy;
 			}
 		},
+		// onModifyBoost(boosts, pokemon) {
+		// 	if(boosts.accuracy && boosts.accuracy < 0) {
+		// 		this.add('-message', 'Accuracy Clause Mod activated.');
+		// 		this.hint("Accuracy Clause Mod prevents accuracy stat stages from being lowered in any way.");
+		// 		delete boosts.accuracy;
+		// 		return boosts;
+		// 	}
+		// },
 	},
 };

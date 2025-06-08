@@ -51,8 +51,12 @@ const DATA_TYPES: DataType[] = [
 	'Abilities', 'Rulesets', 'FormatsData', 'Items', 'Learnsets', 'Moves',
 	'Natures', 'Pokedex', 'Scripts', 'Conditions', 'TypeChart', 'PokemonGoData',
 ];
-const MISC_DATA_TYPES: Extract<DataType, 'Moves'>[] = [
-	/* 'Abilities', 'Items', */ 'Moves',
+const MISC_DATA_TYPES: Extract<DataType, 'Abilities' | 'Items' | 'Moves'>[] = [
+	'Abilities', 'Items', 'Moves',
+];
+// Stupid hardcode
+const MISC_DATA_PROPERTIES = [
+	'clauseData',
 ];
 
 const DATA_FILES = {
@@ -89,8 +93,8 @@ interface DexTableData {
 	TypeChart: DexTable<import('./dex-data').TypeData>;
 }
 interface DexTableMiscData {
-	// Abilities: DexTable<import('./dex-abilities').AbilityMiscData>;
-	// Items: DexTable<import('./dex-items').ItemMiscData>;
+	Abilities: DexTable<import('./dex-abilities').AbilityMiscData>;
+	Items: DexTable<import('./dex-items').ItemMiscData>;
 	Moves: DexTable<import('./dex-moves').MoveMiscData>;
 }
 interface TextTableData {
@@ -682,7 +686,10 @@ export class ModdedDex {
 						childTypedData[entryId] = parentTypedData[entryId];
 					} else if (childTypedData[entryId]?.inherit) {
 						delete childTypedData[entryId].inherit;
+						console.log(`Misc data ${entryId} inherited.`);
+						console.log(childTypedData[entryId]);
 						childTypedData[entryId] = { ...parentTypedData[entryId], ...childTypedData[entryId] };
+						console.log(childTypedData[entryId]);
 					}
 				}
 			}
@@ -696,7 +703,9 @@ export class ModdedDex {
 			for (const y in miscDataCache[xxm]) {
 				dataCache[xx][y] ??= {}; // agility, ...
 				for (const z in miscDataCache[xxm][y]) {
-					dataCache[xx][y][z] ??= miscDataCache[xxm][y][z]; // clauseData, ...
+					if(MISC_DATA_PROPERTIES.includes(z)) {
+						dataCache[xx][y][z] = miscDataCache[xxm][y][z]; // clauseData, ... (including some non-misc data)
+					}
 				}
 			}
 		}

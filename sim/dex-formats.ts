@@ -586,7 +586,6 @@ export class DexFormats {
 			if (!Array.isArray(customFormats)) {
 				throw new TypeError(`Exported property 'Formats' from "./config/custom-formats.ts" must be an array`);
 			}
-			console.log(`Custom formats: ${[...customFormats.values()].map(x => x.name ?? x.section ?? '?').join(' | ')}`);
 		} catch (e: any) {
 			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
 				throw e;
@@ -596,7 +595,6 @@ export class DexFormats {
 		if (!Array.isArray(Formats)) {
 			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
 		}
-		console.log(`Formats: ${[...Formats.values()].map(x => x.name ?? x.section ?? '?').join(' | ')}`);
 		if (customFormats) Formats = mergeFormatLists(Formats as any, customFormats);
 
 		let section = '';
@@ -624,7 +622,6 @@ export class DexFormats {
 
 			const ruleset = new Format(format);
 			this.rulesetCache.set(id, ruleset);
-			console.log(`Loaded ${id}`);
 			formatsList.push(ruleset);
 		}
 

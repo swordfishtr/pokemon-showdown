@@ -686,10 +686,7 @@ export class ModdedDex {
 						childTypedData[entryId] = parentTypedData[entryId];
 					} else if (childTypedData[entryId]?.inherit) {
 						delete childTypedData[entryId].inherit;
-						console.log(`Misc data ${entryId} inherited.`);
-						console.log(childTypedData[entryId]);
 						childTypedData[entryId] = { ...parentTypedData[entryId], ...childTypedData[entryId] };
-						console.log(childTypedData[entryId]);
 					}
 				}
 			}

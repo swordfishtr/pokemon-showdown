@@ -3156,7 +3156,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'Attract', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Revival Blessing', 'Take Heart',
-			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene', // TODO: gems except normal
+			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 			'Shadow Tag', 'Moody', 'Quick Draw', 'Cute Charm',
 		],
 		onValidateSet(set, format, setHas, teamHas) {

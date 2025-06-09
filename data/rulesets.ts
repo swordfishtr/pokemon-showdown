@@ -3282,6 +3282,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const problems: string[] = ['Pokemon in this team do not share at least one from any two types, which is required by Double Same Type Clause.'];
 
 			const rows: string[][] = [];
+			const rowsTera: string[] = [];
 			for(const set of team) {
 				const species = this.dex.species.get(set.species);
 				rows.push(species.types);
@@ -3297,7 +3298,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (this.gen === 9 && !this.ruleTable.has('terastalclause') && this.ruleTable.has(`enforcesameteratype`)) {
 				problems.push("(Make sure all tera types match one of the team's two types as well)");
 				for(const set of team) {
-					if(set.teraType) rows.push([set.teraType]);
+					if(set.teraType) rowsTera.push(set.teraType);
 				}
 			}
 
@@ -3320,8 +3321,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					else if(!afterOverlap) {
 						continue;
 					}
-					const coverage = [...cols[type1], ...cols[type2]];
-					if(rows.every((types, i) => coverage.includes(i))) return;
+					if(
+						rows.every((types, i) => [...cols[type1], ...cols[type2]].includes(i)) &&
+						rowsTera.every((type) => [type1, type2].includes(type))
+					) return;
 				}
 			}
 

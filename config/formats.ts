@@ -108,6 +108,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Toedscruel', 'Wiglett', 'Wugtrio', 'Annihilape', 'Scream Tail', 'Sandy Shocks',
 		],
 	},
+	{
+		section: 'Draft Events',
+		column: 1,
+	},
+	{
+		name: "[Gen 9] Dual Monotype Draft",
+		desc: `Monotype draft with 2 types (in the less restrictive sense).`,
+		mod: 'gen9',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Double Same Type Clause', 'DryPass Clause', 'Moody Clause',
+			'Min Level = 100', 'Min Team Size = 6',
+		],
+		banlist: [
+			'Revival Blessing', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+		],
+	},
 
 	// 35 Pokes Main
 
@@ -430,19 +446,165 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// 35 Pokes Side
 
 	{
-		section: '35 Pokes OM',
+		section: '35 Pokes Babies',
 		column: 3
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Babies [Apr 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Deino', 'Lechonk', 'Tentacool', 'Munna', 'Hatenna', 'Drilbur', 'Bagon', 'Arrokuda', 'Wynaut', 'Psyduck', 'Ferroseed', 'Beldum', 'Exeggcute', 'Charmander', 'Archen', 'Capsakid', 'Roggenrola', 'Geodude-Base', 'Petilil', 'Larvesta', 'Swablu', 'Glimmet', 'Kricketot', 'Karrablast', 'Gimmighoul-Roaming', 'Amaura', 'Pawniard', 'Abra', 'Sprigatito', 'Rhyhorn', 'Lillipup', 'Tyrunt', 'Chewtle', 'Slugma', 'Cacnea'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Feb 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Turtwig', 'Clamperl', 'Minccino', 'Binacle', 'Goldeen', 'Tadbulb', 'Ponyta-Galar', 'Shinx', 'Ferroseed', 'Sentret', 'Seedot', 'Machop', 'Tandemaus', 'Shroodle', 'Lickitung', 'Snom', 'Fletchling', 'Onix', 'Bagon', 'Darumaka-Galar', 'Tepig', 'Phanpy', 'Pumpkaboo-Base', 'Bellsprout', 'Taillow', 'Spoink', 'Varoom', 'Magikarp', 'Squirtle', 'Tynamo', 'Lotad', 'Diglett-Base', 'Joltik', 'Wiglett', 'Remoraid'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Jan 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Pidgey', 'Charmander', 'Gothita', 'Burmy', 'Zorua-Base', 'Scorbunny', 'Anorith', 'Stunky', 'Cranidos', 'Inkay', 'Patrat', 'Impidimp', 'Sewaddle', 'Croagunk', 'Sunkern', 'Combee', 'Larvesta', 'Vanillite', 'Shieldon', 'Shinx', 'Oddish', 'Ponyta-Galar', 'Drilbur', 'Rockruff-Base', 'Paras', 'Torchic', 'Ledyba', 'Smoochum', 'Remoraid', 'Snorunt', 'Swablu', 'Grimer-Base', 'Popplio', 'Gulpin', 'Gimmighoul-Roaming'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Dec 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mareanie', 'Cubchoo', 'Corphish', 'Charmander', 'Cleffa', 'Snover', 'Goomy', 'Growlithe-Hisui', 'Sandygast', 'Fomantis', 'Tandemaus', 'Maschiff', 'Grookey', 'Treecko', 'Voltorb-Base', 'Blitzle', 'Sprigatito', 'Barboach', 'Ducklett', 'Gulpin', 'Munchlax', 'Rhyhorn', 'Totodile', 'Ferroseed', 'Staryu', 'Corsola-Galar', 'Dwebble', 'Archen', 'Bulbasaur', 'Turtwig', 'Sandshrew-Alola', 'Hippopotas', 'Eevee-Base', 'Dewpider', 'Snivy'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Nov 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Noibat', 'Abra', 'Smoochum', 'Rattata-Base', 'Helioptile', 'Turtwig', 'Gulpin', 'Wailmer', 'Skiddo', 'Spritzee', 'Hoothoot', 'Frillish', 'Electrike', 'Tepig', 'Goomy', 'Chewtle', 'Mienfoo', 'Makuhita', 'Lotad', 'Pancham', 'Zorua-Hisui', 'Fidough', 'Frigibax', 'Totodile', 'Slakoth', 'Wooper-Paldea', 'Hoppip', 'Dwebble', 'Bronzor', 'Sobble', 'Cyndaquil', 'Swablu', 'Vullaby', 'Patrat', 'Weedle'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Oct 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Flittle', 'Cottonee', 'Sizzlipede', 'Surskit', 'Varoom', 'Taillow', 'Bunnelby', 'Gimmighoul-Roaming', 'Cubchoo', 'Cranidos', 'Purrloin', 'Lotad', 'Remoraid', 'Spearow', 'Fuecoco', 'Maschiff', 'Growlithe-Base', 'Lileep', 'Doduo', 'Nacli', 'Makuhita', 'Espurr', 'Houndour', 'Slakoth', 'Yamask-Galar', 'Slowpoke-Galar', 'Joltik', 'Omanyte', 'Tirtouga', 'Sprigatito', 'Popplio', 'Meowth-Galar', 'Shroomish', 'Helioptile', 'Applin'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Sep 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Bunnelby', 'Tirtouga', 'Klink', 'Amaura', 'Gible', 'Mankey', 'Tyrogue', 'Trapinch', 'Poliwag', 'Munna', 'Onix', 'Totodile', 'Elekid', 'Spinarak', 'Whismur', 'Rhyhorn', 'Lillipup', 'Bulbasaur', 'Pansear', 'Mudkip', 'Munchlax', 'Panpour', 'Chewtle', 'Eevee-Base', 'Applin', 'Pancham', 'Tepig', 'Taillow', 'Hatenna', 'Wooloo', 'Stunky', 'Chingling', 'Blipbug', 'Tandemaus', 'Zubat'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Aug 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Quaxly', 'Wynaut', 'Swablu', 'Kricketot', 'Wiglett', 'Barboach', 'Spoink', 'Meltan', 'Geodude-Alola', 'Mantyke', 'Cubchoo', 'Tinkatink', 'Ledyba', 'Flittle', 'Dreepy', 'Horsea', 'Trapinch', 'Magby', 'Cottonee', 'Archen', 'Torchic', 'Spinarak', 'Gothita', 'Clauncher', 'Houndour', 'Bramblin', 'Cherubi', 'Scatterbug', 'Spheal', 'Bergmite', 'Toxel', 'Rhyhorn', 'Meowth-Alola', 'Stufful', 'Tyrunt'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Jul 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Glameow', 'Smoochum', 'Hoppip', 'Squirtle', 'Gastly', 'Corphish', 'Dreepy', 'Fuecoco', 'Froakie', 'Tepig', 'Snivy', 'Chespin', 'Pidove', 'Petilil', 'Impidimp', 'Zigzagoon-Galar', 'Porygon', 'Clamperl', 'Machop', 'Chewtle', 'Lillipup', 'Skrelp', 'Bunnelby', 'Mareanie', 'Shieldon', 'Larvitar', 'Goldeen', 'Meowth-Galar', 'Sandygast', 'Sewaddle', 'Meltan', 'Surskit', 'Wiglett', 'Rookidee'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Jun 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Squirtle', 'Kubfu', 'Yamper', 'Foongus', 'Jangmo-o', 'Cleffa', 'Tangela', 'Remoraid', 'Budew', 'Ekans', 'Gulpin', 'Misdreavus', 'Glameow', 'Hippopotas', 'Honedge', 'Larvesta', 'Pansage', 'Drilbur', 'Cetoddle', 'Tyrunt', 'Poipole', 'Chespin', 'Glimmet', 'Skrelp', 'Tyrogue', 'Barboach', 'Skorupi', 'Skwovet', 'Sizzlipede', 'Nacli', 'Zubat', 'Flittle', 'Arrokuda', 'Munchlax', 'Ponyta-Base'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [May 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Voltorb-Hisui', 'Snivy', 'Maschiff', 'Horsea', 'Salandit', 'Tarountula', 'Dwebble', 'Rolycoly', 'Litwick', 'Morelull', 'Gossifleur', 'Taillow', 'Sunkern', 'Kabuto', 'Farfetch’d-Galar', 'Pansage', 'Buizel', 'Buneary', 'Treecko', 'Charcadet', 'Aron', 'Wimpod', 'Inkay', 'Roggenrola', 'Goldeen', 'Impidimp', 'Sandygast', 'Vulpix-Base', 'Cufant', 'Budew', 'Burmy', 'Nincada', 'Seedot', 'Tympole', 'Shellos'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Apr 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Magikarp', 'Toxel', 'Noibat', 'Mareanie', 'Wooper-Paldea', 'Cyndaquil', 'Sinistea', 'Fomantis', 'Silicobra', 'Charcadet', 'Meowth-Galar', 'Slowpoke-Base', 'Bagon', 'Lechonk', 'Machop', 'Patrat', 'Meowth-Base', 'Capsakid', 'Pidgey', 'Nosepass', 'Shroodle', 'Baltoy', 'Zigzagoon-Galar', 'Nickit', 'Froakie', 'Drilbur', 'Bounsweet', 'Porygon', 'Magnemite', 'Paras', 'Cubone', 'Vanillite', 'Sandshrew-Alola', 'Gimmighoul-Base', 'Lotad'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Apr 2024 AFD]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Magikarp', 'Toxel', 'Noibat', 'Mareanie', 'Wooper-Paldea', 'Cyndaquil', 'Sinistea', 'Fomantis', 'Silicobra', 'Meowth-Galar', 'Slowpoke-Base', 'Bagon', 'Lechonk', 'Machop', 'Nosepass', 'Shroodle', 'Baltoy', 'Zigzagoon-Galar', 'Nickit', 'Froakie', 'Drilbur', 'Bounsweet', 'Porygon', 'Magnemite', 'Paras', 'Cubone', 'Sandshrew-Alola', 'Lotad',
+			'Chi-Yu', 'Duraludon', 'Scyther', 'Swirlix', 'Honedge', 'Sneasel-Base', 'Cosmog', 'Sneasel-Hisui'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Mar 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Voltorb-Hisui', 'Natu', 'Charmander', 'Spearow', 'Sandshrew-Base', 'Exeggcute', 'Koffing', 'Staryu', 'Remoraid', 'Larvitar', 'Gulpin', 'Carvanha', 'Shuppet', 'Bidoof', 'Hippopotas', 'Remoraid', 'Mantyke', 'Panpour', 'Timburr', 'Karrablast', 'Chespin', 'Honedge', 'Inkay', 'Rowlet', 'Grubbin', 'Fomantis', 'Rolycoly', 'Hatenna', 'Dreepy', 'Wiglett', 'Tympole', 'Tirtouga', 'Helioptile', 'Lechonk', 'Popplio'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Jan 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Slugma', 'Torchic', 'Minccino', 'Spheal', 'Nacli', 'Greavard', 'Trapinch', 'Tympole', 'Mudkip', 'Snover', 'Squirtle', 'Exeggcute', 'Rufflet', 'Paras', 'Ralts', 'Vullaby', 'Goldeen', 'Shinx', 'Venonat', 'Stufful', 'Poochyena', 'Drifloon', 'Riolu', 'Rolycoly', 'Snom', 'Wurmple', 'Slakoth', 'Smoochum', 'Wailmer', 'Gastly', 'Larvesta', 'Larvitar', 'Litwick', 'Charcadet', 'Solosis'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Dec 2023]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		banlist: ['Deep Sea Tooth'],
+		unbanlist: [
+			'Corsola-Galar', 'Lotad', 'Inkay', 'Snom', 'Cetoddle', 'Noibat', 'Porygon', 'Lickitung', 'Hippopotas', 'Skwovet', 'Venipede', 'Slowpoke-Base', 'Silicobra', 'Wiglett', 'Diglett-Alola', 'Snorunt', 'Sunkern', 'Tandemaus', 'Wooper-Base', 'Clamperl', 'Flittle', 'Remoraid', 'Beldum', 'Cacnea', 'Magnemite', 'Toedscool', 'Pansage', 'Impidimp', 'Croagunk', 'Ponyta-Base', 'Slakoth', 'Blitzle', 'Charcadet', 'Minccino', 'Spoink'
+		],
+	},
+	{
 		section: '35 Pokes Extended',
-		column: 3,
+		column: 4,
 	},
 
 	// Miscellaneous
 
 	{
 		section: 'Misc',
-		column: 4,
+		column: 5,
 	},
 	{
 		name: "[Gen 9] Broken Cup",

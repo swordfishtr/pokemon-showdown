@@ -960,7 +960,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Evasion Moves Clause',
 		desc: "Bans moves that consistently raise the user's evasion when used",
-		banlist: ['Minimize', 'Double Team'],
+		banlist: ['Acupressure', 'Minimize', 'Double Team'],
 		onBegin() {
 			this.add('rule', 'Evasion Moves Clause: Evasion moves are banned');
 		},
@@ -3151,7 +3151,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Obtainable', '+Unreleased', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause',
 			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
 			'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', '+Unobtainable', '+Past', 'Min Source Gen = 1',
-			'Z-Move Clause', 'DryPass Clause',
+			'Z-Move Clause', 'DryPass Clause', 'Moody Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
@@ -3159,7 +3159,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
 			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
 			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
-			'Shadow Tag', 'Moody', 'Quick Draw', 'Cute Charm',
+			'Shadow Tag', 'Quick Draw', 'Cute Charm',
 		],
 		onValidateSet(set, format, setHas, teamHas) {
 			const problems: string[] = [];
@@ -3191,12 +3191,12 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Standard 35 Pokes',
 		desc: "The standard ruleset for 35 Pokes metagames.",
 		ruleset: [
-			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'DryPass Clause', 'Z-Move Clause',
+			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'DryPass Clause', 'Z-Move Clause', 'Moody Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-			'Battle Bond', 'Moody', 'Power Construct', 'Shadow Tag', 'Tangled Feet', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
-			'Razor Fang', 'Acupressure', 'Last Respects', 'Shed Tail', 'Baton Pass + Contrary', 'Baton Pass + Rapid Spin',
+			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Tangled Feet', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
+			'Razor Fang', 'Last Respects', 'Shed Tail', 'Baton Pass + Contrary', 'Baton Pass + Rapid Spin',
 		],
 		// Stupid hardcode
 		onValidateSet(set, format, setHas, teamHas) {
@@ -3212,6 +3212,20 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				return [`Hidden Power is banned.`];
 			}
 		},
+	},
+	standard35pokesubers: {
+		effectType: 'ValidatorRule',
+		name: 'Standard 35 Pokes Ubers',
+		desc: "The standard ruleset for 35 Pokes metagames.",
+		ruleset: [
+			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'DryPass Clause', 'Z-Move Clause', 'Moody Clause',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Tangled Feet', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
+			'Razor Fang', 'Last Respects', 'Shed Tail', 'Baton Pass + Contrary', 'Baton Pass + Rapid Spin',
+		],
+		onValidateSet(set, format, setHas, teamHas) {},
 	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',
@@ -3244,13 +3258,74 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				delete boost.accuracy;
 			}
 		},
-		// onModifyBoost(boosts, pokemon) {
-		// 	if(boosts.accuracy && boosts.accuracy < 0) {
-		// 		this.add('-message', 'Accuracy Clause Mod activated.');
-		// 		this.hint("Accuracy Clause Mod prevents accuracy stat stages from being lowered in any way.");
-		// 		delete boosts.accuracy;
-		// 		return boosts;
-		// 	}
-		// },
+	},
+	doublesametypeclause: {
+		effectType: 'ValidatorRule',
+		name: 'Double Same Type Clause',
+		desc: "Forces all Pok&eacute;mon on a team to share at least one from any two types with each other",
+		onBegin() {
+			this.add('rule', 'Double Same Type Clause: Pokémon in a team must share at least one from any two types');
+		},
+		onValidateTeam(team, format, teamHas) {
+			// Visual representation of the logic we're going to use:
+			// a b c d e f (types)
+			// x   x
+			//   x       x
+			//       x   x
+			// x       x
+			// In order to determine whether a team shares at least one from two types,
+			// check every combination of 2 columns for the condition of every row
+			// having at least 1 x. If any combination satisfies the condition, determine
+			// this to be true; otherwise false. This works for any number, not just two.
+			// The sample table is true for two types (a, f).
+
+			const problems: string[] = ['Pokemon in this team do not share at least one from any two types, which is required by Double Same Type Clause.'];
+
+			const rows: string[][] = [];
+			for(const set of team) {
+				const species = this.dex.species.get(set.species);
+				rows.push(species.types);
+				const item = this.dex.items.get(set.item);
+				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
+					rows.push(this.dex.species.get(item.megaStone).types);
+				}
+				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
+					rows.push(this.dex.species.get("Necrozma-Ultra").types);
+				}
+			}
+
+			if (this.gen === 9 && !this.ruleTable.has('terastalclause') && this.ruleTable.has(`enforcesameteratype`)) {
+				problems.push("(Make sure all tera types match one of the team's two types as well)");
+				for(const set of team) {
+					if(set.teraType) rows.push([set.teraType]);
+				}
+			}
+
+			const cols: Record<string, number[]> = {};
+			for(let i = 0; i < rows.length; i++) {
+				for(const type of rows[i]) {
+					cols[type] ??= [];
+					cols[type].push(i);
+				}
+			}
+
+			// Skip overlaps and repeats.
+			for(const type1 in cols) {
+				let afterOverlap = false;
+				for(const type2 in cols) {
+					if(type1 === type2) {
+						afterOverlap = true;
+						continue
+					}
+					else if(!afterOverlap) {
+						continue;
+					}
+					const coverage = [...cols[type1], ...cols[type2]];
+					if(rows.every((types, i) => coverage.includes(i))) return;
+				}
+			}
+
+			return problems;
+		},
 	},
 };

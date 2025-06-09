@@ -573,7 +573,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
-			'Voltorb-Hisui', 'Natu', 'Charmander', 'Spearow', 'Sandshrew-Base', 'Exeggcute', 'Koffing', 'Staryu', 'Remoraid', 'Larvitar', 'Gulpin', 'Carvanha', 'Shuppet', 'Bidoof', 'Hippopotas', 'Remoraid', 'Mantyke', 'Panpour', 'Timburr', 'Karrablast', 'Chespin', 'Honedge', 'Inkay', 'Rowlet', 'Grubbin', 'Fomantis', 'Rolycoly', 'Hatenna', 'Dreepy', 'Wiglett', 'Tympole', 'Tirtouga', 'Helioptile', 'Lechonk', 'Popplio'
+			'Voltorb-Hisui', 'Natu', 'Charmander', 'Spearow', 'Sandshrew-Base', 'Exeggcute', 'Koffing', 'Staryu', 'Remoraid', 'Larvitar', 'Gulpin', 'Carvanha', 'Shuppet', 'Bidoof', 'Hippopotas', 'Mantyke', 'Panpour', 'Timburr', 'Karrablast', 'Chespin', 'Honedge', 'Inkay', 'Rowlet', 'Grubbin', 'Fomantis', 'Rolycoly', 'Hatenna', 'Dreepy', 'Wiglett', 'Tympole', 'Tirtouga', 'Helioptile', 'Lechonk', 'Popplio'
 		],
 	},
 	{

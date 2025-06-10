@@ -600,10 +600,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3
 	},
 	{
-		section: '35 Pokes Extended',
-		column: 4,
-	},
-	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Apr 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
@@ -662,6 +658,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Forretress', 'Samurott-Hisui', 'Kyurem-White', 'Glalie-Base', 'Cresselia', 'Thundurus-Base', 'Regidrago', 'Banette-Mega', 'Dialga-Origin', 'Giratina-Origin', 'Palkia-Base', 'Arceus-Rock', 'Lunala', 'Machamp', 'Manectric-Mega', 'Naganadel', 'Pincurchin', 'Meloetta-Pirouette', 'Blissey', 'Alakazam-Mega', 'Aggron-Mega', 'Ogerpon-Hearthflame-Tera', 'Hoopa-Unbound', 'Dragapult', 'Camerupt-Mega', 'Tyranitar-Mega', 'Gothitelle', 'Skarmory', 'Deoxys-Speed', 'Floette-Eternal', 'Gastrodon', 'Dhelmise', 'Sceptile-Mega', 'Iron Treads', 'Victini',
 		],
+	},
+	{
+		section: '35 Pokes Extended',
+		column: 4,
 	},
 
 	// Miscellaneous

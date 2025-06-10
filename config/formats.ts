@@ -609,7 +609,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Seniors [Jan 2024]",
+		name: "[Gen 9] ND 35 Pokes Seniors [Jan 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['[Gen 9] ND 35 Pokes Seniors [Apr 2024]'],

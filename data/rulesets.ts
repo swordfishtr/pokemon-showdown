@@ -3229,13 +3229,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set, format, setHas, teamHas) {
 			const problems: string[] = [];
 			const species = this.dex.species.get(set.species);
-			if(species.requiredAbility && toID(species.requiredAbility) !== toID(set.ability)) {
+			if(species.requiredAbility && this.toID(species.requiredAbility) !== this.toID(set.ability)) {
 				problems.push(`${set.name} must have its required ability ${species.requiredAbility}`);
 			}
-			if(species.requiredItems && !species.requiredItems.map(toID).includes(toID(set.item))) {
+			if(species.requiredItems && !species.requiredItems.map(this.toID).includes(this.toID(set.item))) {
 				problems.push(`${set.name} must have its required item ${species.requiredItems.join(' or ')}`);
 			}
-			if(species.id !== 'meloettapirouette' && species.requiredMove && !set.moves.map(toID).includes(toID(species.requiredMove))) {
+			if(species.id !== 'meloettapirouette' && species.requiredMove && !set.moves.map(this.toID).includes(this.toID(species.requiredMove))) {
 				problems.push(`${set.name} must have its required move ${species.requiredMove}`);
 			}
 			if(problems.length) return problems;

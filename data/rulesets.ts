@@ -3127,10 +3127,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				}
 
 				if (boostSources.length) {
-					const pokemonName = set.name || set.species;
-					boostPassers.push(pokemonName);
+					boostPassers.push(set.name);
 					if (boostSources.length > maxSources) {
-						problems.push(`${pokemonName} has Baton Pass and ${boostSources.join(', ')}; which is more sources of stat boosts than the limit of ${maxSources} set by Limit Stat Pass rule.`);
+						problems.push(`${set.name} has Baton Pass and ${boostSources.join(', ')}; which is more sources of stat boosts than the limit of ${maxSources} set by Limit Stat Pass rule.`);
 					}
 				}
 			}
@@ -3191,12 +3190,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Standard 35 Pokes',
 		desc: "The standard ruleset for 35 Pokes metagames.",
 		ruleset: [
-			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'DryPass Clause', 'Z-Move Clause', 'Moody Clause',
+			'Standard NatDex', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', '!Species Clause', 'Forme Clause',
+			'Terastal Clause', 'DryPass Clause', 'Z-Move Clause', 'Moody Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Tangled Feet', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
-			'Razor Fang', 'Last Respects', 'Shed Tail', 'Baton Pass + Contrary', 'Baton Pass + Rapid Spin',
+			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
+			'Razor Fang', 'Last Respects', 'Shed Tail',
 		],
 		// Stupid hardcode
 		onValidateSet(set, format, setHas, teamHas) {
@@ -3216,16 +3216,30 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	standard35pokesubers: {
 		effectType: 'ValidatorRule',
 		name: 'Standard 35 Pokes Ubers',
-		desc: "The standard ruleset for 35 Pokes metagames.",
+		desc: "The standard ruleset for 35 Pokes Seniors metagames.",
 		ruleset: [
-			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'DryPass Clause', 'Z-Move Clause', 'Moody Clause',
+			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'Baton Pass Clause', 'Z-Move Clause',
+			'!Obtainable Formes', '!Evasion Abilities Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Tangled Feet', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
-			'Razor Fang', 'Last Respects', 'Shed Tail', 'Baton Pass + Contrary', 'Baton Pass + Rapid Spin',
+			'Berserk Gene', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Hidden Power',
+			'Dark Void', 'Grass Whistle', 'Hypnosis', 'Lovely Kiss', 'Sing', 'Sleep Powder',
 		],
-		onValidateSet(set, format, setHas, teamHas) {},
+		onValidateSet(set, format, setHas, teamHas) {
+			const problems: string[] = [];
+			const species = this.dex.species.get(set.species);
+			if(species.requiredAbility && toID(species.requiredAbility) !== toID(set.ability)) {
+				problems.push(`${set.name} must have its required ability ${species.requiredAbility}`);
+			}
+			if(species.requiredItems && !species.requiredItems.map(toID).includes(toID(set.item))) {
+				problems.push(`${set.name} must have its required item ${species.requiredItems.join(' or ')}`);
+			}
+			if(species.id !== 'meloettapirouette' && species.requiredMove && !set.moves.map(toID).includes(toID(species.requiredMove))) {
+				problems.push(`${set.name} must have its required move ${species.requiredMove}`);
+			}
+			if(problems.length) return problems;
+		},
 	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',

@@ -82,7 +82,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND Generations Draft [Gen 1]",
 		desc: `Generations Draft League.`,
 		mod: 'gen9',
-		ruleset: ['Standard Generations'],
+		ruleset: ['Standard Generations', '-Mega'],
 		unbanlist: [
 			'Bulbasaur', 'Ivysaur', 'Venusaur-Base', 'Charmander', 'Charmeleon', 'Charizard-Base', 'Squirtle', 'Wartortle', 'Blastoise-Base',
 			'Caterpie', 'Metapod', 'Butterfree', 'Weedle', 'Kakuna', 'Beedrill-Base', 'Pidgey', 'Pidgeotto', 'Pidgeot-Base',

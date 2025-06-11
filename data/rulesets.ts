@@ -3147,7 +3147,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: "The custom Generations Draft League ruleset",
 		teraPreviewDefault: true,
 		ruleset: [
-			'Obtainable', '+Unreleased', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause',
+			'Obtainable', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause',
 			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
 			'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', '+Unobtainable', '+Past', 'Min Source Gen = 1',
 			'Z-Move Clause', 'DryPass Clause', 'Moody Clause',

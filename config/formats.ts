@@ -970,6 +970,30 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// region 35 Pokes Extended
 
 	{
+		section: '35 Pokes ADV',
+		column: 4,
+	},
+	{
+		name: "[Gen 3] 35 Pokes [Sep 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen3',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: [
+			'Tropius', 'Wailord', 'Sunflora', 'Plusle', 'Camerupt-Base', 'Raichu-Base', 'Hitmonlee', 'Beedrill-Base', 'Lapras', 'Solrock', 'Volbeat', 'Lunatone', 'Arcanine-Base', 'Hitmontop', 'Slowbro-Base', 'Umbreon', 'Jumpluff', 'Marowak-Base', 'Magcargo', 'Dewgong', 'Corsola-Base', 'Delibird', 'Masquerain', 'Pidgeot-Base', 'Relicanth', 'Gardevoir-Base', 'Parasect', 'Shiftry', 'Weezing-Base', 'Armaldo', 'Seaking', 'Beautifly', 'Clamperl', 'Qwilfish-Base', 'Grumpig',
+		],
+	},
+	{
+		name: "[Gen 3] 35 Pokes [Aug 2024]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen3',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: [
+			'Seaking', 'Raticate-Base', 'Sableye-Base', 'Corsola-Base', 'Walrein', 'Magneton', 'Mawile-Base', 'Aggron-Base', 'Magcargo', 'Cacturne', 'Glalie-Base', 'Steelix-Base', 'Sandslash-Base', 'Gligar', 'Xatu', 'Flareon', 'Chimecho', 'Delibird', 'Sneasel-Base', 'Linoone-Base', 'Farfetch’d-Base', 'Whiscash', 'Trapinch', 'Ditto', 'Pikachu-Base', 'Roselia', 'Muk-Base', 'Shedinja', 'Meganium', 'Dunsparce', 'Crobat', 'Raichu-Base', 'Castform-Base', 'Spinda', 'Absol-Base',
+		],
+	},
+	{
 		section: '35 Pokes Flipped',
 		column: 4,
 	},
@@ -992,7 +1016,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Flipped [Jan 2024]",
+		name: "[Gen 9] ND 35 Pokes Flipped [Nov 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],

@@ -89,7 +89,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Rattata', 'Raticate-Base', 'Raticate-Alola', 'Spearow', 'Fearow', 'Ekans', 'Arbok', 'Pikachu-Base', 'Raichu', 'Sandshrew',
 			'Sandslash', 'Nidoran-F', 'Nidorina', 'Nidoqueen', 'Nidoran-M', 'Nidorino', 'Nidoking', 'Clefairy', 'Clefable',
 			'Vulpix', 'Ninetales', 'Jigglypuff', 'Wigglytuff', 'Zubat', 'Golbat', 'Oddish', 'Gloom', 'Vileplume',
-			'Paras', 'Parasect', 'Venonat', 'Venomoth', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Psyduck',
+			'Paras', 'Parasect', 'Venonat', 'Venomoth', 'Diglett', 'Dugtrio', 'Meowth-Base', 'Meowth-Alola', 'Meowth-Galar', 'Persian', 'Psyduck',
 			'Golduck', 'Mankey', 'Primeape', 'Growlithe', 'Arcanine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Abra',
 			'Kadabra', 'Alakazam-Base', 'Machop', 'Machoke', 'Machamp', 'Bellsprout', 'Weepinbell', 'Victreebel', 'Tentacool',
 			'Tentacruel', 'Geodude', 'Graveler', 'Golem', 'Ponyta', 'Rapidash', 'Slowpoke', 'Slowbro', 'Magnemite',

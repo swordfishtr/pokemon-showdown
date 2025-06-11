@@ -3241,6 +3241,20 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if(problems.length) return problems;
 		},
 	},
+	standard35pokesvgc: {
+		effectType: 'ValidatorRule',
+		name: 'Standard 35 Pokes VGC',
+		desc: "The standard ruleset for 35 Pokes VGC metagames.",
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Picked Team Size = Auto', 'Cancel Mod',
+			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Best Of = 3',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
+			'Razor Fang', 'Last Respects', 'Shed Tail',
+		],
+	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',
 		name: 'Unban Fakemons',

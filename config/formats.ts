@@ -82,7 +82,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND Generations Draft [Gen 1]",
 		desc: `Generations Draft League.`,
 		mod: 'gen9',
-		ruleset: ['Standard Generations', '-Mega'],
+		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Bulbasaur', 'Ivysaur', 'Venusaur-Base', 'Charmander', 'Charmeleon', 'Charizard-Base', 'Squirtle', 'Wartortle', 'Blastoise-Base',
 			'Caterpie', 'Metapod', 'Butterfree', 'Weedle', 'Kakuna', 'Beedrill-Base', 'Pidgey', 'Pidgeotto', 'Pidgeot-Base',
@@ -107,6 +107,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Porygon-Z', 'Sylveon', 'Meltan', 'Melmetal', 'Perrserker', 'Sirfetch’d', 'Mr. Rime', 'Kleavor', 'Toedscool',
 			'Toedscruel', 'Wiglett', 'Wugtrio', 'Annihilape', 'Scream Tail', 'Sandy Shocks',
 		],
+		// Stupid hardcode
+		onValidateSet(set, format, setHas, teamHas) {
+			if (set.item) {
+				const item = this.dex.items.get(set.item);
+				if (item.megaEvolves && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
+					return [`Mega Evolution is banned.`];
+				}
+			}
+		},
 	},
 	{
 		section: 'Draft Events',

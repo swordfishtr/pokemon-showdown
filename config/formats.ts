@@ -455,6 +455,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// region 35 Pokes Side
 
 	{
+		section: '35 Pokes Randomized',
+		column: 3
+	},
+	{
+		name: "[Gen 9] 35 Factory",
+		desc: `Randomized teams of Pok&eacute;mon for a generated 35 Pokes tier with sets that are competitively viable.`,
+		mod: 'gen9',
+		team: 'random35Factory',
+		ruleset: ['Standard 35 Pokes'],
+		onBegin() {
+			this.add(`raw|<div class="broadcast-blue"><b>35 Factory Tier: ${this.teamGenerator.factoryTier}</b></div>`);
+		},
+	},
+	{
 		section: '35 Pokes Babies',
 		column: 3
 	},

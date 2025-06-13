@@ -2388,11 +2388,14 @@ export class RandomTeams {
 
 	randomFactorySets: { [format: string]: { [species: string]: BattleFactorySpecies } } = require('./factory-sets.json');
 
+	random35FactorySets: { [format: string]: { [species: string]: BattleFactorySpecies } } = require('./35-factory-sets.json');
+
 	randomFactorySet(
-		species: Species, teamData: RandomTeamsTypes.FactoryTeamDetails, tier: string
+		species: Species, teamData: RandomTeamsTypes.FactoryTeamDetails, tier: string,
+		src: typeof this.randomFactorySets = this.randomFactorySets
 	): RandomTeamsTypes.RandomFactorySet | null {
 		const id = toID(species.name);
-		const setList = this.randomFactorySets[tier][id].sets;
+		const setList = src[tier][id].sets;
 
 		const itemsLimited = ['choicespecs', 'choiceband', 'choicescarf'];
 		const movesLimited: { [k: string]: string } = {
@@ -2502,7 +2505,10 @@ export class RandomTeams {
 		};
 	}
 
-	randomFactoryTeam(side: PlayerOptions, depth = 0): RandomTeamsTypes.RandomFactorySet[] {
+	randomFactoryTeam(
+		side: PlayerOptions, depth = 0,
+		src: typeof this.randomFactorySets = this.randomFactorySets
+	): RandomTeamsTypes.RandomFactorySet[] {
 		this.enforceNoDirectCustomBanlistChanges();
 
 		const forceResult = depth >= 12;
@@ -2522,7 +2528,7 @@ export class RandomTeams {
 		};
 
 		const pokemon = [];
-		const pokemonPool = Object.keys(this.randomFactorySets[this.factoryTier]);
+		const pokemonPool = Object.keys(src[this.factoryTier]);
 
 		const teamData: TeamData = {
 			typeCount: {},
@@ -2565,7 +2571,7 @@ export class RandomTeams {
 		for (const speciesName of pokemonPool) {
 			const sortObject = {
 				speciesName,
-				score: this.prng.random() ** (1 / this.randomFactorySets[this.factoryTier][speciesName].weight),
+				score: this.prng.random() ** (1 / src[this.factoryTier][speciesName].weight),
 			};
 			shuffledSpecies.push(sortObject);
 		}
@@ -2614,7 +2620,7 @@ export class RandomTeams {
 			}
 			if (skip) continue;
 
-			const set = this.randomFactorySet(species, teamData, this.factoryTier);
+			const set = this.randomFactorySet(species, teamData, this.factoryTier, src);
 			if (!set) continue;
 
 			// Limit 1 of any type combination
@@ -2679,17 +2685,17 @@ export class RandomTeams {
 				}
 			}
 		}
-		if (!teamData.forceResult && pokemon.length < this.maxTeamSize) return this.randomFactoryTeam(side, ++depth);
+		if (!teamData.forceResult && pokemon.length < this.maxTeamSize) return this.randomFactoryTeam(side, ++depth, src);
 
 		// Quality control we cannot afford for monotype
 		if (!teamData.forceResult && !this.forceMonotype) {
 			for (const type in teamData.weaknesses) {
 				// We reject if our team is triple weak to any type without having a resist
 				if (teamData.resistances[type]) continue;
-				if (teamData.weaknesses[type] >= 3 * limitFactor) return this.randomFactoryTeam(side, ++depth);
+				if (teamData.weaknesses[type] >= 3 * limitFactor) return this.randomFactoryTeam(side, ++depth, src);
 			}
 			// Try to force Stealth Rock on non-Uber teams
-			if (!teamData.has['stealthRock'] && this.factoryTier !== 'Uber') return this.randomFactoryTeam(side, ++depth);
+			if (!teamData.has['stealthRock'] && this.factoryTier !== 'Uber') return this.randomFactoryTeam(side, ++depth, src);
 		}
 		return pokemon;
 	}
@@ -3014,6 +3020,24 @@ export class RandomTeams {
 			};
 		});
 	}
+
+	// Generations
+
+	random35FactoryTeam(side: PlayerOptions): RandomTeamsTypes.RandomFactorySet[] {
+		if (!this.factoryTier) {
+			this.factoryTier = this.sample(Object.keys(this.random35FactorySets));
+		}
+
+		const team = this.randomFactoryTeam(side, undefined, this.random35FactorySets);
+
+		return team;
+	}
+
+	randomGenerationsGen1Team() {}
+
+	randomGenerationsGen2Team() {}
+
+	randomGenerationsGen3Team() {}
 }
 
 export default RandomTeams;

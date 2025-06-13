@@ -993,6 +993,90 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// region 35 Pokes Extended
 
 	{
+		section: '35 Pokes Collabs',
+		column: 4,
+	},
+	{
+		name: "[Gen 9] Benjamin Button",
+		desc: `B`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', 'Scalemons Mod'],
+		unbanlist: [
+			'Articuno-Base', 'Entei', 'Latias-Base', 'Heatran', 'Thundurus-Base', 'Tapu Bulu', 'Regieleki', 'Venusaur-Base', 'Arctozolt', 'Ting-Lu', 'Ogerpon-Wellspring', 'Dialga-Base', 'Mamoswine', 'Celebi', 'Great Tusk', 'Meloetta-Base', 'Lugia', 'Deino', 'Lechonk', 'Arrokuda', 'Psyduck', 'Ferroseed', 'Beldum', 'Exeggcute', 'Charmander', 'Archen', 'Fomantis', 'Roggenrola', 'Tentacool', 'Munna', 'Hatenna', 'Drilbur', 'Bagon', 'Minccino', 'Whimsicott',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes NFE [Nov 2024]",
+		desc: `35 Pokes x NFE collab.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Steenee', 'Cutiefly', 'Duosion', 'Charmeleon', 'Quilladin', 'Meditite', 'Dewott', 'Aipom', 'Fletchinder', 'Poipole', 'Shelgon', 'Ivysaur', 'Pawmo', 'Growlithe-Hisui', 'Trumbeak', 'Marshtomp', 'Mudbray', 'Vanillish', 'Prinplup', 'Sliggoo-Base', 'Vibrava', 'Dartrix', 'Nidorino', 'Loudred', 'Dolliv', 'Flittle', 'Drakloak', 'Brionne', 'Whirlipede', 'Braixen', 'Murkrow', 'Crocalor', 'Krokorok', 'Flaaffy', 'Wartortle',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Monocolor [May 2024]",
+		desc: `35 Pokes x Monocolor collab.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', 'Force Monocolor'],
+		unbanlist: [
+			'Kingler', 'Scizor-Base', 'Braviary-Base', 'Crustle', 'Klawf', 'Druddigon', 'Wugtrio', 'Krookodile', 'Armarouge', 'Magmortar', 'Wailord', 'Jumpluff', 'Blastoise-Base', 'Sandslash-Alola', 'Empoleon', 'Nidoqueen', 'Eelektross', 'Aurorus', 'Gastrodon-East', 'Tangrowth', 'Ribombee-Base', 'Vespiquen', 'Sunflora', 'Ampharos-Base', 'Cofagrigus', 'Hypno', 'Falinks', 'Ninetales-Base', 'Typhlosion-Base', 'Exeggutor-Base', 'Carnivine', 'Kecleon', 'Yanmega', 'Araquanid-Base', 'Garbodor', 'Sceptile-Base', 'Politoed', 'Appletun', 'Tyranitar-Base', 'Golurk', 'Claydol', 'Toucannon', 'Houndoom-Base', 'Toedscruel', 'Umbreon', 'Banette-Base', 'Mawile-Base', 'Snorlax', 'Seviper', 'Raticate-Alola', 'Minior-Base', 'Shiftry', 'Brambleghast', 'Perrserker', 'Dachsbun', 'Torkoal', 'Barbaracle', 'Dragalge', 'Clodsire', 'Dugtrio-Base', 'Drifblim', 'Aerodactyl-Base', 'Ambipom', 'Noivern', 'Weezing-Base', 'Starmie', 'Goodra-Base', 'Drapion', 'Pincurchin', 'Gastrodon', 'Unfezant', 'Grafaiai', 'Hakamo-o', 'Golem-Alola', 'Probopass', 'Donphan', 'Golisopod', 'Veluza', 'Steelix-Base', 'Machamp', 'Mesprit', 'Lurantis-Base', 'Bewear', 'Flamigo', 'Tinkaton', 'Clefable', 'Milotic', 'Orthworm', 'Hatterene', 'Slowbro-Base', 'Togekiss', 'Frosmoth', 'Cursola', 'Amoonguss', 'Absol-Base', 'Gardevoir-Base', 'Dubwool', 'Alcremie', 'Maushold', 'Pachirisu',
+		],
+	},
+	{
+		section: '35 Moves',
+		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Moves [May 2025]",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Ban All Moves'],
+		banlist: ['ND AG'],
+		unbanlist: [
+			'Absorb', 'Bubble', 'Cotton Guard', 'Smack Down', 'Skill Swap', 'Guillotine', 'Vacuum Wave', 'Retaliate', 'Miracle Eye', 'Low Sweep', 'Fire Punch', 'Aura Sphere', 'Flatter', 'Scorching Sands', 'Iron Defense', 'Psybeam', 'Solar Beam', 'Frenzy Plant', 'Night Shade', 'Sky Attack', 'Air Slash', 'Psychic Fangs', 'Payback', 'Lovely Kiss', 'Hydro Cannon', 'Bone Rush', 'Dragon Dance', 'Frost Breath', 'Heavy Slam', 'Temper Flare', 'Magical Leaf', 'Aqua Ring', 'Rock Polish', 'Rock Slide', 'Bullet Punch',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Moves [Sep 2024]",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Ban All Moves'],
+		banlist: ['ND AG'],
+		unbanlist: [
+			'Giga Impact', 'Rage', 'Metal Burst', 'Me First', 'Stealth Rock', 'Acid', 'Psychic Noise', 'Clear Smog', 'Curse', 'Fake Out', 'Soak', 'Dig', 'Fling', 'Wonder Room', 'Sludge', 'Acid Armor', 'Hurricane', 'Gastro Acid', 'Power Split', 'Sweet Scent', 'Disable', 'Body Press', 'Spite', 'Shock Wave', 'Sludge Bomb', 'Flail', 'Bubble', 'Inferno', 'Knock Off', 'Autotomize', 'Withdraw', 'Spark', 'Mimic', 'Vine Whip', 'Focus Blast',
+		],
+	},
+	{
+		section: '35 Pokes Pockets',
+		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Pockets Space-Time Smackdown",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mightyena', 'Dusknoir', 'Uxie', 'Purugly', 'Electrode', 'Gabite', 'Hitmontop', 'Lickilicky', 'Lumineon', 'Togekiss', 'Kricketune', 'Glaceon', 'Lopunny', 'Toxicroak', 'Vespiquen', 'Drapion', 'Weavile', 'Bellossom', 'Cresselia', 'Skuntank', 'Empoleon', 'Bastiodon', 'Abomasnow', 'Rotom-Mow', 'Skarmory', 'Staraptor', 'Carnivine', 'Wormadam-Trash', 'Dusclops', 'Regigigas', 'Infernape', 'Rotom-Wash', 'Gliscor', 'Wormadam-Sandy', 'Rampardos',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Pockets Genetic Apex",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Tauros-Base', 'Charizard-Base', 'Raticate-Base', 'Aerodactyl-Base', 'Magneton', 'Machamp', 'Pikachu-Base', 'Vaporeon', 'Gengar-Base', 'Gardevoir-Base', 'Pidgeot-Base', 'Primeape', 'Swoobat', 'Rapidash-Base', 'Kabutops', 'Heatmor', 'Pincurchin', 'Nidoking', 'Tentacruel', 'Cloyster', 'Mawile-Base', 'Dubwool', 'Golduck', 'Chansey', 'Electrode-Base', 'Weezing-Base', 'Golem-Base', 'Cinccino', 'Jynx', 'Golurk', 'Dugtrio-Base', 'Mienshao', 'Starmie', 'Centiskorch', 'Electabuzz',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Pockets Mythical Island",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Exeggutor-Base', 'Celebi', 'Serperior', 'Dhelmise', 'Rapidash', 'Magmar', 'Volcarona', 'Salazzle', 'Gyarados', 'Vaporeon', 'Lumineon', 'Drednaw', 'Cramorant', 'Pikachu', 'Raichu', 'Electabuzz', 'Galvantula', 'Dedenne', 'Mew', 'Sigilyph', 'Beheeyem', 'Florges', 'Slurpuff', 'Golem-Base', 'Aerodactyl', 'Primeape', 'Stonjourner', 'Weezing', 'Liepard', 'Scolipede', 'Druddigon', 'Pidgeot', 'Tauros', 'Chatot', 'Shiinotic',
+		],
+	},
+	{
 		section: '35 Pokes ADV',
 		column: 4,
 	},

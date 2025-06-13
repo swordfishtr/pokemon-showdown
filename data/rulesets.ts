@@ -3255,6 +3255,23 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Razor Fang', 'Last Respects', 'Shed Tail',
 		],
 	},
+	banallmoves: {
+		effectType: 'ValidatorRule',
+		name: 'Ban All Moves',
+		desc: "Only explicitly unbanned moves are allowed.",
+		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause'],
+		banlist: ['ND AG'],
+		onValidateSet(set, format, setHas, teamHas) {
+			const problems: string[] = [];
+			for(const move of set.moves) {
+				const moveid = this.toID(move);
+				if(!this.ruleTable.has(`+${moveid}`) && !this.ruleTable.has(`+move:${moveid}`)) {
+					problems.push(`${set.name} has ${move} which is not in the group of allowed moves.`);
+				}
+			}
+			if(problems.length) return problems;
+		},
+	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',
 		name: 'Unban Fakemons',

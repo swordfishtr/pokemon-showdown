@@ -3255,12 +3255,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Razor Fang', 'Last Respects', 'Shed Tail',
 		],
 	},
+	// Maybe not needed
 	banallmoves: {
 		effectType: 'ValidatorRule',
 		name: 'Ban All Moves',
 		desc: "Only explicitly unbanned moves are allowed.",
-		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause'],
-		banlist: ['ND AG'],
 		onValidateSet(set, format, setHas, teamHas) {
 			const problems: string[] = [];
 			for(const move of set.moves) {

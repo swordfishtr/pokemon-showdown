@@ -17,6 +17,8 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
+import { Utils } from '../lib/utils';
+
 export const Formats: import('../sim/dex-formats').FormatList = [
 
 	// region Generations Draft League
@@ -466,6 +468,141 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard 35 Pokes'],
 		onBegin() {
 			this.add(`raw|<div class="broadcast-blue"><b>35 Factory Tier: ${this.teamGenerator.factoryTier}</b></div>`);
+		},
+	},
+	{
+		section: '35 Pokes Perfect',
+		column: 3
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A1]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Kangaskhan-Base', 'Wigglytuff', 'Komala', 'Haunter', 'Golurk', 'Cofagrigus', 'Glalie-Base', 'Mr. Rime', 'Kadabra', 'Medicham-Base', 'Hitmonchan', 'Poliwrath', 'Simipour', 'Mantine', 'Silvally-Flying', 'Archeops', 'Klawf', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Electrode-Base', 'Vikavolt-Base', 'Pinsir-Base', 'Wormadam-Trash', 'Simisage', 'Shiinotic', 'Victreebel', 'Skuntank', 'Silvally-Dark', 'Guzzlord', 'Silvally-Dragon', 'Turtonator', 'Simisear', 'Camerupt-Base', 'Sandslash-Base',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A2]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Cacturne', 'Seviper', 'Komala', 'Leafeon', 'Copperajah', 'Rotom-Fan', 'Armaldo', 'Mr. Rime', 'Cryogonal', 'Medicham-Base', 'Silvally-Psychic', 'Silvally-Fighting', 'Toxicroak', 'Mantine', 'Purugly', 'Archeops', 'Toucannon', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Frogadier', 'Vikavolt-Base', 'Pinsir-Base', 'Wugtrio', 'Dragonair', 'Shiinotic', 'Dusknoir', 'Skuntank', 'Silvally-Dark', 'Runerigus', 'Misdreavus', 'Turtonator', 'Rapidash-Base', 'Camerupt-Base', 'Sandslash-Base',
+		],
+	},
+	// TODO: test wrong item silvally validation
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', '!Obtainable Formes'],
+		unbanlist: [
+			'Talonflame', 'Rapidash-Base', 'Silvally-Fire', 'Archeops', 'Coalossal', 'Cryogonal', 'Crabominable', 'Machoke', 'Toxicroak', 'Weezing-Base', 'Vikavolt-Base', 'Rotom-Fan', 'Togedemaru-Base', 'Copperajah', 'Illumise', 'Golisopod', 'Silvally-Water', 'Mantine', 'Runerigus', 'Trapinch', 'Dugtrio-Alola', 'Silvally-Grass', 'Terapagos-Base', 'Liepard', 'Aurorus', 'Dusknoir', 'Purugly', 'Farigiraf', 'Flapple', 'Leafeon', 'Thievul', 'Skuntank', 'Dachsbun', 'Rapidash-Galar', 'Hattrem',
+		],
+		validateSet(set, teamHas) {
+			if(this.toID(set.species) === 'terapagos') {
+				if(this.toID(set.ability) === 'scrappy') return this.validateSetNoAbility(set);
+				return ['Terapagos must have Scrappy in A3'];
+			}
+			return this.validateSet(set, teamHas);
+		},
+	},
+	// TODO: Hardcode items, abilities, moves in the teambuilder
+	{
+		name: "[Gen 3] 35 Pokes Perfect [B1]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'perfectb1',
+		ruleset: [
+			// from Custom Game
+			'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			// from 35 Pokes / Natdex
+			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Forme Clause',
+			// B1 specific
+			'One Boost Passer Clause',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Stealth Rock', 'U-Turn', 'Volt Switch', 'Flip Turn', 'Teleport', 'Choice Scarf', 'Heavy-Duty Boots', 'Defog', 'Electric Terrain', 'Psychic Terrain', 'Misty Terrain', 'Grassy Terrain',
+		],
+		unbanlist: [
+			'Empoleon', 'Articuno-Base', 'Electivire', 'Rapidash-Base', 'Klinklang', 'Farigiraf', 'Seismitoad', 'Raichu-Alola', 'Noivern', 'Altaria-Base', 'Claydol', 'Armaldo', 'Escavalier', 'Uxie', 'Glalie-Base', 'Centiskorch', 'Rotom-Base', 'Decidueye-Base', 'Spiritomb', 'Charizard-Base', 'Chesnaught', 'Weezing-Base', 'Wo-Chien', 'Lickilicky', 'Scrafty', 'Seviper', 'Bouffalant', 'Nihilego', 'Persian-Alola', 'Probopass', 'Donphan', 'Vespiquen', 'Meganium', 'Hakamo-o', 'Lapras',
+		],
+	},
+	{
+		name: "[Gen 5] 35 Pokes Perfect [B2]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'perfectb2',
+		ruleset: [
+			// from Custom Game
+			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			// from 35 Pokes / Natdex
+			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
+			// B1 specific
+			'One Boost Passer Clause',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Stealth Rock', 'U-Turn', 'Volt Switch', 'Flip Turn', 'Teleport', 'Choice Scarf', 'Heavy-Duty Boots', 'Defog', 'Electric Terrain', 'Psychic Terrain', 'Misty Terrain', 'Grassy Terrain', 'Hidden Power',
+		],
+		unbanlist: [
+			'Iron Treads', 'Regice', 'Scyther', 'Bombirdier', 'Shaymin-Base', 'Tentacruel', 'Camerupt-Base', 'Arcanine-Base', 'Dusknoir', 'Nidoqueen', 'Decidueye-Hisui', 'Cyclizar', 'Oranguru', 'Dudunsparce', 'Grapploct', 'Guzzlord', 'Drapion', 'Flapple', 'Rotom-Fan', 'Pinsir-Base', 'Lycanroc-Midnight', 'Passimian', 'Klinklang', 'Bronzong', 'Gardevoir-Base', 'Drifblim', 'Gourgeist-Base', 'Piloswine', 'Lapras', 'Bellibolt', 'Coalossal', 'Centiskorch', 'Feraligatr', 'Golem-Alola', 'Unfezant'
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [C1]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'perfectc1',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Dhelmise', 'Liepard', 'Weezing-Base', 'Wigglytuff', 'Aromatisse', 'Togedemaru-Base', 'Silvally-Base', 'Gogoat', 'Hitmontop', 'Solrock', 'Raichu-Alola', 'Lickilicky', 'Dedenne', 'Klinklang', 'Leavanny', 'Exeggutor-Base', 'Steelix-Base', 'Medicham-Base', 'Jynx', 'Wailord', 'Rotom-Frost', 'Magcargo', 'Camerupt-Base', 'Palossand', 'Relicanth', 'Lumineon', 'Granbull', 'Delibird', 'Talonflame', 'Haunter', 'Guzzlord', 'Mabosstiff', 'Toxicroak', 'Mothim', 'Avalugg-Base',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'perfectc2',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Klinklang', 'Aromatisse', 'Jynx', 'Gogoat', 'Hakamo-o', 'Emolga', 'Glalie-Base', 'Magcargo', 'Leavanny', 'Dhelmise', 'Exeggutor-Base', 'Medicham-Base', 'Raichu-Alola', 'Togedemaru-Base', 'Rotom-Frost', 'Carbink', 'Wigglytuff', 'Lickilicky', 'Stoutland', 'Talonflame', 'Camerupt-Base', 'Steelix-Base', 'Palossand', 'Relicanth', 'Wailord', 'Swanna', 'Avalugg-Base', 'Hitmontop', 'Weezing-Base', 'Haunter', 'Silvally-Poison', 'Mabosstiff', 'Guzzlord', 'Mothim', 'Pinsir-Base',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [D1]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		banlist: ['Eviolite', 'Download', 'Analytic'],
+		unbanlist: [
+			'Kangaskhan-Base', 'Wigglytuff', 'Komala', 'Haunter', 'Golurk', 'Cofagrigus', 'Glalie-Base', 'Mr. Rime', 'Kadabra', 'Medicham-Base', 'Hitmonchan', 'Poliwrath', 'Simipour', 'Mantine', 'Silvally-Flying', 'Archeops', 'Klawf', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Electrode-Base', 'Vikavolt-Base', 'Pinsir-Base', 'Wormadam-Trash', 'Simisage', 'Shiinotic', 'Victreebel', 'Skuntank', 'Silvally-Dark', 'Guzzlord', 'Silvally-Dragon', 'Turtonator', 'Simisear', 'Camerupt-Base', 'Sandslash-Base',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [E1]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
+		unbanlist: [
+			'Golurk', 'Flareon', 'Lycanroc-Base', 'Togedemaru-Base', 'Froslass', 'Roserade', 'Magmortar', 'Abomasnow-Base', 'Abomasnow-Mega', 'Audino-Base', 'Audino-Mega', 'Banette-Base', 'Banette-Mega', 'Blastoise-Base', 'Blastoise-Mega', 'Altaria-Base', 'Bronzong', 'Diancie-Base', 'Flygon', 'Forretress', 'Gallade-Base', 'Garbodor', 'Gigalith', 'Golisopod', 'Guzzlord', 'Hitmontop', 'Moltres-Base', 'Milotic', 'Miltank', 'Primeape', 'Rotom-Frost', 'Seismitoad', 'Shaymin-Base', 'Silvally-Fairy', 'Skuntank', 'Swellow', 'Vikavolt-Base', 'Xatu', 'Zoroark-Base',
+		],
+		onValidateSet(set) {
+			const zUsers: string[] = [];
+			const item = this.dex.items.get(set.item);
+			if (item.zMove && !zUsers.includes(toID(set.species))) {
+				return [`${set.name} is not allowed to hold a Z Crystal in E1.`];
+			}
+		},
+		onBegin() {
+			const megaUsers: string[] = [];
+			const zUsers: string[] = [];
+			this.add('rule', `Perfect E1: Only the following Pokemon can Mega Evolve: ${megaUsers.join(', ')}`);
+			this.add('rule', `Perfect E1: Only the following Pokemon can use Z Moves: ${zUsers.join(', ')}`);
+			for (const pokemon of this.getAllPokemon()) {
+				if (!megaUsers.includes(pokemon.species.id)) {
+					pokemon.canMegaEvo = null;
+				}
+			}
 		},
 	},
 	{
@@ -1030,8 +1167,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Moves [May 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Ban All Moves'],
-		banlist: ['ND AG'],
+		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause'],
+		banlist: ['ND AG', 'pokemontag:allmoves'],
 		unbanlist: [
 			'Absorb', 'Bubble', 'Cotton Guard', 'Smack Down', 'Skill Swap', 'Guillotine', 'Vacuum Wave', 'Retaliate', 'Miracle Eye', 'Low Sweep', 'Fire Punch', 'Aura Sphere', 'Flatter', 'Scorching Sands', 'Iron Defense', 'Psybeam', 'Solar Beam', 'Frenzy Plant', 'Night Shade', 'Sky Attack', 'Air Slash', 'Psychic Fangs', 'Payback', 'Lovely Kiss', 'Hydro Cannon', 'Bone Rush', 'Dragon Dance', 'Frost Breath', 'Heavy Slam', 'Temper Flare', 'Magical Leaf', 'Aqua Ring', 'Rock Polish', 'Rock Slide', 'Bullet Punch',
 		],
@@ -1039,12 +1176,30 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Moves [Sep 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Ban All Moves'],
-		banlist: ['ND AG'],
+		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause'],
+		banlist: ['ND AG', 'pokemontag:allmoves'],
 		unbanlist: [
 			'Giga Impact', 'Rage', 'Metal Burst', 'Me First', 'Stealth Rock', 'Acid', 'Psychic Noise', 'Clear Smog', 'Curse', 'Fake Out', 'Soak', 'Dig', 'Fling', 'Wonder Room', 'Sludge', 'Acid Armor', 'Hurricane', 'Gastro Acid', 'Power Split', 'Sweet Scent', 'Disable', 'Body Press', 'Spite', 'Shock Wave', 'Sludge Bomb', 'Flail', 'Bubble', 'Inferno', 'Knock Off', 'Autotomize', 'Withdraw', 'Spark', 'Mimic', 'Vine Whip', 'Focus Blast',
 		],
 	},
+	// {
+	// 	name: "[Gen 9] ND 35 Moves [May 2025]",
+	// 	mod: 'gen9',
+	// 	ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Ban All Moves'],
+	// 	banlist: ['ND AG'],
+	// 	unbanlist: [
+	// 		'Absorb', 'Bubble', 'Cotton Guard', 'Smack Down', 'Skill Swap', 'Guillotine', 'Vacuum Wave', 'Retaliate', 'Miracle Eye', 'Low Sweep', 'Fire Punch', 'Aura Sphere', 'Flatter', 'Scorching Sands', 'Iron Defense', 'Psybeam', 'Solar Beam', 'Frenzy Plant', 'Night Shade', 'Sky Attack', 'Air Slash', 'Psychic Fangs', 'Payback', 'Lovely Kiss', 'Hydro Cannon', 'Bone Rush', 'Dragon Dance', 'Frost Breath', 'Heavy Slam', 'Temper Flare', 'Magical Leaf', 'Aqua Ring', 'Rock Polish', 'Rock Slide', 'Bullet Punch',
+	// 	],
+	// },
+	// {
+	// 	name: "[Gen 9] ND 35 Moves [Sep 2024]",
+	// 	mod: 'gen9',
+	// 	ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Ban All Moves'],
+	// 	banlist: ['ND AG'],
+	// 	unbanlist: [
+	// 		'Giga Impact', 'Rage', 'Metal Burst', 'Me First', 'Stealth Rock', 'Acid', 'Psychic Noise', 'Clear Smog', 'Curse', 'Fake Out', 'Soak', 'Dig', 'Fling', 'Wonder Room', 'Sludge', 'Acid Armor', 'Hurricane', 'Gastro Acid', 'Power Split', 'Sweet Scent', 'Disable', 'Body Press', 'Spite', 'Shock Wave', 'Sludge Bomb', 'Flail', 'Bubble', 'Inferno', 'Knock Off', 'Autotomize', 'Withdraw', 'Spark', 'Mimic', 'Vine Whip', 'Focus Blast',
+	// 	],
+	// },
 	{
 		section: '35 Pokes Pockets',
 		column: 4,
@@ -1254,114 +1409,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Broken Cup FFA",
 		desc: `[Gen 9] Hackmons Cup but with only the most powerful Pok&eacute;mon, moves, abilities, and items.`,
 		gameType: 'freeforall',
-		team: 'randomHC',
-		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
-		banlist: ['All Pokemon', 'All Abilities', 'All Items', 'All Moves'],
-		unbanlist: [
-			'10,000,000 Volt Thunderbolt', 'Abomasnow-Mega', 'Absol-Mega', 'Accelerock', 'Acid Spray', 'Adaptability', 'Aeroblast',
-			'Aerodactyl-Mega', 'Aftermath', 'Aggron', 'Aggron-Mega', 'Aguav Berry', 'Air Balloon', 'Air Slash', 'Alakazam-Mega',
-			'Alluring Voice', 'Altaria-Mega', 'Ampharos-Mega', 'Analytic', 'Anchor Shot', 'Anger Shell', 'Annihilape', 'Anticipation',
-			'Apple Acid', 'Aqua Step', 'Arcanine', 'Arcanine-Hisui', 'Archaludon', 'Archeops', 'Arena Trap', 'Armarouge', 'Armor Cannon',
-			'Aromatherapy', 'Articuno', 'Articuno-Galar', 'As One (Glastrier)', 'As One (Spectrier)', 'Assault Vest', 'Astral Barrage',
-			'Attack Order', 'Audino-Mega', 'Aura Sphere', 'Axe Kick', 'Azelf', 'Baddy Bad', 'Baneful Bunker', 'Banette-Mega',
-			'Barb Barrage', 'Basculegion', 'Basculegion-F', 'Baton Pass', 'Baxcalibur', 'Beads of Ruin', 'Beak Blast', 'Beast Boost',
-			'Behemoth Bash', 'Behemoth Blade', 'Belly Drum', 'Berserk', 'Bitter Blade', 'Bitter Malice', 'Blacephalon', 'Blastoise',
-			'Blastoise-Mega', 'Blaziken', 'Blaziken-Mega', 'Blazing Torque', 'Bleakwind Storm', 'Blissey', 'Blizzard', 'Blood Moon',
-			'Blue Flare', 'Blunder Policy', 'Body Press', 'Body Slam', 'Bolt Beak', 'Bolt Strike', 'Boomburst', 'Bouncy Bubble',
-			'Brave Bird', 'Bright Powder', 'Brute Bonnet', 'Bug Buzz', 'Bullet Punch', 'Burning Bulwark', 'Buzzwole', 'Buzzy Buzz',
-			'Calm Mind', 'Calyrex-Ice', 'Calyrex-Shadow', 'Camerupt-Mega', 'Catastropika', 'Ceaseless Edge', 'Celebi', 'Celesteela',
-			'Centiskorch', 'Ceruledge', 'Charizard', 'Charizard-Mega-X', 'Charizard-Mega-Y', 'Chatter', 'Chesnaught', 'Chesto Berry',
-			'Chi-Yu', 'Chien-Pao', 'Chilan Berry', 'Chilling Neigh', 'Chilly Reception', 'Choice Band', 'Choice Scarf', 'Choice Specs',
-			'Cinderace', 'Circle Throw', 'Clanging Scales', 'Clangorous Soul', 'Clangorous Soulblaze', 'Clear Amulet', 'Clear Body',
-			'Clear Smog', 'Close Combat', 'Cloyster', 'Cobalion', 'Coil', 'Collision Course', 'Comatose', 'Combat Torque', 'Competitive',
-			'Compound Eyes', 'Contrary', 'Core Enforcer', 'Cosmic Power', 'Cotton Guard', 'Court Change', 'Covert Cloak', 'Crabhammer',
-			'Cresselia', 'Crobat', 'Cross Chop', 'Curse', 'Custap Berry', 'Dark Pulse', 'Darkest Lariat', 'Darkrai',
-			'Darmanitan-Galar-Zen', 'Darmanitan-Zen', 'Decidueye', 'Decidueye-Hisui', 'Defend Order', 'Defiant', 'Defog', 'Delphox',
-			'Deoxys', 'Deoxys-Attack', 'Deoxys-Defense', 'Deoxys-Speed', 'Desolate Land', 'Dialga', 'Dialga-Origin', 'Diamond Storm',
-			'Diancie', 'Diancie-Mega', 'Dire Claw', 'Disable', 'Discharge', 'Dondozo', 'Doom Desire', 'Double Iron Bash', 'Download',
-			'Draco Meteor', 'Draco Plate', 'Dragapult', 'Dragon Ascent', 'Dragon Dance', 'Dragon Darts', 'Dragon Energy', 'Dragon Hammer',
-			'Dragon Pulse', 'Dragon Tail', 'Dragonite', 'Drain Punch', 'Dread Plate', 'Drill Peck', 'Drizzle', 'Drought', 'Drum Beating',
-			'Dry Skin', 'Duraludon', 'Dusknoir', 'Dynamax Cannon', 'Earth Eater', 'Earth Plate', 'Earth Power', 'Earthquake',
-			'Eerie Spell', 'Effect Spore', 'Eject Pack', 'Electivire', 'Electric Surge', 'Electro Drift', 'Emboar', 'Empoleon',
-			'Enamorus', 'Enamorus-Therian', 'Encore', 'Energy Ball', 'Entei', 'Eruption', 'Espeon', 'Esper Wing', 'Eternatus',
-			'Eternatus-Eternamax', 'Exeggutor', 'Exeggutor-Alola', 'Expanding Force', 'Expert Belt', 'Explosion', 'Extreme Evoboost',
-			'Extreme Speed', 'Fake Out', 'Feraligatr', 'Fezandipiti', 'Fickle Beam', 'Fiery Wrath', 'Figy Berry', 'Filter',
-			'Fire Blast', 'Fire Lash', 'First Impression', 'Fishious Rend', 'Fist Plate', 'Flame Body', 'Flame Charge', 'Flame Plate',
-			'Flamethrower', 'Flare Blitz', 'Flareon', 'Flash Cannon', 'Fleur Cannon', 'Flip Turn', 'Floaty Fall', 'Florges',
-			'Flower Trick', 'Fluffy', 'Flutter Mane', 'Focus Blast', 'Focus Sash', 'Forewarn', 'Foul Play', 'Freeze-Dry', 'Freezing Glare',
-			'Freezy Frost', 'Frost Breath', 'Full Metal Body', 'Fur Coat', 'Fusion Bolt', 'Fusion Flare', 'Future Sight', 'G-Max Befuddle',
-			'G-Max Cannonade', 'G-Max Centiferno', 'G-Max Resonance', 'G-Max Steelsurge', 'G-Max Stonesurge', 'G-Max Sweetness',
-			'G-Max Vine Lash', 'G-Max Volcalith', 'G-Max Wildfire', 'G-Max Wind Rage', 'Gallade-Mega', 'Garchomp', 'Garchomp-Mega',
-			'Gardevoir-Mega', 'Gear Grind', 'Genesect', 'Genesis Supernova', 'Gengar-Mega', 'Gholdengo', 'Giga Drain', 'Gigaton Hammer',
-			'Giratina', 'Giratina-Origin', 'Glaceon', 'Glacial Lance', 'Glaive Rush', 'Glalie-Mega', 'Glare', 'Glastrier', 'Glimmora',
-			'Glitzy Glow', 'Gogoat', 'Golisopod', 'Good as Gold', 'Goodra', 'Goodra-Hisui', 'Gooey', 'Gorilla Tactics', 'Gouging Fire',
-			'Grassy Surge', 'Grav Apple', 'Great Tusk', 'Greninja', 'Greninja-Ash', 'Grim Neigh', 'Groudon', 'Groudon-Primal',
-			'Guardian of Alola', 'Gunk Shot', 'Guzzlord', 'Gyarados', 'Gyarados-Mega', 'Hadron Engine', 'Hammer Arm', 'Haxorus',
-			'Haze', 'Head Charge', 'Head Smash', 'Headlong Rush', 'Heal Bell', 'Heal Order', 'Healing Wish', 'Heart Swap', 'Heat Crash',
-			'Heat Wave', 'Heatran', 'Heavy-Duty Boots', 'Heracross-Mega', 'High Horsepower', 'High Jump Kick', 'Hippowdon', 'Ho-Oh',
-			'Hone Claws', 'Hoopa', 'Hoopa-Unbound', 'Horn Leech', 'Houndoom-Mega', 'Huge Power', 'Hurricane', 'Hustle', 'Hydreigon',
-			'Hydrapple', 'Hydro Pump', 'Hydro Steam', 'Hyper Drill', 'Iapapa Berry', 'Ice Beam', 'Ice Hammer', 'Ice Scales', 'Ice Shard',
-			'Ice Spinner', 'Icicle Plate', 'Illusion', 'Imposter', 'Incineroar', 'Infernape', 'Innards Out', 'Insect Plate', 'Inteleon',
-			'Intimidate', 'Intrepid Sword', 'Iron Barbs', 'Iron Boulder', 'Iron Bundle', 'Iron Crown', 'Iron Hands', 'Iron Head',
-			'Iron Jugulis', 'Iron Leaves', 'Iron Moth', 'Iron Plate', 'Iron Tail', 'Iron Thorns', 'Iron Treads', 'Iron Valiant',
-			'Ivy Cudgel', 'Jet Punch', 'Jirachi', 'Jolteon', 'Judgment', 'Jungle Healing', 'Kangaskhan-Mega', 'Kartana', 'Keldeo',
-			'Keldeo-Resolute', 'King\'s Rock', 'King\'s Shield', 'Kingambit', 'Kingdra', 'Knock Off', 'Kommo-o', 'Koraidon', 'Kyogre',
-			'Kyogre-Primal', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus', 'Landorus-Therian', 'Lapras', 'Last Respects', 'Latias',
-			'Latias-Mega', 'Latios', 'Latios-Mega', 'Lava Plume', 'Leaf Blade', 'Leaf Storm', 'Leafeon', 'Leech Life', 'Leech Seed',
-			'Leftovers', 'Leppa Berry', 'Let\'s Snuggle Forever', 'Levitate', 'Libero', 'Liechi Berry', 'Life Orb', 'Light Screen',
-			'Light That Burns the Sky', 'Light of Ruin', 'Lightning Rod', 'Liquidation', 'Lopunny-Mega', 'Lovely Kiss', 'Low Kick',
-			'Lucario', 'Lucario-Mega', 'Lugia', 'Lum Berry', 'Lumina Crash', 'Lunala', 'Lunar Blessing', 'Lunar Dance', 'Lunge',
-			'Luster Purge', 'Mach Punch', 'Magearna', 'Magic Bounce', 'Magic Guard', 'Magical Torque', 'Magma Storm', 'Magmortar',
-			'Magnezone', 'Mago Berry', 'Make It Rain', 'Malicious Moonsault', 'Malignant Chain', 'Mamoswine', 'Manaphy', 'Manectric-Mega',
-			'Marshadow', 'Marvel Scale', 'Matcha Gotcha', 'Max Guard', 'Meadow Plate', 'Megahorn', 'Meganium', 'Melmetal', 'Meloetta',
-			'Meloetta-Pirouette', 'Memento', 'Menacing Moonraze Maelstrom', 'Mental Herb', 'Meowscarada', 'Mesprit', 'Metagross',
-			'Metagross-Mega', 'Meteor Mash', 'item: Metronome', 'Mew', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Mighty Cleave',
-			'Milk Drink', 'Milotic', 'Mind Plate', 'Mind\'s Eye', 'Minimize', 'Miraidon', 'Mirror Herb', 'Mist Ball', 'Misty Surge',
-			'Mold Breaker', 'Moltres', 'Moltres-Galar', 'Moody', 'Moonblast', 'Moongeist Beam', 'Moonlight', 'Morning Sun', 'Mortal Spin',
-			'Mountain Gale', 'Moxie', 'Multiscale', 'Munkidori', 'Muscle Band', 'Mystical Fire', 'Mystical Power', 'Naganadel',
-			'Nasty Plot', 'Natural Cure', 'Nature\'s Madness', 'Necrozma', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra',
-			'Neuroforce', 'Neutralizing Gas', 'Night Daze', 'Night Shade', 'Nihilego', 'No Retreat', 'Noivern', 'Noxious Torque',
-			'Nuzzle', 'Oblivion Wing', 'Obstruct', 'Oceanic Operetta', 'Octolock', 'Ogerpon', 'Ogerpon-Cornerstone', 'Ogerpon-Hearthflame',
-			'Ogerpon-Wellspring', 'Okidogi', 'Opportunist', 'Orichalcum Pulse', 'Origin Pulse', 'Outrage', 'Overdrive', 'Overheat',
-			'Pain Split', 'Palafin-Hero', 'Palkia', 'Palkia-Origin', 'Parental Bond', 'Parting Shot', 'Pecharunt', 'Perish Body',
-			'Perish Song', 'Petaya Berry', 'Pheromosa', 'Photon Geyser', 'Pidgeot-Mega', 'Pinsir-Mega', 'Pixie Plate', 'Plasma Fists',
-			'Play Rough', 'Poison Heal', 'Poison Point', 'Poison Touch', 'Pollen Puff', 'Poltergeist', 'Population Bomb', 'Porygon-Z',
-			'Power Gem', 'Power Trip', 'Power Whip', 'Prankster', 'Precipice Blades', 'Primarina', 'Primordial Sea', 'Prism Armor',
-			'Probopass', 'Protean', 'Protect', 'Psyblade', 'Psychic Fangs', 'Psychic Surge', 'Psychic', 'Psycho Boost', 'Psyshield Bash',
-			'Psystrike', 'Pulverizing Pancake', 'Pure Power', 'Purifying Salt', 'Pursuit', 'Pyro Ball', 'Quaquaval', 'Quick Claw',
-			'Quiver Dance', 'Rage Fist', 'Raging Bolt', 'Raging Bull', 'Raging Fury', 'Raikou', 'Rapid Spin', 'Rayquaza', 'Rayquaza-Mega',
-			'Razor Claw', 'Recover', 'Red Card', 'Reflect', 'Regenerator', 'Regice', 'Regidrago', 'Regieleki', 'Regigigas', 'Regirock',
-			'Registeel', 'Reshiram', 'Rest', 'Revelation Dance', 'Revival Blessing', 'Rhyperior', 'Rillaboom', 'Roar', 'Roaring Moon',
-			'Rocky Helmet', 'Roost', 'Rough Skin', 'Ruination', 'Sacred Fire', 'Sacred Sword', 'Salac Berry', 'Salamence', 'Salamence-Mega',
-			'Salt Cure', 'Samurott', 'Samurott-Hisui', 'Sandsear Storm', 'Sandy Shocks', 'Sap Sipper', 'Sappy Seed', 'Scald', 'Sceptile',
-			'Sceptile-Mega', 'Scizor-Mega', 'Scope Lens', 'Scream Tail', 'Searing Shot', 'Searing Sunraze Smash', 'Secret Sword',
-			'Seed Flare', 'Seismic Toss', 'Serene Grace', 'Serperior', 'Shadow Ball', 'Shadow Bone', 'Shadow Shield', 'Shadow Sneak',
-			'Shadow Tag', 'Sharpedo-Mega', 'Shaymin', 'Shaymin-Sky', 'Shed Skin', 'Shed Tail', 'Sheer Force', 'Shell Side Arm',
-			'Shell Smash', 'Shield Dust', 'Shift Gear', 'Silk Scarf', 'Silk Trap', 'Silvally', 'Simple', 'Sinister Arrow Raid',
-			'Sitrus Berry', 'Sizzly Slide', 'Skeledirge', 'Sky Plate', 'Slack Off', 'Slaking', 'Sleep Powder', 'Slither Wing',
-			'Slowbro-Mega', 'Sludge Bomb', 'Sludge Wave', 'Snarl', 'Snipe Shot', 'Snorlax', 'Soft-Boiled', 'Solgaleo', 'Solid Rock',
-			'Soul-Heart', 'Soul-Stealing 7-Star Strike', 'Spacial Rend', 'Sparkly Swirl', 'Spectral Thief', 'Spectrier', 'Speed Boost',
-			'Spikes', 'Spiky Shield', 'Spin Out', 'Spirit Break', 'Spirit Shackle', 'Splash Plate', 'Splintered Stormshards',
-			'Splishy Splash', 'Spooky Plate', 'Spore', 'Springtide Storm', 'Stakataka', 'Stakeout', 'Stamina', 'Static', 'Stealth Rock',
-			'Steam Eruption', 'Steelix-Mega', 'Sticky Web', 'Stoked Sparksurfer', 'Stone Axe', 'Stone Edge', 'Stone Plate', 'Stored Power',
-			'Storm Drain', 'Storm Throw', 'Strange Steam', 'Strength Sap', 'Sturdy', 'Sucker Punch', 'Suicune', 'Sunsteel Strike',
-			'Super Fang', 'Supercell Slam', 'Superpower', 'Supreme Overlord', 'Surf', 'Surging Strikes', 'Swampert', 'Swampert-Mega',
-			'Sword of Ruin', 'Swords Dance', 'Sylveon', 'Synthesis', 'Tablets of Ruin', 'Tachyon Cutter', 'Tail Glow', 'Tangling Hair',
-			'Tangrowth', 'Tapu Bulu', 'Tapu Fini', 'Tapu Koko', 'Tapu Lele', 'Taunt', 'Techno Blast', 'Teleport', 'Tera Blast',
-			'Tera Starstorm', 'Terapagos-Stellar', 'Terapagos-Terastal', 'Teravolt', 'Terrakion', 'Thermal Exchange', 'Thick Fat',
-			'Thousand Arrows', 'Thousand Waves', 'Throat Spray', 'Thunder Cage', 'Thunder Wave', 'Thunder', 'Thunderbolt', 'Thunderclap',
-			'Thunderous Kick', 'Thundurus', 'Thundurus-Therian', 'Tidy Up', 'Ting-Lu', 'Tinted Lens', 'Togekiss', 'Topsy-Turvy',
-			'Torch Song', 'Tornadus', 'Tornadus-Therian', 'Torterra', 'Tough Claws', 'Toxic Chain', 'Toxic Debris', 'Toxic Plate',
-			'Toxic Spikes', 'Toxic', 'Tri Attack', 'Triage', 'Triple Arrows', 'Triple Axel', 'Turboblaze', 'Type: Null', 'Typhlosion',
-			'Typhlosion-Hisui', 'Tyranitar', 'Tyranitar-Mega', 'U-turn', 'Umbreon', 'Unaware', 'Unburden', 'Ursaluna', 'Ursaluna-Bloodmoon',
-			'Urshifu', 'Urshifu-Rapid-Strike', 'Uxie', 'V-create', 'Vanilluxe', 'Vaporeon', 'Venusaur', 'Venusaur-Mega', 'Vessel of Ruin',
-			'Victini', 'Victory Dance', 'Virizion', 'Volcanion', 'Volcarona', 'Volt Absorb', 'Volt Switch', 'Volt Tackle', 'Walking Wake',
-			'Walrein', 'Water Absorb', 'Water Bubble', 'Water Shuriken', 'Water Spout', 'Waterfall', 'Wave Crash', 'Weakness Policy',
-			'Well-Baked Body', 'Whirlwind', 'White Herb', 'Wicked Blow', 'Wicked Torque', 'Wide Lens', 'Wiki Berry', 'Wild Charge',
-			'Wildbolt Storm', 'Will-O-Wisp', 'Wise Glasses', 'Wish', 'Wishiwashi-School', 'Wo-Chien', 'Wonder Guard', 'Wood Hammer',
-			'Wyrdeer', 'Xerneas', 'Xurkitree', 'Yawn', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zap Plate',
-			'Zapdos', 'Zapdos-Galar', 'Zarude', 'Zekrom', 'Zeraora', 'Zing Zap', 'Zippy Zap', 'Zygarde', 'Zygarde-Complete',
-		],
+		ruleset: ['[Gen 9] Broken Cup'],
+	},
+	{
+		name: "[Gen 9] National Dex AG",
+		mod: 'gen9',
+		ruleset: ['Standard AG', 'NatDex Mod'],
 	},
 	{
 		name: "[Gen 9] Test",

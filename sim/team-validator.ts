@@ -2445,6 +2445,7 @@ export class TeamValidator {
 
 	/** Returns null if you can learn the move, or a string explaining why you can't learn it */
 	checkCanLearn(
+		this: TeamValidator,
 		move: Move,
 		originalSpecies: Species,
 		setSources = this.allSources(originalSpecies),
@@ -2871,4 +2872,29 @@ export class TeamValidator {
 	static get(format: string | Format) {
 		return new TeamValidator(format);
 	}
+
+	// Generations
+
+	/**
+	 * Try to validate a set with any of the species' default abilities,
+	 * any specified extra abilities, or if none applicable, the provided
+	 * set's ability.
+	 * 
+	 * For moves, use format.checkCanLearn
+	 */
+	validateSetNoAbility(set: PokemonSet, extra?: string[]): ReturnType<typeof this.validateSet> {
+		const abilities: string[] = [];
+		const species = this.dex.species.get(set.species);
+		abilities.push(...Object.values(species.abilities));
+		if(extra) abilities.push(...extra);
+		if(!abilities.length) abilities.push(set.ability);
+		const problems: string[] = [];
+		for(const ability of abilities) {
+			const p = this.validateSet({ ...set, ability }, {});
+			if(!p) return null;
+			problems.push(...p);
+		}
+		return problems;
+	}
+
 }

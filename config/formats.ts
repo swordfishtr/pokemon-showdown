@@ -588,15 +588,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Golurk', 'Flareon', 'Lycanroc-Base', 'Togedemaru-Base', 'Froslass', 'Roserade', 'Magmortar', 'Abomasnow-Base', 'Abomasnow-Mega', 'Audino-Base', 'Audino-Mega', 'Banette-Base', 'Banette-Mega', 'Blastoise-Base', 'Blastoise-Mega', 'Altaria-Base', 'Bronzong', 'Diancie-Base', 'Flygon', 'Forretress', 'Gallade-Base', 'Garbodor', 'Gigalith', 'Golisopod', 'Guzzlord', 'Hitmontop', 'Moltres-Base', 'Milotic', 'Miltank', 'Primeape', 'Rotom-Frost', 'Seismitoad', 'Shaymin-Base', 'Silvally-Fairy', 'Skuntank', 'Swellow', 'Vikavolt-Base', 'Xatu', 'Zoroark-Base',
 		],
 		onValidateSet(set) {
-			const zUsers: string[] = [];
+			const zUsers: string[] = ['golurk', 'flareon', 'lycanroc', 'togedemaru', 'froslass', 'roserade', 'magmortar'];
 			const item = this.dex.items.get(set.item);
 			if (item.zMove && !zUsers.includes(toID(set.species))) {
 				return [`${set.name} is not allowed to hold a Z Crystal in E1.`];
 			}
 		},
 		onBegin() {
-			const megaUsers: string[] = [];
-			const zUsers: string[] = [];
+			const megaUsers: string[] = ['blastoise', 'abomasnow', 'audino', 'banette'];
+			const zUsers: string[] = ['golurk', 'flareon', 'lycanroc', 'togedemaru', 'froslass', 'roserade', 'magmortar'];
 			this.add('rule', `Perfect E1: Only the following Pokemon can Mega Evolve: ${megaUsers.join(', ')}`);
 			this.add('rule', `Perfect E1: Only the following Pokemon can use Z Moves: ${zUsers.join(', ')}`);
 			for (const pokemon of this.getAllPokemon()) {

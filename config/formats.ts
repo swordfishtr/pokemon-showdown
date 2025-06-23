@@ -572,7 +572,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [D1]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
 		banlist: ['Eviolite', 'Download', 'Analytic'],
 		unbanlist: [
 			'Staravia', 'Charjabug', 'Ponyta-Base', 'Krokorok', 'Quilladin', 'Porygon', 'Hattrem', 'Tinkatuff', 'Floette-Base', 'Gimmighoul-Base', 'Gastly', 'Staryu', 'Luxio', 'Cubchoo', 'Amaura', 'Gloom', 'Stufful', 'Mankey', 'Carkol', 'Yanma', 'Grimer-Alola', 'Meowth-Alola', 'Cufant', 'Vibrava', 'Voltorb-Hisui', 'Gothorita', 'Lampent', 'Slowpoke-Galar', 'Palpitoad', 'Sandshrew-Alola', 'Anorith', 'Goomy', 'Mantyke', 'Snubbull', 'Aipom',

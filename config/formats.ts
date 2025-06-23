@@ -575,7 +575,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard 35 Pokes'],
 		banlist: ['Eviolite', 'Download', 'Analytic'],
 		unbanlist: [
-			'Kangaskhan-Base', 'Wigglytuff', 'Komala', 'Haunter', 'Golurk', 'Cofagrigus', 'Glalie-Base', 'Mr. Rime', 'Kadabra', 'Medicham-Base', 'Hitmonchan', 'Poliwrath', 'Simipour', 'Mantine', 'Silvally-Flying', 'Archeops', 'Klawf', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Electrode-Base', 'Vikavolt-Base', 'Pinsir-Base', 'Wormadam-Trash', 'Simisage', 'Shiinotic', 'Victreebel', 'Skuntank', 'Silvally-Dark', 'Guzzlord', 'Silvally-Dragon', 'Turtonator', 'Simisear', 'Camerupt-Base', 'Sandslash-Base',
+			'Staravia', 'Charjabug', 'Ponyta-Base', 'Krokorok', 'Quilladin', 'Porygon', 'Hattrem', 'Tinkatuff', 'Floette-Base', 'Gimmighoul-Base', 'Gastly', 'Staryu', 'Luxio', 'Cubchoo', 'Amaura', 'Gloom', 'Stufful', 'Mankey', 'Carkol', 'Yanma', 'Grimer-Alola', 'Meowth-Alola', 'Cufant', 'Vibrava', 'Voltorb-Hisui', 'Gothorita', 'Lampent', 'Slowpoke-Galar', 'Palpitoad', 'Sandshrew-Alola', 'Anorith', 'Goomy', 'Mantyke', 'Snubbull', 'Aipom',
 		],
 	},
 	{

@@ -1411,6 +1411,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Broken Cup FFA",
 		desc: `[Gen 9] Hackmons Cup but with only the most powerful Pok&eacute;mon, moves, abilities, and items.`,
 		gameType: 'freeforall',
+		team: 'randomHC',
+		rated: false,
 		ruleset: ['[Gen 9] Broken Cup'],
 	},
 	{

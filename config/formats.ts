@@ -492,23 +492,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Cacturne', 'Seviper', 'Komala', 'Leafeon', 'Copperajah', 'Rotom-Fan', 'Armaldo', 'Mr. Rime', 'Cryogonal', 'Medicham-Base', 'Silvally-Psychic', 'Silvally-Fighting', 'Toxicroak', 'Mantine', 'Purugly', 'Archeops', 'Toucannon', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Frogadier', 'Vikavolt-Base', 'Pinsir-Base', 'Wugtrio', 'Dragonair', 'Shiinotic', 'Dusknoir', 'Skuntank', 'Silvally-Dark', 'Runerigus', 'Misdreavus', 'Turtonator', 'Rapidash-Base', 'Camerupt-Base', 'Sandslash-Base',
 		],
 	},
-	// TODO: test wrong item silvally validation
-	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
-		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', '!Obtainable Formes'],
-		unbanlist: [
-			'Talonflame', 'Rapidash-Base', 'Silvally-Fire', 'Archeops', 'Coalossal', 'Cryogonal', 'Crabominable', 'Machoke', 'Toxicroak', 'Weezing-Base', 'Vikavolt-Base', 'Rotom-Fan', 'Togedemaru-Base', 'Copperajah', 'Illumise', 'Golisopod', 'Silvally-Water', 'Mantine', 'Runerigus', 'Trapinch', 'Dugtrio-Alola', 'Silvally-Grass', 'Terapagos-Base', 'Liepard', 'Aurorus', 'Dusknoir', 'Purugly', 'Farigiraf', 'Flapple', 'Leafeon', 'Thievul', 'Skuntank', 'Dachsbun', 'Rapidash-Galar', 'Hattrem',
-		],
-		validateSet(set, teamHas) {
-			if(this.toID(set.species) === 'terapagos') {
-				if(this.toID(set.ability) === 'scrappy') return this.validateSetNoAbility(set);
-				return ['Terapagos must have Scrappy in A3'];
-			}
-			return this.validateSet(set, teamHas);
-		},
-	},
 	// TODO: Hardcode items, abilities, moves in the teambuilder
 	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
@@ -539,7 +522,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
 			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
-			// B1 specific
+			// B2 specific
 			'One Boost Passer Clause',
 		],
 		banlist: [
@@ -557,15 +540,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
 			'Dhelmise', 'Liepard', 'Weezing-Base', 'Wigglytuff', 'Aromatisse', 'Togedemaru-Base', 'Silvally-Base', 'Gogoat', 'Hitmontop', 'Solrock', 'Raichu-Alola', 'Lickilicky', 'Dedenne', 'Klinklang', 'Leavanny', 'Exeggutor-Base', 'Steelix-Base', 'Medicham-Base', 'Jynx', 'Wailord', 'Rotom-Frost', 'Magcargo', 'Camerupt-Base', 'Palossand', 'Relicanth', 'Lumineon', 'Granbull', 'Delibird', 'Talonflame', 'Haunter', 'Guzzlord', 'Mabosstiff', 'Toxicroak', 'Mothim', 'Avalugg-Base',
-		],
-	},
-	{
-		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
-		mod: 'perfectc2',
-		ruleset: ['Standard 35 Pokes'],
-		unbanlist: [
-			'Klinklang', 'Aromatisse', 'Jynx', 'Gogoat', 'Hakamo-o', 'Emolga', 'Glalie-Base', 'Magcargo', 'Leavanny', 'Dhelmise', 'Exeggutor-Base', 'Medicham-Base', 'Raichu-Alola', 'Togedemaru-Base', 'Rotom-Frost', 'Carbink', 'Wigglytuff', 'Lickilicky', 'Stoutland', 'Talonflame', 'Camerupt-Base', 'Steelix-Base', 'Palossand', 'Relicanth', 'Wailord', 'Swanna', 'Avalugg-Base', 'Hitmontop', 'Weezing-Base', 'Haunter', 'Silvally-Poison', 'Mabosstiff', 'Guzzlord', 'Mothim', 'Pinsir-Base',
 		],
 	},
 	{
@@ -605,6 +579,36 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 				}
 			}
 		},
+	},
+	{
+		section: '35 Pokes Perfect (WIP)',
+		column: 3
+	},
+	// TODO: test wrong item silvally validation
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', '!Obtainable Formes'],
+		unbanlist: [
+			'Talonflame', 'Rapidash-Base', 'Silvally-Fire', 'Archeops', 'Coalossal', 'Cryogonal', 'Crabominable', 'Machoke', 'Toxicroak', 'Weezing-Base', 'Vikavolt-Base', 'Rotom-Fan', 'Togedemaru-Base', 'Copperajah', 'Illumise', 'Golisopod', 'Silvally-Water', 'Mantine', 'Runerigus', 'Trapinch', 'Dugtrio-Alola', 'Silvally-Grass', 'Terapagos-Base', 'Liepard', 'Aurorus', 'Dusknoir', 'Purugly', 'Farigiraf', 'Flapple', 'Leafeon', 'Thievul', 'Skuntank', 'Dachsbun', 'Rapidash-Galar', 'Hattrem',
+		],
+		validateSet(set, teamHas) {
+			if(this.toID(set.species) === 'terapagos') {
+				if(this.toID(set.ability) === 'scrappy') return this.validateSetNoAbility(set);
+				return ['Terapagos must have Scrappy in A3'];
+			}
+			return this.validateSet(set, teamHas);
+		},
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'perfectc2',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Klinklang', 'Aromatisse', 'Jynx', 'Gogoat', 'Hakamo-o', 'Emolga', 'Glalie-Base', 'Magcargo', 'Leavanny', 'Dhelmise', 'Exeggutor-Base', 'Medicham-Base', 'Raichu-Alola', 'Togedemaru-Base', 'Rotom-Frost', 'Carbink', 'Wigglytuff', 'Lickilicky', 'Stoutland', 'Talonflame', 'Camerupt-Base', 'Steelix-Base', 'Palossand', 'Relicanth', 'Wailord', 'Swanna', 'Avalugg-Base', 'Hitmontop', 'Weezing-Base', 'Haunter', 'Silvally-Poison', 'Mabosstiff', 'Guzzlord', 'Mothim', 'Pinsir-Base',
+		],
 	},
 	{
 		section: '35 Pokes Babies',

@@ -34,7 +34,7 @@ import { Condition, DexConditions } from './dex-conditions';
 import { DataMove, DexMoves } from './dex-moves';
 import { Item, DexItems } from './dex-items';
 import { Ability, DexAbilities } from './dex-abilities';
-import { Species, DexSpecies } from './dex-species';
+import { Species, DexSpecies, LearnsetData } from './dex-species';
 import { Format, DexFormats } from './dex-formats';
 import { Utils } from '../lib/utils';
 
@@ -721,6 +721,51 @@ export class ModdedDex {
 	includeFormats(): this {
 		this.formats.load();
 		return this;
+	}
+
+	// TODO: diff the rest of the properties
+	getLearnsetDiff(FROM: ModdedDex, TO: ModdedDex = this.mod(FROM.parentMod)): {
+		additions: DexTable<LearnsetData>,
+		removals: DexTable<LearnsetData>,
+	} {
+		const FROM_TABLE = FROM.data.Learnsets;
+		const TO_TABLE = TO.data.Learnsets;
+		const additions: DexTable<LearnsetData> = {};
+		const removals: DexTable<LearnsetData> = {};
+
+		for(const species in FROM_TABLE) {
+			if(FROM_TABLE[species].learnset) {
+				for(const move in FROM_TABLE[species].learnset) {
+					for(const data of FROM_TABLE[species].learnset[move as any]) {
+						if(!TO_TABLE[species]?.learnset?.[move as any]?.includes(data)) {
+							additions[species] ??= {};
+							additions[species].learnset ??= {};
+							additions[species].learnset[move as any] ??= [];
+							additions[species].learnset[move as any].push(data);
+						}
+					}
+				}
+			}
+			if(FROM_TABLE[species].eventData) {}
+		}
+
+		for(const species in TO_TABLE) {
+			if(TO_TABLE[species].learnset) {
+				for(const move in TO_TABLE[species].learnset) {
+					for(const data of TO_TABLE[species].learnset[move as any]) {
+						if(!FROM_TABLE[species]?.learnset?.[move as any]?.includes(data)) {
+							removals[species] ??= {};
+							removals[species].learnset ??= {};
+							removals[species].learnset[move as any] ??= [];
+							removals[species].learnset[move as any].push(data);
+						}
+					}
+				}
+			}
+			if(TO_TABLE[species].eventData) {}
+		}
+
+		return { additions, removals };
 	}
 }
 

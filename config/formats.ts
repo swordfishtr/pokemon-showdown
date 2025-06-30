@@ -143,6 +143,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Jul 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Slowking-Base', 'Minun', 'Incineroar', 'Rotom-Mow', 'Toedscruel', 'Chimecho', 'Brambleghast', 'Mabosstiff', 'Rapidash-Base', 'Silvally-Ground', 'Kleavor', 'Bouffalant', 'Persian-Alola', 'Reuniclus', 'Meowstic-F', 'Cofagrigus', 'Slowking-Galar', 'Braviary-Base', 'Primeape', 'Lunatone', 'Tentacruel', 'Drakloak', 'Slowbro-Galar', 'Obstagoon', 'Boltund', 'Simisage', 'Arctovish', 'Flygon', 'Starmie', 'Rillaboom', 'Azumarill', 'Grapploct', 'Blastoise-Base', 'Raticate-Base', 'Dachsbun',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',

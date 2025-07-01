@@ -148,7 +148,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
-			'Slowking-Base', 'Minun', 'Incineroar', 'Rotom-Mow', 'Toedscruel', 'Chimecho', 'Brambleghast', 'Mabosstiff', 'Rapidash-Base', 'Silvally-Ground', 'Kleavor', 'Bouffalant', 'Persian-Alola', 'Reuniclus', 'Meowstic-F', 'Cofagrigus', 'Slowking-Galar', 'Braviary-Base', 'Primeape', 'Lunatone', 'Tentacruel', 'Drakloak', 'Slowbro-Galar', 'Obstagoon', 'Boltund', 'Simisage', 'Arctovish', 'Flygon', 'Starmie', 'Rillaboom', 'Azumarill', 'Grapploct', 'Blastoise-Base', 'Raticate-Base', 'Dachsbun',
+			'Arctovish', 'Azumarill', 'Blastoise-Base', 'Boltund', 'Bouffalant', 'Brambleghast', 'Braviary-Base', 'Chimecho', 'Cofagrigus', 'Dachsbun', 'Darmanitan-Base', 'Delibird', 'Drakloak', 'Floatzel', 'Flygon', 'Gliscor', 'Grapploct', 'Incineroar', 'Kleavor', 'Lunatone', 'Mabosstiff', 'Marowak-Alola', 'Meowstic-F', 'Minun', 'Obstagoon', 'Persian-Alola', 'Primeape', 'Rapidash-Base', 'Raticate-Base', 'Reuniclus', 'Rillaboom', 'Rotom-Mow', 'Silvally-Ground', 'Simisage', 'Slowbro-Galar', 'Slowking-Base', 'Slowking-Galar', 'Starmie', 'Tentacruel', 'Toedscruel',
 		],
 	},
 	{

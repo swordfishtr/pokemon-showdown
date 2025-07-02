@@ -2490,9 +2490,9 @@ export class RandomTeams {
 
 		return {
 			name: species.name,
-			species: (typeof species.battleOnly === 'string') ? species.battleOnly : species.name,
+			species: species.name,
 			teraType: this.sample(setData.set.teraType),
-			gender:	setData.set.gender || species.gender || (tier === 'OU' ? 'F' : ''), // F for Cute Charm Enamorus
+			gender:	setData.set.gender || species.gender,
 			item,
 			ability: this.sample(setData.set.ability),
 			shiny: setData.set.shiny || this.randomChance(1, 1024),

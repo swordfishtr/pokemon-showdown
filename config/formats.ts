@@ -1454,11 +1454,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'G-Max Vine Lash', 'G-Max Wildfire', 'G-Max Cannonade', 'G-Max Befuddle', 'G-Max Volt Crash', 'G-Max Gold Rush', 'G-Max Chi Strike', 'G-Max Terror', 'G-Max Foam Burst', 'G-Max Resonance', 'G-Max Malodor', 'G-Max Meltdown', 'G-Max Wind Rage', 'G-Max Gravitas', 'G-Max Stonesurge', 'G-Max Volcalith', 'G-Max Tartness', 'G-Max Sandblast', 'G-Max Stun Shock', 'G-Max Centiferno', 'G-Max Smite', 'G-Max Snooze', 'G-Max Finale', 'G-Max Steelsurge',
 		],
-		onValidateRule() {
-			if (this.format.gameType !== 'singles') {
-				throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
-			}
-		},
+		// onValidateRule() {
+		// 	if (this.format.gameType !== 'singles') {
+		// 		throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
+		// 	}
+		// },
 		onBeforeSwitchIn(pokemon) {
 			let format = this.format;
 			if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
@@ -1479,7 +1479,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		bestOfDefault: true,
 		searchShow: false,
 		ruleset: ['[Gen 9] Chaos Cup'],
-		onValidateRule() {},
 	},
 	{
 		name: "[Gen 9] Hackmons Cup",

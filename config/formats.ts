@@ -1431,61 +1431,62 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		rated: false,
 		ruleset: ['[Gen 9] Broken Cup'],
 	},
-	{
-		name: "[Gen 9] Chaos Cup",
-		desc: `AAAAAA`,
-		mod: 'spmnm',
-		team: 'randomHC',
-		bestOfDefault: true,
-		searchShow: false,
-		ruleset: [
-			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Scalemons Mod', 'Adjust Level = 100', 'Max Move Count = 6', 'Max Team Size = 12', 'Picked Team Size = 6',
-			'Sleep Clause Mod', 'NatDex Mod',
-		],
-		banlist: [
-			'CAP', 'LGPE', 'MissingNo.', 'Pikachu-Cosplay', 'Pichu-Spiky-eared', 'Pokestar Smeargle', 'Pokestar UFO', 'Pokestar UFO-2', 'Pokestar Brycen-Man', 'Pokestar MT', 'Pokestar MT2', 'Pokestar Transport', 'Pokestar Giant', 'Pokestar Humanoid', 'Pokestar Monster', 'Pokestar F-00', 'Pokestar F-002', 'Pokestar Spirit', 'Pokestar Black Door', 'Pokestar White Door', 'Pokestar Black Belt', 'Pokestar UFO-PropU2', 'Xerneas-Neutral',
+	// {
+	// 	name: "[Gen 9] Chaos Cup",
+	// 	desc: `AAAAAA`,
+	// 	mod: 'spmnm',
+	// 	team: 'randomHC',
+	// 	searchShow: false,
+	// 	challengeShow: false,
+	// 	tournamentShow: false,
+	// 	ruleset: [
+	// 		'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Scalemons Mod', 'Adjust Level = 100', 'Max Move Count = 6', 'Max Team Size = 12', 'Picked Team Size = 6',
+	// 		'Sleep Clause Mod', 'NatDex Mod',
+	// 	],
+	// 	banlist: [
+	// 		'CAP', 'LGPE', 'MissingNo.', 'Pikachu-Cosplay', 'Pichu-Spiky-eared', 'Pokestar Smeargle', 'Pokestar UFO', 'Pokestar UFO-2', 'Pokestar Brycen-Man', 'Pokestar MT', 'Pokestar MT2', 'Pokestar Transport', 'Pokestar Giant', 'Pokestar Humanoid', 'Pokestar Monster', 'Pokestar F-00', 'Pokestar F-002', 'Pokestar Spirit', 'Pokestar Black Door', 'Pokestar White Door', 'Pokestar Black Belt', 'Pokestar UFO-PropU2', 'Xerneas-Neutral',
 
-			'Wonder Guard',
+	// 		'Wonder Guard',
 
-			'Max Strike', 'Max Knuckle', 'Max Airstream', 'Max Rockfall', 'Max Ooze', 'Max Quake', 'Max Flutterby', 'Max Phantasm', 'Max Steelspike', 'Max Flare', 'Max Geyser', 'Max Overgrowth', 'Max Lightning', 'Max Mindstorm', 'Max Hailstorm', 'Max Wyrmwind', 'Max Darkness', 'Max Starfall', 'G-max Drum Solo', 'G-max Fireball', 'G-max Hydrosnipe', 'Max Guard',
+	// 		'Max Strike', 'Max Knuckle', 'Max Airstream', 'Max Rockfall', 'Max Ooze', 'Max Quake', 'Max Flutterby', 'Max Phantasm', 'Max Steelspike', 'Max Flare', 'Max Geyser', 'Max Overgrowth', 'Max Lightning', 'Max Mindstorm', 'Max Hailstorm', 'Max Wyrmwind', 'Max Darkness', 'Max Starfall', 'G-max Drum Solo', 'G-max Fireball', 'G-max Hydrosnipe', 'Max Guard',
 
-			'Breakneck Blitz', 'All-Out Pummeling', 'Supersonic Skystrike', 'Acid Downpour', 'Tectonic Rage', 'Continental Crush', 'Savage Spin-Out', 'Never-Ending Nightmare', 'Corkscrew Crash', 'Inferno Overdrive', 'Hydro Vortex', 'Bloom Doom', 'Gigavolt Havoc', 'Shattered Psyche', 'Subzero Slammer', 'Devastating Drake', 'Black Hole Eclipse', 'Twinkle Tackle',
-		],
-		unbanlist: [
-			'G-Max Vine Lash', 'G-Max Wildfire', 'G-Max Cannonade', 'G-Max Befuddle', 'G-Max Volt Crash', 'G-Max Gold Rush', 'G-Max Chi Strike', 'G-Max Terror', 'G-Max Foam Burst', 'G-Max Resonance', 'G-Max Malodor', 'G-Max Meltdown', 'G-Max Wind Rage', 'G-Max Gravitas', 'G-Max Stonesurge', 'G-Max Volcalith', 'G-Max Tartness', 'G-Max Sandblast', 'G-Max Stun Shock', 'G-Max Centiferno', 'G-Max Smite', 'G-Max Snooze', 'G-Max Finale', 'G-Max Steelsurge',
-		],
-		// onValidateRule() {
-		// 	if (this.format.gameType !== 'singles') {
-		// 		throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
-		// 	}
-		// },
-		onBeforeSwitchIn(pokemon) {
-			let format = this.format;
-			if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
-			for (const ability of format.getSharedPower!(pokemon)) {
-				const effect = 'ability:' + this.toID(ability);
-				pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
-				if (!pokemon.m.abils) pokemon.m.abils = [];
-				if (!pokemon.m.abils.includes(effect)) pokemon.m.abils.push(effect);
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Chaos Cup FFA",
-		desc: `AAAAAA`,
-		mod: 'spmnm',
-		gameType: 'freeforall',
-		team: 'randomHC',
-		bestOfDefault: true,
-		searchShow: false,
-		ruleset: ['[Gen 9] Chaos Cup'],
-	},
+	// 		'Breakneck Blitz', 'All-Out Pummeling', 'Supersonic Skystrike', 'Acid Downpour', 'Tectonic Rage', 'Continental Crush', 'Savage Spin-Out', 'Never-Ending Nightmare', 'Corkscrew Crash', 'Inferno Overdrive', 'Hydro Vortex', 'Bloom Doom', 'Gigavolt Havoc', 'Shattered Psyche', 'Subzero Slammer', 'Devastating Drake', 'Black Hole Eclipse', 'Twinkle Tackle',
+	// 	],
+	// 	unbanlist: [
+	// 		'G-Max Vine Lash', 'G-Max Wildfire', 'G-Max Cannonade', 'G-Max Befuddle', 'G-Max Volt Crash', 'G-Max Gold Rush', 'G-Max Chi Strike', 'G-Max Terror', 'G-Max Foam Burst', 'G-Max Resonance', 'G-Max Malodor', 'G-Max Meltdown', 'G-Max Wind Rage', 'G-Max Gravitas', 'G-Max Stonesurge', 'G-Max Volcalith', 'G-Max Tartness', 'G-Max Sandblast', 'G-Max Stun Shock', 'G-Max Centiferno', 'G-Max Smite', 'G-Max Snooze', 'G-Max Finale', 'G-Max Steelsurge',
+	// 	],
+	// 	// onValidateRule() {
+	// 	// 	if (this.format.gameType !== 'singles') {
+	// 	// 		throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
+	// 	// 	}
+	// 	// },
+	// 	onBeforeSwitchIn(pokemon) {
+	// 		let format = this.format;
+	// 		if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
+	// 		for (const ability of format.getSharedPower!(pokemon)) {
+	// 			const effect = 'ability:' + this.toID(ability);
+	// 			pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
+	// 			if (!pokemon.m.abils) pokemon.m.abils = [];
+	// 			if (!pokemon.m.abils.includes(effect)) pokemon.m.abils.push(effect);
+	// 		}
+	// 	},
+	// },
+	// {
+	// 	name: "[Gen 9] Chaos Cup FFA",
+	// 	desc: `AAAAAA`,
+	// 	mod: 'spmnm',
+	// 	gameType: 'freeforall',
+	// 	team: 'randomHC',
+	// 	searchShow: false,
+	// 	challengeShow: false,
+	// 	tournamentShow: false,
+	// 	ruleset: ['[Gen 9] Chaos Cup'],
+	// },
 	{
 		name: "[Gen 9] Hackmons Cup",
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item.`,
 		mod: 'gen9',
 		team: 'randomHC',
-		bestOfDefault: true,
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 		banlist: ['CAP', 'LGPE', 'MissingNo.', 'Pikachu-Cosplay', 'Pichu-Spiky-eared', 'Pokestar Smeargle', 'Pokestar UFO', 'Pokestar UFO-2', 'Pokestar Brycen-Man', 'Pokestar MT', 'Pokestar MT2', 'Pokestar Transport', 'Pokestar Giant', 'Pokestar Humanoid', 'Pokestar Monster', 'Pokestar F-00', 'Pokestar F-002', 'Pokestar Spirit', 'Pokestar Black Door', 'Pokestar White Door', 'Pokestar Black Belt', 'Pokestar UFO-PropU2', 'Xerneas-Neutral'],
 	},
@@ -1496,7 +1497,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		team: 'randomHC',
 		rated: false,
-		bestOfDefault: true,
 		ruleset: ['[Gen 9] Hackmons Cup'],
 	},
 	{

@@ -1439,7 +1439,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		bestOfDefault: true,
 		searchShow: false,
 		ruleset: [
-			'HP Percentage Mod', 'Cancel Mod', 'Scalemons Mod', 'Adjust Level = 100', 'Max Move Count = 6', 'Max Team Size = 12', 'Picked Team Size = 6',
+			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Scalemons Mod', 'Adjust Level = 100', 'Max Move Count = 6', 'Max Team Size = 12', 'Picked Team Size = 6',
 			'Sleep Clause Mod', 'NatDex Mod',
 		],
 		banlist: [

@@ -3026,7 +3026,7 @@ export class RandomTeams {
 
 	random35FactoryTeam(side: PlayerOptions): RandomTeamsTypes.RandomFactorySet[] {
 		if (!this.factoryTier) {
-			this.factoryTier = 'Seniors/2024_04.txt'; //this.sample(Object.keys(this.random35FactorySets));
+			this.factoryTier = this.sample(Object.keys(this.random35FactorySets));
 		}
 
 		const team = this.randomFactoryTeam(side, undefined, this.random35FactorySets);

@@ -37,6 +37,7 @@ interface BattleFactorySet {
 	evs?: Partial<StatsTable>;
 	ivs?: Partial<StatsTable>;
 	shiny?: boolean;
+	happiness?: number;
 }
 interface BSSFactorySet {
 	species: string;
@@ -2496,7 +2497,7 @@ export class RandomTeams {
 			ability: this.sample(setData.set.ability),
 			shiny: setData.set.shiny || this.randomChance(1, 1024),
 			level: this.adjustLevel || (tier === "LC" ? 5 : 100),
-			happiness: 255,
+			happiness: setData.set.happiness ?? 255,
 			evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...setData.set.evs },
 			ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31, ...setData.set.ivs },
 			nature: this.sample(setData.set.nature) || "Serious",

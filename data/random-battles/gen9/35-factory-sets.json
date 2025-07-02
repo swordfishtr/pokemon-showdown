@@ -29344,7 +29344,7 @@
 					"teraType": [
 						"Fairy"
 					],
-					"weight": 40
+					"weight": 30
 				},
 				{
 					"species": "Floette-Eternal",
@@ -29379,13 +29379,15 @@
 							"Calm Mind"
 						],
 						[
+							"Protect",
 							"Synthesis"
 						],
 						[
 							"Wish"
 						],
 						[
-							"Light of Ruin"
+							"Light of Ruin",
+							"Moonblast"
 						]
 					],
 					"teraType": [
@@ -29396,22 +29398,22 @@
 				{
 					"species": "Floette-Eternal",
 					"item": [
-						"Leftovers"
+						"Choice Specs"
 					],
 					"ability": [
 						"Flower Veil"
 					],
 					"gender": "F",
 					"nature": [
-						"Modest"
+						"Timid"
 					],
 					"evs": {
-						"hp": 252,
+						"hp": 0,
 						"atk": 0,
-						"def": 4,
+						"def": 0,
 						"spa": 252,
-						"spd": 0,
-						"spe": 0
+						"spd": 4,
+						"spe": 252
 					},
 					"ivs": {
 						"hp": 31,
@@ -29423,22 +29425,22 @@
 					},
 					"moves": [
 						[
-							"Rest"
-						],
-						[
-							"Sleep Talk"
-						],
-						[
 							"Light of Ruin"
 						],
 						[
-							"Synthesis"
+							"Moonblast"
+						],
+						[
+							"Grass Knot"
+						],
+						[
+							"Psychic"
 						]
 					],
 					"teraType": [
 						"Fairy"
 					],
-					"weight": 20
+					"weight": 30
 				}
 			],
 			"weight": 10

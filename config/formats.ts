@@ -1479,16 +1479,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		bestOfDefault: true,
 		searchShow: false,
 		ruleset: ['[Gen 9] Chaos Cup'],
-		onBeforeSwitchIn(pokemon) {
-			let format = this.format;
-			if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
-			for (const ability of format.getSharedPower!(pokemon)) {
-				const effect = 'ability:' + this.toID(ability);
-				pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
-				if (!pokemon.m.abils) pokemon.m.abils = [];
-				if (!pokemon.m.abils.includes(effect)) pokemon.m.abils.push(effect);
-			}
-		},
+		onValidateRule() {},
 	},
 	{
 		name: "[Gen 9] Hackmons Cup",

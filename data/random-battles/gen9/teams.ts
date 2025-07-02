@@ -2489,7 +2489,7 @@ export class RandomTeams {
 		const item = setData.item || this.sample(setData.set.item);
 
 		return {
-			name: species.baseSpecies,
+			name: species.name,
 			species: (typeof species.battleOnly === 'string') ? species.battleOnly : species.name,
 			teraType: this.sample(setData.set.teraType),
 			gender:	setData.set.gender || species.gender || (tier === 'OU' ? 'F' : ''), // F for Cute Charm Enamorus
@@ -3026,7 +3026,7 @@ export class RandomTeams {
 
 	random35FactoryTeam(side: PlayerOptions): RandomTeamsTypes.RandomFactorySet[] {
 		if (!this.factoryTier) {
-			this.factoryTier = this.sample(Object.keys(this.random35FactorySets));
+			this.factoryTier = 'Seniors/2024_04.txt'; //this.sample(Object.keys(this.random35FactorySets));
 		}
 
 		const team = this.randomFactoryTeam(side, undefined, this.random35FactorySets);

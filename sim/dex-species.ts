@@ -353,6 +353,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 				this.gen = 1;
 			}
 		}
+
 		assignMissingFields(this, data);
 	}
 }
@@ -772,4 +773,20 @@ export class DexSpecies {
 		}
 		return true;
 	}
+
+	// region Generations
+
+	/**
+	 * true: legally has to be shiny.
+	 * false: legally has to be not shiny.
+	 * null: not forced.
+	 */
+	forcedShiny(id: ID): boolean | null {
+		const data = this.getLearnsetData(id);
+		if(!data.eventOnly) return null;
+		if(data.eventData?.every(x => x.shiny === true)) return true;
+		if(data.eventData?.every(x => !x.shiny)) return false;
+		return null;
+	}
+
 }

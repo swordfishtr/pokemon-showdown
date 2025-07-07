@@ -2495,7 +2495,7 @@ export class RandomTeams {
 			gender:	setData.set.gender || species.gender,
 			item,
 			ability: this.sample(setData.set.ability),
-			shiny: setData.set.shiny || this.randomChance(1, 1024),
+			shiny: this.dex.species.forcedShiny(species.id) ?? setData.set.shiny ?? this.randomChance(1, 1024),
 			level: this.adjustLevel || (tier === "LC" ? 5 : 100),
 			happiness: setData.set.happiness ?? 255,
 			evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...setData.set.evs },

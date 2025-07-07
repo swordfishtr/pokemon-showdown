@@ -950,45 +950,7 @@ export class TeamValidator {
 				}
 			}
 		} else if (ruleTable.has('obtainablemisc') && (eventOnlyData = this.getEventOnlyData(outOfBattleSpecies))) {
-			const { species: eventSpecies, eventData } = eventOnlyData;
-			let legal = false;
-			for (const event of eventData) {
-				if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
-				setSources.eventOnlyMinSourceGen = event.generation;
-				legal = true;
-				break;
-			}
-			if (!legal && species.gen <= 2 && dex.gen >= 7 && !this.validateSource(set, '7V', setSources, species)) {
-				legal = true;
-			}
-			if (!legal) {
-				if (!pokemonGoProblems || (pokemonGoProblems?.length)) {
-					if (eventData.length === 1) {
-						problems.push(`${species.name} is only obtainable from an event - it needs to match its event:`);
-					} else {
-						problems.push(`${species.name} is only obtainable from events - it needs to match one of its events:`);
-					}
-					for (const [i, event] of eventData.entries()) {
-						if (event.generation <= dex.gen && (event.generation >= this.minSourceGen || dex.gen > 8)) {
-							const eventInfo = event;
-							const eventNum = i + 1;
-							const eventName = eventData.length > 1 ? ` #${eventNum}` : ``;
-							const eventProblems = this.validateEvent(
-								set, setSources, eventInfo, eventSpecies, ` to be`, `from its event${eventName}`
-							);
-							if (eventProblems) problems.push(...eventProblems);
-						}
-					}
-					if (pokemonGoProblems?.length) {
-						problems.push(`Additionally, it failed to validate as a Pokemon from Pokemon GO because:`);
-						for (const pokemonGoProblem of pokemonGoProblems) {
-							problems.push(pokemonGoProblem);
-						}
-					}
-				} else {
-					setSources.isFromPokemonGo = true;
-				}
-			}
+			problems.push(...this.validateEventMisc(set, species, setSources, pokemonGoProblems, eventOnlyData));
 		}
 
 		// Hardcoded forced validation for Pokemon GO
@@ -2873,7 +2835,7 @@ export class TeamValidator {
 		return new TeamValidator(format);
 	}
 
-	// Generations
+	// region Generations
 
 	/**
 	 * Try to validate a set with any of the species' default abilities,
@@ -2894,6 +2856,61 @@ export class TeamValidator {
 			if(!p) return null;
 			problems.push(...p);
 		}
+		return problems;
+	}
+
+	/**
+	 * Obtainable Misc validation of event only Pokemon.
+	 * 
+	 * Can be un-separated from its original location.
+	 */
+	validateEventMisc(
+		set: PokemonSet, species: Species, setSources: PokemonSources, pokemonGoProblems: string[] | null,
+		eventOnlyData: NonNullable<ReturnType<typeof this.getEventOnlyData>>
+	) {
+		const dex = this.dex;
+		const problems: string[] = [];
+
+		const { species: eventSpecies, eventData } = eventOnlyData;
+		let legal = false;
+		for (const event of eventData) {
+			if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
+			setSources.eventOnlyMinSourceGen = event.generation;
+			legal = true;
+			break;
+		}
+		if (!legal && species.gen <= 2 && dex.gen >= 7 && !this.validateSource(set, '7V', setSources, species)) {
+			legal = true;
+		}
+		if (!legal) {
+			if (!pokemonGoProblems || (pokemonGoProblems?.length)) {
+				if (eventData.length === 1) {
+					problems.push(`${species.name} is only obtainable from an event - it needs to match its event:`);
+				} else {
+					problems.push(`${species.name} is only obtainable from events - it needs to match one of its events:`);
+				}
+				for (const [i, event] of eventData.entries()) {
+					if (event.generation <= dex.gen && (event.generation >= this.minSourceGen || dex.gen > 8)) {
+						const eventInfo = event;
+						const eventNum = i + 1;
+						const eventName = eventData.length > 1 ? ` #${eventNum}` : ``;
+						const eventProblems = this.validateEvent(
+							set, setSources, eventInfo, eventSpecies, ` to be`, `from its event${eventName}`
+						);
+						if (eventProblems) problems.push(...eventProblems);
+					}
+				}
+				if (pokemonGoProblems?.length) {
+					problems.push(`Additionally, it failed to validate as a Pokemon from Pokemon GO because:`);
+					for (const pokemonGoProblem of pokemonGoProblems) {
+						problems.push(pokemonGoProblem);
+					}
+				}
+			} else {
+				setSources.isFromPokemonGo = true;
+			}
+		}
+
 		return problems;
 	}
 

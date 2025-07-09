@@ -818,7 +818,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			},
 		},
 		onTry(source) {
-			if (source.species.baseSpecies === 'Morpeko') {
+			if (this.ruleTable.has('nomovespeciesrestrictions') || source.species.baseSpecies === 'Morpeko') {
 				return;
 			}
 			this.attrLastMove('[still]');
@@ -3487,7 +3487,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1, nosketch: 1 },
 		status: 'slp',
 		onTry(source, target, move) {
-			if (source.species.name === 'Darkrai' || move.hasBounced) {
+			if (this.ruleTable.has('nomovespeciesrestrictions') || source.species.name === 'Darkrai' || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', source, 'move: Dark Void');
@@ -9514,7 +9514,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { mirror: 1, bypasssub: 1, nosketch: 1 },
 		breaksProtect: true,
 		onTry(source) {
-			if (source.species.name === 'Hoopa-Unbound') {
+			if (this.ruleTable.has('nomovespeciesrestrictions') || source.species.name === 'Hoopa-Unbound') {
 				return;
 			}
 			this.hint("Only a Pokemon whose form is Hoopa Unbound can use this move.");
@@ -15448,7 +15448,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, bypasssub: 1, allyanim: 1, metronome: 1 },
 		onHit(target, source) {
-			if (source.species && (source.species.num === 493 || source.species.num === 773)) return false;
+			if (
+				source.species &&
+				!this.ruleTable.has('nomovespeciesrestrictions') &&
+				(source.species.num === 493 || source.species.num === 773)
+			) return false;
 			if (source.terastallized) return false;
 			const oldApparentType = source.apparentType;
 			let newBaseTypes = target.getTypes(true).filter(type => type !== '???');

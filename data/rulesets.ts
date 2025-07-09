@@ -3375,4 +3375,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return problems;
 		},
 	},
+	nomovespeciesrestrictions: {
+		effectType: 'Rule',
+		name: 'No Move-Species Restrictions',
+		desc: 'Unrestricts moves that check the user species',
+		onBegin() {
+			this.add('rule', 'No Move-Species Restrictions: Aura Wheel, Dark Void, Hyperspace Fury, Reflect Type may be used by anyone');
+		},
+		// Hardcoded in data/moves.ts
+	},
 };

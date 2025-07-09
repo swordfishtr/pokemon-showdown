@@ -1500,12 +1500,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		team: 'randomHC',
 		ruleset: [
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Scalemons Mod', 'Adjust Level = 100', 'Max Move Count = 6', 'Max Team Size = 12', 'Picked Team Size = 6',
-			'Sleep Clause Mod', 'NatDex Mod',
+			'Sleep Clause Mod', 'NatDex Mod', 'No Move-Species Restrictions',
 		],
 		banlist: [
 			'CAP', 'LGPE', 'MissingNo.', 'Pikachu-Cosplay', 'Pichu-Spiky-eared', 'Pokestar Smeargle', 'Pokestar UFO', 'Pokestar UFO-2', 'Pokestar Brycen-Man', 'Pokestar MT', 'Pokestar MT2', 'Pokestar Transport', 'Pokestar Giant', 'Pokestar Humanoid', 'Pokestar Monster', 'Pokestar F-00', 'Pokestar F-002', 'Pokestar Spirit', 'Pokestar Black Door', 'Pokestar White Door', 'Pokestar Black Belt', 'Pokestar UFO-PropU2', 'Xerneas-Neutral',
 
-			'Wonder Guard',
+			'Wonder Guard', 'Moody',
 
 			'Max Strike', 'Max Knuckle', 'Max Airstream', 'Max Rockfall', 'Max Ooze', 'Max Quake', 'Max Flutterby', 'Max Phantasm', 'Max Steelspike', 'Max Flare', 'Max Geyser', 'Max Overgrowth', 'Max Lightning', 'Max Mindstorm', 'Max Hailstorm', 'Max Wyrmwind', 'Max Darkness', 'Max Starfall', 'G-max Drum Solo', 'G-max Fireball', 'G-max Hydrosnipe', 'Max Guard',
 

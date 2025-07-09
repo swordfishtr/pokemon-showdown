@@ -18,6 +18,60 @@ The column value will be ignored for repeat sections.
 */
 
 import { Utils } from '../lib/utils';
+import { FormatData } from '../sim/dex-formats';
+
+const spmnm: Partial<FormatData> = {
+	// Mix and Mega
+	onBegin() {
+		for (const pokemon of this.getAllPokemon()) {
+			pokemon.m.originalSpecies = pokemon.baseSpecies.name;
+		}
+	},
+	onSwitchIn(pokemon) {
+		const originalSpecies = this.dex.species.get((pokemon.species as any).originalSpecies);
+		if (originalSpecies.exists && pokemon.m.originalSpecies !== originalSpecies.baseSpecies) {
+			// Place volatiles on the Pokémon to show its mega-evolved condition and details
+			this.add('-start', pokemon, originalSpecies.requiredItems?.[0] || originalSpecies.requiredItem || originalSpecies.requiredMove, '[silent]');
+			const oSpecies = this.dex.species.get(pokemon.m.originalSpecies);
+			if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1] ||
+				oSpecies.types[0] !== pokemon.species.types[0]) {
+				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+			}
+		}
+	},
+	onSwitchOut(pokemon) {
+		const originalSpecies = this.dex.species.get((pokemon.species as any).originalSpecies);
+		if (originalSpecies.exists && pokemon.m.originalSpecies !== originalSpecies.baseSpecies) {
+			this.add('-end', pokemon, originalSpecies.requiredItems?.[0] || originalSpecies.requiredItem || originalSpecies.requiredMove, '[silent]');
+		}
+	},
+	// Shared Power
+	getSharedPower(pokemon) {
+		const sharedPower = new Set<string>();
+		for (const ally of pokemon.side.pokemon) {
+			if (pokemon.battle.ruleTable.isRestricted(`ability:${ally.baseAbility}`)) continue;
+			if (ally.previouslySwitchedIn > 0) {
+				if (pokemon.battle.dex.currentMod !== 'sharedpower' && ['trace', 'mirrorarmor'].includes(ally.baseAbility)) {
+					sharedPower.add('noability');
+					continue;
+				}
+				sharedPower.add(ally.baseAbility);
+			}
+		}
+		sharedPower.delete(pokemon.baseAbility);
+		return sharedPower;
+	},
+	onBeforeSwitchIn(pokemon) {
+		let format = this.format;
+		if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
+		for (const ability of format.getSharedPower!(pokemon)) {
+			const effect = 'ability:' + this.toID(ability);
+			pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
+			if (!pokemon.m.abils) pokemon.m.abils = [];
+			if (!pokemon.m.abils.includes(effect)) pokemon.m.abils.push(effect);
+		}
+	},
+};
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 
@@ -1460,56 +1514,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'G-Max Vine Lash', 'G-Max Wildfire', 'G-Max Cannonade', 'G-Max Befuddle', 'G-Max Volt Crash', 'G-Max Gold Rush', 'G-Max Chi Strike', 'G-Max Terror', 'G-Max Foam Burst', 'G-Max Resonance', 'G-Max Malodor', 'G-Max Meltdown', 'G-Max Wind Rage', 'G-Max Gravitas', 'G-Max Stonesurge', 'G-Max Volcalith', 'G-Max Tartness', 'G-Max Sandblast', 'G-Max Stun Shock', 'G-Max Centiferno', 'G-Max Smite', 'G-Max Snooze', 'G-Max Finale', 'G-Max Steelsurge',
 		],
-		// Mix and Mega
-		onBegin() {
-			for (const pokemon of this.getAllPokemon()) {
-				pokemon.m.originalSpecies = pokemon.baseSpecies.name;
-			}
-		},
-		onSwitchIn(pokemon) {
-			const originalSpecies = this.dex.species.get((pokemon.species as any).originalSpecies);
-			if (originalSpecies.exists && pokemon.m.originalSpecies !== originalSpecies.baseSpecies) {
-				// Place volatiles on the Pokémon to show its mega-evolved condition and details
-				this.add('-start', pokemon, originalSpecies.requiredItems?.[0] || originalSpecies.requiredItem || originalSpecies.requiredMove, '[silent]');
-				const oSpecies = this.dex.species.get(pokemon.m.originalSpecies);
-				if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1] ||
-					oSpecies.types[0] !== pokemon.species.types[0]) {
-					this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-				}
-			}
-		},
-		onSwitchOut(pokemon) {
-			const originalSpecies = this.dex.species.get((pokemon.species as any).originalSpecies);
-			if (originalSpecies.exists && pokemon.m.originalSpecies !== originalSpecies.baseSpecies) {
-				this.add('-end', pokemon, originalSpecies.requiredItems?.[0] || originalSpecies.requiredItem || originalSpecies.requiredMove, '[silent]');
-			}
-		},
-		// Shared Power
-		getSharedPower(pokemon) {
-			const sharedPower = new Set<string>();
-			for (const ally of pokemon.side.pokemon) {
-				if (pokemon.battle.ruleTable.isRestricted(`ability:${ally.baseAbility}`)) continue;
-				if (ally.previouslySwitchedIn > 0) {
-					if (pokemon.battle.dex.currentMod !== 'sharedpower' && ['trace', 'mirrorarmor'].includes(ally.baseAbility)) {
-						sharedPower.add('noability');
-						continue;
-					}
-					sharedPower.add(ally.baseAbility);
-				}
-			}
-			sharedPower.delete(pokemon.baseAbility);
-			return sharedPower;
-		},
-		onBeforeSwitchIn(pokemon) {
-			let format = this.format;
-			if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
-			for (const ability of format.getSharedPower!(pokemon)) {
-				const effect = 'ability:' + this.toID(ability);
-				pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
-				if (!pokemon.m.abils) pokemon.m.abils = [];
-				if (!pokemon.m.abils.includes(effect)) pokemon.m.abils.push(effect);
-			}
-		},
+		onBegin: spmnm.onBegin,
+		onSwitchIn: spmnm.onSwitchIn,
+		onSwitchOut: spmnm.onSwitchOut,
+		getSharedPower: spmnm.getSharedPower,
+		onBeforeSwitchIn: spmnm.onBeforeSwitchIn,
 	},
 	{
 		name: "[Gen 9] Chaos Cup FFA",
@@ -1518,6 +1527,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		team: 'randomHC',
 		ruleset: ['[Gen 9] Chaos Cup'],
+		onBegin: spmnm.onBegin,
+		onSwitchIn: spmnm.onSwitchIn,
+		onSwitchOut: spmnm.onSwitchOut,
+		getSharedPower: spmnm.getSharedPower,
+		onBeforeSwitchIn: spmnm.onBeforeSwitchIn,
 	},
 	{
 		name: "[Gen 9] Hackmons Cup",

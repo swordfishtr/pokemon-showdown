@@ -412,10 +412,10 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			const species: Species = (this as any).getMixedSpecies(pokemon.m.originalSpecies, pokemon.canMegaEvo, pokemon);
 
-			/* Do we have a proper sprite for it? Code for when megas actually exist
-			if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
-				pokemon.formeChange(species, pokemon.getItem(), true);
-			} else { */
+			// Do we have a proper sprite for it? Code for when megas actually exist
+			// if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
+			// 	pokemon.formeChange(species, pokemon.getItem(), true);
+			// } else {
 			const oSpecies = this.dex.species.get(pokemon.m.originalSpecies);
 			const oMegaSpecies = this.dex.species.get((species as any).originalSpecies);
 			pokemon.formeChange(species, pokemon.getItem(), true);
@@ -425,7 +425,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			// }
 
-			pokemon.canMegaEvo = null;
+			// Limit one mega evolution
+			for (const ally of pokemon.side.pokemon) {
+				ally.canMegaEvo = null;
+			}
+
 			return true;
 		},
 		terastallize(pokemon) {

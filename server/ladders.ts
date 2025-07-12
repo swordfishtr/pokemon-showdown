@@ -327,41 +327,38 @@ class Ladder extends LadderStore {
 	}
 
 	/**
-	 * Verifies whether or not a match made between two users is valid. Returns
+	 * Verifies whether or not a match made between two users is valid.
 	 */
 	matchmakingOK(matches: [BattleReady, User][]) {
-		const formatid = toID(this.formatid);
 		const users = matches.map(([ready, user]) => user);
 		const userids = users.map(user => user.id);
 
 		// users must be different
 		if (new Set(users).size !== users.length) return false;
 
-		if (Config.noipchecks) {
-			users[0].lastMatch = users[1].id;
-			users[1].lastMatch = users[0].id;
-			return true;
-		}
-
 		// users must have different IPs
-		if (new Set(users.map(user => user.latestIp)).size !== users.length) return false;
-
-		// users must not have been matched immediately previously
-		for (const user of users) {
-			if (userids.includes(user.lastMatch)) return false;
-		}
+		if (!Config.noipchecks && new Set(users.map(user => user.latestIp)).size !== users.length) return false;
 
 		// search must be within range
 		let searchRange = 100;
-		const times = matches.map(([search]) => search.time);
-		const elapsed = Date.now() - Math.min(...times);
-		if (formatid === `gen${Dex.gen}ou` || formatid === `gen${Dex.gen}randombattle`) {
-			searchRange = 50;
+
+		// if users have been matched immediately previously, take away about 6 seconds worth of lenience.
+		// (Showdown's matchmaking system is strange)
+		for (const user of users) {
+			if (userids.includes(user.lastMatch)) {
+				searchRange -= 20;
+				break;
+			}
 		}
+
+		const times = matches.map(([search]) => search.time);
+
+		// longest wait, in milliseconds
+		const elapsed = Date.now() - Math.min(...times);
 
 		searchRange += elapsed / 300; // +1 every .3 seconds
 		if (searchRange > 300) searchRange = 300 + (searchRange - 300) / 10; // +1 every 3 sec after 300
-		if (searchRange > 600) searchRange = 600;
+		if (searchRange > 5000) searchRange = 5000;
 		const ratings = matches.map(([search]) => search.rating);
 		if (Math.max(...ratings) - Math.min(...ratings) > searchRange) return false;
 
@@ -415,15 +412,23 @@ class Ladder extends LadderStore {
 	 */
 	static periodicMatch() {
 		// In order from longest waiting to shortest waiting
+		// Except the lastmatch is tried last
 		for (const [formatid, formatTable] of Ladders.searches) {
 			if (formatTable.playerCount > 2) continue; // TODO: implement
 			const matchmaker = Ladders(formatid);
 			let longest: [BattleReady, User] | null = null;
-			for (const search of formatTable.searches.values()) {
+			const queue = [...formatTable.searches.values()];
+			for (let i = 0; i < queue.length; i++) {
+				const search = queue[i];
 				if (!longest) {
 					const longestSearcher = matchmaker.getSearcher(search);
 					if (!longestSearcher) continue;
 					longest = [search, longestSearcher];
+					// Moving lastmatch, if applicable, to the end here
+					const j = queue.findIndex(x => longestSearcher.lastMatch === x.userid);
+					if(j > i) {
+						queue.push(queue.splice(j, 1)[0]);
+					}
 					continue;
 				}
 				const searcher = matchmaker.getSearcher(search);
@@ -438,6 +443,25 @@ class Ladder extends LadderStore {
 					return;
 				}
 			}
+			// for (const search of queue) {
+			// 	if (!longest) {
+			// 		const longestSearcher = matchmaker.getSearcher(search);
+			// 		if (!longestSearcher) continue;
+			// 		longest = [search, longestSearcher];
+			// 		continue;
+			// 	}
+			// 	const searcher = matchmaker.getSearcher(search);
+			// 	if (!searcher) continue;
+
+			// 	const [longestSearch, longestSearcher] = longest;
+			// 	const matched = matchmaker.matchmakingOK([[search, searcher], [longestSearch, longestSearcher]]);
+			// 	if (matched) {
+			// 		formatTable.searches.delete(search.userid);
+			// 		formatTable.searches.delete(longestSearch.userid);
+			// 		Ladder.match([longestSearch, search]);
+			// 		return;
+			// 	}
+			// }
 		}
 	}
 

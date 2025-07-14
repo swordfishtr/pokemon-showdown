@@ -3062,7 +3062,7 @@ export const commands: Chat.ChatCommands = {
 
 	// Generations
 
-	accessreplay(target, room, user) {
+	accessreplay(target, room, user, connection) {
 		const parts = /^https?:\/\/replay.generationssd.co.uk\/(.+)/.exec(target);
 		if(!parts) {
 			return this.sendReply('Invalid url.');
@@ -3079,8 +3079,8 @@ export const commands: Chat.ChatCommands = {
 			return this.sendReply(`Replay not found: ${format}-${id}`);
 		}
 		const data = JSON.parse(datastr);
-		if(!user.isSysop && !data.players.map(toID).includes(user.id)) {
-			return this.sendReply(`Your username is not a player in this replay (${data.players.join('```, ```')})`);
+		if(!user.hasConsoleAccess(connection) && !data.players.map(toID).includes(user.id)) {
+			return this.sendReply(`Your username is not a player in this replay (${data.players.join(', ')})`);
 		}
 		let buf = `https://replay.generationssd.co.uk/${data.id}`;
 		if(data.password) buf += `-${data.password}`;

@@ -144,6 +144,7 @@ export interface Translations {
 const LINK_WHITELIST = [
 	'*.pokemonshowdown.com', 'psim.us', 'smogtours.psim.us',
 	'*.smogon.com', '*.pastebin.com', '*.hastebin.com',
+	'generationssd.co.uk', '*.generationssd.co.uk',
 ];
 
 const MAX_MESSAGE_LENGTH = 1000;

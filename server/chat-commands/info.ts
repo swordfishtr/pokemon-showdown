@@ -10,7 +10,7 @@
  */
 import * as net from 'net';
 import { YouTube, Twitch } from '../chat-plugins/youtube';
-import { Net, Utils } from '../../lib';
+import { FS, Net, Utils } from '../../lib';
 import { RoomSections } from './room-settings';
 
 const ONLINE_SYMBOL = ` \u25C9 `;
@@ -3059,6 +3059,34 @@ export const commands: Chat.ChatCommands = {
 		room = this.requireRoom();
 		return this.parse(`/join view-topics-${room}`);
 	},
+
+	// Generations
+
+	accessreplay(target, room, user) {
+		const parts = /^https?:\/\/replay.generationssd.co.uk\/(.+)/.exec(target);
+		if(!parts) {
+			return this.sendReply('Invalid url.');
+		}
+		if(parts[1].includes('/')) {
+			return this.sendReply('```/``` is not allowed in path.');
+		}
+		if(parts[1].includes('..')) {
+			return this.sendReply('```..``` is not allowed in path.');
+		}
+		const [format, id, password] = parts[1].split('-', 3);
+		const datastr = FS(`${Config.customreplaysdir}/${format}-${id}.json`).readIfExistsSync();
+		if(!datastr) {
+			return this.sendReply(`Replay not found: \`\`\`${format}-${id}\`\`\``);
+		}
+		const data = JSON.parse(datastr);
+		if(!data.players.includes(user.id)) {
+			return this.sendReply(`Your username is not a player in this replay (\`\`\`${data.players.join('```, ```')}\`\`\`)`);
+		}
+		let buf = `https://replay.generationssd.co.uk/${data.id}`;
+		if(data.password) buf += `-${data.password}`;
+		this.sendReply(buf);
+	},
+	accessreplayhelp: [`/accessreplay [replay url] - If your username is a player in this replay, returns url with password included.`],
 };
 
 export const handlers: Chat.Handlers = {

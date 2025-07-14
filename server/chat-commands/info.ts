@@ -3068,19 +3068,19 @@ export const commands: Chat.ChatCommands = {
 			return this.sendReply('Invalid url.');
 		}
 		if(parts[1].includes('/')) {
-			return this.sendReply('```/``` is not allowed in path.');
+			return this.sendReply('/ is not allowed in path.');
 		}
 		if(parts[1].includes('..')) {
-			return this.sendReply('```..``` is not allowed in path.');
+			return this.sendReply('.. is not allowed in path.');
 		}
 		const [format, id, password] = parts[1].split('-', 3);
 		const datastr = FS(`${Config.customreplaysdir}/${format}-${id}.json`).readIfExistsSync();
 		if(!datastr) {
-			return this.sendReply(`Replay not found: \`\`\`${format}-${id}\`\`\``);
+			return this.sendReply(`Replay not found: ${format}-${id}`);
 		}
 		const data = JSON.parse(datastr);
-		if(!data.players.includes(user.id)) {
-			return this.sendReply(`Your username is not a player in this replay (\`\`\`${data.players.join('```, ```')}\`\`\`)`);
+		if(!user.isSysop && !data.players.map(toID).includes(user.id)) {
+			return this.sendReply(`Your username is not a player in this replay (${data.players.join('```, ```')})`);
 		}
 		let buf = `https://replay.generationssd.co.uk/${data.id}`;
 		if(data.password) buf += `-${data.password}`;

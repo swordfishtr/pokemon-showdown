@@ -247,6 +247,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Gourgeist-Small', 'Kingler', 'Rapidash-Base', 'Accelgor', 'Ariados', 'Magcargo', 'Sudowoodo', 'Qwilfish-Base', 'Eldegoss',
 			'Stunfisk-Base', 'Raichu-Base', 'Klawf', 'Scolipede', 'Gabite', 'Jynx', 'Linoone-Base', 'Unfezant', 'Revavroom',
 			'Appletun', 'Kabutops', 'Wyrdeer', 'Charizard-Base', 'Grafaiai', 'Golem-Base', 'Medicham-Base', 'Thievul', 'Lucario-Base',
@@ -259,6 +260,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Rapidash-Galar', 'Whiscash', 'Scrafty', 'Uxie', 'Arbok', 'Zangoose', 'Carnivine', 'Persian-Alola', 'Emolga',
 			'Araquanid-Base', 'Pincurchin', 'Hitmonchan', 'Maractus', 'Dewgong', 'Spinda', 'Breloom', 'Parasect', 'Sigilyph',
 			'Ambipom', 'Zygarde-10%', 'Tauros-Base', 'Glalie-Base', 'Golduck', 'Pangoro', 'Weezing-Base', 'Zweilous', 'Pinsir-Base',
@@ -271,6 +273,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Clodsire', 'Comfey', 'Probopass', 'Bellibolt', 'Wugtrio', 'Unown', 'Shiftry', 'Swanna', 'Houndoom-Base',
 			'Oricorio-Pom-Pom', 'Cursola', 'Slowbro-Base', 'Goodra-Base', 'Torkoal', 'Shaymin-Base', 'Infernape', 'Mesprit', 'Alcremie',
 			'Golurk', 'Dachsbun', 'Vileplume', 'Scyther', 'Donphan', 'Toedscruel', 'Sawsbuck', 'Reuniclus', 'Spiritomb',
@@ -287,6 +290,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Golem-Alola', 'Zoroark-Base', 'Pyukumuku', 'Guzzlord', 'Wugtrio', 'Garbodor', 'Aurorus', 'Morpeko-Base', 'Walrein',
 			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
 			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
@@ -299,6 +303,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Wishiwashi-Base', 'Ampharos-Base', 'Tsareena', 'Glaceon', 'Centiskorch', 'Frosmoth', 'Exeggutor-Base', 'Shelgon', 'Granbull',
 			'Guzzlord', 'Reuniclus', 'Spiritomb', 'Unown', 'Shedinja', 'Lurantis-Base', 'Gabite', 'Gourgeist-Base', 'Ledian',
 			'Golduck', 'Qwilfish-Base', 'Pinsir-Base', 'Gumshoos-Base', 'Wigglytuff', 'Arbok', 'Dusknoir', 'Araquanid-Base', 'Kecleon',
@@ -311,6 +316,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Ninjask', 'Perrserker', 'Klinklang', 'Snorlax', 'Houndstone', 'Amoonguss', 'Seviper', 'Rhydon', 'Vigoroth',
 			'Bellossom', 'Sandaconda', 'Samurott-Base', 'Honchkrow', 'Scyther', 'Clawitzer', 'Bisharp', 'Sinistcha-Base', 'Guzzlord',
 			'Porygon-Z', 'Sylveon', 'Sudowoodo', 'Vikavolt-Base', 'Noivern', 'Blastoise-Base', 'Dudunsparce', 'Dugtrio-Alola', 'Gengar-Base',
@@ -323,6 +329,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Starmie', 'Muk-Alola', 'Krookodile', 'Slowking-Galar', 'Gabite', 'Florges', 'Bellibolt', 'Rotom-Fan', 'Beartic',
 			'Hatterene', 'Fearow', 'Simisage', 'Pyroar', 'Politoed', 'Mudsdale', 'Manectric-Base', 'Rhydon', 'Simisear',
 			'Basculin-White-Striped', 'Swalot', 'Wyrdeer', 'Klawf', 'Flareon', 'Wugtrio', 'Glimmora', 'Clodsire', 'Armaldo',
@@ -335,6 +342,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Mandibuzz', 'Braviary-Base', 'Dusclops', 'Sawk', 'Corsola-Base', 'Maushold-Base', 'Vivillon', 'Runerigus', 'Chesnaught',
 			'Rotom-Heat', 'Dhelmise', 'Illumise', 'Seviper', 'Boltund', 'Braviary-Hisui', 'Mamoswine', 'Charizard-Base', 'Smeargle',
 			'Donphan', 'Musharna', 'Muk-Alola', 'Frosmoth', 'Sableye-Base', 'Blissey', 'Heracross-Base', 'Eelektross', 'Trapinch',
@@ -347,6 +355,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Venusaur-Base', 'Shiftry', 'Mabosstiff', 'Donphan', 'Rotom-Heat', 'Garbodor', 'Blastoise-Base', 'Oricorio-Pom-Pom', 'Tinkaton',
 			'Lilligant-Base', 'Claydol', 'Brambleghast', 'Noctowl', 'Aggron-Base', 'Rapidash-Galar', 'Muk-Base', 'Rampardos', 'Houndoom-Base',
 			'Masquerain', 'Dachsbun', 'Cloyster', 'Rotom-Mow', 'Flareon', 'Eiscue-Base', 'Hitmontop', 'Charizard-Base', 'Primeape',
@@ -361,6 +370,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			// Shed Tail banned here
 			'Mimikyu-Base', 'Cacturne', 'Mabosstiff', 'Cyclizar', 'Raticate-Alola', 'Wyrdeer', 'Pincurchin', 'Slowbro-Galar', 'Arboliva',
 			'Heliolisk', 'Trapinch', 'Runerigus', 'Gabite', 'Illumise', 'Probopass', 'Banette-Base', 'Exeggutor-Base', 'Registeel',
 			'Squawkabilly-Base', 'Delphox', 'Spidops', 'Indeedee-Base', 'Scyther', 'Fearow', 'Magcargo', 'Walrein', 'Crabominable',
@@ -373,6 +383,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Carbink', 'Mantine', 'Dusknoir', 'Cryogonal', 'Milotic', 'Mr. Mime-Base', 'Hitmonchan', 'Shiinotic', 'Beheeyem',
 			'Drampa', 'Oinkologne-F', 'Dustox', 'Sunflora', 'Raichu-Alola', 'Meowstic-Base', 'Dachsbun', 'Calyrex-Base', 'Arbok',
 			'Octillery', 'Maushold-Base', 'Grafaiai', 'Torkoal', 'Miltank', 'Froslass', 'Ariados', 'Sableye-Base', 'Cherrim-Base',
@@ -385,6 +396,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Lokix', 'Sandslash-Alola', 'Altaria-Base', 'Gengar-Base', 'Drampa', 'Dugtrio-Alola', 'Stoutland', 'Golisopod', 'Abomasnow-Base',
 			'Frosmoth', 'Fezandipiti', 'Golduck', 'Vespiquen', 'Decidueye-Base', 'Charizard-Base', 'Hippowdon', 'Rabsca', 'Coalossal',
 			'Houndstone', 'Leafeon', 'Glaceon', 'Slowking-Base', 'Manectric-Base', 'Alomomola', 'Accelgor', 'Mismagius', 'Dachsbun',
@@ -397,6 +409,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Oricorio-Base', 'Wigglytuff', 'Phione', 'Politoed', 'Ninjask', 'Samurott-Base', 'Galvantula', 'Mesprit', 'Scrafty',
 			'Rotom-Fan', 'Greedent', 'Seaking', 'Swampert-Base', 'Weezing-Galar', 'Shelgon', 'Leafeon', 'Cacturne', 'Turtonator',
 			'Magmortar', 'Lilligant-Base', 'Sirfetch’d', 'Oricorio-Sensu', 'Persian-Alola', 'Farigiraf', 'Pinsir-Base', 'Primeape', 'Tatsugiri',
@@ -409,6 +422,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Tauros-Paldea-Blaze', 'Ceruledge', 'Klinklang', 'Houndstone', 'Gothitelle', 'Snorlax', 'Sandslash-Base', 'Morpeko-Base', 'Sawk',
 			'Nidoqueen', 'Lickilicky', 'Shiftry', 'Vanilluxe', 'Jynx', 'Wormadam-Trash', 'Vigoroth', 'Mr. Rime', 'Skarmory',
 			'Tyrantrum', 'Aromatisse', 'Primarina', 'Golem-Alola', 'Maushold-Base', 'Pangoro', 'Malamar', 'Clodsire', 'Klawf',
@@ -421,6 +435,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Hatterene', 'Drakloak', 'Luvdisc', 'Tangrowth', 'Snorlax', 'Starmie', 'Ursaring', 'Appletun', 'Stoutland',
 			'Musharna', 'Chatot', 'Masquerain', 'Gorebyss', 'Kecleon', 'Avalugg-Hisui', 'Rhyperior', 'Beedrill-Base', 'Meowstic-F',
 			'Probopass', 'Dewgong', 'Braviary-Base', 'Houndoom-Base', 'Gothitelle', 'Crobat', 'Tentacruel', 'Eldegoss', 'Seaking',
@@ -437,6 +452,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Mabosstiff', 'Eelektross', 'Camerupt-Base', 'Grapploct', 'Drifblim', 'Ampharos-Base', 'Lurantis-Base', 'Gyarados-Base', 'Hypno',
 			'Druddigon', 'Durant', 'Chesnaught', 'Gastrodon', 'Eldegoss', 'Pelipper', 'Dodrio', 'Wailord', 'Emolga',
 			'Dachsbun', 'Drampa', 'Trevenant', 'Passimian', 'Beautifly', 'Tyranitar-Base', 'Regirock', 'Stunfisk-Galar', 'Morpeko-Base',
@@ -449,6 +465,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Copperajah', 'Dhelmise', 'Mudsdale', 'Veluza', 'Bellossom', 'Tropius', 'Cramorant-Base', 'Jellicent', 'Boltund',
 			'Scolipede', 'Typhlosion-Base', 'Klefki', 'Metagross-Base', 'Swoobat', 'Honchkrow', 'Cursola', 'Revavroom', 'Swampert-Base',
 			'Garbodor', 'Electivire', 'Slurpuff', 'Jynx', 'Bombirdier', 'Mismagius', 'Wyrdeer', 'Lanturn', 'Carnivine',
@@ -461,6 +478,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Shuckle', 'Emboar',
 			'Doublade', 'Phione', 'Lumineon', 'Toucannon', 'Mandibuzz', 'Cinccino', 'Avalugg-Hisui', 'Sceptile-Base', 'Toedscruel',
 			'Hitmontop', 'Golem-Alola', 'Dugtrio-Base', 'Mr. Rime', 'Ariados', 'Pachirisu', 'Ambipom', 'Volbeat', 'Centiskorch',
@@ -474,6 +492,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Mimikyu-Base', 'Scovillain',
 			'Lycanroc-Base', 'Jolteon', 'Bisharp', 'Togekiss', 'Starmie', 'Shuckle', 'Emboar', 'Doublade', 'Phione',
 			'Lumineon', 'Toucannon', 'Mandibuzz', 'Rotom-Base', 'Falinks', 'Magnezone', 'Dondozo', 'Brambleghast', 'Goodra-Base',
@@ -486,6 +505,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Zoroark-Hisui', 'Yanmega', 'Mothim', 'Rapidash-Galar', 'Drapion', 'Chimecho', 'Espeon', 'Vaporeon', 'Mamoswine',
 			'Vespiquen', 'Barbaracle', 'Shedinja', 'Alakazam-Base', 'Glaceon', 'Staraptor', 'Electrode-Hisui', 'Lickilicky', 'Whiscash',
 			'Cherrim-Base', 'Armaldo', 'Slowking-Base', 'Kingler', 'Dudunsparce', 'Watchog', 'Flygon', 'Granbull', 'Decidueye-Base',
@@ -498,6 +518,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Vileplume', 'Swanna', 'Yanmega', 'Heracross-Base', 'Nidoking', 'Leafeon', 'Kricketune', 'Swellow', 'Comfey',
 			'Bibarel', 'Empoleon', 'Ludicolo', 'Tangrowth', 'Simisear', 'Parasect', 'Krookodile', 'Eelektross', 'Abomasnow-Base',
 			'Avalugg-Base', 'Bastiodon', 'Dusclops', 'Minior-Base', 'Masquerain', 'Victreebel', 'Rabsca', 'Linoone-Base', 'Omastar',
@@ -510,6 +531,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
+			'Shed Tail',
 			'Leavanny', 'Masquerain', 'Eiscue-Base', 'Torterra', 'Dragonair', 'Runerigus', 'Swalot', 'Muk-Alola', 'Musharna',
 			'Hippowdon', 'Alomomola', 'Aggron-Base', 'Umbreon', 'Galvantula', 'Pawmot', 'Quagsire', 'Slurpuff', 'Sigilyph',
 			'Vaporeon', 'Blastoise-Base', 'Aegislash-Base', 'Scizor-Base', 'Spiritomb', 'Golisopod', 'Clawitzer', 'Ninetales-Base', 'Delphox',

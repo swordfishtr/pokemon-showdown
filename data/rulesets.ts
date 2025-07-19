@@ -3252,7 +3252,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
-			'Razor Fang', 'Last Respects', 'Shed Tail',
+			'Razor Fang', // 'Last Respects', 'Shed Tail', are these banned?
 		],
 	},
 	// Maybe not needed

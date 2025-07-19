@@ -370,7 +370,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
-			// Shed Tail banned here
+			'Shed Tail',
 			'Mimikyu-Base', 'Cacturne', 'Mabosstiff', 'Cyclizar', 'Raticate-Alola', 'Wyrdeer', 'Pincurchin', 'Slowbro-Galar', 'Arboliva',
 			'Heliolisk', 'Trapinch', 'Runerigus', 'Gabite', 'Illumise', 'Probopass', 'Banette-Base', 'Exeggutor-Base', 'Registeel',
 			'Squawkabilly-Base', 'Delphox', 'Spidops', 'Indeedee-Base', 'Scyther', 'Fearow', 'Magcargo', 'Walrein', 'Crabominable',

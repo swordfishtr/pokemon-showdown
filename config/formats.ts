@@ -642,7 +642,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen7',
 		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
-		banlist: ['All Pokemon', 'Regenerator'],
+		banlist: ['All Pokemon', 'Regenerator', 'Dynamic Punch'],
 		unbanlist: [
 			'Golurk', 'Flareon', 'Lycanroc-Base', 'Togedemaru-Base', 'Froslass', 'Roserade', 'Magmortar', 'Abomasnow-Base', 'Abomasnow-Mega', 'Audino-Base', 'Audino-Mega', 'Banette-Base', 'Banette-Mega', 'Blastoise-Base', 'Blastoise-Mega', 'Noivern', 'Bronzong', 'Diancie-Base', 'Flygon', 'Forretress', 'Gallade-Base', 'Garbodor', 'Gigalith', 'Golisopod', 'Guzzlord', 'Hariyama', 'Moltres-Base', 'Milotic', 'Miltank', 'Primeape', 'Rotom-Frost', 'Seismitoad', 'Shaymin-Base', 'Silvally-Fairy', 'Skuntank', 'Swellow', 'Vikavolt-Base', 'Xatu', 'Zoroark-Base',
 		],
@@ -666,6 +666,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add('rule', `Perfect E1: Only the following Pokemon can hold Mega Stones: ${megaUsers.join(', ')}`);
 			this.add('rule', `Perfect E1: Only the following Pokemon can hold Z Crystals: ${zUsers.join(', ')}`);
 			this.add('rule', `Perfect E1: Pokemon can not have Regenerator.`);
+			this.add('rule', `Perfect E1: Pokemon can not have Dynamic Punch.`);
 		},
 	},
 	{

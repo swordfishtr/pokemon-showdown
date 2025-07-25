@@ -605,7 +605,10 @@ export const commands: Chat.ChatCommands = {
 			throw new Chat.ErrorMessage("Wait for /updateserver to finish before hotpatching.");
 		}
 
-		await this.parse(`/rebuild`);
+		this.sendReply('Begin ...');
+
+		// The server tends to be freshly built when a hotpatch is needed anyway.
+		// await this.parse(`/rebuild`);
 		const lock = Monitor.hotpatchLock;
 		const hotpatches = [
 			'chat', 'formats', 'loginserver', 'punishments', 'dnsbl', 'modlog',
@@ -1768,6 +1771,22 @@ export const commands: Chat.ChatCommands = {
 		`Short forms: /ebat h OR s OR pp OR b OR v OR sc OR fc OR w OR t`,
 		`[player] must be a username or number, [pokemon] must be species name or party slot number (not nickname), [move] must be move name.`,
 	],
+
+	// Generations
+
+	reloadconfig(target, room, user, connection, cmd, message) {
+		this.canUseConsole();
+		// lifted off config-loader
+		try {
+			global.Config = require('../config-loader').load(true);
+			Chat.plugins['username-prefixes']?.prefixManager.refreshConfig(true);
+			Monitor.notice('Reloaded ../config/config.js');
+			this.sendReply('Successful.');
+		} catch (e: any) {
+			Monitor.adminlog("Error reloading ../config/config.js: " + e.stack);
+			this.sendReply('Failed.');
+		}
+	},
 };
 
 export const pages: Chat.PageTable = {

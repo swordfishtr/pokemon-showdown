@@ -44,24 +44,29 @@ try {
 	const configAvatars = JSON.parse(FS(AVATARS_FILE).readSync());
 	Object.assign(customAvatars, configAvatars);
 } catch {
-	if (Config.customavatars) {
-		for (const userid in Config.customavatars) {
-			customAvatars[userid] = { allowed: [Config.customavatars[userid]] };
-		}
-	}
-	if (Config.allowedavatars) {
-		for (const avatar in Config.customavatars) {
-			for (const userid of Config.customavatars[avatar]) {
-				if (!customAvatars[userid]) customAvatars[userid] = { allowed: [null] };
-				customAvatars[userid].allowed.push(avatar);
-			}
-		}
-	}
-	FS(AVATARS_FILE).writeSync(JSON.stringify(customAvatars));
+
+	Monitor.notice(`Missing or invalid ${AVATARS_FILE} - proceeding with no custom avatars ...`);
+
+	// if (Config.customavatars) {
+	// 	for (const userid in Config.customavatars) {
+	// 		customAvatars[userid] = { allowed: [Config.customavatars[userid]] };
+	// 	}
+	// }
+	// if (Config.allowedavatars) {
+	// 	for (const avatar in Config.customavatars) {
+	// 		for (const userid of Config.customavatars[avatar]) {
+	// 			if (!customAvatars[userid]) customAvatars[userid] = { allowed: [null] };
+	// 			customAvatars[userid].allowed.push(avatar);
+	// 		}
+	// 	}
+	// }
+	// FS(AVATARS_FILE).writeSync(JSON.stringify(customAvatars));
 }
-if ((Config.customavatars && Object.keys(Config.customavatars).length) || Config.allowedavatars) {
-	Monitor.crashlog("Please remove 'customavatars' and 'allowedavatars' from Config (config/config.js). Your avatars have been migrated to the new '/addavatar' system.");
-}
+
+// if ((Config.customavatars && Object.keys(Config.customavatars).length) || Config.allowedavatars) {
+// 	Monitor.crashlog("Please remove 'customavatars' and 'allowedavatars' from Config (config/config.js). Your avatars have been migrated to the new '/addavatar' system.");
+// }
+
 function saveCustomAvatars(instant?: boolean) {
 	FS(AVATARS_FILE).writeUpdate(() => JSON.stringify(customAvatars), { throttle: instant ? null : 60_000 });
 }
@@ -847,6 +852,7 @@ export const commands: Chat.ChatCommands = {
 		if (!Avatars.addPersonal(userid, avatar)) {
 			throw new Chat.ErrorMessage(`User "${inputUsername}" can already use avatar "${avatar}".`);
 		}
+		Avatars.save();
 		this.globalModlog('PERSONAL AVATAR', userid, avatar);
 		this.sendReplyBox(<div>
 			{Avatars.img(avatar)}<br />
@@ -870,6 +876,7 @@ export const commands: Chat.ChatCommands = {
 		if (!Avatars.addAllowed(userid, avatar)) {
 			throw new Chat.ErrorMessage(`User "${inputUsername}" can already use avatar "${avatar}".`);
 		}
+		Avatars.save();
 		this.globalModlog('GROUP AVATAR', userid, avatar);
 		this.sendReplyBox(<div>
 			{Avatars.img(avatar)}<br />

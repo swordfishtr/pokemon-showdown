@@ -7,6 +7,7 @@
  */
 
 import { FS } from "../../lib";
+import { ChatCommands } from "../chat";
 
 /** config/event-scheduler.json */
 interface ESConfig {
@@ -112,14 +113,16 @@ const ES = new class EventScheduler {
 };
 
 /** Commands exposed to the end user. */
-export const commands: Chat.ChatCommands = {
+const commands: Chat.ChatCommands = {
 	es: 'eventscheduler',
 	eventscheduler: {
 		''(target, room, user, connection, cmd, message) {
 			return this.parse('/help eventscheduler');
 		},
+		// TODO: remove this
 		ping(target, room, user, connection, cmd, message) {
 			this.sendReply(`Pong! ${target}`);
+			this.sendReplyBox('<div><button class="button" name="send" value="/rfaq" onclick="console.log(this)"></button></div>')
 		},
 		list(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
@@ -127,15 +130,22 @@ export const commands: Chat.ChatCommands = {
 			.map((event, index) => `${index}: ${event.action} ${event.date}`)
 			.join('\n') || 'No events scheduled for this room.');
 		},
-		add(target, room, user, connection, cmd, message) {
-			room = this.requireRoom();
-			this.checkCan('roomprizewinner', null, room);
-			this.sendReply(`This would add now`);
+		add: {
+			''(target, room, user, connection, cmd, message) {
+				this.sendReply(`This would send a form now`);
+			},
+			// Actions are added later to avoid code duplication.
 		},
 		remove(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
 			this.checkCan('roomprizewinner', null, room);
-			this.sendReply(`This would remove now`);;
+
+			if(target === '') {
+				this.sendReply(`Usage: /eventscheduler remove [index]`);
+				return this.parse('/eventscheduler list');
+			}
+
+			this.sendReply(`This would remove now`);
 		},
 	},
 
@@ -143,3 +153,18 @@ export const commands: Chat.ChatCommands = {
 		'event scheduler help goes here',
 	],
 };
+
+for(const action in ESActions) {
+	(commands.add as ChatCommands)[action] = function(target, room, user, connection, cmd, message) {
+		room = this.requireRoom();
+		this.checkCan('roomprizewinner', null, room);
+
+		// Input validation - the command at this point looks like so:
+		// ^/es add action target$
+		// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
+
+		this.sendReply(`This would add ${action} now`);
+	};
+}
+
+export { commands };

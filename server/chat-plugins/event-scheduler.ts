@@ -16,25 +16,25 @@ interface ESConfig {
 
 interface ESEvent {
 	readonly date: number, // Showdown style (Unix epoch in seconds)
-	readonly action: string,
+	readonly action: Lowercase<string>,
 	readonly params: any[],
 	timer: NodeJS.Timeout, // For convenience - this should not be written to FS.
 }
 
 type ESAction = (this: Room, ...params: any[]) => void;
 interface ESActionTable {
-	readonly [name: string]: ESAction,
+	readonly [name: Lowercase<string>]: ESAction,
 }
 
 /** Actions that can be scheduled. Add as needed. */
 const ESActions: ESActionTable = {
-	sendChatMessage(text: string) {
+	send_chat_message(text: string) {
 		this.add(`[EventScheduler] ${text}`);
 	},
-	demotePrizeWinner(userid: string) {
+	demote_prize_winner(userid: string) {
 		this.add(`[EventScheduler] User ${userid} would lose Prize Winner now`);
 	},
-	logLadder(formatid: string) {
+	log_ladder(formatid: string) {
 		this.add(`[EventScheduler] Format ${formatid} would have its current ladder state logged now`);
 	},
 };
@@ -113,7 +113,7 @@ const ES = new class EventScheduler {
 };
 
 /** Commands exposed to the end user. */
-const commands: Chat.ChatCommands = {
+export const commands: Chat.ChatCommands = {
 	es: 'eventscheduler',
 	eventscheduler: {
 		''(target, room, user, connection, cmd, message) {
@@ -130,12 +130,23 @@ const commands: Chat.ChatCommands = {
 			.map((event, index) => `${index}: ${event.action} ${event.date}`)
 			.join('\n') || 'No events scheduled for this room.');
 		},
-		add: {
-			''(target, room, user, connection, cmd, message) {
-				this.sendReply(`This would send a form now`);
-			},
-			// Actions are added later to avoid code duplication.
-		},
+		add: Object.assign(
+			{
+				''(target, room, user, connection, cmd, message) {
+					this.sendReply(`This would send a form now`);
+				},
+			} as ChatCommands,
+			Object.fromEntries(Object.entries(ESActions).map(([name, action]) => [name, function(target, room, user, connection, cmd, message) {
+				room = this.requireRoom();
+				this.checkCan('roomprizewinner', null, room);
+
+				// Input validation - the command at this point looks like so:
+				// ^/es add action target$
+				// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
+
+				this.sendReply(`This would add ${name} now`);
+			}])) as ChatCommands,
+		),
 		remove(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
 			this.checkCan('roomprizewinner', null, room);
@@ -153,18 +164,3 @@ const commands: Chat.ChatCommands = {
 		'event scheduler help goes here',
 	],
 };
-
-for(const action in ESActions) {
-	((commands as any).eventscheduler.add as ChatCommands)[action] = function(target, room, user, connection, cmd, message) {
-		room = this.requireRoom();
-		this.checkCan('roomprizewinner', null, room);
-
-		// Input validation - the command at this point looks like so:
-		// ^/es add action target$
-		// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
-
-		this.sendReply(`This would add ${action} now`);
-	};
-}
-
-export { commands };

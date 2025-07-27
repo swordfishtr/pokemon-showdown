@@ -455,6 +455,17 @@ export class Multiset<T> extends Map<T, number> {
 	}
 }
 
+// Generations
+
+/** Returns a shallow copy of obj with callback executed on each value. */
+export function mapObjectValues<T, K extends string, N>(obj: Record<K, T>, callback: (T: T, name: string) => N) {
+	const out = { ...obj } as any;
+	for(const name in out) {
+		out[name] = callback(out[name], name);
+	}
+	return out as Record<K, N>;
+}
+
 // backwards compatibility
 export const Utils = {
 	parseExactInt, waitUntil, html, escapeHTML,
@@ -465,4 +476,6 @@ export const Utils = {
 	escapeRegex, formatSQLArray,
 	bufFromHex, bufReadHex, bufWriteHex,
 	Multiset,
+
+	mapObjectValues,
 };

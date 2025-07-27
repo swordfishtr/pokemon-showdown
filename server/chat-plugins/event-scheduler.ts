@@ -6,8 +6,8 @@
  * @license GPL-3.0-or-later
  */
 
-import { FS } from "../../lib";
-import { ChatCommands } from "../chat";
+import { FS, Utils } from "../../lib";
+import { ChatCommands, ChatHandler } from "../chat";
 
 /** config/event-scheduler.json */
 interface ESConfig {
@@ -136,7 +136,7 @@ export const commands: Chat.ChatCommands = {
 					this.sendReply(`This would send a form now`);
 				},
 			} as ChatCommands,
-			Object.fromEntries(Object.entries(ESActions).map(([name, action]) => [name, function(target, room, user, connection, cmd, message) {
+			Utils.mapObjectValues(ESActions, (action, name) => function(target, room, user, connection, cmd, message) {
 				room = this.requireRoom();
 				this.checkCan('roomprizewinner', null, room);
 
@@ -145,7 +145,8 @@ export const commands: Chat.ChatCommands = {
 				// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
 
 				this.sendReply(`This would add ${name} now`);
-			}])) as ChatCommands,
+				this.sendReply('(confirmation that the update worked 1)');
+			} as ChatHandler),
 		),
 		remove(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();

@@ -113,7 +113,7 @@ const ES = new class EventScheduler {
 };
 
 /** Commands exposed to the end user. */
-const commands: Chat.ChatCommands = {
+export const commands: Chat.ChatCommands = {
 	es: 'eventscheduler',
 	eventscheduler: {
 		''(target, room, user, connection, cmd, message) {
@@ -130,12 +130,23 @@ const commands: Chat.ChatCommands = {
 			.map((event, index) => `${index}: ${event.action} ${event.date}`)
 			.join('\n') || 'No events scheduled for this room.');
 		},
-		add: {
-			''(target, room, user, connection, cmd, message) {
-				this.sendReply(`This would send a form now`);
-			},
-			// Actions are added later to avoid code duplication.
-		},
+		add: Object.assign(
+			{
+				''(target, room, user, connection, cmd, message) {
+					this.sendReply(`This would send a form now`);
+				},
+			} as ChatCommands,
+			Object.fromEntries(Object.entries(ESActions).map(([name, action]) => [name, function(target, room, user, connection, cmd, message) {
+				room = this.requireRoom();
+				this.checkCan('roomprizewinner', null, room);
+
+				// Input validation - the command at this point looks like so:
+				// ^/es add action target$
+				// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
+
+				this.sendReply(`This would add ${name} now`);
+			}])) as ChatCommands,
+		),
 		remove(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
 			this.checkCan('roomprizewinner', null, room);
@@ -153,18 +164,3 @@ const commands: Chat.ChatCommands = {
 		'event scheduler help goes here',
 	],
 };
-
-for(const action in ESActions) {
-	(commands.add as ChatCommands)[action] = function(target, room, user, connection, cmd, message) {
-		room = this.requireRoom();
-		this.checkCan('roomprizewinner', null, room);
-
-		// Input validation - the command at this point looks like so:
-		// ^/es add action target$
-		// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
-
-		this.sendReply(`This would add ${action} now`);
-	};
-}
-
-export { commands };

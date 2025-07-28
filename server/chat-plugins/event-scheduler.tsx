@@ -15,44 +15,44 @@ interface ESConfig {
 }
 
 interface ESEvent {
-	readonly date: number, // Showdown style (Unix epoch in seconds)
-	readonly action: Lowercase<string>,
-	readonly params: any[],
+	readonly timestamp: number, // Showdown style (Unix epoch in seconds)
+	readonly actionname: Lowercase<string>,
+	readonly params: string,
 	timer: NodeJS.Timeout, // For convenience - this should not be written to FS.
 }
 
-type ESAction = (this: Room, ...params: any[]) => void;
+type ESAction = (this: Room, params: string) => void;
 interface ESActionTable {
 	readonly [name: Lowercase<string>]: ESAction,
 }
 
 /** Actions that can be scheduled. Add as needed. */
 const ESActions: ESActionTable = {
-	send_chat_message(text: string) {
-		this.add(`[EventScheduler] ${text}`);
+	send_chat_message(params) {
+		this.add(`[EventScheduler] ${params}`);
 	},
-	demote_prize_winner(userid: string) {
-		this.add(`[EventScheduler] User ${userid} would lose Prize Winner now`);
+	demote_prize_winner(params) {
+		this.add(`[EventScheduler] User ${params} would lose Prize Winner now`);
 	},
-	log_ladder(formatid: string) {
-		this.add(`[EventScheduler] Format ${formatid} would have its current ladder state logged now`);
+	log_ladder(params) {
+		this.add(`[EventScheduler] Format ${params} would have its current ladder state logged now`);
 	},
 };
 
 /** Abstraction layer handling the config file and timers. */
 const ES = new class EventScheduler {
 	static readonly path = FS('../../config/event-scheduler.json');
-	static calculateTimeout(date: number) {
-		return (date * 1000) - Date.now();
+	static calculateTimeout(timestamp: number) {
+		return (timestamp * 1000) - Date.now();
 	}
 	private createTimer(roomid: string, event: ESEvent) {
-		const timeout = EventScheduler.calculateTimeout(event.date);
+		const timeout = EventScheduler.calculateTimeout(event.timestamp);
 		if(timeout < 100) return 'Timeout is too short.';
 		return setTimeout(() => {
 			this.remove(roomid, event);
 			const room = Rooms.get(roomid);
 			if(!room) return;
-			ESActions[event.action].apply(room, event.params);
+			ESActions[event.actionname].call(room, event.params);
 		}, timeout);
 	}
 	private readonly events = (() => {
@@ -119,40 +119,55 @@ export const commands: Chat.ChatCommands = {
 		''(target, room, user, connection, cmd, message) {
 			return this.parse('/help eventscheduler');
 		},
-		// TODO: remove this
-		ping(target, room, user, connection, cmd, message) {
-			this.sendReply(`Pong! ${target}`);
-		},
 		list(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
 			this.sendReply(ES.list(room.roomid)
-			.map((event, index) => `${index}: ${event.action} ${event.date}`)
+			.map((event, index) => `${index}: ${event.actionname} ${event.timestamp} ${event.params}`)
 			.join('\n') || 'No events scheduled for this room.');
 		},
 		add: Object.assign(
 			{
 				''(target, room, user, connection, cmd, message) {
 					this.sendReplyBox(<div>
-						<form data-submitsend="/eventscheduler ping {action} {date}">
+						<form data-submitsend="/eventscheduler add {action} {date} {parameters}">
+							Schedule an action. Timezone is UTC. Parameters are specific to action; check /help eventscheduler<br></br>
 							<select name="action">
 								{Object.keys(ESActions).map((name) => (<option value={name}>{name}</option>))}
 							</select>
 							<input type="datetime-local" name="date"></input>
-							<button class="button" type="submit">Schedule</button>
+							<input class="textbox" name="parameters"></input>
+							<button class="button" type="submit">Submit</button>
 						</form>
 					</div>);
 				},
 			} as ChatCommands,
-			Utils.mapObjectValues(ESActions, (action, name) => function(target, room, user, connection, cmd, message) {
+			Utils.mapObjectValues(ESActions, (action, actionname) => function(target, room, user, connection, cmd, message) {
 				room = this.requireRoom();
 				this.checkCan('roomprizewinner', null, room);
 
 				// Input validation - the command at this point looks like so:
 				// `/es add action target`
-				// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
+				// action is always valid
+				// target should start with a valid datetime-local value or a showdown-style unix time.
 
-				this.sendReply(`This would add ${name} now`);
-				this.sendReply('(confirmation that the update worked 1)');
+				let [date, params] = Utils.splitFirst(target, ' ');
+
+				const timestamp = (new Date(/^\d+$/.test(date) ? Number(date) * 1000 : `${date}Z`)).getTime();
+				if(Number.isNaN(timestamp)) {
+					this.errorReply(`Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
+					return;
+				}
+
+				const event = { timestamp, actionname, params } as ESEvent;
+
+				const result = ES.add(room.roomid, event);
+
+				if(result) {
+					this.errorReply(`Failure: ${result}`);
+					return;
+				}
+
+				this.sendReply('Success!');
 			} as ChatHandler),
 		),
 		remove(target, room, user, connection, cmd, message) {
@@ -160,11 +175,24 @@ export const commands: Chat.ChatCommands = {
 			this.checkCan('roomprizewinner', null, room);
 
 			if(target === '') {
-				this.sendReply(`Usage: /eventscheduler remove [index]`);
+				this.errorReply('Usage: /eventscheduler remove [index]');
 				return this.parse('/eventscheduler list');
 			}
 
-			this.sendReply(`This would remove now`);
+			const index = Number(target);
+			if(Number.isNaN(index)) {
+				this.errorReply('Index must be a number.');
+				return this.parse('/eventscheduler list');
+			}
+
+			const result = ES.remove(room.roomid, index);
+
+			if(result) {
+				this.errorReply(`Failure: ${result}`);
+				return;
+			}
+
+			this.sendReply(`Success!`);
 		},
 	},
 

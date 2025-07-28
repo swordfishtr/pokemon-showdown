@@ -41,7 +41,7 @@ const ESActions: ESActionTable = {
 
 /** Abstraction layer handling the config file and timers. */
 const ES = new class EventScheduler {
-	static readonly path = FS('../../config/event-scheduler.json');
+	static readonly path = FS('config/event-scheduler.json');
 	static calculateTimeout(timestamp: number) {
 		return (timestamp * 1000) - Date.now();
 	}
@@ -152,7 +152,7 @@ export const commands: Chat.ChatCommands = {
 
 				let [date, params] = Utils.splitFirst(target, ' ');
 
-				const timestamp = (new Date(/^\d+$/.test(date) ? Number(date) * 1000 : `${date}Z`)).getTime();
+				const timestamp = (new Date(/^\d+$/.test(date) ? Number(date) * 1000 : `${date}Z`)).getTime() / 1000;
 				if(Number.isNaN(timestamp)) {
 					this.errorReply(`Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
 					return;

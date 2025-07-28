@@ -129,7 +129,7 @@ export const commands: Chat.ChatCommands = {
 			{
 				''(target, room, user, connection, cmd, message) {
 					this.sendReplyBox(<div>
-						<form data-submitsend="/eventscheduler add {action} {date} {parameters}">
+						<form data-stayinroom="true" data-submitsend="/eventscheduler add {action} {date} {parameters}">
 							Schedule an action. Timezone is UTC. Parameters are specific to action; check /help eventscheduler<br></br>
 							<select name="action">
 								{Object.keys(ESActions).map((name) => (<option value={name}>{name}</option>))}

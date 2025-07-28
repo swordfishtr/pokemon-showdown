@@ -122,7 +122,6 @@ export const commands: Chat.ChatCommands = {
 		// TODO: remove this
 		ping(target, room, user, connection, cmd, message) {
 			this.sendReply(`Pong! ${target}`);
-			this.sendReplyBox('<div><button class="button" name="send" value="/rfaq" onclick="console.log(this)"></button></div>')
 		},
 		list(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
@@ -133,7 +132,15 @@ export const commands: Chat.ChatCommands = {
 		add: Object.assign(
 			{
 				''(target, room, user, connection, cmd, message) {
-					this.sendReply(`This would send a form now`);
+					this.sendReplyBox(<div>
+						<form data-submitsend="/eventscheduler ping {action} {date}">
+							<select name="action">
+								{Object.keys(ESActions).map((name) => (<option value={name}>{name}</option>))}
+							</select>
+							<input type="datetime-local" name="date"></input>
+							<button class="button" type="submit">Schedule</button>
+						</form>
+					</div>);
 				},
 			} as ChatCommands,
 			Utils.mapObjectValues(ESActions, (action, name) => function(target, room, user, connection, cmd, message) {
@@ -141,7 +148,7 @@ export const commands: Chat.ChatCommands = {
 				this.checkCan('roomprizewinner', null, room);
 
 				// Input validation - the command at this point looks like so:
-				// ^/es add action target$
+				// `/es add action target`
 				// target should be a valid datetime-local value or a showdown-style unix epoch timestamp.
 
 				this.sendReply(`This would add ${name} now`);

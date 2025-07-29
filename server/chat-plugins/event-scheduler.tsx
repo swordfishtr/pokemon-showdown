@@ -9,6 +9,7 @@
 import timersPromises from 'node:timers/promises';
 import { FS, Utils } from "../../lib";
 import { ChatCommands, ChatHandler } from "../chat";
+import { Auth } from '../user-groups';
 
 const MAX_INT32 = 2 ** 31 - 1;
 
@@ -29,6 +30,7 @@ interface ESActionTable {
 	readonly [name: Lowercase<string>]: ESAction,
 }
 
+// TODO: actionname() -> actionname: { execute(), validate(), help: string[] }
 /** Actions that can be scheduled. Add as needed. */
 const ESActions: ESActionTable = {
 	send_chat_message(params) {
@@ -38,8 +40,15 @@ const ESActions: ESActionTable = {
 		this.send('');
 	},
 	demote_prize_winner(params) {
-		this.add(`[EventScheduler] User ${params} would lose Prize Winner now`);
-		this.send('');
+		const [user, nextRank] = Utils.splitFirst(params, ',');
+		if(!user) return;
+		if(nextRank) {
+			if(!Auth.isValidSymbol(nextRank)) return;
+			this.auth.set(toID(user), nextRank);
+		}
+		else {
+			this.auth.delete(toID(user));
+		}
 	},
 	log_ladder(params) {
 		const [format, prefix] = Utils.splitFirst(params, ',');
@@ -50,6 +59,7 @@ const ESActions: ESActionTable = {
 				return;
 			}
 			this.addRaw(result[1]);
+			this.send('');
 		});
 	},
 };
@@ -79,6 +89,7 @@ const ES = new class EventScheduler {
 
 		event.abort = new AbortController();
 
+		// TODO: are these getting destroyed on /hotpatch chat ? maybe a memory leak here.
 		let timer: Promise<any> = Promise.resolve();
 
 		// setTimeout() will fire immediately if delay is more than MAX_INT32 (about 24 days)
@@ -182,6 +193,7 @@ export const commands: Chat.ChatCommands = {
 			} as ChatCommands,
 			Utils.mapObjectValues(ESActions, (action, actionname) => function(target, room, user, connection, cmd, message) {
 				room = this.requireRoom();
+				// TODO: move this to individual auth checks in ESActions.
 				this.checkCan('roomprizewinner', null, room);
 
 				// Input validation - the command at this point looks like so:
@@ -236,6 +248,17 @@ export const commands: Chat.ChatCommands = {
 	},
 
 	eventschedulerhelp: [
-		'event scheduler help goes here',
+		'Event Scheduler runs preset scripts at specified dates. /eventscheduler = /es',
+		'/es - Explains how to use eventscheduler.',
+		'',
+		'/es list - Lists scheduled events in this room and their indexes.',
+		'',
+		'/es add - Brings up a convenient form. You should use this unless you have a reason not to.',
+		'/es add [action] [date] [params] - Schedules an event in this room. Action supports autocompletion. Date must be a valid HTML datetime-local value or a Showdown-style Unix time. Parameters are action-specific:',
+		'/es add send_chat_message [date] [full message]',
+		'/es add demote_prize_winner [date] [username], [next rank?]',
+		'/es add log_ladder [date] [format], [username prefix?]',
+		'',
+		'/es remove [index] - Cancels the specified event.',
 	],
 };

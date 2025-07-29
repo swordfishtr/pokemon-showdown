@@ -577,7 +577,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Cacturne', 'Seviper', 'Komala', 'Leafeon', 'Copperajah', 'Rotom-Fan', 'Armaldo', 'Mr. Rime', 'Cryogonal', 'Medicham-Base', 'Silvally-Psychic', 'Silvally-Fighting', 'Toxicroak', 'Mantine', 'Purugly', 'Archeops', 'Toucannon', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Frogadier', 'Vikavolt-Base', 'Pinsir-Base', 'Wugtrio', 'Dragonair', 'Shiinotic', 'Dusknoir', 'Skuntank', 'Silvally-Dark', 'Runerigus', 'Misdreavus', 'Turtonator', 'Rapidash-Base', 'Camerupt-Base', 'Sandslash-Base',
 		],
 	},
-	// TODO: Hardcode items, abilities, moves in the teambuilder
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mantine', 'Aurorus', 'Skuntank', 'Archeops', 'Vikavolt-Base', 'Copperajah', 'Kadabra', 'Turtonator', 'Toxicroak', 'Cacturne', 'Mr. Rime', 'Rotom-Fan', 'Rapidash-Base', 'Camerupt-Base', 'Runerigus', 'Dusknoir', 'Tsareena', 'Sylveon', 'Forretress', 'Chandelure', 'Guzzlord', 'Uxie', 'Drampa', 'Tentacruel', 'Slither Wing', 'Donphan', 'Cradily', 'Basculin-White-Striped', 'Braviary-Base', 'Luxray', 'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Steel', 'Kangaskhan-Base', 'Glalie-Base',
+		],
+	},
 	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
@@ -681,23 +689,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes Perfect (WIP)',
 		column: 3
-	},
-	// TODO: test wrong item silvally validation
-	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
-		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', '!Obtainable Formes'],
-		unbanlist: [
-			'Talonflame', 'Rapidash-Base', 'Silvally-Fire', 'Archeops', 'Coalossal', 'Cryogonal', 'Crabominable', 'Machoke', 'Toxicroak', 'Weezing-Base', 'Vikavolt-Base', 'Rotom-Fan', 'Togedemaru-Base', 'Copperajah', 'Illumise', 'Golisopod', 'Silvally-Water', 'Mantine', 'Runerigus', 'Trapinch', 'Dugtrio-Alola', 'Silvally-Grass', 'Terapagos-Base', 'Liepard', 'Aurorus', 'Dusknoir', 'Purugly', 'Farigiraf', 'Flapple', 'Leafeon', 'Thievul', 'Skuntank', 'Dachsbun', 'Rapidash-Galar', 'Hattrem',
-		],
-		validateSet(set, teamHas) {
-			if(this.toID(set.species) === 'terapagos') {
-				if(this.toID(set.ability) === 'scrappy') return this.validateSetNoAbility(set);
-				return ['Terapagos must have Scrappy in A3'];
-			}
-			return this.validateSet(set, teamHas);
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [C2]",

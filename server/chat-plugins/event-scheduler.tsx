@@ -162,8 +162,7 @@ const ES = new class EventScheduler {
 	}
 
 	destroy() {
-		// temporary fix to a crash
-		if(this.destroying) this.destroying = true;
+		this.destroying = true;
 		for(const roomid in this.events) {
 			for(const event of this.events[roomid]) {
 				event.abort.abort();

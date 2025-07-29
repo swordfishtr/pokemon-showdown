@@ -22,7 +22,7 @@ interface ESEvent {
 	readonly timestamp: number, // Showdown style (Unix epoch in seconds)
 	readonly actionname: Lowercase<string>,
 	readonly params: string,
-	abort: AbortController, // For convenience - this should not be written to FS.
+	abort: AbortController, // JSON.stringify turns this into `{}`
 }
 
 type ESAction = (this: Room, params: string) => void;
@@ -35,9 +35,7 @@ interface ESActionTable {
 const ESActions: ESActionTable = {
 	send_chat_message(params) {
 		this.add(`[EventScheduler] ${params}`);
-
-		// Update everyone's screen so the message shows up immediately.
-		this.send('');
+		this.update();
 	},
 	demote_prize_winner(params) {
 		const [user, nextRank] = Utils.splitFirst(params, ',');
@@ -59,7 +57,7 @@ const ESActions: ESActionTable = {
 				return;
 			}
 			this.addRaw(result[1]);
-			this.send('');
+			this.update();
 		});
 	},
 };

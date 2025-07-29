@@ -43,7 +43,7 @@ const ESActions: ESActionTable = {
 	},
 	log_ladder(params) {
 		const [format, prefix] = Utils.splitFirst(params, ',');
-		Ladders(format).getTop(prefix).then((result) => {
+		Ladders(toID(format)).getTop(prefix).then((result) => {
 			if(!result) {
 				this.add(`[EventScheduler] Format ${format} doesn't exist or doesn't have a ladder.`);
 				this.send('');
@@ -70,7 +70,7 @@ const ES = new class EventScheduler {
 	 * The timer is responsible for calling the event's action, and removing the event from memory.
 	 */
 	private assignTimer(roomid: string, event: ESEvent): string | null {
-		if(event.abort.signal) throw new Error('Tried to assign a timer to an event that already has one.');
+		if(event.abort?.signal) throw new Error('Tried to assign a timer to an event that already has one.');
 
 		let timeout = EventScheduler.calculateTimeout(event.timestamp);
 		// Date constructor validates the max value (which is less than Number.MAX_SAFE_INTEGER).

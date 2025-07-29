@@ -120,7 +120,7 @@ const ES = new class EventScheduler {
 	/** Working state of the plugin. */
 	private readonly events = (() => {
 		const cfg = EventScheduler.path.readIfExistsSync();
-		// `event.abort` at this point are `{}`. We have to initialize them.
+		// `event.abort`s at this point are `{}`. We have to initialize them.
 		const obj = (cfg ? JSON.parse(cfg) : {}) as ESConfig;
 		for(const room in obj) {
 			for(const event of obj[room]) {
@@ -273,4 +273,4 @@ export const commands: Chat.ChatCommands = {
 	],
 };
 
-export const destroy = ES.destroy;
+export const destroy = () => ES.destroy();

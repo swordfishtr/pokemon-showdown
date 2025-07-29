@@ -67,7 +67,7 @@ const ES = new class EventScheduler {
 
 	static readonly path = FS('config/event-scheduler.json');
 
-	destroying = false;
+	private destroying = false;
 
 	/** Takes Showdown-style Unix time, returns proper Unix time for use in timers. */
 	static calculateTimeout(timestamp: number) {
@@ -162,7 +162,8 @@ const ES = new class EventScheduler {
 	}
 
 	destroy() {
-		this.destroying = true;
+		// temporary fix to a crash
+		if(this.destroying) this.destroying = true;
 		for(const roomid in this.events) {
 			for(const event of this.events[roomid]) {
 				event.abort.abort();

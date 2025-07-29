@@ -67,6 +67,8 @@ const ES = new class EventScheduler {
 
 	static readonly path = FS('config/event-scheduler.json');
 
+	destroying = false;
+
 	/** Takes Showdown-style Unix time, returns proper Unix time for use in timers. */
 	static calculateTimeout(timestamp: number) {
 		return (timestamp * 1000) - Date.now();
@@ -104,6 +106,7 @@ const ES = new class EventScheduler {
 		}).catch((error) => {
 			if(!(error && error.name === 'AbortError')) throw error;
 		}).finally(() => {
+			if(this.destroying) return;
 			const index = this.events[roomid].indexOf(event);
 			if(index < 0) return;
 			this.events[roomid].splice(index, 1);
@@ -156,6 +159,15 @@ const ES = new class EventScheduler {
 		if(!events[index]) return 'Event not found.';
 		events[index].abort.abort();
 		return null;
+	}
+
+	destroy() {
+		this.destroying = true;
+		for(const roomid in this.events) {
+			for(const event of this.events[roomid]) {
+				event.abort.abort();
+			}
+		}
 	}
 
 };
@@ -248,15 +260,17 @@ export const commands: Chat.ChatCommands = {
 	eventschedulerhelp: [
 		'Event Scheduler runs preset scripts at specified dates. /eventscheduler = /es',
 		'/es - Explains how to use eventscheduler.',
-		'',
+		'---',
 		'/es list - Lists scheduled events in this room and their indexes.',
-		'',
-		'/es add - Brings up a convenient form. You should use this unless you have a reason not to.',
+		'---',
+		'/es add - Brings up a convenient form to schedule an event. You should use this unless you have a reason not to.',
 		'/es add [action] [date] [params] - Schedules an event in this room. Action supports autocompletion. Date must be a valid HTML datetime-local value or a Showdown-style Unix time. Parameters are action-specific:',
 		'/es add send_chat_message [date] [full message]',
 		'/es add demote_prize_winner [date] [username], [next rank?]',
 		'/es add log_ladder [date] [format], [username prefix?]',
-		'',
+		'---',
 		'/es remove [index] - Cancels the specified event.',
 	],
 };
+
+export const destroy = ES.destroy;

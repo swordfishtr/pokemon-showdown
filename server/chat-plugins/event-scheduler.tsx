@@ -6,8 +6,11 @@
  * @license GPL-3.0-or-later
  */
 
+import timersPromises from 'node:timers/promises';
 import { FS, Utils } from "../../lib";
 import { ChatCommands, ChatHandler } from "../chat";
+
+const MAX_INT32 = 2 ** 31 - 1;
 
 /** config/event-scheduler.json */
 interface ESConfig {
@@ -18,7 +21,7 @@ interface ESEvent {
 	readonly timestamp: number, // Showdown style (Unix epoch in seconds)
 	readonly actionname: Lowercase<string>,
 	readonly params: string,
-	timer: NodeJS.Timeout, // For convenience - this should not be written to FS.
+	abort: AbortController, // For convenience - this should not be written to FS.
 }
 
 type ESAction = (this: Room, params: string) => void;
@@ -41,37 +44,75 @@ const ESActions: ESActionTable = {
 
 /** Abstraction layer handling the config file and timers. */
 const ES = new class EventScheduler {
+
 	static readonly path = FS('config/event-scheduler.json');
+
+	/** Takes Showdown-style Unix time, returns proper Unix time for use in timers. */
 	static calculateTimeout(timestamp: number) {
 		return (timestamp * 1000) - Date.now();
 	}
-	private createTimer(roomid: string, event: ESEvent) {
-		const timeout = EventScheduler.calculateTimeout(event.timestamp);
+
+	/**
+	 * Starts a timer and assigns the corresponding AbortController to the given event.
+	 * 
+	 * The timer is responsible for calling the event's action, and removing the event from memory.
+	 */
+	private assignTimer(roomid: string, event: ESEvent): string | null {
+		if(event.abort) throw new Error('Tried to assign a timer to an event that already has one.');
+
+		let timeout = EventScheduler.calculateTimeout(event.timestamp);
+		// Date constructor validates the max value (which is less than Number.MAX_SAFE_INTEGER).
+		// No valid timeout is too long.
 		if(timeout < 100) return 'Timeout is too short.';
-		return setTimeout(() => {
-			this.remove(roomid, event);
+
+		event.abort = new AbortController();
+
+		let timer: Promise<any> = Promise.resolve();
+
+		// setTimeout() will fire immediately if delay is more than MAX_INT32 (about 24 days)
+		// so we'll form a promise chain that waits for acceptable chunks of time.
+		while(timeout > MAX_INT32) {
+			timer = timer.then(() => timersPromises.setTimeout(MAX_INT32, null, { signal: event.abort.signal }));
+			timeout -= MAX_INT32;
+		}
+
+		timer.then(() => timersPromises.setTimeout(timeout, null, { signal: event.abort.signal })).then(() => {
 			const room = Rooms.get(roomid);
 			if(!room) return;
 			ESActions[event.actionname].call(room, event.params);
-		}, timeout);
+		}).catch((error) => {
+			if(!(error && error.name === 'AbortError')) throw error;
+		}).finally(() => {
+			const index = this.events[roomid].indexOf(event);
+			if(index < 0) return;
+			this.events[roomid].splice(index, 1);
+			if(this.events[roomid].length === 0) delete this.events[roomid];
+			this.write();
+		});
+
+		return null;
 	}
+
+	/** Working state of the plugin. */
 	private readonly events = (() => {
 		const cfg = EventScheduler.path.readIfExistsSync();
+		// The json file can't store timers or `AbortSignal`s, so we have to initialize them.
 		const obj = (cfg ? JSON.parse(cfg) : {}) as ESConfig;
 		for(const room in obj) {
 			for(const event of obj[room]) {
-				const timer = this.createTimer(room, event);
+				const timer = this.assignTimer(room, event);
 				// Expired event. Too bad.
 				// It's safe not to write this to FS right now.
-				if(typeof timer !== 'object') {
+				if(timer) {
 					obj[room].splice(obj[room].indexOf(event), 1);
 					continue;
 				}
-				event.timer = timer;
 			}
 		}
 		return obj;
 	})();
+
+	/** Returns a deep copy of `events` but with `abort`s omitted. Required for JSON.stringify. */
 	private get eventsNoTimers() {
 		const buf: ESConfig = {};
 		for(const room in this.events) {
@@ -84,32 +125,32 @@ const ES = new class EventScheduler {
 		}
 		return buf;
 	}
+
 	private write() {
 		EventScheduler.path.writeUpdate(() => JSON.stringify(this.eventsNoTimers));
 	}
+
 	list(roomid: string) {
 		return this.events[roomid] ?? [];
 	}
-	add(roomid: string, event: ESEvent) {
-		const timer = this.createTimer(roomid, event);
-		if(typeof timer !== 'object') return timer;
-		event.timer = timer;
-		const events = (this.events[roomid] ??= []);
-		events.push(event);
+
+	add(roomid: string, event: ESEvent): string | null {
+		const timer = this.assignTimer(roomid, event);
+		if(timer) return timer;
+		this.events[roomid] ??= [];
+		this.events[roomid].push(event);
 		this.write();
 		return null;
 	}
-	remove(roomid: string, index: number | ESEvent) {
+
+	remove(roomid: string, index: number): string | null {
 		const events = this.events[roomid];
 		if(!events) return 'No events or invalid room.';
-		if(typeof index !== 'number') index = events.indexOf(index);
 		if(!events[index]) return 'Event not found.';
-		clearTimeout(events[index].timer);
-		events.splice(index, 1);
-		if(events.length === 0) delete this.events[roomid];
-		this.write();
+		events[index].abort.abort();
 		return null;
 	}
+
 };
 
 /** Commands exposed to the end user. */

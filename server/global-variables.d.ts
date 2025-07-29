@@ -56,4 +56,7 @@ declare global {
 	var Users: typeof UsersType.Users;
 	var Verifier: typeof VerifierType;
 	var toID: typeof DexType.toID;
+
+	var __version: any;
+	var nodeOomHeapdump: any;
 }

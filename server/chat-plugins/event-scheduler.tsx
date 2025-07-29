@@ -33,12 +33,24 @@ interface ESActionTable {
 const ESActions: ESActionTable = {
 	send_chat_message(params) {
 		this.add(`[EventScheduler] ${params}`);
+
+		// Update everyone's screen so the message shows up immediately.
+		this.send('');
 	},
 	demote_prize_winner(params) {
 		this.add(`[EventScheduler] User ${params} would lose Prize Winner now`);
+		this.send('');
 	},
 	log_ladder(params) {
-		this.add(`[EventScheduler] Format ${params} would have its current ladder state logged now`);
+		const [format, prefix] = Utils.splitFirst(params, ',');
+		Ladders(format).getTop(prefix).then((result) => {
+			if(!result) {
+				this.add(`[EventScheduler] Format ${format} doesn't exist or doesn't have a ladder.`);
+				this.send('');
+				return;
+			}
+			this.addRaw(result[1]);
+		});
 	},
 };
 
@@ -58,7 +70,7 @@ const ES = new class EventScheduler {
 	 * The timer is responsible for calling the event's action, and removing the event from memory.
 	 */
 	private assignTimer(roomid: string, event: ESEvent): string | null {
-		if(event.abort) throw new Error('Tried to assign a timer to an event that already has one.');
+		if(event.abort.signal) throw new Error('Tried to assign a timer to an event that already has one.');
 
 		let timeout = EventScheduler.calculateTimeout(event.timestamp);
 		// Date constructor validates the max value (which is less than Number.MAX_SAFE_INTEGER).
@@ -96,7 +108,7 @@ const ES = new class EventScheduler {
 	/** Working state of the plugin. */
 	private readonly events = (() => {
 		const cfg = EventScheduler.path.readIfExistsSync();
-		// The json file can't store timers or `AbortSignal`s, so we have to initialize them.
+		// `event.abort` at this point are `{}`. We have to initialize them.
 		const obj = (cfg ? JSON.parse(cfg) : {}) as ESConfig;
 		for(const room in obj) {
 			for(const event of obj[room]) {
@@ -112,22 +124,8 @@ const ES = new class EventScheduler {
 		return obj;
 	})();
 
-	/** Returns a deep copy of `events` but with `abort`s omitted. Required for JSON.stringify. */
-	private get eventsNoTimers() {
-		const buf: ESConfig = {};
-		for(const room in this.events) {
-			buf[room] = [];
-			for(const event of this.events[room]) {
-				const eventNoTimer = { ...event } as any;
-				delete eventNoTimer.timer;
-				buf[room].push(eventNoTimer);
-			}
-		}
-		return buf;
-	}
-
 	private write() {
-		EventScheduler.path.writeUpdate(() => JSON.stringify(this.eventsNoTimers));
+		EventScheduler.path.writeUpdate(() => JSON.stringify(this.events));
 	}
 
 	list(roomid: string) {

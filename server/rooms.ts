@@ -142,6 +142,10 @@ export interface RoomSettings {
 	noLogTimes?: boolean;
 	noAutoTruncate?: boolean;
 	isMultichannel?: boolean;
+
+	// Generations
+	/** in months */
+	autoDemotePrizeWinner?: number;
 }
 
 export type MessageHandler = (room: BasicRoom, message: string) => void;

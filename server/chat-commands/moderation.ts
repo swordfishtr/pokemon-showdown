@@ -268,6 +268,13 @@ export const commands: Chat.ChatCommands = {
 					targetUser.trusted = '';
 				}
 			}
+
+			// Generations
+			if(nextSymbol === '^' && room.settings.autoDemotePrizeWinner) {
+				const curTimestamp = (new Date()).getTime();
+				const eventTimestamp = curTimestamp + room.settings.autoDemotePrizeWinner * 30 * 24 * 60 * 60 * 1000;
+				this.parse(`/eventscheduler add demote_prize_winner ${Math.ceil(eventTimestamp / 1000)} ${userid}, ${oldSymbol}`);
+			}
 		}
 		room.saveSettings();
 	},

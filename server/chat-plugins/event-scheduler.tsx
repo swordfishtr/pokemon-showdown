@@ -40,8 +40,7 @@ const ESActions: ESActionTable = {
 	demote_prize_winner(params) {
 		const [user, nextRank] = Utils.splitFirst(params, ',');
 		if(!user) return;
-		if(nextRank) {
-			if(!Auth.isValidSymbol(nextRank)) return;
+		if(nextRank && Auth.isValidSymbol(nextRank)) {
 			this.auth.set(toID(user), nextRank);
 		}
 		else {
@@ -183,7 +182,7 @@ export const commands: Chat.ChatCommands = {
 			room = this.requireRoom();
 			this.sendReply(ES.list(room.roomid)
 			.map((event, index) => `${index}: ${event.actionname} ${event.timestamp} ${event.params}`)
-			.join('\n') || 'No events scheduled for this room.');
+			.join('\n') || '[EventScheduler] No events scheduled for this room.');
 		},
 		add: Object.assign(
 			{
@@ -215,7 +214,7 @@ export const commands: Chat.ChatCommands = {
 
 				const timestamp = (new Date(/^\d+$/.test(date) ? Number(date) * 1000 : `${date}Z`)).getTime() / 1000;
 				if(Number.isNaN(timestamp)) {
-					this.errorReply(`Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
+					this.errorReply(`[EventScheduler] Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
 					return;
 				}
 
@@ -224,11 +223,11 @@ export const commands: Chat.ChatCommands = {
 				const result = ES.add(room.roomid, event);
 
 				if(result) {
-					this.errorReply(`Failure: ${result}`);
+					this.errorReply(`[EventScheduler] Failure: ${result}`);
 					return;
 				}
 
-				this.sendReply('Success!');
+				this.sendReply('[EventScheduler] Success!');
 			} as ChatHandler),
 		),
 		remove(target, room, user, connection, cmd, message) {
@@ -236,24 +235,54 @@ export const commands: Chat.ChatCommands = {
 			this.checkCan('roomprizewinner', null, room);
 
 			if(target === '') {
-				this.errorReply('Usage: /eventscheduler remove [index]');
+				this.errorReply('[EventScheduler] Usage: /eventscheduler remove [index]');
 				return this.parse('/eventscheduler list');
 			}
 
 			const index = Number(target);
 			if(Number.isNaN(index)) {
-				this.errorReply('Index must be a number.');
+				this.errorReply('[EventScheduler] Index must be a number.');
 				return this.parse('/eventscheduler list');
 			}
 
 			const result = ES.remove(room.roomid, index);
 
 			if(result) {
-				this.errorReply(`Failure: ${result}`);
+				this.errorReply(`[EventScheduler] Failure: ${result}`);
 				return;
 			}
 
-			this.sendReply(`Success!`);
+			this.sendReply(`[EventScheduler] Success!`);
+		},
+		roomsettings: {
+			// TODO: apply changes retroactively
+			autoDemotePrizeWinner(target, room, user, connection, cmd, message) {
+				room = this.requireRoom();
+				this.checkCan('declare', null, room);
+				let num = parseInt(target);
+				if (this.meansNo(target)) num = 0;
+				if (isNaN(num) || num > 12 || num < 0) {
+					return this.parse('/help eventscheduler');
+				}
+	
+				if (num >= 1) {
+					if (room.settings.autoDemotePrizeWinner === num) {
+						throw new Chat.ErrorMessage(`Automatic demotion of Prize Winners is already set to ${num} ${num === 1 ? 'month' : 'months'} later.`);
+					}
+					room.settings.autoDemotePrizeWinner = num;
+					room.saveSettings();
+					this.privateModAction(`Automatic demotion of Prize Winners was set to ${num} months later by ${user.name}.`);
+					this.modlog('ROOM SETTINGS', null, `auto-demote prize winner: ${num} ${num === 1 ? 'month' : 'months'} later`);
+				} else {
+					if (!room.settings.autoDemotePrizeWinner) {
+						throw new Chat.ErrorMessage(`Number of recent tournaments to record is already disabled.`);
+					}
+					delete room.settings.autoDemotePrizeWinner;
+					room.saveSettings();
+					this.privateModAction(`Automatic demotion of Prize Winners was turned off by ${user.name}.`);
+					this.modlog('ROOM SETTINGS', null, `auto-demote prize winner: off`);
+				}
+			},
 		},
 	},
 
@@ -273,4 +302,21 @@ export const commands: Chat.ChatCommands = {
 	],
 };
 
+// Prevent duplicate events and memory leaks.
 export const destroy = () => ES.destroy();
+
+//
+export const roomSettings: Chat.SettingsHandler[] = [
+	room => ({
+		label: "Event Scheduler auto-demote Room Prize Winners (in months)",
+		permission: "editroom",
+		options: ['off', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+			setting => (
+				[
+					`${setting}`,
+					setting === (room.settings.autoDemotePrizeWinner || 'off') || `eventscheduler roomsettings autoDemotePrizeWinner ${setting}`,
+				]
+			)
+		),
+	}),
+];

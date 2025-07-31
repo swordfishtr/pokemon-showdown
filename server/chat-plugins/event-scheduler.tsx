@@ -256,7 +256,7 @@ export const commands: Chat.ChatCommands = {
 		},
 		roomsettings: {
 			// TODO: apply changes retroactively
-			autoDemotePrizeWinner(target, room, user, connection, cmd, message) {
+			autodemoteprizewinner(target, room, user, connection, cmd, message) {
 				room = this.requireRoom();
 				this.checkCan('declare', null, room);
 				let num = parseInt(target);
@@ -314,7 +314,7 @@ export const roomSettings: Chat.SettingsHandler[] = [
 			setting => (
 				[
 					`${setting}`,
-					setting === (room.settings.autoDemotePrizeWinner || 'off') || `eventscheduler roomsettings autoDemotePrizeWinner ${setting}`,
+					setting === (room.settings.autoDemotePrizeWinner || 'off') || `eventscheduler roomsettings autodemoteprizewinner ${setting}`,
 				]
 			)
 		),

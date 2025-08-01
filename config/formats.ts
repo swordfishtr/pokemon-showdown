@@ -197,6 +197,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Aug 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Amoonguss', 'Arcanine-Base', 'Basculegion-F', 'Beartic', 'Brambleghast', 'Chandelure', 'Chesnaught', 'Cobalion', 'Copperajah', 'Cramorant-Base', 'Cursola', 'Dugtrio-Base', 'Eldegoss', 'Flygon', 'Froslass', 'Frosmoth', 'Gabite', 'Gardevoir-Base', 'Hatterene', 'Heliolisk', 'Incineroar', 'Jolteon', 'Liepard', 'Maractus', 'Maushold', 'Oricorio-Pom-Pom', 'Overqwil', 'Shedinja', 'Stoutland', 'Sylveon', 'Toxapex', 'Toxicroak', 'Uxie', 'Weavile', 'Yanmega',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
@@ -916,6 +925,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes VGC',
 		column: 3,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes VGC [Aug 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Amoonguss', 'Arcanine-Base', 'Basculegion-F', 'Beartic', 'Brambleghast', 'Chandelure', 'Chesnaught', 'Cobalion', 'Copperajah', 'Cramorant-Base', 'Cursola', 'Dugtrio-Base', 'Eldegoss', 'Flygon', 'Froslass', 'Frosmoth', 'Gabite', 'Gardevoir-Base', 'Hatterene', 'Heliolisk', 'Incineroar', 'Jolteon', 'Liepard', 'Maractus', 'Maushold', 'Oricorio-Pom-Pom', 'Overqwil', 'Shedinja', 'Stoutland', 'Sylveon', 'Toxapex', 'Toxicroak', 'Uxie', 'Weavile', 'Yanmega',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2025]",

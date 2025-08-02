@@ -73,7 +73,7 @@ export const commands: Chat.ChatCommands = {
 				return this.sendReply(buf);
 			}
 			let buf = '[Badges] Badgeholders: (for details use /badges list [username])\n';
-			buf += Object.entries(BH.listAll)
+			buf += Object.entries(BH.listAll())
 			.map(([userid, badges]) => `${userid}: ${badges.join(', ')}`)
 			.join('\n') || 'None';
 			return this.sendReply(buf);

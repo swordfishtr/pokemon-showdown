@@ -930,6 +930,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Amoonguss', 'Arcanine-Base', 'Basculegion-F', 'Beartic', 'Brambleghast', 'Chandelure', 'Chesnaught', 'Cobalion', 'Copperajah', 'Cramorant-Base', 'Cursola', 'Dugtrio-Base', 'Eldegoss', 'Flygon', 'Froslass', 'Frosmoth', 'Gabite', 'Gardevoir-Base', 'Hatterene', 'Heliolisk', 'Incineroar', 'Jolteon', 'Liepard', 'Maractus', 'Maushold', 'Oricorio-Pom-Pom', 'Overqwil', 'Shedinja', 'Stoutland', 'Sylveon', 'Toxapex', 'Toxicroak', 'Uxie', 'Weavile', 'Yanmega',
@@ -939,6 +940,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Arctovish', 'Azumarill', 'Blastoise-Base', 'Boltund', 'Bouffalant', 'Brambleghast', 'Braviary-Base', 'Chimecho', 'Cofagrigus', 'Dachsbun', 'Darmanitan-Base', 'Delibird', 'Drakloak', 'Floatzel', 'Flygon', 'Gliscor', 'Grapploct', 'Incineroar', 'Kleavor', 'Lunatone', 'Mabosstiff', 'Marowak-Alola', 'Meowstic-F', 'Minun', 'Obstagoon', 'Persian-Alola', 'Primeape', 'Rapidash-Base', 'Raticate-Base', 'Reuniclus', 'Rillaboom', 'Rotom-Mow', 'Silvally-Ground', 'Simisage', 'Slowbro-Galar', 'Slowking-Base', 'Slowking-Galar', 'Starmie', 'Tentacruel', 'Toedscruel',
@@ -948,6 +950,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jun 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Arbok', 'Archeops', 'Arctozolt', 'Bruxish', 'Calyrex-Base', 'Ditto', 'Drakloak', 'Dugtrio-Alola', 'Electrode-Base',
@@ -960,6 +963,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [May 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Inteleon', 'Dragonair', 'Vivillon', 'Heatmor', 'Cinccino', 'Lopunny-Base', 'Politoed', 'Skarmory', 'Maushold',
@@ -972,6 +976,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Apr 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Kingdra', 'Crustle', 'Corsola-Base', 'Dipplin', 'Dusknoir', 'Drampa', 'Pincurchin', 'Type: Null', 'Camerupt-Base',
@@ -984,6 +989,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Mar 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Gourgeist-Small', 'Kingler', 'Rapidash-Base', 'Accelgor', 'Ariados', 'Magcargo', 'Sudowoodo', 'Qwilfish-Base', 'Eldegoss',
@@ -996,6 +1002,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Feb 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Rapidash-Galar', 'Whiscash', 'Scrafty', 'Uxie', 'Arbok', 'Zangoose', 'Carnivine', 'Persian-Alola', 'Emolga',
@@ -1008,6 +1015,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jan 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Clodsire', 'Comfey', 'Probopass', 'Bellibolt', 'Wugtrio', 'Unown', 'Shiftry', 'Swanna', 'Houndoom-Base',
@@ -1020,6 +1028,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Golem-Alola', 'Zoroark-Base', 'Pyukumuku', 'Guzzlord', 'Wugtrio', 'Garbodor', 'Aurorus', 'Morpeko-Base', 'Walrein',
@@ -1032,6 +1041,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Wishiwashi-Base', 'Ampharos-Base', 'Tsareena', 'Glaceon', 'Centiskorch', 'Frosmoth', 'Exeggutor-Base', 'Shelgon', 'Granbull',
@@ -1044,6 +1054,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Ninjask', 'Perrserker', 'Klinklang', 'Snorlax', 'Houndstone', 'Amoonguss', 'Seviper', 'Rhydon', 'Vigoroth',
@@ -1056,6 +1067,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Sep 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Starmie', 'Muk-Alola', 'Krookodile', 'Slowking-Galar', 'Gabite', 'Florges', 'Bellibolt', 'Rotom-Fan', 'Beartic',
@@ -1068,6 +1080,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Mandibuzz', 'Braviary-Base', 'Dusclops', 'Sawk', 'Corsola-Base', 'Maushold-Base', 'Vivillon', 'Runerigus', 'Chesnaught',
@@ -1080,6 +1093,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Venusaur-Base', 'Shiftry', 'Mabosstiff', 'Donphan', 'Rotom-Heat', 'Garbodor', 'Blastoise-Base', 'Oricorio-Pom-Pom', 'Tinkaton',
@@ -1094,6 +1108,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jun 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Mimikyu-Base', 'Cacturne', 'Mabosstiff', 'Cyclizar', 'Raticate-Alola', 'Wyrdeer', 'Pincurchin', 'Slowbro-Galar', 'Arboliva',
@@ -1106,6 +1121,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [May 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Carbink', 'Mantine', 'Dusknoir', 'Cryogonal', 'Milotic', 'Mr. Mime-Base', 'Hitmonchan', 'Shiinotic', 'Beheeyem',
@@ -1118,6 +1134,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Apr 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Lokix', 'Sandslash-Alola', 'Altaria-Base', 'Gengar-Base', 'Drampa', 'Dugtrio-Alola', 'Stoutland', 'Golisopod', 'Abomasnow-Base',
@@ -1130,6 +1147,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Mar 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Oricorio-Base', 'Wigglytuff', 'Phione', 'Politoed', 'Ninjask', 'Samurott-Base', 'Galvantula', 'Mesprit', 'Scrafty',
@@ -1142,6 +1160,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Feb 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Tauros-Paldea-Blaze', 'Ceruledge', 'Klinklang', 'Houndstone', 'Gothitelle', 'Snorlax', 'Sandslash-Base', 'Morpeko-Base', 'Sawk',
@@ -1154,6 +1173,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jan 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Hatterene', 'Drakloak', 'Luvdisc', 'Tangrowth', 'Snorlax', 'Starmie', 'Ursaring', 'Appletun', 'Stoutland',
@@ -1166,6 +1186,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Mabosstiff', 'Eelektross', 'Camerupt-Base', 'Grapploct', 'Drifblim', 'Ampharos-Base', 'Lurantis-Base', 'Gyarados-Base', 'Hypno',
@@ -1178,6 +1199,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Copperajah', 'Dhelmise', 'Mudsdale', 'Veluza', 'Bellossom', 'Tropius', 'Cramorant-Base', 'Jellicent', 'Boltund',
@@ -1190,6 +1212,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2023 B]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Shuckle', 'Emboar',
@@ -1203,6 +1226,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Mimikyu-Base', 'Scovillain',
@@ -1215,6 +1239,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Sep 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Zoroark-Hisui', 'Yanmega', 'Mothim', 'Rapidash-Galar', 'Drapion', 'Chimecho', 'Espeon', 'Vaporeon', 'Mamoswine',
@@ -1227,6 +1252,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Vileplume', 'Swanna', 'Yanmega', 'Heracross-Base', 'Nidoking', 'Leafeon', 'Kricketune', 'Swellow', 'Comfey',
@@ -1239,6 +1265,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2023]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Leavanny', 'Masquerain', 'Eiscue-Base', 'Torterra', 'Dragonair', 'Runerigus', 'Swalot', 'Muk-Alola', 'Musharna',

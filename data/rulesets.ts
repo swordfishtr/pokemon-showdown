@@ -3213,6 +3213,12 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	standard35pokeslc: {
+		effectType: 'ValidatorRule',
+		name: 'Standard 35 Pokes LC',
+		desc: "The standard ruleset for 35 Pokes Babies metagames.",
+		ruleset: ['Standard 35 Pokes', 'Little Cup'],
+	},
 	standard35pokesubers: {
 		effectType: 'ValidatorRule',
 		name: 'Standard 35 Pokes Ubers',

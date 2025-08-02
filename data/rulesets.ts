@@ -3250,9 +3250,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Best Of = 3',
 		],
 		banlist: [
-			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
-			'Razor Fang', // 'Last Respects', 'Shed Tail', are these banned?
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC', 'Battle Bond',
+			// 'Berserk Gene', 'King\'s Rock', 'Last Respects', 'Power Construct', 'Quick Claw', 'Razor Fang', 'Shadow Tag', 'Shed Tail',
 		],
 	},
 	// Maybe not needed

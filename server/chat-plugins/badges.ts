@@ -89,7 +89,11 @@ export const commands: Chat.ChatCommands = {
 				return;
 			}
 
-			const result = BH.add(userid, { sprite: toID(sprite), timestamp: Math.floor(Date.now() / 1000), description });
+			const result = BH.add(userid, {
+				sprite: toID(sprite),
+				timestamp: Math.floor(Date.now() / 1000),
+				description: description.trim(),
+			});
 
 			if(result) {
 				this.errorReply(`[Badges] Failure: ${result}`);

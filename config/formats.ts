@@ -689,7 +689,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [Z1]",
 		mod: 'gen9',
-		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause'],
+		ruleset: [
+			'Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Z-Move Clause', 'Terastal Clause',
+		],
 		banlist: ['ND AG', 'pokemontag:allmoves', 'Regenerator'],
 		unbanlist: [
 			'Weather Ball', 'Hidden Power', 'U-Turn', 'Overheat', 'Giga Impact', 'Retaliate', 'Acrobatics', 'Aqua Ring', 'Aqua Tail', 'Aromatherapy', 'Assist', 'Belly Drum', 'Body Press', 'Stockpile', 'Thunder', 'Bounce', 'Dig', 'Clear Smog', 'Expanding Force', 'Crunch', 'Destiny Bond', 'Dragon Breath', 'Feint Attack', 'Freeze Dry', 'Grass Knot', 'Work Up', 'Ice Punch', 'Incinerate', 'Trick', 'Hex', 'Rock Slide', 'Iron Head', 'Alluring Voice', 'Sludge', 'Thief',

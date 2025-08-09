@@ -3248,22 +3248,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			// 'Berserk Gene', 'King\'s Rock', 'Last Respects', 'Power Construct', 'Quick Claw', 'Razor Fang', 'Shadow Tag', 'Shed Tail',
 		],
 	},
-	// Maybe not needed
-	banallmoves: {
-		effectType: 'ValidatorRule',
-		name: 'Ban All Moves',
-		desc: "Only explicitly unbanned moves are allowed.",
-		onValidateSet(set, format, setHas, teamHas) {
-			const problems: string[] = [];
-			for(const move of set.moves) {
-				const moveid = this.toID(move);
-				if(!this.ruleTable.has(`+${moveid}`) && !this.ruleTable.has(`+move:${moveid}`)) {
-					problems.push(`${set.name} has ${move} which is not in the group of allowed moves.`);
-				}
-			}
-			if(problems.length) return problems;
-		},
-	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',
 		name: 'Unban Fakemons',

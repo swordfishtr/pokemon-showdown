@@ -692,7 +692,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Z-Move Clause', 'Terastal Clause',
 		],
-		banlist: ['ND AG', 'pokemontag:allmoves', 'Regenerator'],
+		banlist: ['ND AG', 'pokemontag:allmoves', 'Regenerator', 'Zacian-Crowned + Iron Head', 'Jirachi'],
 		unbanlist: [
 			'Weather Ball', 'Hidden Power', 'U-Turn', 'Overheat', 'Giga Impact', 'Retaliate', 'Acrobatics', 'Aqua Ring', 'Aqua Tail', 'Aromatherapy', 'Assist', 'Belly Drum', 'Body Press', 'Stockpile', 'Thunder', 'Bounce', 'Earth Power', 'Clear Smog', 'Psychic Noise', 'Crunch', 'Destiny Bond', 'Dragon Breath', 'Feint Attack', 'Freeze Dry', 'Grass Knot', 'Work Up', 'Ice Punch', 'Incinerate', 'Trick', 'Hex', 'Rock Slide', 'Iron Head', 'Alluring Voice', 'Sludge', 'Thief',
 		],

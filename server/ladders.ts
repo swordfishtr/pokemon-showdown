@@ -333,6 +333,8 @@ class Ladder extends LadderStore {
 		const users = matches.map(([ready, user]) => user);
 		const userids = users.map(user => user.id);
 
+		console.log(`matchmakingOK called: ${userids.join(', ')}`);
+
 		// users must be different
 		if (new Set(users).size !== users.length) return false;
 
@@ -361,6 +363,8 @@ class Ladder extends LadderStore {
 		if (searchRange > 5000) searchRange = 5000;
 		const ratings = matches.map(([search]) => search.rating);
 		if (Math.max(...ratings) - Math.min(...ratings) > searchRange) return false;
+
+		console.log(`matchmakingOK success: ${userids.join(', ')}`);
 
 		matches[0][1].lastMatch = matches[1][1].id;
 		matches[1][1].lastMatch = matches[0][1].id;

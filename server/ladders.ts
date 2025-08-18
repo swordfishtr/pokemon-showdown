@@ -338,8 +338,12 @@ class Ladder extends LadderStore {
 		// users must be different
 		if (new Set(users).size !== users.length) return false;
 
+		console.log('1');
+
 		// users must have different IPs
 		if (!Config.noipchecks && new Set(users.map(user => user.latestIp)).size !== users.length) return false;
+
+		console.log('2');
 
 		// search must be within range
 		let searchRange = 100;
@@ -358,10 +362,13 @@ class Ladder extends LadderStore {
 		// longest wait, in milliseconds
 		const elapsed = Date.now() - Math.min(...times);
 
+		console.log(`Elapsed ${elapsed}`);
+
 		searchRange += elapsed / 300; // +1 every .3 seconds
 		if (searchRange > 300) searchRange = 300 + (searchRange - 300) / 10; // +1 every 3 sec after 300
 		if (searchRange > 5000) searchRange = 5000;
 		const ratings = matches.map(([search]) => search.rating);
+		console.log(`Ratings ${ratings.join(', ')}`)
 		if (Math.max(...ratings) - Math.min(...ratings) > searchRange) return false;
 
 		console.log(`matchmakingOK success: ${userids.join(', ')}`);

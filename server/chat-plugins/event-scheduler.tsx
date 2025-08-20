@@ -1,17 +1,18 @@
 /**
  * Generations Event Scheduler
  * 
- * Plugins load once at the first user visit.
- * 
  * @license GPL-3.0-or-later
  */
 
 import timersPromises from 'node:timers/promises';
 import { FS, Utils } from "../../lib";
-import { ChatCommands, ChatHandler } from "../chat";
+import { ChatCommands, ChatHandler, CommandContext } from "../chat";
 import { Auth } from '../user-groups';
 
 const MAX_INT32 = 2 ** 31 - 1;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+// region Actions
 
 /** config/event-scheduler.json */
 interface ESConfig {
@@ -19,50 +20,121 @@ interface ESConfig {
 }
 
 interface ESEvent {
+	readonly userid: ID, // Issuer of the command
 	readonly timestamp: number, // Showdown style (Unix epoch in seconds)
 	readonly actionname: Lowercase<string>,
-	readonly params: string,
+	readonly input: string,
 	abort: AbortController, // JSON.stringify turns this into `{}`
 }
 
-type ESAction = (this: Room, params: string) => void;
+interface ESAction {
+	help: string[],
+	/** Sanitize input and check user authority. throw if invalid. */
+	validate: (this: CommandContext, input: string) => (string | void),
+	execute: (this: Room, input: string) => void,
+}
 interface ESActionTable {
 	readonly [name: Lowercase<string>]: ESAction,
 }
 
-// TODO: actionname() -> actionname: { execute(), validate(), help: string[] }
 /** Actions that can be scheduled. Add as needed. */
 const ESActions: ESActionTable = {
-	send_chat_message(params) {
-		this.add(`[EventScheduler] ${params}`);
-		this.update();
+
+	// First stop for debugging Event Scheduler.
+	send_chat_message: {
+		help: [
+			'/es add send_chat_message [date] [full message] - Logs message as plain text in current room.',
+		],
+		validate(input) {
+			this.checkCan('roomprizewinner', null, this.room!);
+		},
+		execute(input) {
+			this.add(`[EventScheduler] ${input}`);
+			this.update();
+		},
 	},
-	demote_prize_winner(params) {
-		const [user, nextRank] = Utils.splitFirst(params, ',');
-		if(!user) return;
-		if(nextRank && Auth.isValidSymbol(nextRank)) {
-			this.auth.set(toID(user), nextRank);
-		}
-		else {
-			this.auth.delete(toID(user));
-		}
+
+	// Generations has new prize winners frequently, so we automate their demotion.
+	demote_prize_winner: {
+		help: [
+			'/es add demote_prize_winner [date] [username], [next rank?] - Sets username room auth to next rank or none.',
+		],
+		validate(input) {
+			this.checkCan('roomprizewinner', null, this.room!);
+		},
+		execute(input) {
+			const [user, nextRank] = Utils.splitFirst(input, ',');
+			if(!user) return;
+			if(nextRank && Auth.isValidSymbol(nextRank)) {
+				this.auth.set(toID(user), nextRank);
+			}
+			else {
+				this.auth.delete(toID(user));
+			}
+		},
 	},
-	log_ladder(params) {
-		const [format, prefix] = Utils.splitFirst(params, ',');
-		Ladders(toID(format)).getTop(prefix).then((result) => {
-			if(!result) {
-				this.add(`[EventScheduler] Format ${format} doesn't exist or doesn't have a ladder.`);
-				this.send('');
+
+	// For ladder challenges.
+	log_ladder: {
+		help: [
+			'/es add log_ladder [date] [format], [username prefix?] - Logs format ladder as HTML in current room.',
+		],
+		validate(input) {
+			this.checkCan('roomprizewinner', null, this.room!);
+		},
+		execute(input) {
+			const [format, prefix] = Utils.splitFirst(input, ',');
+			Ladders(toID(format)).getTop(prefix).then((result) => {
+				if(!result) {
+					this.add(`[EventScheduler] Format ${format} doesn't exist or doesn't have a ladder.`);
+					this.send('');
+					return;
+				}
+				this.addRaw(result[1]);
+				this.update();
+			});
+		},
+	},
+
+	// Generations ladder decay is per-format, opt-in.
+	ladder_decay_cycle: {
+		help: [],
+		validate(input) {
+			this.checkCan('roomprizewinner', null, this.room!);
+		},
+		execute(input) {
+			const params = Utils.splitFirst(input, ',');
+			const formatid = toID(params[0]);
+			const decayThreshold = Number(params[1]);
+
+			const format = Dex.formats.get(formatid);
+			if(!format.exists || !format.rated || !format.searchShow) {
+				// log error?
 				return;
 			}
-			this.addRaw(result[1]);
-			this.update();
-		});
+
+			Ladders(formatid).decayRatings(decayThreshold);
+
+			const next = (Date.now() + DAY_MS) / 1000;
+
+			const event = {
+				timestamp: next,
+				actionname: 'ladder_decay_cycle',
+				input,
+			} as ESEvent;
+
+			ES.add(this.roomid, event);
+		},
 	},
+
 };
 
+// endregion
+
+// region Scheduler
+
 /** Abstraction layer handling the config file and timers. */
-const ES = new class EventScheduler {
+export class EventScheduler {
 
 	static readonly path = FS('config/event-scheduler.json');
 
@@ -87,21 +159,20 @@ const ES = new class EventScheduler {
 		if(timeout < 100) return 'Timeout is too short.';
 
 		event.abort = new AbortController();
-
-		// TODO: are these getting destroyed on /hotpatch chat ? maybe a memory leak here.
-		let timer: Promise<any> = Promise.resolve();
+		const options = { signal: event.abort.signal };
 
 		// setTimeout() will fire immediately if delay is more than MAX_INT32 (about 24 days)
 		// so we'll form a promise chain that waits for acceptable chunks of time.
+		let timer: Promise<any> = Promise.resolve();
 		while(timeout > MAX_INT32) {
-			timer = timer.then(() => timersPromises.setTimeout(MAX_INT32, null, { signal: event.abort.signal }));
+			timer = timer.then(() => timersPromises.setTimeout(MAX_INT32, null, options));
 			timeout -= MAX_INT32;
 		}
 
-		timer.then(() => timersPromises.setTimeout(timeout, null, { signal: event.abort.signal })).then(() => {
+		timer.then(() => timersPromises.setTimeout(timeout, null, options)).then(() => {
 			const room = Rooms.get(roomid);
 			if(!room) return;
-			ESActions[event.actionname].call(room, event.params);
+			ESActions[event.actionname].execute.call(room, event.input);
 		}).catch((error) => {
 			if(!(error && error.name === 'AbortError')) throw error;
 		}).finally(() => {
@@ -143,6 +214,7 @@ const ES = new class EventScheduler {
 		return this.events[roomid] ?? [];
 	}
 
+	/** Input ESEvent without `abort` */
 	add(roomid: string, event: ESEvent): string | null {
 		const timer = this.assignTimer(roomid, event);
 		if(timer) return timer;
@@ -171,20 +243,32 @@ const ES = new class EventScheduler {
 
 };
 
+export const ES = new EventScheduler();
+
+// endregion
+
+// region Commands
+
 /** Commands exposed to the end user. */
 export const commands: Chat.ChatCommands = {
+
 	es: 'eventscheduler',
+
 	eventscheduler: {
+
 		''(target, room, user, connection, cmd, message) {
 			return this.parse('/help eventscheduler');
 		},
+
 		list(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
 			this.sendReply(ES.list(room.roomid)
-			.map((event, index) => `${index}: ${event.actionname} ${event.timestamp} ${event.params}`)
+			.map((event, index) => `${index}: ${event.userid} ${event.actionname} ${event.timestamp} ${event.input}`)
 			.join('\n') || '[EventScheduler] No events scheduled for this room.');
 		},
+
 		add: Object.assign(
+
 			{
 				''(target, room, user, connection, cmd, message) {
 					this.sendReplyBox(<div>
@@ -200,36 +284,39 @@ export const commands: Chat.ChatCommands = {
 					</div>);
 				},
 			} as ChatCommands,
+
 			Utils.mapObjectValues(ESActions, (action, actionname) => function(target, room, user, connection, cmd, message) {
 				room = this.requireRoom();
-				// TODO: move this to individual auth checks in ESActions.
-				this.checkCan('roomprizewinner', null, room);
 
 				// Input validation - the command at this point looks like so:
 				// `/es add action target`
 				// action is always valid
 				// target should start with a valid datetime-local value or a showdown-style unix time.
 
-				let [date, params] = Utils.splitFirst(target, ' ');
+				const params = Utils.splitFirst(target, ' ');
+				const date = params[0];
+				let input = params[1];
 
-				const timestamp = (new Date(/^\d+$/.test(date) ? Number(date) * 1000 : `${date}Z`)).getTime() / 1000;
-				if(Number.isNaN(timestamp)) {
-					this.errorReply(`[EventScheduler] Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
-					return;
-				}
+				const timestamp =/^\d+$/.test(date) ? Number(date) : (new Date(`${date}Z`)).getTime() / 1000;
+				if(Number.isNaN(timestamp)) throw new Chat.ErrorMessage(
+					`[EventScheduler] Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`
+				);
 
-				const event = { timestamp, actionname, params } as ESEvent;
+				input = action.validate.call(this, input) ?? input;
+
+				const event = { userid: user.id, timestamp, actionname, input } as ESEvent;
 
 				const result = ES.add(room.roomid, event);
 
-				if(result) {
-					this.errorReply(`[EventScheduler] Failure: ${result}`);
-					return;
-				}
+				if(result) throw new Chat.ErrorMessage(`[EventScheduler] Failure: ${result}`);
 
 				this.sendReply('[EventScheduler] Success!');
 			} as ChatHandler),
+
+			Object.fromEntries(Object.entries(ESActions).map(([actionname, action]) => [`${actionname}help`, action.help])),
+
 		),
+
 		remove(target, room, user, connection, cmd, message) {
 			room = this.requireRoom();
 			this.checkCan('roomprizewinner', null, room);
@@ -254,8 +341,9 @@ export const commands: Chat.ChatCommands = {
 
 			this.sendReply(`[EventScheduler] Success!`);
 		},
+
 		roomsettings: {
-			// TODO: apply changes retroactively
+
 			autodemoteprizewinner(target, room, user, connection, cmd, message) {
 				room = this.requireRoom();
 				this.checkCan('declare', null, room);
@@ -283,29 +371,38 @@ export const commands: Chat.ChatCommands = {
 					this.modlog('ROOM SETTINGS', null, `auto-demote prize winner: off`);
 				}
 			},
+
 		},
+
 	},
 
 	eventschedulerhelp: [
-		'Event Scheduler runs preset scripts at specified dates. /eventscheduler = /es',
-		'/es - Explains how to use eventscheduler.',
-		'---',
+		'::',
+		'Event Scheduler runs preset scripts at user specified dates.',
+		'Max date is unlimited, and precision is down to a few milliseconds.',
+		'Feel free to rely on it and automate in userscripts and other server-side systems.',
+		'::',
+		'/eventscheduler = /es - Shows this help message.',
+		'::',
 		'/es list - Lists scheduled events in this room and their indexes.',
-		'---',
-		'/es add - Brings up a convenient form to schedule an event. You should use this unless you have a reason not to.',
-		'/es add [action] [date] [params] - Schedules an event in this room. Action supports autocompletion. Date must be a valid HTML datetime-local value or a Showdown-style Unix time. Parameters are action-specific:',
-		'/es add send_chat_message [date] [full message]',
-		'/es add demote_prize_winner [date] [username], [next rank?]',
-		'/es add log_ladder [date] [format], [username prefix?]',
-		'---',
+		'::',
+		'/es add - Brings up a convenient form to schedule an event in this room.',
+		'/es add [action] [date] [params] - Schedules an event in this room (advanced).',
+		'Date must be a valid HTML datetime-local value (in GMT+0) or a Showdown-style Unix time.',
+		'For action-specific help, send /help es add [action]',
+		'::',
 		'/es remove [index] - Cancels the specified event.',
+		'::',
+		'/es roomsettings ... - Do not use directly. Instead, use /roomsettings',
+		'::',
 	],
+
 };
 
 // Prevent duplicate events and memory leaks.
 export const destroy = () => ES.destroy();
 
-//
+// These are exposed to room authority in /roomsettings
 export const roomSettings: Chat.SettingsHandler[] = [
 	room => ({
 		label: "Event Scheduler auto-demote Room Prize Winners (in months)",
@@ -320,3 +417,5 @@ export const roomSettings: Chat.SettingsHandler[] = [
 		),
 	}),
 ];
+
+// endregion

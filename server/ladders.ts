@@ -8,13 +8,10 @@
  * @license MIT
  */
 
-const LadderStore: typeof import('./ladders-remote').LadderStore = (
-	typeof Config === 'object' && Config.remoteladder ? require('./ladders-remote') : require('./ladders-local')
-).LadderStore;
-
 const SECONDS = 1000;
 const PERIODIC_MATCH_INTERVAL = 60 * SECONDS;
 
+import { LadderStore } from './ladders-local';
 import type { ChallengeType } from './room-battle';
 import { BattleReady, BattleChallenge, GameChallenge, BattleInvite, challenges } from './ladders-challenges';
 

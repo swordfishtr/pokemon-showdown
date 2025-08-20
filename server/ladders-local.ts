@@ -19,10 +19,12 @@ import { FS, Utils } from '../lib';
 // Use Ladders(formatid).ladder to guarantee a Promise(ladder).
 // ladder is basically a 2D array representing the corresponding ladder.tsv
 //   with userid in front
-/** [userid, elo, username, w, l, t, lastUpdate */
+/** [userid, elo, username, w, l, t, lastUpdate] */
 type LadderRow = [string, number, string, number, number, number, string];
 /** formatid: ladder */
 type LadderCache = Map<string, LadderRow[] | Promise<LadderRow[]>>;
+
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 const ladderCaches: LadderCache = new Map();
 
@@ -338,5 +340,40 @@ export class LadderStore {
 			}
 		}
 		return Promise.all(ratings);
+	}
+
+	// Generations
+
+	/**
+	 * Generic ladder rating decay function.
+	 * Decrease every player's rating for each day since last ladder game.
+	 * 
+	 * See implementation:
+	 * event-scheduler.tsx
+	 */
+	async decayRatings(threshold = 1400, multiplier = 2) {
+		if (Ladders.disabled) return;
+
+		if(Number.isNaN(threshold)) threshold = 1400;
+		if(Number.isNaN(multiplier)) multiplier = 2;
+
+		const now = Date.now();
+
+		const ladder = await this.getLadder();
+
+		for(const row of ladder) {
+			if(row[1] <= threshold) continue;
+
+			const lastUpdate = (new Date(row[6])).getTime();
+			const inactivity = now - lastUpdate;
+			const decay = multiplier * (Math.floor(inactivity / DAY_MS));
+
+			row[1] -= decay;
+			row[1] = Math.max(1000, row[1]);
+		}
+
+		// Slow operation, but runs only once a day.
+		ladder.sort(([,elo1], [,elo2]) => elo1 - elo2).reverse();
+		void this.save();
 	}
 }

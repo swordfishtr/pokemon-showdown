@@ -31,7 +31,7 @@ interface ESAction {
 	help: string[],
 	/** Sanitize input and check user authority. throw if invalid. */
 	validate: (this: CommandContext, input: string) => (string | void),
-	execute: (this: Room, input: string) => void,
+	execute: (this: { room: Room, user: User }, input: string) => void,
 }
 interface ESActionTable {
 	readonly [name: Lowercase<string>]: ESAction,
@@ -46,11 +46,11 @@ const ESActions: ESActionTable = {
 			'/es add send_chat_message [date] [full message] - Logs message as plain text in current room.',
 		],
 		validate(input) {
-			this.checkCan('roomprizewinner', null, this.room!);
+			this.checkChat();
 		},
 		execute(input) {
-			this.add(`[EventScheduler] ${input}`);
-			this.update();
+			this.room.add(`[EventScheduler] ${(new Date()).toUTCString()} ${this.user.id}: ${input}`);
+			this.room.update();
 		},
 	},
 
@@ -66,10 +66,10 @@ const ESActions: ESActionTable = {
 			const [user, nextRank] = Utils.splitFirst(input, ',');
 			if(!user) return;
 			if(nextRank && Auth.isValidSymbol(nextRank)) {
-				this.auth.set(toID(user), nextRank);
+				this.room.auth.set(toID(user), nextRank);
 			}
 			else {
-				this.auth.delete(toID(user));
+				this.room.auth.delete(toID(user));
 			}
 		},
 	},
@@ -80,27 +80,24 @@ const ESActions: ESActionTable = {
 			'/es add log_ladder [date] [format], [username prefix?] - Logs format ladder as HTML in current room.',
 		],
 		validate(input) {
-			this.checkCan('roomprizewinner', null, this.room!);
+			this.checkCan('disableladder');
 		},
-		execute(input) {
+		async execute(input) {
 			const [format, prefix] = Utils.splitFirst(input, ',');
-			Ladders(toID(format)).getTop(prefix).then((result) => {
-				if(!result) {
-					this.add(`[EventScheduler] Format ${format} doesn't exist or doesn't have a ladder.`);
-					this.send('');
-					return;
-				}
-				this.addRaw(result[1]);
-				this.update();
-			});
+			const result = await Ladders(toID(format)).getTop(prefix);
+			this.room.add(`[EventScheduler] Ladder rankings of ${format} at ${(new Date()).toUTCString()} requested by ${this.user.id}:`);
+			this.room.addRaw(result[1]);
+			this.room.update();
 		},
 	},
 
 	// Generations ladder decay is per-format, opt-in.
 	ladder_decay_cycle: {
-		help: [],
+		help: [
+			'/es add ladder_decay_cycle [date] [format], [decay threshold] - Begins daily ladder rating decay for format.',
+		],
 		validate(input) {
-			this.checkCan('roomprizewinner', null, this.room!);
+			this.checkCan('disableladder');
 		},
 		execute(input) {
 			const params = Utils.splitFirst(input, ',');
@@ -118,12 +115,13 @@ const ESActions: ESActionTable = {
 			const next = (Date.now() + DAY_MS) / 1000;
 
 			const event = {
+				userid: this.user.id,
 				timestamp: next,
 				actionname: 'ladder_decay_cycle',
 				input,
 			} as ESEvent;
 
-			ES.add(this.roomid, event);
+			ES.add(this.room.roomid, event);
 		},
 	},
 
@@ -172,7 +170,9 @@ export class EventScheduler {
 		timer.then(() => timersPromises.setTimeout(timeout, null, options)).then(() => {
 			const room = Rooms.get(roomid);
 			if(!room) return;
-			ESActions[event.actionname].execute.call(room, event.input);
+			const user = Users.getExact(event.userid);
+			if(!user) return;
+			ESActions[event.actionname].execute.call({ room, user }, event.input);
 		}).catch((error) => {
 			if(!(error && error.name === 'AbortError')) throw error;
 		}).finally(() => {

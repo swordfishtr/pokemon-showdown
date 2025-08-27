@@ -24,6 +24,11 @@ type LadderRow = [string, number, string, number, number, number, string];
 /** formatid: ladder */
 type LadderCache = Map<string, LadderRow[] | Promise<LadderRow[]>>;
 
+// Partial from the login server.
+export interface LadderEntry {
+	elo: number,
+}
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 const ladderCaches: LadderCache = new Map();
@@ -188,7 +193,7 @@ export class LadderStore {
 	 * Update the Elo rating for two players after a battle, and display
 	 * the results in the passed room.
 	 */
-	async updateRating(p1name: string, p2name: string, p1score: number, room: AnyObject) {
+	async updateRating(p1name: string, p2name: string, p1score: number, room: AnyObject): Promise<[number, LadderEntry | null, LadderEntry | null]> {
 		if (Ladders.disabled) {
 			room.addRaw(`Ratings not updated. The ladders are currently disabled.`).update();
 			return [p1score, null, null];
@@ -202,8 +207,8 @@ export class LadderStore {
 		}
 		const ladder = await this.getLadder();
 
-		let p1newElo;
-		let p2newElo;
+		let p1newElo: number | null = null;
+		let p2newElo: number | null = null;
 		try {
 			const p1index = this.indexOfUser(p1name, true);
 			const p1elo = ladder[p1index][1];
@@ -279,7 +284,14 @@ export class LadderStore {
 			room.update();
 		}
 
-		return [p1score, p1newElo, p2newElo];
+		const p1rating: LadderEntry = {
+			elo: p1newElo!,
+		};
+		const p2rating: LadderEntry = {
+			elo: p2newElo!,
+		};
+
+		return [p1score, p1rating, p2rating];
 	}
 
 	/**

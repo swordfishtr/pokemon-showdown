@@ -546,7 +546,9 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 		this.title = format.name;
 		this.options = options;
 		if (!this.title.endsWith(" Battle")) this.title += " Battle";
-		this.allowRenames = options.allowRenames !== undefined ? !!options.allowRenames : (!options.rated && !options.tour);
+		// Generations: We don't want this in rated battles or roomtours.
+		//this.allowRenames = options.allowRenames !== undefined ? !!options.allowRenames : (!options.rated && !options.tour);
+		this.allowRenames = !!options.allowRenames;
 
 		this.format = options.format;
 		this.gameType = format.gameType;

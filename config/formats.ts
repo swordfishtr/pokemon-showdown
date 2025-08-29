@@ -590,9 +590,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', 'Sleep Moves Clause'],
 		unbanlist: [
-			'Mantine', 'Aurorus', 'Skuntank', 'Archeops', 'Vikavolt-Base', 'Copperajah', 'Kadabra', 'Turtonator', 'Toxicroak', 'Cacturne', 'Mr. Rime', 'Rotom-Fan', 'Rapidash-Base', 'Camerupt-Base', 'Runerigus', 'Dusknoir', 'Tsareena', 'Sylveon', 'Forretress', 'Chandelure', 'Guzzlord', 'Uxie', 'Drampa', 'Tentacruel', 'Slither Wing', 'Donphan', 'Cradily', 'Basculin-White-Striped', 'Braviary-Base', 'Luxray', 'Silvally-Fairy', 'Silvally-Fighting', 'Silvally-Steel', 'Kangaskhan-Base', 'Glalie-Base',
+			'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa', 'Dusknoir', 'Eelektross', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Steel', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
 		],
 	},
 	{

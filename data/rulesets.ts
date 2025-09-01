@@ -755,6 +755,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: "Enables or disables timer acceleration",
 		// hardcoded in server/room-battle.ts
 	},
+	timerbattlegrace: {
+		// GENERATIONS
+		effectType: 'Rule',
+		name: 'Timer Battle Grace',
+		desc: "Grace period between battle start and when timer is allowed to be activated.",
+		hasValue: 'positive-integer',
+		// hardcoded in server/room-battle.ts
+	},
 	blitz: {
 		effectType: 'Rule',
 		name: 'Blitz',
@@ -3138,7 +3146,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Obtainable', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause',
 			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
 			'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'NatDex Mod', 'Min Source Gen = 1',
-			'Z-Move Clause', 'DryPass Clause', 'Moody Clause',
+			'Z-Move Clause', 'DryPass Clause', 'Moody Clause', 'Timer Battle Grace = 300', 'Min Level = 100', 'Max Level = 100',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',

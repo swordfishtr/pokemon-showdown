@@ -46,6 +46,7 @@ const MAX_TURN_TIME = 150;
 const STARTING_TIME_CHALLENGE = 300;
 const STARTING_GRACE_TIME = 60;
 const MAX_TURN_TIME_CHALLENGE = 300;
+const BATTLE_STARTING_GRACE_TIME = 0;
 
 const DISCONNECTION_TIME = 60;
 const DISCONNECTION_BANK_TIME = 300;
@@ -175,6 +176,7 @@ export class RoomBattleTimer {
 	lastDisabledTime = 0;
 	lastDisabledByUser: null | ID = null;
 	settings: GameTimerSettings;
+	readonly createdTimestamp = Date.now();
 	constructor(battle: RoomBattle) {
 		this.battle = battle;
 
@@ -200,6 +202,7 @@ export class RoomBattleTimer {
 			maxFirstTurn: isChallenge ? MAX_TURN_TIME_CHALLENGE : MAX_TURN_TIME,
 			timeoutAutoChoose: false,
 			accelerate: !timerSettings && !isChallenge,
+			battleGrace: BATTLE_STARTING_GRACE_TIME,
 			...timerSettings,
 		};
 		if (this.settings.maxPerTurn <= 0) this.settings.maxPerTurn = Infinity;
@@ -216,6 +219,17 @@ export class RoomBattleTimer {
 		if (this.battle.ended) {
 			requester?.sendTo(this.battle.roomid, `|inactiveoff|The timer can't be enabled after a battle has ended.`);
 			return false;
+		}
+		if (this.settings.battleGrace > 0) {
+			// Generations
+			const msGracePeriod = this.settings.battleGrace * SECONDS;
+			const msSinceStart = Date.now() - this.createdTimestamp;
+			if (msGracePeriod > msSinceStart) {
+				if (requester) this.battle.playerTable[requester.id].sendRoom(
+					`|inactiveoff|The timer can't be enabled during the grace period (${Math.floor(msGracePeriod - msSinceStart)} seconds remaining).`
+				);
+				return false;
+			}
 		}
 		if (this.timerRequesters.size) {
 			this.battle.room.add(`|inactive|${requester ? requester.name : userid} also wants the timer to be on.`).update();

@@ -87,24 +87,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Snorlax', 'Marill', 'Azumarill', 'Sudowoodo', 'Wobbuffet', 'Treecko', 'Grovyle', 'Sceptile', 'Torchic',
-			'Combusken', 'Blaziken', 'Mudkip', 'Marshtomp', 'Swampert', 'Poochyena', 'Mightyena', 'Zigzagoon', 'Linoone',
-			'Wurmple', 'Silcoon', 'Beautifly', 'Cascoon', 'Dustox', 'Lotad', 'Lombre', 'Ludicolo', 'Seedot',
-			'Nuzleaf', 'Shiftry', 'Taillow', 'Swellow', 'Wingull', 'Pelipper', 'Ralts', 'Kirlia', 'Gardevoir',
-			'Surskit', 'Masquerain', 'Shroomish', 'Breloom', 'Slakoth', 'Vigoroth', 'Slaking', 'Nincada', 'Ninjask',
-			'Shedinja', 'Whismur', 'Loudred', 'Exploud', 'Makuhita', 'Hariyama', 'Azurill', 'Nosepass', 'Skitty',
-			'Delcatty', 'Sableye', 'Mawile', 'Aron', 'Lairon', 'Aggron', 'Meditite', 'Medicham', 'Electrike',
-			'Manectric', 'Plusle', 'Minun', 'Volbeat', 'Illumise', 'Roselia', 'Gulpin', 'Swalot', 'Carvanha',
-			'Sharpedo', 'Wailmer', 'Wailord', 'Numel', 'Camerupt', 'Torkoal', 'Spoink', 'Grumpig', 'Spinda',
-			'Trapinch', 'Vibrava', 'Flygon', 'Cacnea', 'Cacturne', 'Swablu', 'Altaria', 'Zangoose', 'Seviper',
-			'Lunatone', 'Solrock', 'Barboach', 'Whiscash', 'Corphish', 'Crawdaunt', 'Baltoy', 'Claydol', 'Lileep',
-			'Cradily', 'Anorith', 'Armaldo', 'Feebas', 'Milotic', 'Castform-Base', 'Kecleon', 'Shuppet', 'Banette',
-			'Duskull', 'Dusclops', 'Tropius', 'Chimecho', 'Absol', 'Wynaut', 'Snorunt', 'Glalie', 'Spheal',
-			'Sealeo', 'Walrein', 'Clamperl', 'Huntail', 'Gorebyss', 'Relicanth', 'Luvdisc', 'Bagon', 'Shelgon',
-			'Salamence', 'Beldum', 'Metang', 'Metagross', 'Regirock', 'Regice', 'Registeel', 'Latias', 'Latios',
-			'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Deoxys', 'Budew', 'Roserade', 'Chingling', 'Bonsly',
-			'Munchlax', 'Gallade', 'Probopass', 'Dusknoir', 'Froslass', 'Regigigas', 'Obstagoon', 'Regieleki', 'Regidrago',
-			'Iron Hands', 'Roaring Moon', 'Iron Valiant',
+			'Blaziken-Base', 'Latias-Base', 'Latios-Base', 'Manectric-Mega', 'Deoxys-Speed', 'Jirachi', 'Metagross-Base', 'Salamence-Base', 'Gardevoir-Base', 'Aggron-Mega', 'Sceptile-Mega', 'Sharpedo-Mega', 'Pelipper', 'Regieleki', 'Azumarill', 'Breloom', 'Flygon', 'Sableye-Mega', 'Milotic', 'Regidrago', 'Registeel', 'Roserade', 'Swampert-Base', 'Crawdaunt', 'Deoxys-Defense', 'Froslass', 'Gallade-Base', 'Absol-Mega', 'Glalie-Mega', 'Obstagoon', 'Regirock', 'Swellow', 'Claydol', 'Hariyama', 'Ludicolo', 'Masquerain', 'Medicham-Base', 'Banette-Mega', 'Camerupt-Mega', 'Regice', 'Torkoal', 'Aggron-Base', 'Cradily', 'Dusknoir', 'Exploud', 'Gorebyss', 'Linoone-Base', 'Manectric-Base', 'Probopass', 'Sableye-Base', 'Altaria-Base', 'Armaldo', 'Cacturne', 'Camerupt-Base', 'Dusclops', 'Huntail', 'Sceptile-Base', 'Swalot', 'Wailord', 'Walrein', 'Zangoose', 'Absol-Base', 'Chimecho', 'Combusken', 'Linoone-Galar', 'Mawile-Base', 'Ninjask', 'Regigigas', 'Relicanth', 'Sharpedo-Base', 'Shiftry', 'Slaking', 'Vigoroth', 'Whiscash', 'Banette-Base', 'Glalie-Base', 'Grumpig', 'Illumise', 'Kecleon', 'Metang', 'Roselia', 'Sealeo', 'Seviper', 'Trapinch', 'Tropius', 'Volbeat', 'Clamperl', 'Lairon', 'Lunatone', 'Marshtomp', 'Mightyena', 'Minun', 'Plusle', 'Shedinja', 'Shelgon', 'Solrock', 'Spinda', 'Vibrava', 'Wailmer', 'Anorith', 'Aron', 'Azurill', 'Bagon', 'Baltoy', 'Barboach', 'Beautifly', 'Beldum', 'Budew', 'Cacnea', 'Carvanha', 'Cascoon', 'Castform-Base', 'Chingling', 'Corphish', 'Delcatty', 'Duskull', 'Dustox', 'Electrike', 'Feebas', 'Zigzagoon-Galar', 'Grovyle', 'Gulpin', 'Kirlia', 'Lileep', 'Lombre', 'Lotad', 'Loudred', 'Luvdisc', 'Makuhita', 'Marill', 'Meditite', 'Mudkip', 'Nincada', 'Nosepass', 'Numel', 'Nuzleaf', 'Poochyena', 'Ralts', 'Seedot', 'Shroomish', 'Shuppet', 'Silcoon', 'Skitty', 'Slakoth', 'Snorunt', 'Spheal', 'Spoink', 'Surskit', 'Swablu', 'Taillow', 'Torchic', 'Treecko', 'Whismur', 'Wingull', 'Wobbuffet', 'Wurmple', 'Wynaut', 'Zigzagoon-Base',
 		],
 	},
 	{
@@ -195,6 +178,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes 2025',
 		column: 2,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes [Sep 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Arbok', 'Avalugg-Base', 'Cacturne', 'Chesnaught', 'Clodsire', 'Cobalion', 'Crawdaunt', 'Eldegoss', 'Empoleon', 'Falinks', 'Feraligatr', 'Ferrothorn', 'Florges', 'Galvantula', 'Grimmsnarl', 'Klawf', 'Lucario-Base', 'Ludicolo', 'Mantine', 'Marowak-Alola', 'Milotic', 'Musharna', 'Overqwil', 'Pincurchin', 'Primeape', 'Regice', 'Sceptile-Base', 'Scolipede', 'Silvally-Dragon', 'Slurpuff', 'Torterra', 'Toxicroak', 'Trapinch', 'Vikavolt-Base', 'Wormadam-Base',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2025]",

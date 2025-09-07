@@ -226,7 +226,7 @@ export class RoomBattleTimer {
 			const msSinceStart = Date.now() - this.createdTimestamp;
 			if (msGracePeriod > msSinceStart) {
 				if (requester) this.battle.playerTable[requester.id].sendRoom(
-					`|inactiveoff|The timer can't be enabled during the grace period (${Math.floor(msGracePeriod - msSinceStart)} seconds remaining).`
+					`|inactiveoff|The timer can't be enabled during the grace period (${Math.ceil((msGracePeriod - msSinceStart) / SECONDS)} seconds remaining).`
 				);
 				return false;
 			}

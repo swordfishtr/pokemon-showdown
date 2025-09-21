@@ -861,6 +861,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Seniors [Sep 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes Ubers'],
+		unbanlist: [
+			'Absol-Mega', 'Aegislash-Base', 'Alakazam-Mega', 'Annihilape', 'Araquanid-Base', 'Arceus-Bug', 'Beedrill-Mega', 'Dialga-Base', 'Dragapult', 'Ferrothorn', 'Fezandipiti', 'Garchomp-Base', 'Genesect-Base', 'Giratina-Base', 'Great Tusk', 'Heatran', 'Hoopa-Unbound', 'Iron Treads', 'Iron Valiant', 'Kartana', 'Landorus-Base', 'Latias-Mega', 'Magearna-Base', 'Mawile-Mega', 'Naganadel', 'Ogerpon-Hearthflame', 'Palkia-Base', 'Pinsir-Mega', 'Quagsire', 'Tapu Fini', 'Tapu Koko', 'Tapu Lele', 'Ting-Lu', 'Tyranitar-Mega', 'Urshifu-Rapid-Strike',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Apr 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',

@@ -298,7 +298,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
 			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
 			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
-			'Jolteon', 'Lokix', 'Okidogi',
+			'Jolteon', 'Lokix', 'Okidogi', 'Banette-Mega', 'Mawile-Mega',
 		],
 	},
 	{
@@ -1065,7 +1065,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
 			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
 			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
-			'Jolteon', 'Lokix', 'Okidogi',
+			'Jolteon', 'Lokix', 'Okidogi', 'Banette-Mega', 'Mawile-Mega',
 		],
 	},
 	{

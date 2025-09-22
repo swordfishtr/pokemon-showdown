@@ -288,6 +288,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Dec 2024 AG]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', '!35 Pokes Mega Clause'],
+		unbanlist: [
+			'Shed Tail',
+			'Golem-Alola', 'Zoroark-Base', 'Pyukumuku', 'Guzzlord', 'Wugtrio', 'Garbodor', 'Aurorus', 'Morpeko-Base', 'Walrein',
+			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
+			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
+			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
+			'Jolteon', 'Lokix', 'Okidogi',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2024]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
@@ -1038,6 +1052,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Oricorio-Pom-Pom', 'Cursola', 'Slowbro-Base', 'Goodra-Base', 'Torkoal', 'Shaymin-Base', 'Infernape', 'Mesprit', 'Alcremie',
 			'Golurk', 'Dachsbun', 'Vileplume', 'Scyther', 'Donphan', 'Toedscruel', 'Sawsbuck', 'Reuniclus', 'Spiritomb',
 			'Type: Null', 'Virizion', 'Absol-Base', 'Flapple', 'Crawdaunt', 'Kecleon', 'Jynx', 'Kingdra',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes VGC [Dec 2024 AG]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard 35 Pokes VGC', '!35 Pokes Mega Clause'],
+		unbanlist: [
+			'Golem-Alola', 'Zoroark-Base', 'Pyukumuku', 'Guzzlord', 'Wugtrio', 'Garbodor', 'Aurorus', 'Morpeko-Base', 'Walrein',
+			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
+			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
+			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
+			'Jolteon', 'Lokix', 'Okidogi',
 		],
 	},
 	{

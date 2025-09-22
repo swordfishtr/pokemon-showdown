@@ -3181,6 +3181,32 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		// TODO: slowbrogalar must not mega evolve
 	},
+	'35pokesmegaclause': {
+		effectType: 'ValidatorRule',
+		name: '35 Pokes Mega Clause',
+		desc: "Rejects Mega Evolution capable Pokemon with optional exceptions.",
+		onValidateSet(set, format, setHas, teamHas) {
+			if (!set.item) return;
+			const item = this.dex.items.get(set.item);
+			if (item.megaEvolves && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
+				return [`Mega Evolution is banned.`];
+			}
+		},
+	},
+	'35pokeshiddenpowerclause': {
+		effectType: 'ValidatorRule',
+		name: '35 Pokes Hidden Power Clause',
+		desc: "Rejects Hidden Power except for Unown.",
+		onValidateSet(set, format, setHas, teamHas) {
+			const species = this.dex.species.get(set.species);
+			if (
+				set.moves.map(x => this.toID(this.dex.moves.get(x).realMove) || x).includes('hiddenpower') &&
+				species.baseSpecies !== 'Unown'
+			) {
+				return [`Hidden Power is banned.`];
+			}
+		},
+	},
 	standard35pokes: {
 		effectType: 'ValidatorRule',
 		name: 'Standard 35 Pokes',
@@ -3188,26 +3214,27 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		ruleset: [
 			'Standard NatDex', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', '!Species Clause', 'Forme Clause',
 			'Terastal Clause', 'DryPass Clause', 'Z-Move Clause', 'Moody Clause',
+			'35 Pokes Mega Clause', '35 Pokes Hidden Power Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
 			'Razor Fang', 'Last Respects', 'Shed Tail',
 		],
-		// Stupid hardcode
-		onValidateSet(set, format, setHas, teamHas) {
-			if (set.item) {
-				const item = this.dex.items.get(set.item);
-				if (item.megaEvolves && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
-					return [`Mega Evolution is banned.`];
-				}
-			}
-			const species = this.dex.species.get(set.species);
-			if (set.moves.map(x => this.toID(this.dex.moves.get(x).realMove) || x).includes('hiddenpower') &&
-				species.baseSpecies !== 'Unown' && !this.ruleTable.has(`+move:hiddenpower`)) {
-				return [`Hidden Power is banned.`];
-			}
-		},
+	},
+	standard35pokesvgc: {
+		effectType: 'ValidatorRule',
+		name: 'Standard 35 Pokes VGC',
+		desc: "The standard ruleset for 35 Pokes VGC metagames.",
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Picked Team Size = Auto', 'Cancel Mod',
+			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Best Of = 3',
+			'35 Pokes Mega Clause', '35 Pokes Hidden Power Clause',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC', 'Battle Bond',
+			// 'Berserk Gene', 'King\'s Rock', 'Last Respects', 'Power Construct', 'Quick Claw', 'Razor Fang', 'Shadow Tag', 'Shed Tail',
+		],
 	},
 	standard35pokeslc: {
 		effectType: 'ValidatorRule',
@@ -3242,19 +3269,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 			if(problems.length) return problems;
 		},
-	},
-	standard35pokesvgc: {
-		effectType: 'ValidatorRule',
-		name: 'Standard 35 Pokes VGC',
-		desc: "The standard ruleset for 35 Pokes VGC metagames.",
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Picked Team Size = Auto', 'Cancel Mod',
-			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Best Of = 3',
-		],
-		banlist: [
-			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC', 'Battle Bond',
-			// 'Berserk Gene', 'King\'s Rock', 'Last Respects', 'Power Construct', 'Quick Claw', 'Razor Fang', 'Shadow Tag', 'Shed Tail',
-		],
 	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',

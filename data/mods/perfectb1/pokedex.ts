@@ -1,5 +1,3 @@
-// TODO: find out what ability[2], ... would take
-
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	empoleon: {
 		inherit: true,

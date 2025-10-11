@@ -3069,23 +3069,23 @@ export const commands: Chat.ChatCommands = {
 	accessreplay(target, room, user, connection) {
 		const parts = /^https?:\/\/replay.generationssd.co.uk\/(.+)/.exec(target);
 		if(!parts) {
-			return this.sendReply('|accessreplay|1|Invalid url.');
+			return this.sendReply(`|accessreplay|1|${target}|Invalid url.`);
 		}
 		if(parts[1].includes('..') || parts[1].includes('/')) {
-			return this.sendReply('|accessreplay|1|.. and / are not allowed in path.');
+			return this.sendReply(`|accessreplay|1|${target}|.. and / are not allowed in path.`);
 		}
 		const [format, id, password] = parts[1].split('-', 3);
 		const datastr = FS(`${Config.customreplaysdir}/${format}-${id}.json`).readIfExistsSync();
 		if(!datastr) {
-			return this.sendReply(`|accessreplay|1|Replay not found: ${format}-${id}`);
+			return this.sendReply(`|accessreplay|1|${target}|Replay not found: ${format}-${id}`);
 		}
 		const data = JSON.parse(datastr);
 		if(!user.hasConsoleAccess(connection) && !data.players.map(toID).includes(user.id)) {
-			return this.sendReply(`|accessreplay|1|Your username is not a player in this replay (${data.players.join(', ')})`);
+			return this.sendReply(`|accessreplay|1|${target}|Your username is not a player in this replay (${data.players.join(', ')})`);
 		}
 		let buf = `https://replay.generationssd.co.uk/${data.id}`;
 		if(data.password) buf += `-${data.password}`;
-		this.sendReply(`|accessreplay|0|${buf}`);
+		this.sendReply(`|accessreplay|0|${target}|${buf}`);
 	},
 	accessreplayhelp: [`/accessreplay [replay url] - If your username is a player in this replay, returns url with password included.`],
 };

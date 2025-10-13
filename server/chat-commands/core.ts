@@ -175,6 +175,21 @@ export const crqHandlers: { [k: string]: Chat.CRQHandler } = {
 		}
 		return results;
 	},
+	// GENERATIONS
+	// fixes an issue where a user, upon connecting, joins lobby and if it was empty,
+	// upon logging in, their |j| message would not make it to them.
+	// this reportedly happens in battle rooms as well.
+	roomidentity(target, user, trustable) {
+		if (!trustable) return false;
+
+		if (target.length > 225) {
+			return null;
+		}
+
+		const room = Rooms.get(target);
+		const identity = user.getIdentityWithStatus(room);
+		return [target, identity];
+	},
 };
 
 export const commands: Chat.ChatCommands = {

@@ -583,6 +583,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
+		banlist: ['Silvally > 1'],
 		unbanlist: [
 			'Kangaskhan-Base', 'Wigglytuff', 'Komala', 'Haunter', 'Golurk', 'Cofagrigus', 'Glalie-Base', 'Mr. Rime', 'Kadabra', 'Medicham-Base', 'Hitmonchan', 'Poliwrath', 'Simipour', 'Mantine', 'Silvally-Flying', 'Archeops', 'Klawf', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Electrode-Base', 'Vikavolt-Base', 'Pinsir-Base', 'Wormadam-Trash', 'Simisage', 'Shiinotic', 'Victreebel', 'Skuntank', 'Silvally-Dark', 'Guzzlord', 'Silvally-Dragon', 'Turtonator', 'Simisear', 'Camerupt-Base', 'Sandslash-Base',
 		],
@@ -592,6 +593,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
+		banlist: ['Silvally > 1'],
 		unbanlist: [
 			'Cacturne', 'Seviper', 'Komala', 'Leafeon', 'Copperajah', 'Rotom-Fan', 'Armaldo', 'Mr. Rime', 'Cryogonal', 'Medicham-Base', 'Silvally-Psychic', 'Silvally-Fighting', 'Toxicroak', 'Mantine', 'Purugly', 'Archeops', 'Toucannon', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Frogadier', 'Vikavolt-Base', 'Pinsir-Base', 'Wugtrio', 'Dragonair', 'Shiinotic', 'Dusknoir', 'Skuntank', 'Silvally-Dark', 'Runerigus', 'Misdreavus', 'Turtonator', 'Rapidash-Base', 'Camerupt-Base', 'Sandslash-Base',
 		],
@@ -601,6 +603,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'Sleep Moves Clause'],
+		banlist: ['Silvally > 1'],
 		unbanlist: [
 			'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa', 'Dusknoir', 'Eelektross', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Bug', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
 		],

@@ -3247,7 +3247,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Standard 35 Pokes Ubers',
 		desc: "The standard ruleset for 35 Pokes Seniors metagames.",
 		ruleset: [
-			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'Baton Pass Clause', 'Z-Move Clause',
+			'Standard NatDex', '!Species Clause', 'Forme Clause', 'Terastal Clause', 'DryPass Clause', 'Z-Move Clause',
 			'!Obtainable Formes', '!Evasion Abilities Clause',
 		],
 		banlist: [

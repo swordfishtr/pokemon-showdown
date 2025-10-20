@@ -602,22 +602,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', 'Sleep Moves Clause'],
-		banlist: ['Silvally > 1'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
+		banlist: ['Silvally > 1', 'Silvally-Steel + Swords Dance'],
 		unbanlist: [
-			'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa', 'Dusknoir', 'Eelektross', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Bug', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
+			'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa', 'Dusknoir', 'Eelektross', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Steel', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
 		],
 	},
-	// {
-	// 	name: "[Gen 9] ND 35 Pokes Perfect [A3]",
-	// 	desc: `Only 35 Pok&eacute;mon are legal.`,
-	// 	mod: 'gen9',
-	// 	ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
-	// 	banlist: ['Silvally > 1', 'Silvally-Steel + Swords Dance'],
-	// 	unbanlist: [
-	// 		'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa', 'Dusknoir', 'Eelektross', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Steel', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
-	// 	],
-	// },
 	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,

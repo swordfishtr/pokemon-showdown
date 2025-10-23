@@ -593,7 +593,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
-		banlist: ['Silvally > 1'],
+		banlist: ['Silvally > 1', 'Light Clay'],
 		unbanlist: [
 			'Kangaskhan-Base', 'Wigglytuff', 'Komala', 'Haunter', 'Golurk', 'Cofagrigus', 'Glalie-Base', 'Mr. Rime', 'Kadabra', 'Medicham-Base', 'Hitmonchan', 'Poliwrath', 'Simipour', 'Mantine', 'Silvally-Flying', 'Archeops', 'Klawf', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Electrode-Base', 'Vikavolt-Base', 'Pinsir-Base', 'Wormadam-Trash', 'Simisage', 'Shiinotic', 'Victreebel', 'Skuntank', 'Silvally-Dark', 'Guzzlord', 'Silvally-Dragon', 'Turtonator', 'Simisear', 'Camerupt-Base', 'Sandslash-Base',
 		],
@@ -603,7 +603,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
-		banlist: ['Silvally > 1'],
+		banlist: ['Silvally > 1', 'Light Clay'],
 		unbanlist: [
 			'Cacturne', 'Seviper', 'Komala', 'Leafeon', 'Copperajah', 'Rotom-Fan', 'Armaldo', 'Mr. Rime', 'Cryogonal', 'Medicham-Base', 'Silvally-Psychic', 'Silvally-Fighting', 'Toxicroak', 'Mantine', 'Purugly', 'Archeops', 'Toucannon', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Frogadier', 'Vikavolt-Base', 'Pinsir-Base', 'Wugtrio', 'Dragonair', 'Shiinotic', 'Dusknoir', 'Skuntank', 'Silvally-Dark', 'Runerigus', 'Misdreavus', 'Turtonator', 'Rapidash-Base', 'Camerupt-Base', 'Sandslash-Base',
 		],
@@ -714,6 +714,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectf1',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
+		banlist: ['Light Clay'],
 		unbanlist: [
 			'Abra', 'Absol-Base', 'Appletun', 'Armaldo', 'Banette-Base', 'Beedrill-Base', 'Camerupt-Base', 'Castform-Base', 'Corsola-Base', 'Crocalor', 'Dedenne', 'Dewgong', 'Dustox', 'Fearow', 'Frillish', 'Gastly', 'Glalie-Base', 'Granbull', 'Grumpig', 'Gumshoos-Base', 'Heatmor', 'Mawile-Base', 'Mienfoo', 'Mightyena', 'Pachirisu', 'Pidgeot-Base', 'Plusle', 'Rampardos', 'Seviper', 'Simisage', 'Stunfisk-Galar', 'Tropius', 'Wobbuffet', 'Wugtrio', 'Zweilous',
 		],

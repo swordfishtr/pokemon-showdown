@@ -177,6 +177,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			waterpulse: ["7T", "6T", "4M", "3M"],
 			xscissor: ["8M", "8L48", "7M", "7L46", "6M", "6L46", "5M", "5L73", "4M", "4L73"],
 
+			recover: ['9M'],
 			uturn: ['9M'],
 		},
 	},

@@ -39,6 +39,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Run Away", 1: "Pickup", H: "Volt Absorb", E1: 'Drizzle' },
 	},
+	abra: {
+		inherit: true,
+		abilities: { 0: "Synchronize", 1: "Inner Focus", H: "Magic Guard", E1: 'Magic Bounce' },
+	},
 	glalie: {
 		inherit: true,
 		abilities: { 0: "Inner Focus", 1: "Ice Body", H: "Moody", E1: 'Galvanize' },

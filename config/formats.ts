@@ -1699,10 +1699,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Test",
 		desc: `Format for testing new things.`,
-		mod: 'gen9',
-		searchShow: false,
-		ruleset: ['Standard', 'Unban Fakemons'],
-	}
+		debug: true,
+		mod: 'perfectg1',
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			 'Aerodactyl-Base', 'Alakazam-Base', 'Annihilape', 'Arcanine-Hisui', 'Blastoise-Base', 'Beedrill-G', 'Butterfree-G', 'Charizard-Base', 'Clefable', 'Ditto', 'Dragonite', 'Exeggutor-Alola', 'Flareon', 'Gengar-Base', 'Iron Goro', 'Iron Soke', 'Jolteon', 'Kingdra', 'Machamp', 'Muk-Base', 'Ninetales-Alola', 'Obsilix', 'Pidgeot-Base', 'Pinsir-Base', 'Porygone', 'Sandslash-Alola', 'Sandy Shocks', 'Scream Tail', 'Snorlax', 'Steelix-Base', 'Tangrowth', 'Tauros-Base', 'Valkaryia', 'Vaporeon', 'Venusaur-Base',
+		],
+	},
 
 	// endregion
 

@@ -1,0 +1,110 @@
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+	charizard: {
+		inherit: true,
+		abilities: { 0: "Blaze", 1: "Sheer Force" },
+	},
+	blastoise: {
+		inherit: true,
+		abilities: { 0: "Torrent", 1: "Regenerator" },
+	},
+	pidgeot: {
+		inherit: true,
+		abilities: { 0: "No Guard", 1: "Big Pecks" },
+	},
+	sandslashalola: {
+		inherit: true,
+		abilities: { 0: "Iron Barbs", 1: "Slush Rush" },
+	},
+	ninetalesalola: {
+		inherit: true,
+		abilities: { 0: "Dazzling", 1: "Snow Warning" },
+	},
+	arcaninehisui: {
+		inherit: true,
+		abilities: { 0: "Rock Head", 1: "Sand Stream" },
+	},
+	gengar: {
+		inherit: true,
+		abilities: { 0: "Cursed Body", 1: "Infiltrator" },
+	},
+	exeggutoralola: {
+		inherit: true,
+		abilities: { 0: "Seed Sower", 1: "Harvest" },
+	},
+	aerodactyl: {
+		inherit: true,
+		abilities: { 0: "Tough Claws", 1: "Pressure" },
+	},
+	steelix: {
+		inherit: true,
+		abilities: { 0: "Sturdy", 1: "Sand Force" },
+	},
+	tangrowth: {
+		inherit: true,
+		abilities: { 0: "Tangling Hair", 1: "Regenerator" },
+	},
+
+	butterfreeg: {
+		num: -6000,
+		name: "Butterfree-G",
+		types: ["Bug", "Dark"],
+		baseStats: { hp: 89, atk: 6, def: 66, spa: 90, spd: 80, spe: 64 },
+		abilities: { 0: "Shadow Shield", 1: "Prankster" },
+		weightkg: 29.5,
+		eggGroups: ["Bug"],
+	},
+	beedrillg: {
+		num: -6001,
+		name: "Beedrill-G",
+		types: ["Bug", "Ground"],
+		baseStats: { hp: 65, atk: 108, def: 80, spa: 5, spd: 80, spe: 57 },
+		abilities: { 0: "Adaptability", 1: "Sand Rush" },
+		weightkg: 32,
+		eggGroups: ["Bug"],
+	},
+	obsilix: {
+		num: -6002,
+		name: "Obsilix",
+		types: ["Rock", "Dark"],
+		baseStats: { hp: 75, atk: 124, def: 80, spa: 65, spd: 55, spe: 111 },
+		abilities: { 0: "Sturdy", 1: "Sharpness" },
+		weightkg: 190,
+		eggGroups: ["Mineral"],
+	},
+	valkaryia: {
+		num: -6003,
+		name: "Valkaryia",
+		types: ["Ice", "Psychic"],
+		baseStats: { hp: 75, atk: 95, def: 67, spa: 123, spd: 105, spe: 75 },
+		abilities: { 0: "Oblivious", 1: "Cryoresonance" },
+		weightkg: 108,
+		eggGroups: ["Human-Like"],
+	},
+	irongoro: {
+		num: -6004,
+		name: "Iron Goro",
+		types: ["Electric", "Dark"],
+		baseStats: { hp: 95, atk: 120, def: 95, spa: 75, spd: 80, spe: 105 },
+		abilities: { 0: "Quark Drive" },
+		weightkg: 130,
+		eggGroups: ["Undiscovered"],
+	},
+	ironsoke: {
+		num: -6005,
+		name: "Iron Soke",
+		types: ["Fighting", "Steel"],
+		baseStats: { hp: 75, atk: 145, def: 50, spa: 95, spd: 110, spe: 95 },
+		abilities: { 0: "Quark Drive" },
+		weightkg: 149,
+		eggGroups: ["Undiscovered"],
+	},
+	porygone: {
+		num: -6006,
+		name: "Porygone",
+		types: ["Ghost"],
+		baseStats: { hp: 85, atk: 80, def: 90, spa: 115, spd: 95, spe: 70 },
+		abilities: { 0: "Trace", 1: "Wandering Spirit" },
+		weightkg: 33.3,
+		eggGroups: ["Amorphous"],
+	},
+};

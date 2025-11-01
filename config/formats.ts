@@ -1701,7 +1701,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Format for testing new things.`,
 		debug: true,
 		mod: 'perfectg1',
-		ruleset: ['Standard Generations'],
+		ruleset: [
+			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			'Sleep Clause Mod', 'Forme Clause', 'Nickname Clause', 'OHKO Clause', 'DryPass Clause', 'Moody Clause',
+			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Attract', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Revival Blessing', 'Take Heart',
+			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
+			'Shadow Tag', 'Quick Draw', 'Cute Charm',
+		],
 		unbanlist: [
 			 'Aerodactyl-Base', 'Alakazam-Base', 'Annihilape', 'Arcanine-Hisui', 'Blastoise-Base', 'Beedrill-G', 'Butterfree-G', 'Charizard-Base', 'Clefable', 'Ditto', 'Dragonite', 'Exeggutor-Alola', 'Flareon', 'Gengar-Base', 'Iron Goro', 'Iron Soke', 'Jolteon', 'Kingdra', 'Machamp', 'Muk-Base', 'Ninetales-Alola', 'Obsilix', 'Pidgeot-Base', 'Pinsir-Base', 'Porygone', 'Sandslash-Alola', 'Sandy Shocks', 'Scream Tail', 'Snorlax', 'Steelix-Base', 'Tangrowth', 'Tauros-Base', 'Valkaryia', 'Vaporeon', 'Venusaur-Base',
 		],

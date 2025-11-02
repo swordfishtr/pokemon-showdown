@@ -50,7 +50,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Cryoresonance",
 		num: -6000,
-		shortDesc: 'short blank',
+		shortDesc: 'This Pokemons sound-based moves become Ice type.',
 		desc: 'blank',
 	},
 

@@ -171,7 +171,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
-		shortDesc: 'short blank',
+		shortDesc: 'User switches out after damaging the target.',
 		desc: 'blank',
 	},
 	conversionz: {
@@ -238,7 +238,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		shortDesc: 'short blank',
+		shortDesc: "Changes move's type to deal super effective damage to the target.",
 		desc: 'blank',
 	},
 	coldsnap: {
@@ -254,7 +254,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		shortDesc: 'short blank',
+		shortDesc: 'Frostbites the target.',
 		desc: 'blank',
 	},
 

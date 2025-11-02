@@ -50,6 +50,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Cryoresonance",
 		num: -6000,
+		shortDesc: 'short blank',
+		desc: 'blank',
 	},
 
 };

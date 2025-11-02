@@ -171,6 +171,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		shortDesc: 'short blank',
+		desc: 'blank',
 	},
 	conversionz: {
 		num: -6001,
@@ -236,6 +238,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+		shortDesc: 'short blank',
+		desc: 'blank',
 	},
 	coldsnap: {
 		num: -6002,
@@ -250,6 +254,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+		shortDesc: 'short blank',
+		desc: 'blank',
 	},
 
 };

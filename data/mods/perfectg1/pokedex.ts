@@ -1,47 +1,103 @@
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+	venusaur: {
+		inherit: true,
+		abilities: { 0: "Overgrow", H: "Chlorophyll" },
+	},
 	charizard: {
 		inherit: true,
-		abilities: { 0: "Blaze", 1: "Sheer Force" },
+		abilities: { 0: "Blaze", H: "Sheer Force" },
 	},
 	blastoise: {
 		inherit: true,
-		abilities: { 0: "Torrent", 1: "Regenerator" },
+		abilities: { 0: "Torrent", H: "Regenerator" },
 	},
 	pidgeot: {
 		inherit: true,
-		abilities: { 0: "No Guard", 1: "Big Pecks" },
+		abilities: { 0: "No Guard", H: "Big Pecks" },
 	},
 	sandslashalola: {
 		inherit: true,
-		abilities: { 0: "Iron Barbs", 1: "Slush Rush" },
+		abilities: { 0: "Iron Barbs", H: "Slush Rush" },
+	},
+	clefable: {
+		inherit: true,
+		abilities: { 0: "Magic Guard", H: "Unaware" },
 	},
 	ninetalesalola: {
 		inherit: true,
-		abilities: { 0: "Dazzling", 1: "Snow Warning" },
+		abilities: { 0: "Dazzling", H: "Snow Warning" },
 	},
 	arcaninehisui: {
 		inherit: true,
-		abilities: { 0: "Rock Head", 1: "Sand Stream" },
+		abilities: { 0: "Rock Head", H: "Sand Stream" },
+	},
+	alakazam: {
+		inherit: true,
+		abilities: { 0: "Synchronize", H: "Magic Guard" },
+	},
+	machamp: {
+		inherit: true,
+		abilities: { 0: "Guts", H: "No Guard" },
+	},
+	muk: {
+		inherit: true,
+		abilities: { 0: "Sticky Hold", H: "Poison Touch" },
 	},
 	gengar: {
 		inherit: true,
-		abilities: { 0: "Cursed Body", 1: "Infiltrator" },
+		abilities: { 0: "Cursed Body", H: "Infiltrator" },
 	},
 	exeggutoralola: {
 		inherit: true,
-		abilities: { 0: "Seed Sower", 1: "Harvest" },
+		abilities: { 0: "Seed Sower", H: "Harvest" },
+	},
+	pinsir: {
+		inherit: true,
+		abilities: { 0: "Mold Breaker", H: "Moxie" },
+	},
+	tauros: {
+		inherit: true,
+		abilities: { 0: "Intimidate", H: "Sheer Force" },
+	},
+	vaporeon: {
+		inherit: true,
+		abilities: { 0: "Water Absorb", H: "Hydration" },
+	},
+	jolteon: {
+		inherit: true,
+		abilities: { 0: "Volt Absorb", H: "Quick Feet" },
+	},
+	flareon: {
+		inherit: true,
+		abilities: { 0: "Flash Fire", H: "Guts" },
 	},
 	aerodactyl: {
 		inherit: true,
-		abilities: { 0: "Tough Claws", 1: "Pressure" },
+		abilities: { 0: "Tough Claws", H: "Pressure" },
+	},
+	snorlax: {
+		inherit: true,
+		abilities: { 0: "Immunity", H: "Thick Fat" },
+	},
+	dragonite: {
+		inherit: true,
+		abilities: { 0: "Inner Focus", H: "Multiscale" },
 	},
 	steelix: {
 		inherit: true,
-		abilities: { 0: "Sturdy", 1: "Sand Force" },
+		abilities: { 0: "Sturdy", H: "Sand Force" },
+	},
+	kingdra: {
+		inherit: true,
+		abilities: { 0: "Swift Swim", H: "Sniper" },
 	},
 	tangrowth: {
 		inherit: true,
-		abilities: { 0: "Tangling Hair", 1: "Regenerator" },
+		abilities: { 0: "Tangling Hair", H: "Regenerator" },
+	},
+	annihilape: {
+		inherit: true,
+		abilities: { 0: "Vital Spirit", H: "Defiant" },
 	},
 
 	butterfreeg: {
@@ -49,7 +105,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Butterfree-G",
 		types: ["Bug", "Dark"],
 		baseStats: { hp: 89, atk: 6, def: 66, spa: 90, spd: 80, spe: 64 },
-		abilities: { 0: "Shadow Shield", 1: "Prankster" },
+		abilities: { 0: "Shadow Shield", H: "Prankster" },
 		weightkg: 29.5,
 		eggGroups: ["Bug"],
 	},
@@ -58,7 +114,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Beedrill-G",
 		types: ["Bug", "Ground"],
 		baseStats: { hp: 65, atk: 108, def: 80, spa: 5, spd: 80, spe: 57 },
-		abilities: { 0: "Adaptability", 1: "Sand Rush" },
+		abilities: { 0: "Adaptability", H: "Sand Rush" },
 		weightkg: 32,
 		eggGroups: ["Bug"],
 	},
@@ -67,7 +123,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Obsilix",
 		types: ["Rock", "Dark"],
 		baseStats: { hp: 75, atk: 124, def: 80, spa: 65, spd: 55, spe: 111 },
-		abilities: { 0: "Sturdy", 1: "Sharpness" },
+		abilities: { 0: "Sturdy", H: "Sharpness" },
 		weightkg: 190,
 		eggGroups: ["Mineral"],
 	},
@@ -76,7 +132,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Valkaryia",
 		types: ["Ice", "Psychic"],
 		baseStats: { hp: 75, atk: 95, def: 67, spa: 123, spd: 105, spe: 75 },
-		abilities: { 0: "Oblivious", 1: "Cryoresonance" },
+		abilities: { 0: "Oblivious", H: "Cryoresonance" },
 		weightkg: 108,
 		eggGroups: ["Human-Like"],
 	},
@@ -103,7 +159,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Porygone",
 		types: ["Ghost"],
 		baseStats: { hp: 85, atk: 80, def: 90, spa: 115, spd: 95, spe: 70 },
-		abilities: { 0: "Trace", 1: "Wandering Spirit" },
+		abilities: { 0: "Trace", H: "Wandering Spirit" },
 		weightkg: 33.3,
 		eggGroups: ["Amorphous"],
 	},

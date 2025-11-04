@@ -13,6 +13,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	pidgeot: {
 		inherit: true,
+		baseStats: { hp: 83, atk: 80, def: 75, spa: 85, spd: 70, spe: 101 },
 		abilities: { 0: "No Guard", H: "Big Pecks" },
 	},
 	sandslashalola: {

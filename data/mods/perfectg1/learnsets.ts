@@ -1190,7 +1190,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			ceaselessedge: ['9M'],
 			crunch: ['9M'],
 			curse: ['9M'],
-			cutandrun: ['9M'],
 			darkpulse: ['9M'],
 			defensecurl: ['9M'],
 			dig: ['9M'],
@@ -1253,6 +1252,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			takedown: ['9M'],
 			taunt: ['9M'],
 			wideguard: ['9M'],
+
+			switchblade: ['9M'],
 		},
 	},
 	valkaryia: {

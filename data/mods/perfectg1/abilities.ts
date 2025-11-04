@@ -7,7 +7,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				this.add('-ability', target, 'Tangling Hair');
-				this.boost({ spe: -1 }, source, target, null, true);
+				this.hint(`${source.name} is caught in ${target.name}'s Tangling Hair!`);
 				source.tryTrap();
 			}
 		},
@@ -15,6 +15,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 			if (this.checkMoveMakesContact(move, target, source)) {
+				this.add('-ability', target, 'Tangling Hair');
+				this.hint(`${target.name} is caught in ${source.name}'s Tangling Hair!`);
 				target.tryTrap();
 			}
 		},

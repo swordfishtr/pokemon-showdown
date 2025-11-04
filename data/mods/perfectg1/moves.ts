@@ -27,6 +27,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 90,
 		basePower: 40,
+		isNonstandard: null,
 	},
 	xscissor: {
 		inherit: true,
@@ -37,6 +38,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 	darkvoid: {
 		inherit: true,
+		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
@@ -75,16 +77,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	grasswhistle: {
 		inherit: true,
+		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
 	hypnosis: {
 		inherit: true,
+		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
 	lovelykiss: {
 		inherit: true,
+		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
@@ -129,16 +134,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	sing: {
 		inherit: true,
+		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
 	sleeppowder: {
+		accuracy: true,
 		inherit: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
 	spore: {
 		inherit: true,
+		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
 	},
@@ -158,7 +166,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 	// Additions
 
-	cutandrun: {
+	switchblade: {
 		num: -6000,
 		accuracy: 100,
 		basePower: 50,
@@ -180,7 +188,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 80,
 		category: "Special",
 		name: "Conversion-Z",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		beforeTurnCallback(pokemon, target) {
@@ -231,8 +239,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onModifyType(move, pokemon, target) {
 				if(move.id !== 'conversionz') return;
 				const type = this.effectState.conversionztype ?? 'Normal';
+				if(move.type === type) return;
 				move.type = type;
-				this.debug(`Conversion-Z Type read as ${type}`);
+				this.add('-singlemove', pokemon, 'Conversion-Z', type);
+				this.hint(`Conversion-Z changed to ${type} type!`, false);
 			},
 		},
 		secondary: null,

@@ -549,7 +549,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			weatherball: ["7L25", "6L25", "5L30", "4L30", "3L30"],
 			workup: ["7M", "5M"],
 
-			extremeevoboost: ['9M'],
+			clangoroussoul: ['9M'],
 			triattack: ['9M'],
 		},
 	},

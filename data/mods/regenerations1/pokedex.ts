@@ -119,15 +119,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32,
 		eggGroups: ["Bug"],
 	},
-	obsilix: {
-		num: -6002,
-		name: "Obsilix",
-		types: ["Rock", "Dark"],
-		baseStats: { hp: 75, atk: 124, def: 80, spa: 65, spd: 55, spe: 111 },
-		abilities: { 0: "Sturdy", H: "Sharpness" },
-		weightkg: 190,
-		eggGroups: ["Mineral"],
-	},
 	valkaryia: {
 		num: -6003,
 		name: "Valkaryia",

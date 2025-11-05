@@ -7,9 +7,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				this.add('-ability', target, 'Tangling Hair');
-				this.hint(`${source.name} is caught in ${target.name}'s Tangling Hair!`);
-				const isTrapped = source.addVolatile('trapped', target, move, 'trapper');
-				this.hint(`${source.name} should be ${isTrapped ? '' : 'not '}trapped.`);
+				source.addVolatile('trapped', target, move, 'trapper');
 			}
 		},
 		onSourceDamagingHit(damage, target, source, move) {
@@ -17,9 +15,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 			if (this.checkMoveMakesContact(move, source, target)) {
 				this.add('-ability', source, 'Tangling Hair');
-				this.hint(`${target.name} is caught in ${source.name}'s Tangling Hair!`);
-				const isTrapped = target.addVolatile('trapped', source, move, 'trapper');
-				this.hint(`${target.name} should be ${isTrapped ? '' : 'not '}trapped.`);
+				target.addVolatile('trapped', source, move, 'trapper');
 			}
 		},
 	},

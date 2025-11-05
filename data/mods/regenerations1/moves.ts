@@ -166,22 +166,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 	// Additions
 
-	switchblade: {
-		num: -6000,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Cut and Run",
-		pp: 20,
-		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		shortDesc: 'User switches out after damaging the target.',
-		desc: 'blank',
-	},
 	conversionz: {
 		num: -6001,
 		accuracy: 100,

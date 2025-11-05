@@ -13,6 +13,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
 			}
+			this.hint(`${target.name}'s SpA halved.`);
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 10,
@@ -47,6 +48,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			} else {
 				this.add('-status', target, 'par');
 			}
+			this.hint(`${target.name} Def and SpA multiplied by 5/6.`);
 		},
 		onModifySpePriority: -101,
 		onModifySpe(spe, pokemon) {

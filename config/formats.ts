@@ -178,7 +178,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Shadow Tag', 'Quick Draw', 'Cute Charm',
 		],
 		unbanlist: [
-			 'Aerodactyl-Base', 'Alakazam-Base', 'Annihilape', 'Arcanine-Hisui', 'Blastoise-Base', 'Beedrill-G', 'Butterfree-G', 'Charizard-Base', 'Clefable', 'Ditto', 'Dragonite', 'Exeggutor-Alola', 'Flareon', 'Gengar-Base', 'Iron Goro', 'Iron Soke', 'Jolteon', 'Kingdra', 'Machamp', 'Muk-Base', 'Ninetales-Alola', 'Obsilix', 'Pidgeot-Base', 'Pinsir-Base', 'Porygone', 'Sandslash-Alola', 'Sandy Shocks', 'Scream Tail', 'Snorlax', 'Steelix-Base', 'Tangrowth', 'Tauros-Base', 'Valkaryia', 'Vaporeon', 'Venusaur-Base',
+			 'Aerodactyl-Base', 'Alakazam-Base', 'Annihilape', 'Arcanine-Hisui', 'Blastoise-Base', 'Beedrill-G', 'Butterfree-G', 'Charizard-Base', 'Clefable', 'Ditto', 'Dragonite', 'Exeggutor-Alola', 'Flareon', 'Gengar-Base', 'Iron Goro', 'Iron Soke', 'Jolteon', 'Kingdra', 'Machamp', 'Muk-Base', 'Ninetales-Alola', 'Pidgeot-Base', 'Pinsir-Base', 'Porygone', 'Sandslash-Alola', 'Sandy Shocks', 'Scream Tail', 'Snorlax', 'Steelix-Base', 'Tangrowth', 'Tauros-Base', 'Valkaryia', 'Vaporeon', 'Venusaur-Base',
 		],
 	},
 	{

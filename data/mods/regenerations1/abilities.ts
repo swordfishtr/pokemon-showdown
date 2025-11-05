@@ -6,18 +6,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				this.add('-ability', source, 'Tangling Hair');
-				this.hint(`${target.name} is caught in ${source.name}'s Tangling Hair!`);
-				target.tryTrap();
+				this.add('-ability', target, 'Tangling Hair');
+				this.hint(`${source.name} is caught in ${target.name}'s Tangling Hair!`);
+				const isTrapped = source.tryTrap();
+				this.hint(`${source.name} is ${isTrapped ? '' : 'not '}trapped.`);
 			}
 		},
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
-			if (source.hasAbility('shielddust') || source.hasItem('covertcloak')) return;
-			if (this.checkMoveMakesContact(move, source, target)) {
-				this.add('-ability', source, 'Tangling Hair');
-				this.hint(`${source.name} is caught in ${target.name}'s Tangling Hair!`);
-				source.tryTrap();
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				this.add('-ability', target, 'Tangling Hair');
+				this.hint(`${target.name} is caught in ${source.name}'s Tangling Hair!`);
+				const isTrapped = target.tryTrap();
+				this.hint(`${target.name} is ${isTrapped ? '' : 'not '}trapped.`);
 			}
 		},
 	},

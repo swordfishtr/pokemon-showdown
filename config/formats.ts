@@ -165,9 +165,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: 'Generations off-season format.',
 		mod: 'regenerations1',
 		ruleset: [
-			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
-			'Sleep Clause Mod', 'Forme Clause', 'Nickname Clause', 'OHKO Clause', 'DryPass Clause', 'Moody Clause',
-			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
+			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Sleep Clause Mod', 'Forme Clause',
+			'Nickname Clause', 'OHKO Clause', 'DryPass Clause', 'Moody Clause', 'Terastal Clause', 'Evasion Clause',
+			'!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',

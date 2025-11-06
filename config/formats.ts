@@ -739,7 +739,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectf1',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
-		banlist: ['Leppa Berry', 'Light Clay'],
+		banlist: ['Light Clay'],
 		unbanlist: [
 			'Abra', 'Absol-Base', 'Appletun', 'Armaldo', 'Banette-Base', 'Beedrill-Base', 'Camerupt-Base', 'Castform-Base', 'Corsola-Base', 'Crocalor', 'Dedenne', 'Dewgong', 'Dustox', 'Fearow', 'Frillish', 'Gastly', 'Glalie-Base', 'Granbull', 'Grumpig', 'Gumshoos-Base', 'Heatmor', 'Mawile-Base', 'Mienfoo', 'Mightyena', 'Pachirisu', 'Pidgeot-Base', 'Plusle', 'Rampardos', 'Seviper', 'Simisage', 'Stunfisk-Galar', 'Tropius', 'Wobbuffet', 'Wugtrio', 'Zweilous',
 		],

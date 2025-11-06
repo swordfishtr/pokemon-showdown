@@ -737,6 +737,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			yawn: ["9L44", "7L44"],
 
 			fishiousrend: ['9M'],
+			wish: ['9M'],
 		},
 		eventData: [
 			{generation: 7, level: 64, gender: "M", abilities: ["intimidate"], moves: ["crunch", "firefang", "icefang", "thunderfang"], pokeball: "cherishball"},

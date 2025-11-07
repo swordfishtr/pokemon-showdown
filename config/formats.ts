@@ -334,6 +334,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
 			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
 			'Jolteon', 'Lokix', 'Okidogi', 'Banette-Mega', 'Mawile-Mega',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 		],
 	},
 	{
@@ -1124,6 +1126,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain', 'Dipplin', 'Chandelure',
 			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
 			'Jolteon', 'Lokix', 'Okidogi', 'Banette-Mega', 'Mawile-Mega',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 		],
 	},
 	{

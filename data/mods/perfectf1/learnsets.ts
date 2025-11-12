@@ -2133,6 +2133,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 
 			energyball: ['9M'],
 			mistball: ['9M'],
+			weatherball: ['9M'],
 		},
 		eventData: [
 			{generation: 3, level: 5, shiny: 1, moves: ["growl", "thunderwave", "watersport"], pokeball: "pokeball", emeraldEventEgg: true},
@@ -2266,6 +2267,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			splash: ["8L1"],
 
 			mortalspin: ['9M'],
+			seismictoss: ['9M'],
 		},
 		eventData: [
 			{generation: 3, level: 5, moves: ["counter", "mirrorcoat", "safeguard", "destinybond"], pokeball: "pokeball"},

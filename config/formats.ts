@@ -640,7 +640,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
-		banlist: ['Silvally > 1', 'Silvally-Steel + Swords Dance'],
+		banlist: ['Light Clay', 'Silvally > 1', 'Silvally-Steel + Swords Dance'],
 		unbanlist: [
 			'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa', 'Dusknoir', 'Eelektross', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Steel', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
 		],
@@ -689,7 +689,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [C1]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectc1',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
+		banlist: ['Light Clay'],
 		unbanlist: [
 			'Dhelmise', 'Liepard', 'Weezing-Base', 'Wigglytuff', 'Aromatisse', 'Togedemaru-Base', 'Silvally-Base', 'Gogoat', 'Hitmontop', 'Solrock', 'Raichu-Alola', 'Lickilicky', 'Dedenne', 'Klinklang', 'Leavanny', 'Exeggutor-Base', 'Steelix-Base', 'Medicham-Base', 'Jynx', 'Wailord', 'Rotom-Frost', 'Magcargo', 'Camerupt-Base', 'Palossand', 'Relicanth', 'Lumineon', 'Granbull', 'Delibird', 'Talonflame', 'Haunter', 'Guzzlord', 'Mabosstiff', 'Toxicroak', 'Mothim', 'Avalugg-Base',
 		],

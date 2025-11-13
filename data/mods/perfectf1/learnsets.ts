@@ -550,7 +550,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["7M", "5M"],
 
 			clangoroussoul: ['9M'],
-			triattack: ['9M'],
+			judgment: ['9M'],
 		},
 	},
 	camerupt: {

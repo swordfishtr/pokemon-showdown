@@ -207,9 +207,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Nov 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Altaria-Base', 'Ampharos-Base', 'Arbok', 'Armaldo', 'Calyrex-Base', 'Castform-Base', 'Dewgong', 'Drifblim', 'Emolga', 'Fearow', 'Furret', 'Glalie-Base', 'Gumshoos-Base', 'Heliolisk', 'Jumpluff', 'Kecleon', 'Ludicolo', 'Lunatone', 'Luxray', 'Lycanroc-Midnight', 'Meowstic-M', 'Primeape', 'Pupitar', 'Pyroar-Base', 'Rampardos', 'Scovillain', 'Silvally-Fairy', 'Simisage', 'Sneasel-Hisui', 'Spidops', 'Swalot', 'Thievul', 'Tinkaton', 'Whiscash', 'Zangoose',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
-		searchShow: false,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -999,9 +1007,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes VGC [Nov 2025]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Altaria-Base', 'Ampharos-Base', 'Arbok', 'Armaldo', 'Calyrex-Base', 'Castform-Base', 'Dewgong', 'Drifblim', 'Emolga', 'Fearow', 'Furret', 'Glalie-Base', 'Gumshoos-Base', 'Heliolisk', 'Jumpluff', 'Kecleon', 'Ludicolo', 'Lunatone', 'Luxray', 'Lycanroc-Midnight', 'Meowstic-M', 'Primeape', 'Pupitar', 'Pyroar-Base', 'Rampardos', 'Scovillain', 'Silvally-Fairy', 'Simisage', 'Sneasel-Hisui', 'Spidops', 'Swalot', 'Thievul', 'Tinkaton', 'Whiscash', 'Zangoose',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
-		searchShow: false,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [

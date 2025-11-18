@@ -14,7 +14,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	pidgeot: {
 		inherit: true,
 		baseStats: { hp: 83, atk: 80, def: 75, spa: 85, spd: 70, spe: 101 },
-		abilities: { 0: "No Guard", H: "Big Pecks" },
+		abilities: { 0: "No Guard", H: "Wind Rider" },
 	},
 	sandslashalola: {
 		inherit: true,
@@ -84,13 +84,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Inner Focus", H: "Multiscale" },
 	},
-	steelix: {
-		inherit: true,
-		abilities: { 0: "Sturdy", H: "Sand Force" },
-	},
 	kingdra: {
 		inherit: true,
 		abilities: { 0: "Swift Swim", H: "Sniper" },
+	},
+	rhyperior: {
+		inherit: true,
+		abilities: { 0: "Solid Rock", H: "Sand Force" },
 	},
 	tangrowth: {
 		inherit: true,
@@ -119,6 +119,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32,
 		eggGroups: ["Bug"],
 	},
+	usurperr: {
+		num: -6002,
+		name: "Usurperr",
+		types: ["Steel", "Dark"],
+		baseStats: { hp: 120, atk: 125, def: 107, spa: 50, spd: 65, spe: 43 },
+		abilities: { 0: "Steely Spirit", H: "Pickpocket" },
+		weightkg: 130,
+		eggGroups: ["Field"],
+	},
 	valkaryia: {
 		num: -6003,
 		name: "Valkaryia",
@@ -146,13 +155,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 149,
 		eggGroups: ["Undiscovered"],
 	},
-	porygone: {
+	trembler: {
 		num: -6006,
-		name: "Porygone",
+		name: "Trembler",
 		types: ["Ghost"],
-		baseStats: { hp: 85, atk: 80, def: 90, spa: 115, spd: 95, spe: 70 },
-		abilities: { 0: "Trace", H: "Wandering Spirit" },
-		weightkg: 33.3,
-		eggGroups: ["Amorphous"],
+		baseStats: { hp: 55, atk: 70, def: 105, spa: 110, spd: 55, spe: 80 },
+		abilities: { 0: "Mimicry", H: "Quick Feet" },
+		weightkg: 44,
+		eggGroups: ["Water 3", "Amorphous"],
 	},
 };

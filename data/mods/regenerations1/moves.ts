@@ -6,11 +6,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 60,
 	},
+	dualchop: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ragefist: {
 		inherit: true,
 		basePowerCallback(pokemon) {
 			return Math.min(350, 50 + 25 * pokemon.timesAttacked);
 		},
+	},
+	snaptrap: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	stoneaxe: {
 		inherit: true,
@@ -25,9 +33,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	twineedle: {
 		inherit: true,
+		isNonstandard: null,
 		accuracy: 90,
 		basePower: 40,
-		isNonstandard: null,
 	},
 	xscissor: {
 		inherit: true,
@@ -89,6 +97,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	lovelykiss: {
 		inherit: true,
+		isNonstandard: null,
 		accuracy: true,
 		status: undefined,
 		volatileStatus: 'yawn',
@@ -166,75 +175,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 	// Additions
 
-	conversionz: {
-		num: -6001,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Conversion-Z",
-		pp: 5,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-		beforeTurnCallback(pokemon, target) {
-			pokemon.addVolatile('conversionz');
-
-			// Type is chosen:
-			// - on turn start, before switches
-			// - not accounting for effects (can't use battle events)
-			// - randomly from the most effective types according to the type chart
-			// - normal type if target is typeless
-
-			const targetTypes = [ ...target.types, target.addedType ]
-			.map((x) => this.dex.types.get(x))
-			.filter((x) => x.exists);
-
-			if(!targetTypes.length) {
-				pokemon.volatiles['conversionz'].conversionztype = 'Normal';
-				this.debug('Conversion-Z Type set to Normal (typeless target)');
-				return;
-			}
-
-			const getEffectiveness = (x: number) => ([1, 2, 1/2, 0][x] ?? 0);
-
-			let topEffectiveness = -1;
-			let moveTypes = ['Normal'];
-
-			for(const offensiveType of this.dex.types.names()) {
-				let effectiveness = 1;
-				for(const defensiveType of targetTypes) {
-					effectiveness *= getEffectiveness(defensiveType.damageTaken[offensiveType]);
-				}
-
-				if(effectiveness > topEffectiveness) {
-					topEffectiveness = effectiveness;
-					moveTypes = [offensiveType];
-				}
-				else if(effectiveness === topEffectiveness) {
-					moveTypes.push(offensiveType);
-				}
-			}
-
-			const type = this.sample(moveTypes);
-			pokemon.volatiles['conversionz'].conversionztype = type;
-			this.debug(`Conversion-Z Type set to ${type} (${topEffectiveness}x)`);
-		},
-		condition: {
-			duration: 1,
-			onModifyType(move, pokemon, target) {
-				if(move.id !== 'conversionz') return;
-				const type = this.effectState.conversionztype ?? 'Normal';
-				if(move.type === type) return;
-				move.type = type;
-				this.add('-singlemove', pokemon, 'Conversion-Z', type);
-				this.hint(`Conversion-Z changed to ${type} type!`, false);
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		shortDesc: "Changes move's type to deal super effective damage to the target.",
-		desc: 'blank',
-	},
 	coldsnap: {
 		num: -6002,
 		accuracy: 85,

@@ -189,7 +189,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ice",
 		shortDesc: 'Frostbites the target.',
-		desc: 'blank',
+		desc: 'Frostbites the target.',
 	},
 
 };

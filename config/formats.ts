@@ -157,7 +157,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		section: 'Generations Off-Season',
+		section: 'Re-Generations',
 		column: 1,
 	},
 	{

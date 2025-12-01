@@ -207,6 +207,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Dec 2025]",
+		desc: `Only 35 Pokémon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Mamoswine', 'Oricorio-Baile', 'Galvantula', 'Bombirdier', 'Gothitelle', 'Drampa-Base', 'Perrserker', 'Glastrier', 'Klinklang', 'Walrein', 
+			'Uxie', 'Vanilluxe', 'Serperior', 'Revavroom', 'Falinks-Base', 'Braviary-Hisui', 'Wyrdeer', 'Beedrill-Base', 'Blastoise-Base', 'Squawkabilly-Green', 
+			'Swoobat', 'Lurantis-Base', 'Hypno', 'Scrafty-Base', 'Sinistcha', 'Cyclizar', 'Mothim', 'Mismagius', 'Goodra-Base', 'Mandibuzz', 'Delcatty', 
+			'Skarmory-Base', 'Cherrim-Base', 'Centiskorch', 'Wishiwashi',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2025]",
 		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
@@ -1005,6 +1017,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes VGC',
 		column: 3,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes VGC [Dec 2025]",
+		desc: `Only 35 Pokémon are legal.`,
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Mamoswine', 'Oricorio-Baile', 'Galvantula', 'Bombirdier', 'Gothitelle', 'Drampa-Base', 'Perrserker', 'Glastrier', 'Klinklang', 'Walrein', 
+			'Uxie', 'Vanilluxe', 'Serperior', 'Revavroom', 'Falinks-Base', 'Braviary-Hisui', 'Wyrdeer', 'Beedrill-Base', 'Blastoise-Base', 'Squawkabilly-Green', 
+			'Swoobat', 'Lurantis-Base', 'Hypno', 'Scrafty-Base', 'Sinistcha', 'Cyclizar', 'Mothim', 'Mismagius', 'Goodra-Base', 'Mandibuzz', 'Delcatty', 
+			'Skarmory-Base', 'Cherrim-Base', 'Centiskorch', 'Wishiwashi',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2025]",

@@ -208,7 +208,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2025]",
-		desc: `Only 35 Pokémon are legal.`,
+		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -556,8 +556,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Shuckle', 'Emboar',
 			'Doublade', 'Phione', 'Lumineon', 'Toucannon', 'Mandibuzz', 'Cinccino', 'Avalugg-Hisui', 'Sceptile-Base', 'Toedscruel',
 			'Hitmontop', 'Golem-Alola', 'Dugtrio-Base', 'Mr. Rime', 'Ariados', 'Pachirisu', 'Ambipom', 'Volbeat', 'Centiskorch',
-			'Shiinotic', 'Poliwrath', 'Stoutland', 'Banette-Base', 'Aurorus', 'Mawile-Base', 'Xatu', 'Sableye-Base', 'Orthworm',
+			'Shiinotic', 'Poliwrath', 'Stoutland', 'Banette-Base', 'Aurorus', 'Mawile-Base', 'Sableye-Base', 'Orthworm',
 			'Rotom-Mow', 'Sandslash-Alola', 'Toxicroak', 'Roserade', 'Lopunny-Base', 'Luxray', 'Solrock', 'Cryogonal', 'Noctowl',
+			// 'Xatu', banned
 		],
 	},
 	{
@@ -1020,7 +1021,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2025]",
-		desc: `Only 35 Pokémon are legal.`,
+		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
@@ -1365,8 +1366,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Liepard', 'Dragalge', 'Clefable', 'Clodsire', 'Gigalith', 'Cacturne', 'Porygon2', 'Shuckle', 'Emboar',
 			'Doublade', 'Phione', 'Lumineon', 'Toucannon', 'Mandibuzz', 'Cinccino', 'Avalugg-Hisui', 'Sceptile-Base', 'Toedscruel',
 			'Hitmontop', 'Golem-Alola', 'Dugtrio-Base', 'Mr. Rime', 'Ariados', 'Pachirisu', 'Ambipom', 'Volbeat', 'Centiskorch',
-			'Shiinotic', 'Poliwrath', 'Stoutland', 'Banette-Base', 'Aurorus', 'Mawile-Base', 'Xatu', 'Sableye-Base', 'Orthworm',
+			'Shiinotic', 'Poliwrath', 'Stoutland', 'Banette-Base', 'Aurorus', 'Mawile-Base', 'Sableye-Base', 'Orthworm',
 			'Rotom-Mow', 'Sandslash-Alola', 'Toxicroak', 'Roserade', 'Lopunny-Base', 'Luxray', 'Solrock', 'Cryogonal', 'Noctowl',
+			// 'Xatu', banned
 		],
 	},
 	{

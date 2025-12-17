@@ -1764,6 +1764,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['[Gen 9] Hackmons Cup'],
 	},
 	{
+		name: "[Gen 9] Anything Goes",
+		mod: 'gen9',
+		ruleset: ['Standard AG'],
+	},
+	{
 		name: "[Gen 9] National Dex AG",
 		mod: 'gen9',
 		ruleset: ['Standard AG', 'NatDex Mod'],

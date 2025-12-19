@@ -793,6 +793,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
+		desc: `Only 35 Pok&eacute;mon are legal.`,
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: [
+			'Standard 35 Pokes VGC', '!Terastal Clause', '!35 Pokes Hidden Power Clause', 'Force Open Team Sheets',
+		],
+		unbanlist: [
+			'Altaria-Base', 'Bisharp', 'Brambleghast', 'Bruxish', 'Ceruledge', 'Electrode-Hisui', 'Excadrill', 'Gastrodon', 'Gothitelle', 'Hariyama', 'Hatterene', 'Heliolisk', 'Hippowdon', 'Lilligant-Hisui', 'Lucario-Base', 'Ludicolo', 'Lycanroc-Base', 'Mamoswine', 'Maushold', 'Moltres-Galar', 'Munkidori', 'Oranguru', 'Overqwil', 'Politoed', 'Primarina', 'Regidrago', 'Salamence-Base', 'Scizor-Base', 'Slaking', 'Talonflame', 'Tinkaton', 'Toedscruel', 'Torkoal', 'Weezing-Galar', 'Zoroark-Hisui',
+		],
+	},
+	{
 		section: '35 Pokes Babies',
 		column: 3
 	},

@@ -198,7 +198,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	{
-		name: '[Gen 9] VGC UU',
+		name: '[Gen 9] 4v4 DUU',
 		desc: 'Usage based UU VGC.',
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -215,7 +215,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: '[Gen 9] VGC UU (Bo3)',
+		name: '[Gen 9] 4v4 DUU (Bo3)',
 		desc: 'Usage based UU VGC.',
 		mod: 'gen9',
 		gameType: 'doubles',

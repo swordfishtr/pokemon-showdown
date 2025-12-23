@@ -206,6 +206,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Evasion Moves Clause',
 		],
+		banlist: [
+			'Urshifu', 'Flutter Mane', 'Incineroar', 'Raging Bolt', 'Landorus-I', 'Rillaboom', 'Ogerpon-Wellspring', 'Ogerpon-Hearthflame', 'Tornadus-I', 'Chien-Pao', 'Amoonguss', 'Farigiraf', 'Indeedee-F', 'Iron Crown', 'Gholdengo', 'Dragonite', 'Gouging Fire', 'Ursaluna', 'Chi-Yu', 'Regidrago', 'Porygon2', 'Dondozo', 'Entei', 'Ting-Lu', 'Torkoal', 'Roaring Moon',
+			// Banned via tiering action
+			'Enamorus-I', 'Articuno-Base', 'Annihilape', 'Sneasler',
+			'Commander',
+			'Bright Powder', 'King\'s Rock', 'Razor Fang',
+		],
 	},
 	{
 		name: '[Gen 9] VGC UU (Bo3)',

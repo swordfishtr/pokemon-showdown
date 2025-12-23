@@ -83,7 +83,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 3]",
-		desc: `Generations Draft League.`,
 		mod: 'gen9',
 		ruleset: ['Standard Generations'],
 		unbanlist: [
@@ -92,7 +91,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 2]",
-		desc: `Generations Draft League.`,
 		mod: 'gen9',
 		ruleset: ['Standard Generations'],
 		unbanlist: [
@@ -119,7 +117,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 1]",
-		desc: `Generations Draft League.`,
 		mod: 'gen9',
 		ruleset: ['Standard Generations'],
 		unbanlist: [
@@ -162,7 +159,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Re-Generations 1.0",
-		desc: 'Generations off-season format.',
 		mod: 'regenerations1',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Sleep Clause Mod', 'Forme Clause',
@@ -187,7 +183,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Dual Monotype Draft",
-		desc: `Monotype draft with 2 types (in the less restrictive sense).`,
+		desc: 'Monotype draft with 2 types (in the less restrictive sense).',
 		mod: 'gen9',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Double Same Type Clause', 'DryPass Clause', 'Moody Clause',
@@ -195,6 +191,71 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'Revival Blessing', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+		],
+	},
+	{
+		section: 'Partner Communities',
+		column: 1,
+	},
+	{
+		name: '[Gen 9] VGC UU',
+		desc: 'Usage based UU VGC.',
+		mod: 'gen9',
+		gameType: 'doubles',
+		// bestOfDefault: true,
+		ruleset: [
+			'Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Evasion Moves Clause',
+		],
+	},
+	{
+		name: '[Gen 9] VGC UU (Bo3)',
+		desc: 'Usage based UU VGC.',
+		mod: 'gen9',
+		gameType: 'doubles',
+		// bestOfDefault: true,
+		ruleset: [
+			'Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Evasion Moves Clause', 'Best Of = 3',
+		],
+		banlist: [
+			'Urshifu', 'Flutter Mane', 'Incineroar', 'Raging Bolt', 'Landorus-I', 'Rillaboom', 'Ogerpon-Wellspring', 'Ogerpon-Hearthflame', 'Tornadus-I', 'Chien-Pao', 'Amoonguss', 'Farigiraf', 'Indeedee-F', 'Iron Crown', 'Gholdengo', 'Dragonite', 'Gouging Fire', 'Ursaluna', 'Chi-Yu', 'Regidrago', 'Porygon2', 'Dondozo', 'Entei', 'Ting-Lu', 'Torkoal', 'Roaring Moon',
+			// Banned via tiering action
+			'Enamorus-I', 'Articuno-Base', 'Annihilape', 'Sneasler',
+			'Commander',
+			'Bright Powder', 'King\'s Rock', 'Razor Fang',
+		],
+	},
+	{
+		name: '[Gen 9] ND VGC LC',
+		desc: 'VGC with unevolved pokemon only.',
+		mod: 'gen9',
+		gameType: 'doubles',
+		// bestOfDefault: true,
+		ruleset: [
+			'Standard Doubles', 'NatDex Mod', 'Picked Team Size = 4', 'Little Cup', '!! Max Level = 50', 'Z-Move Clause', 'Terastal Clause', '!Species Clause', 'Forme Clause', 'Item Clause = 1', 'Evasion Clause', 'VGC Timer', 'Limit One Restricted', 'Open Team Sheets',
+		],
+		restricted: [
+			'Scyther', 'Tangela', 'Stantler', 'Sneasel-Hisui', 'Qwilfish-Hisui', 'Murkrow', 'Misdreavus', 'Gligar', 'Girafarig', 'Cottonee', 'Clamperl', 'Basculin-White-Striped', 'Sneasel', 'Corsola-Galar',
+		],
+		banlist: [
+			'Duraludon', 'Type: Null',
+			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
+		],
+	},
+	{
+		name: '[Gen 9] ND VGC LC (Bo3)',
+		desc: 'VGC with unevolved pokemon only.',
+		mod: 'gen9',
+		gameType: 'doubles',
+		// bestOfDefault: true,
+		ruleset: [
+			'Standard Doubles', 'NatDex Mod', 'Picked Team Size = 4', 'Little Cup', '!! Max Level = 50', 'Z-Move Clause', 'Terastal Clause', '!Species Clause', 'Forme Clause', 'Item Clause = 1', 'Evasion Clause', 'VGC Timer', 'Limit One Restricted', 'Open Team Sheets', 'Best Of = 3',
+		],
+		restricted: [
+			'Scyther', 'Tangela', 'Stantler', 'Sneasel-Hisui', 'Qwilfish-Hisui', 'Murkrow', 'Misdreavus', 'Gligar', 'Girafarig', 'Cottonee', 'Clamperl', 'Basculin-White-Striped', 'Sneasel', 'Corsola-Galar',
+		],
+		banlist: [
+			'Duraludon', 'Type: Null',
+			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
 		],
 	},
 
@@ -208,7 +269,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -220,7 +280,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -229,7 +288,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -238,7 +296,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -247,7 +304,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -256,7 +312,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -265,7 +320,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -277,7 +331,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [May 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -289,7 +342,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Apr 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -301,7 +353,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -314,7 +365,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -327,7 +377,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -344,7 +393,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2024 AG]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!35 Pokes Mega Clause'],
 		unbanlist: [
@@ -360,7 +408,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -373,7 +420,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -386,7 +432,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -399,7 +444,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -412,7 +456,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -425,7 +468,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -440,7 +482,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -453,7 +494,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [May 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -466,7 +506,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Apr 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -479,7 +518,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -492,7 +530,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -505,7 +542,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -522,7 +558,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -535,7 +570,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -548,7 +582,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2023 B]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -563,7 +596,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -576,7 +608,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -589,7 +620,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -602,7 +632,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -638,7 +667,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		banlist: ['Silvally > 1', 'Light Clay'],
@@ -648,7 +676,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A2]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		banlist: ['Silvally > 1', 'Light Clay'],
@@ -658,7 +685,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
 		banlist: ['Light Clay', 'Silvally > 1', 'Silvally-Steel + Swords Dance'],
@@ -668,7 +694,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectb1',
 		ruleset: [
 			// from Custom Game
@@ -688,7 +713,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 5] 35 Pokes Perfect [B2]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectb2',
 		ruleset: [
 			// from Custom Game
@@ -708,7 +732,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [C1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectc1',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
 		banlist: ['Light Clay'],
@@ -718,7 +741,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [D1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
 		banlist: ['Eviolite', 'Download', 'Analytic'],
@@ -728,7 +750,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 7] 35 Pokes Perfect [E1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen7',
 		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
 		banlist: ['All Pokemon', 'Regenerator', 'Dynamic Punch'],
@@ -760,7 +781,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [F1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectf1',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
 		banlist: ['Light Clay'],
@@ -785,7 +805,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'perfectc2',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -794,7 +813,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
@@ -810,7 +828,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Apr 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -819,7 +836,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Feb 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -828,7 +844,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Jan 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -837,7 +852,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Dec 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -846,7 +860,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Nov 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -855,7 +868,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Oct 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -864,7 +876,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Sep 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -873,7 +884,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Aug 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -882,7 +892,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Jul 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -891,7 +900,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Jun 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -900,7 +908,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [May 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -909,7 +916,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Apr 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -918,7 +924,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Apr 2024 AFD]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -928,7 +933,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Mar 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -937,7 +941,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Jan 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		unbanlist: [
@@ -946,7 +949,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Dec 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
 		banlist: ['Deep Sea Tooth'],
@@ -960,7 +962,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Sep 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -969,7 +970,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Apr 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -978,13 +978,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Jan 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['[Gen 9] ND 35 Pokes Seniors [Apr 2024]'],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Sep 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -993,7 +991,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Aug 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -1002,7 +999,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Jun 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -1011,7 +1007,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [May 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -1020,7 +1015,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Seniors [Apr 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		unbanlist: [
@@ -1033,7 +1027,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
@@ -1045,7 +1038,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
@@ -1054,7 +1046,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
@@ -1063,7 +1054,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Sep 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
@@ -1072,7 +1062,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1082,7 +1071,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1092,7 +1080,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jun 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1105,7 +1092,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [May 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1118,7 +1104,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Apr 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1131,7 +1116,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Mar 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1144,7 +1128,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Feb 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1157,7 +1140,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jan 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1170,7 +1152,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2024 AG]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC', '!35 Pokes Mega Clause'],
@@ -1186,7 +1167,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1199,7 +1179,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1212,7 +1191,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1225,7 +1203,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Sep 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1238,7 +1215,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1251,7 +1227,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1266,7 +1241,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jun 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1279,7 +1253,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [May 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1292,7 +1265,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Apr 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1305,7 +1277,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Mar 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1318,7 +1289,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Feb 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1331,7 +1301,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jan 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1344,7 +1313,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1357,7 +1325,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1370,7 +1337,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2023 B]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1385,7 +1351,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1398,7 +1363,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Sep 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1411,7 +1375,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1424,7 +1387,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2023]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
@@ -1446,7 +1408,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Benjamin Button",
-		desc: `B`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'Scalemons Mod'],
 		unbanlist: [
@@ -1455,7 +1416,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes NFE [Nov 2024]",
-		desc: `35 Pokes x NFE collab.`,
+		desc: '35 Pokes x NFE collab.',
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -1465,7 +1426,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// TODO: generic forcemonocolor
 	{
 		name: "[Gen 9] ND 35 Pokes Monocolor [May 2024]",
-		desc: `35 Pokes x Monocolor collab.`,
+		desc: '35 Pokes x Monocolor collab.',
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', /* 'Force Monocolor' */],
 		unbanlist: [
@@ -1502,7 +1463,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Space-Time Smackdown",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -1511,7 +1471,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Genetic Apex",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -1520,7 +1479,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Mythical Island",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -1529,7 +1487,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Shining Revelry",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
@@ -1542,7 +1499,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 3] 35 Pokes [Sep 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen3',
 		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
 		banlist: ['All Pokemon'],
@@ -1552,7 +1508,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 3] 35 Pokes [Aug 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen3',
 		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
 		banlist: ['All Pokemon'],
@@ -1566,7 +1521,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Flipped [Jan 2025]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],
 		unbanlist: [
@@ -1575,7 +1529,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Flipped [Dec 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],
 		unbanlist: [
@@ -1584,7 +1537,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Flipped [Nov 2024]",
-		desc: `Only 35 Pok&eacute;mon are legal.`,
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],
 		unbanlist: [
@@ -1602,7 +1554,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Broken Cup",
-		desc: `[Gen 9] Hackmons Cup but with only the most powerful Pok&eacute;mon, moves, abilities, and items.`,
+		desc: '[Gen 9] Hackmons Cup but with only the most powerful Pok&eacute;mon, moves, abilities, and items.',
 		team: 'randomHC',
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 		banlist: ['All Pokemon', 'All Abilities', 'All Items', 'All Moves'],
@@ -1714,14 +1666,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Broken Cup FFA",
-		desc: `[Gen 9] Hackmons Cup but with only the most powerful Pok&eacute;mon, moves, abilities, and items.`,
+		desc: '[Gen 9] Hackmons Cup but with only the most powerful Pok&eacute;mon, moves, abilities, and items.',
 		gameType: 'freeforall',
 		team: 'randomHC',
 		ruleset: ['[Gen 9] Broken Cup'],
 	},
 	{
 		name: "[Gen 9] Chaos Cup",
-		desc: `AAAAAA`,
 		mod: 'spmnm',
 		team: 'randomHC',
 		ruleset: [
@@ -1748,7 +1699,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Cup FFA",
-		desc: `AAAAAA`,
 		mod: 'spmnm',
 		gameType: 'freeforall',
 		team: 'randomHC',
@@ -1761,7 +1711,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Hackmons Cup",
-		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item.`,
+		desc: 'Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item.',
 		mod: 'gen9',
 		team: 'randomHC',
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
@@ -1769,7 +1719,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Hackmons Cup FFA",
-		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item.`,
+		desc: 'Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item.',
 		mod: 'gen9',
 		gameType: 'freeforall',
 		team: 'randomHC',
@@ -1787,7 +1737,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Test",
-		desc: `Format for testing new things.`,
 		debug: true,
 		mod: 'gen9',
 		ruleset: ['Standard AG'],

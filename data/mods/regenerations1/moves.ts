@@ -15,6 +15,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePowerCallback(pokemon) {
 			return Math.min(350, 50 + 25 * pokemon.timesAttacked);
 		},
+		shortDesc: '+50 power for each time user was hit. Max 6 hits.',
+		desc: 'Power is equal to 50+(X*25), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and does not reset upon switching out or fainting. Each hit of a multi-hit attack is counted, but confusion damage is not counted.',
 	},
 	snaptrap: {
 		inherit: true,

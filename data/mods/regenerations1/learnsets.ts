@@ -1056,7 +1056,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			earthpower: ['9M'],
 			earthquake: ['9M'],
 			electroweb: ['9M'],
-			endeavour: ['9M'],
+			endeavor: ['9M'],
 			endure: ['9M'],
 			facade: ['9M'],
 			falseswipe: ['9M'],

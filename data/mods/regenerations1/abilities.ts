@@ -66,8 +66,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
 				move.type = 'Ice';
-				this.add('-ability', pokemon, 'Cryoresonance');
-				this.hint(`Cryoresonance changed ${move.name} type to Ice.`);
 			}
 		},
 		flags: {},

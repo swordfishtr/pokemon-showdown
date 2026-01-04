@@ -17,6 +17,7 @@ export interface TournamentRoomSettings {
 	recentToursLength?: number;
 	recentTours?: { name: string, baseFormat: string, time: number }[];
 	blockRecents?: boolean;
+	autoupload?: boolean;
 }
 
 type Generator = RoundRobin | Elimination;
@@ -1154,7 +1155,10 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		this.room.add(`|tournament|battleend|${p1.name}|${p2.name}|${result}|${score.join(',')}|success|${room.roomid}`);
 
 		if (this.generator.isTournamentEnded()) {
-			if (!this.room.settings.isPrivate && this.generator.name.includes('Elimination') && !Config.autosavereplays) {
+			if (
+				!this.room.settings.isPrivate && !this.room.settings.tournaments?.autoupload &&
+				this.generator.name.includes('Elimination') && !Config.autosavereplays
+			) {
 				const uploader = Users.get(winnerid);
 				if (uploader?.connections[0]) {
 					void Chat.parse('/savereplay', room, uploader, uploader.connections[0]);
@@ -2282,7 +2286,7 @@ const commands: Chat.ChatCommands = {
 				target = toID(target);
 				if (!target || (!this.meansYes(target) && !this.meansNo(target))) {
 					if (room.settings.tournaments?.blockRecents) {
-						this.sendReply(`Recent tournaments are currently ${room.settings.tournaments.blockRecents ? '' : 'NOT '} blocked from being made.`);
+						this.sendReply(`Recent tournaments are currently ${room.settings.tournaments.blockRecents ? '' : 'NOT '}blocked from being made.`);
 					}
 					return this.parse(`/help tour settings`);
 				}
@@ -2303,6 +2307,35 @@ const commands: Chat.ChatCommands = {
 					room.saveSettings();
 					this.privateModAction(`Recent tournaments were allowed to be remade by ${user.name}.`);
 					this.modlog('TOUR SETTINGS', null, `recent tour block: off`);
+				}
+			},
+			autoupload(target, room, user) {
+				room = this.requireRoom();
+				this.checkCan('declare', null, room);
+				target = toID(target);
+				if (!target || (!this.meansYes(target) && !this.meansNo(target))) {
+					if (room.settings.tournaments?.autoupload) {
+						this.sendReply(`Tournament battle replays are currently ${room.settings.tournaments.autoupload ? '' : 'NOT '}uploaded automatically.`);
+					}
+					return this.parse(`/help tour settings`);
+				}
+				room.settings.tournaments ||= {};
+				if (this.meansYes(target)) {
+					if (room.settings.tournaments.autoupload) {
+						throw new Chat.ErrorMessage(`Tournament battle replays are already uploaded automatically.`);
+					}
+					room.settings.tournaments.autoupload = true;
+					room.saveSettings();
+					this.privateModAction(`Tournament battle replays were set to upload automatically by ${user.name}.`);
+					this.modlog('TOUR SETTINGS', null, `auto upload replays: on`);
+				} else {
+					if (!room.settings.tournaments.autoupload) {
+						throw new Chat.ErrorMessage(`Tournament battle replays are already NOT uploaded automatically.`);
+					}
+					delete room.settings.tournaments.autoupload;
+					room.saveSettings();
+					this.privateModAction(`Tournament battle replays were set to NOT upload automatically by ${user.name}.`);
+					this.modlog('TOUR SETTINGS', null, `auto upload replays: off`);
 				}
 			},
 			'': 'help',
@@ -2424,7 +2457,25 @@ const roomSettings: Chat.SettingsHandler[] = [
 			['off', !room.settings.tournaments?.blockRecents || 'tour settings blockrecents off'],
 		],
 	}),
+	room => ({
+		label: "Tournament Replays Auto-Upload",
+		permission: "editroom",
+		options: [
+			['on', room.settings.tournaments?.autoupload || 'tour settings autoupload on'],
+			['off', !room.settings.tournaments?.autoupload || 'tour settings autoupload off'],
+		],
+	}),
 ];
+
+const handlers: Chat.Handlers = {
+	onBattleEnd(battle, winner, players) {
+		// The setting is accessed in this way to account for best-of tournaments.
+		if (battle.room.tour?.room.settings.tournaments?.autoupload) {
+			battle.room.uploadReplay();
+			battle.room.add(`This tournament battle's replay has been uploaded automatically.`);
+		}
+	},
+};
 
 export const Tournaments = {
 	TournamentGenerators,
@@ -2433,6 +2484,7 @@ export const Tournaments = {
 	createTournament,
 	commands,
 	roomSettings,
+	handlers,
 };
 
 for (const room of Rooms.rooms.values()) {

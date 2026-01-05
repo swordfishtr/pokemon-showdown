@@ -1906,7 +1906,7 @@ export const commands: Chat.ChatCommands = {
 		if (targetId === 'all') targetId = '';
 		const { totalMatches, sections } = findFormats(targetId, isOMSearch);
 
-		if (!totalMatches) throw new Chat.ErrorMessage("No matched formats found.");
+		if (!totalMatches) return this.errorReply("No matched formats found.");
 
 		const format = totalMatches === 1 ? Dex.formats.get(Object.values(sections)[0].formats[0]) : null;
 
@@ -2727,7 +2727,7 @@ export const commands: Chat.ChatCommands = {
 			const channelId = Twitch.linkRegex.exec(link)?.[2]?.trim();
 			if (!channelId) throw new Chat.ErrorMessage(`Specify a Twitch channel.`);
 			buf = Utils.html`Watching <b><a class="subtle" href="https://twitch.tv/${toID(channelId)}">${channelId}</a></b>...<br />`;
-			buf += `<twitch src="${link}" />`;
+			buf += Utils.html`<twitch src="${link}" />`;
 		} else {
 			if (Chat.linkRegex.test(link)) {
 				if (/^https?:\/\/(.*)\.(mp4|mov)\b(\?|$)/i.test(link)) { // video
@@ -2862,12 +2862,15 @@ export const commands: Chat.ChatCommands = {
 		const args = Chat.parseArguments(target, ' | ', {
 			allowEmpty: true, useIDs: false,
 		});
+		if (!args.format?.[0]) {
+			return this.popupReply(`No format specified.`);
+		}
 		const format = Dex.formats.get(toID(args.format[0]));
 		if (format.effectType !== 'Format') {
 			return this.popupReply(`The format '${format}' does not exist.`);
 		}
 		delete args.format;
-		const targetUserID = toID(args.user[0]);
+		const targetUserID = toID(args.user?.[0] || '');
 		if (targetUserID) {
 			this.checkChat();
 			if (!Users.get(targetUserID)) {
@@ -3063,28 +3066,32 @@ export const commands: Chat.ChatCommands = {
 	// Generations
 
 	accessreplay(target, room, user, connection) {
+		const send = (success: boolean, response: string) => {
+			if(room) {
+				if(success) this.sendReply(response);
+				else this.errorReply(response);
+			}
+			else connection.send(`|accessreplay|${success ? 0 : 1}|${target}|${response}`);
+		}
 		const parts = /^https?:\/\/replay.generationssd.co.uk\/(.+)/.exec(target);
 		if(!parts) {
-			return this.sendReply('Invalid url.');
+			return send(false, 'Invalid url.');
 		}
-		if(parts[1].includes('/')) {
-			return this.sendReply('/ is not allowed in path.');
-		}
-		if(parts[1].includes('..')) {
-			return this.sendReply('.. is not allowed in path.');
+		if(parts[1].includes('..') || parts[1].includes('/')) {
+			return send(false, '.. and / are not allowed in path.');
 		}
 		const [format, id, password] = parts[1].split('-', 3);
 		const datastr = FS(`${Config.customreplaysdir}/${format}-${id}.json`).readIfExistsSync();
 		if(!datastr) {
-			return this.sendReply(`Replay not found: ${format}-${id}`);
+			return send(false, 'Replay not found.');
 		}
 		const data = JSON.parse(datastr);
 		if(!user.hasConsoleAccess(connection) && !data.players.map(toID).includes(user.id)) {
-			return this.sendReply(`Your username is not a player in this replay (${data.players.join(', ')})`);
+			return send(false, 'Your username is not a player in this replay.');
 		}
 		let buf = `https://replay.generationssd.co.uk/${data.id}`;
 		if(data.password) buf += `-${data.password}`;
-		this.sendReply(buf);
+		send(true, buf);
 	},
 	accessreplayhelp: [`/accessreplay [replay url] - If your username is a player in this replay, returns url with password included.`],
 };

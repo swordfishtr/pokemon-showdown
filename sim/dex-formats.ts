@@ -31,6 +31,7 @@ export interface GameTimerSettings {
 	maxFirstTurn: number;
 	timeoutAutoChoose: boolean;
 	accelerate: boolean;
+	battleGrace: number;
 }
 
 /**
@@ -265,6 +266,9 @@ export class RuleTable extends Map<string, string> {
 		if (this.has('timeraccelerate')) {
 			timer.accelerate = true;
 		}
+		if (this.valueRules.has('timerbattlegrace')) {
+			timer.battleGrace = Number(this.valueRules.get('timerbattlegrace'));
+		}
 		if (Object.keys(timer).length) this.timer = [timer, format.name];
 
 		if (this.valueRules.get('pickedteamsize') === 'Auto') {
@@ -277,7 +281,7 @@ export class RuleTable extends Map<string, string> {
 		if (this.valueRules.get('evlimit') === 'Auto') {
 			this.evLimit = dex.gen > 2 ? 510 : null;
 			if (format.mod === 'gen7letsgo') {
-				this.evLimit = this.has('allowavs') ? null : 0;
+				this.evLimit = this.has('lgpenormalrules') ? 0 : null;
 			}
 			// Gen 6 hackmons also has a limit, which is currently implemented
 			// at the appropriate format.
@@ -362,6 +366,9 @@ export class RuleTable extends Map<string, string> {
 		}
 		if (timer.maxFirstTurn !== undefined && (timer.maxFirstTurn < 10 || timer.maxFirstTurn > 1200)) {
 			throw new Error(`Timer max first turn value ${timer.maxFirstTurn}${this.blame('timermaxfirstturn')} must be between 10 and 1200 seconds.`);
+		}
+		if (timer.battleGrace && timer.battleGrace > 600) {
+			throw new Error(`Timer battle grace value ${timer.battleGrace}${this.blame('timerbattlegrace')} must be at most 600 seconds.`);
 		}
 
 		if ((format as any).cupLevelLimit) {

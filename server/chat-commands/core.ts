@@ -14,7 +14,7 @@
  */
 
 /* eslint no-else-return: "error" */
-import { Utils } from '../../lib';
+import { Utils, ProcessManager } from '../../lib';
 import type { UserSettings } from '../users';
 import type { GlobalPermission, RoomPermission } from '../user-groups';
 
@@ -175,13 +175,32 @@ export const crqHandlers: { [k: string]: Chat.CRQHandler } = {
 		}
 		return results;
 	},
+	// GENERATIONS
+	// fixes an issue where a user, upon connecting, joins lobby and if it was empty,
+	// upon logging in, their |j| message would not make it to them.
+	// this reportedly happens in battle rooms as well.
+	roomidentity(target, user, trustable) {
+		if (!trustable) return false;
+
+		if (target.length > 225) {
+			return null;
+		}
+
+		const room = Rooms.get(target);
+		const identity = user.getIdentityWithStatus(room);
+		return [target, identity];
+	},
 };
 
 export const commands: Chat.ChatCommands = {
-	version(target, room, user) {
+	async version(target, room, user) {
 		if (!this.runBroadcast()) return;
 		const version = Chat.packageData.version;
-		this.sendReplyBox(this.tr`Server version: <b>${version}</b>`);
+		let gitVersion;
+		try {
+			gitVersion = (await ProcessManager.exec(['git', 'rev-parse', '--short', 'HEAD'])).stdout.trim();
+		} catch {}
+		this.sendReplyBox(this.tr`Server version: <b>${version}${gitVersion ? ` (commit ${gitVersion})` : ''}</b>`);
 	},
 	versionhelp: [
 		`/version - Get the current server version.`,
@@ -322,6 +341,7 @@ export const commands: Chat.ChatCommands = {
 	},
 	replyhelp: [`/reply OR /r [message] - Send a message to the last user you got a message from, or sent a message to.`],
 
+	dm: 'msg',
 	pm: 'msg',
 	whisper: 'msg',
 	w: 'msg',

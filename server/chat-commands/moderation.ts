@@ -271,9 +271,9 @@ export const commands: Chat.ChatCommands = {
 
 			// Generations
 			if(nextSymbol === '^' && room.settings.autoDemotePrizeWinner) {
-				const curTimestamp = (new Date()).getTime();
-				const eventTimestamp = curTimestamp + room.settings.autoDemotePrizeWinner * 30 * 24 * 60 * 60 * 1000;
-				this.parse(`/eventscheduler add demote_prize_winner ${Math.ceil(eventTimestamp / 1000)} ${userid}, ${oldSymbol}`);
+				const now = Math.floor(Date.now() / 1000);
+				const timestamp = now + room.settings.autoDemotePrizeWinner * 30 * 24 * 60 * 60;
+				this.parse(`/cron add demote_prize_winner,${timestamp},${userid},${oldSymbol}`);
 			}
 		}
 		room.saveSettings();

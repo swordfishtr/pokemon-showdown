@@ -367,7 +367,9 @@ export class RawProcessWrapper implements ProcessWrapper, StreamWorker {
 
 	constructor(file: string, isCluster?: boolean, env?: AnyObject) {
 		if (isCluster) {
+			// @ts-expect-error Generations uses a newer @types/node version for timers.
 			this.process = cluster.fork(env);
+			// @ts-expect-error Generations uses a newer @types/node version for timers.
 			this.workerid = this.process.id;
 		} else {
 			this.process = child_process.fork(file, [], { cwd: FS.ROOT_PATH, env }) as any;
@@ -701,6 +703,7 @@ export class RawProcessManager extends ProcessManager<RawProcessWrapper> {
 	unspawnSubscription: ((worker: StreamWorker) => void) | null = null;
 	_setupChild: () => Streams.ObjectReadWriteStream<string>;
 	/** worker ID of cluster worker - cluster child process only (0 otherwise) */
+	// @ts-expect-error Generations uses a newer @types/node version for timers.
 	readonly workerid = cluster.worker?.id || 0;
 	env: AnyObject | undefined;
 
@@ -716,6 +719,7 @@ export class RawProcessManager extends ProcessManager<RawProcessWrapper> {
 		this.env = options.env;
 
 		if (this.isCluster && this.isParentProcess) {
+			// @ts-expect-error Generations uses a newer @types/node version for timers.
 			cluster.setupMaster({
 				exec: this.filename,
 				cwd: FS.ROOT_PATH,

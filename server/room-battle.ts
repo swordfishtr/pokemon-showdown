@@ -46,6 +46,7 @@ const MAX_TURN_TIME = 150;
 const STARTING_TIME_CHALLENGE = 300;
 const STARTING_GRACE_TIME = 60;
 const MAX_TURN_TIME_CHALLENGE = 300;
+const BATTLE_STARTING_GRACE_TIME = 0;
 
 const DISCONNECTION_TIME = 60;
 const DISCONNECTION_BANK_TIME = 300;
@@ -163,8 +164,8 @@ export class RoomBattleTimer {
 	readonly battle: RoomBattle;
 	readonly timerRequesters = new Set<ID>();
 	timer: NodeJS.Timeout | null = null;
-	isFirstTurn = true;
-	turn: number;
+	isFirstRequest = true;
+	turn: number | null = null;
 	/**
 	 * Last tick, as milliseconds since UNIX epoch.
 	 * Represents the last time a tick happened.
@@ -175,6 +176,7 @@ export class RoomBattleTimer {
 	lastDisabledTime = 0;
 	lastDisabledByUser: null | ID = null;
 	settings: GameTimerSettings;
+	readonly createdTimestamp = Date.now();
 	constructor(battle: RoomBattle) {
 		this.battle = battle;
 
@@ -190,7 +192,6 @@ export class RoomBattleTimer {
 			if (timerSettings[k] === undefined) delete timerSettings[k];
 		}
 
-		this.turn = ruleTable.has('teampreview') ? 0 : 1;
 		this.settings = {
 			dcTimer: !isChallenge,
 			dcTimerBank: isChallenge,
@@ -201,6 +202,7 @@ export class RoomBattleTimer {
 			maxFirstTurn: isChallenge ? MAX_TURN_TIME_CHALLENGE : MAX_TURN_TIME,
 			timeoutAutoChoose: false,
 			accelerate: !timerSettings && !isChallenge,
+			battleGrace: BATTLE_STARTING_GRACE_TIME,
 			...timerSettings,
 		};
 		if (this.settings.maxPerTurn <= 0) this.settings.maxPerTurn = Infinity;
@@ -218,7 +220,18 @@ export class RoomBattleTimer {
 			requester?.sendTo(this.battle.roomid, `|inactiveoff|The timer can't be enabled after a battle has ended.`);
 			return false;
 		}
-		if (this.timer) {
+		if (this.settings.battleGrace > 0) {
+			// Generations
+			const msGracePeriod = this.settings.battleGrace * SECONDS;
+			const msSinceStart = Date.now() - this.createdTimestamp;
+			if (msGracePeriod > msSinceStart) {
+				if (requester) this.battle.playerTable[requester.id].sendRoom(
+					`|inactiveoff|The timer can't be enabled during the grace period (${Math.ceil((msGracePeriod - msSinceStart) / SECONDS)} seconds remaining).`
+				);
+				return false;
+			}
+		}
+		if (this.timerRequesters.size) {
 			this.battle.room.add(`|inactive|${requester ? requester.name : userid} also wants the timer to be on.`).update();
 			this.timerRequesters.add(userid);
 			return false;
@@ -235,7 +248,6 @@ export class RoomBattleTimer {
 		this.timerRequesters.add(userid);
 		const requestedBy = requester ? ` (requested by ${requester.name})` : ``;
 		this.battle.room.add(`|inactive|Battle timer is ON: inactive players will automatically lose when time's up.${requestedBy}`).update();
-		if (this.turn < this.battle.turn) this.turn = this.battle.turn;
 
 		this.checkActivity();
 		for (const player of this.battle.players) this.nextRequest(player);
@@ -268,9 +280,28 @@ export class RoomBattleTimer {
 		return true;
 	}
 	updateTurn() {
-		if (this.battle.turn <= this.turn) return;
+		if (this.turn === null) {
+			// first request since timer was turned on
+			this.turn = this.battle.turn;
+			return;
+		}
+		if (this.battle.turn <= this.turn) {
+			if (this.battle.players.filter(p => !p.request.isWait).length <= 1) {
+				// first request of a mid-turn request (U-turn or faint-switch)
+				this.isFirstRequest = false;
+				const addPerMidTurnRequest = Math.min(this.settings.addPerTurn, TICK_TIME);
+				for (const curPlayer of this.battle.players) {
+					curPlayer.secondsLeft += addPerMidTurnRequest;
+				}
+			} else {
+				// second player of a request we've already updated the timer for
+			}
+			return;
+		}
+
+		// new turn
 		this.turn = this.battle.turn;
-		this.isFirstTurn = false;
+		this.isFirstRequest = false;
 
 		let addPerTurn = this.settings.addPerTurn;
 		if (this.settings.accelerate && addPerTurn) {
@@ -290,7 +321,10 @@ export class RoomBattleTimer {
 	}
 	nextRequest(player: RoomBattlePlayer) {
 		if (player.secondsLeft <= 0) return;
-		if (player.request.isWait) return;
+		if (player.request.isWait) {
+			player.turnSecondsLeft = this.settings.maxPerTurn;
+			return;
+		}
 
 		if (this.timer) {
 			clearTimeout(this.timer);
@@ -300,9 +334,9 @@ export class RoomBattleTimer {
 		// if there's only 1 player left
 		if (this.battle.players.filter(p => p.secondsLeft > 0).length <= 1) return;
 
-		this.updateTurn();
-		const maxTurnTime = (this.isFirstTurn ? this.settings.maxFirstTurn : 0) || this.settings.maxPerTurn;
 		const room = this.battle.room;
+		this.updateTurn();
+		const maxTurnTime = (this.isFirstRequest ? this.settings.maxFirstTurn : 0) || this.settings.maxPerTurn;
 		player.turnSecondsLeft = Math.min(player.secondsLeft, maxTurnTime);
 
 		const secondsLeft = player.turnSecondsLeft;
@@ -526,7 +560,9 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 		this.title = format.name;
 		this.options = options;
 		if (!this.title.endsWith(" Battle")) this.title += " Battle";
-		this.allowRenames = options.allowRenames !== undefined ? !!options.allowRenames : (!options.rated && !options.tour);
+		// Generations: We don't want this in rated battles or roomtours.
+		//this.allowRenames = options.allowRenames !== undefined ? !!options.allowRenames : (!options.rated && !options.tour);
+		this.allowRenames = !!options.allowRenames;
 
 		this.format = options.format;
 		this.gameType = format.gameType;
@@ -783,7 +819,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 				};
 				this.requestCount++;
 				player?.sendRoom(`|request|${requestJSON}`);
-				this.timer.nextRequest(player);
+				if (!request.update) this.timer.nextRequest(player);
 				break;
 			}
 			player?.sendRoom(lines[2]);
@@ -1342,7 +1378,9 @@ export const PM = new ProcessManager.StreamProcessManager(module, () => new Room
 
 if (!PM.isParentProcess) {
 	// This is a child process!
-	require('source-map-support').install();
+	try {
+		require('source-map-support').install();
+	} catch {}
 	global.Config = require('./config-loader').Config;
 	global.Dex = require('../sim/dex').Dex;
 	global.Monitor = {

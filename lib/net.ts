@@ -7,7 +7,6 @@
 
 import * as https from 'https';
 import * as http from 'http';
-import * as url from 'url';
 import * as Streams from './streams';
 declare const Config: any;
 
@@ -59,7 +58,9 @@ export class NetStream extends Streams.ReadWriteStream {
 		let body = opts.body;
 		if (body && typeof body !== 'string') {
 			if (!opts.headers) opts.headers = {};
+			// @ts-expect-error Generations uses a newer @types/node version for timers.
 			if (!opts.headers['Content-Type']) {
+				// @ts-expect-error Generations uses a newer @types/node version for timers.
 				opts.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 			}
 			body = NetStream.encodeQuery(body);
@@ -71,12 +72,14 @@ export class NetStream extends Streams.ReadWriteStream {
 
 		if (body) {
 			if (!opts.headers) opts.headers = {};
+			// @ts-expect-error Generations uses a newer @types/node version for timers.
 			if (!opts.headers['Content-Length']) {
+				// @ts-expect-error Generations uses a newer @types/node version for timers.
 				opts.headers['Content-Length'] = Buffer.byteLength(body);
 			}
 		}
 
-		const protocol = url.parse(this.uri).protocol;
+		const protocol = new URL(this.uri).protocol;
 		const net = protocol === 'https:' ? https : http;
 
 		let resolveResponse: ((value: http.IncomingMessage | null) => void) | null;

@@ -1,5 +1,3 @@
-// TODO: find out what ability[2], ... would take
-
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	klinklang: {
 		inherit: true,
@@ -18,7 +16,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Sap Sipper", H: "Grass Pelt", E1: 'Grassy Surge' },
 	},
 	hakamoo: {
-		num: 783,
 		inherit: true,
 		abilities: { 0: "Bulletproof", 1: "Soundproof", H: "Overcoat", E1: 'Orichalcum Pulse' },
 	},

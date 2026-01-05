@@ -19,10 +19,17 @@ import { FS, Utils } from '../lib';
 // Use Ladders(formatid).ladder to guarantee a Promise(ladder).
 // ladder is basically a 2D array representing the corresponding ladder.tsv
 //   with userid in front
-/** [userid, elo, username, w, l, t, lastUpdate */
+/** [userid, elo, username, w, l, t, lastUpdate] */
 type LadderRow = [string, number, string, number, number, number, string];
 /** formatid: ladder */
 type LadderCache = Map<string, LadderRow[] | Promise<LadderRow[]>>;
+
+// Partial from the login server.
+export interface LadderEntry {
+	elo: number,
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 const ladderCaches: LadderCache = new Map();
 
@@ -186,7 +193,7 @@ export class LadderStore {
 	 * Update the Elo rating for two players after a battle, and display
 	 * the results in the passed room.
 	 */
-	async updateRating(p1name: string, p2name: string, p1score: number, room: AnyObject) {
+	async updateRating(p1name: string, p2name: string, p1score: number, room: AnyObject): Promise<[number, LadderEntry | null, LadderEntry | null]> {
 		if (Ladders.disabled) {
 			room.addRaw(`Ratings not updated. The ladders are currently disabled.`).update();
 			return [p1score, null, null];
@@ -200,8 +207,8 @@ export class LadderStore {
 		}
 		const ladder = await this.getLadder();
 
-		let p1newElo;
-		let p2newElo;
+		let p1newElo: number | null = null;
+		let p2newElo: number | null = null;
 		try {
 			const p1index = this.indexOfUser(p1name, true);
 			const p1elo = ladder[p1index][1];
@@ -277,7 +284,14 @@ export class LadderStore {
 			room.update();
 		}
 
-		return [p1score, p1newElo, p2newElo];
+		const p1rating: LadderEntry = {
+			elo: p1newElo!,
+		};
+		const p2rating: LadderEntry = {
+			elo: p2newElo!,
+		};
+
+		return [p1score, p1rating, p2rating];
 	}
 
 	/**
@@ -338,5 +352,40 @@ export class LadderStore {
 			}
 		}
 		return Promise.all(ratings);
+	}
+
+	// Generations
+
+	/**
+	 * Generic ladder rating decay function.
+	 * Decrease every player's rating for each day since last ladder game.
+	 * 
+	 * See implementation:
+	 * event-scheduler.tsx
+	 */
+	async decayRatings(threshold = 1400, multiplier = 2) {
+		if (Ladders.disabled) return;
+
+		if(Number.isNaN(threshold)) threshold = 1400;
+		if(Number.isNaN(multiplier)) multiplier = 2;
+
+		const now = Date.now();
+
+		const ladder = await this.getLadder();
+
+		for(const row of ladder) {
+			if(row[1] <= threshold) continue;
+
+			const lastUpdate = (new Date(row[6])).getTime();
+			const inactivity = now - lastUpdate;
+			const decay = multiplier * (Math.floor(inactivity / DAY_MS));
+
+			row[1] -= decay;
+			row[1] = Math.max(1000, row[1]);
+		}
+
+		// Slow operation, but runs only once a day.
+		ladder.sort(([,elo1], [,elo2]) => elo1 - elo2).reverse();
+		void this.save();
 	}
 }

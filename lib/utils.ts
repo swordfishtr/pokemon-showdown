@@ -457,7 +457,11 @@ export class Multiset<T> extends Map<T, number> {
 
 // Generations
 
-/** Returns a shallow copy of obj with callback executed on each value. */
+/**
+ * Returns a shallow copy of obj with callback executed on each value.
+ * 
+ * Like Object.fromEntries(Object.entries(...).map(...)), but keeps context intact.
+ */
 export function mapObjectValues<T, K extends string, N>(obj: Record<K, T>, callback: (T: T, name: string) => N) {
 	const out = { ...obj } as any;
 	for(const name in out) {

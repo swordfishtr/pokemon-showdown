@@ -1,10 +1,4 @@
-// TODO: find out what ability[2], ... would take
-
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	weezing: {
-		inherit: true,
-		abilities: { 0: "Levitate", 1: "Neutralizing Gas", H: "Stench", E1: 'Cloud Nine' },
-	},
 	wigglytuff: {
 		inherit: true,
 		abilities: { 0: "Cute Charm", 1: "Competitive", H: "Frisk", E1: 'Regenerator' },
@@ -29,7 +23,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Plus", 1: "Minus", H: "Clear Body", E1: 'Electric Surge' },
 	},
-	// Steelix initially had 5 abilities, but one of them has been lost to time.
 	steelix: {
 		inherit: true,
 		abilities: { 0: "Rock Head", 1: "Sturdy", H: "Sheer Force", E1: 'Rocky Payload' },
@@ -86,8 +79,16 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Anticipation", 1: "Dry Skin", H: "Poison Touch", E1: 'Lightning Rod' },
 	},
-	avalugg: {
+	camerupt: {
 		inherit: true,
-		abilities: { 0: "Own Tempo", 1: "Ice Body", H: "Sturdy", E1: 'Bulletproof' },
+		abilities: { 0: "Magma Armor", 1: "Solid Rock", H: "Anger Point", E1: 'Mold Breaker' },
+	},
+	dedenne: {
+		inherit: true,
+		abilities: { 0: "Cheek Pouch", 1: "Pickup", H: "Plus", E1: 'Solar Power' },
+	},
+	aromatisse: {
+		inherit: true,
+		abilities: { 0: "Healer", H: "Aroma Veil", E1: 'Grass Pelt' },
 	},
 };

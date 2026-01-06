@@ -3,6 +3,8 @@ import { assignMissingFields, toID, BasicEffect } from './dex-data';
 import type { EventMethods } from './dex-conditions';
 import type { SpeciesData } from './dex-species';
 import { Tags } from '../data/tags';
+import {Dex} from './dex';
+import {toID} from '../lib';
 
 const DEFAULT_MOD = 'gen9';
 
@@ -974,6 +976,9 @@ export class DexFormats {
 
 	validateRule(rule: string, format: Format | null = null) {
 		if (rule !== rule.trim()) throw new Error(`Rule "${rule}" should be trimmed`);
+		if (rule.startsWith('#') && rule.includes('+')) {
+			return rule; // handled later in TeamValidator
+		}
 		switch (rule.charAt(0)) {
 		case '-':
 		case '*':

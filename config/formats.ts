@@ -750,6 +750,26 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 5] 35 Pokes Perfect [B3]",
+		mod: 'perfectb3',
+		desc: 'mm wuz here',
+		ruleset: [
+			// from Custom Game
+			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			// from 35 Pokes / Natdex
+			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
+			// Melten hates cheese now
+			'DryPass Clause',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'U-turn', 'Stealth Rock', 'Hidden Power', 'Scald', 'Close Combat', 'Heavy-Duty Boots', 'Choice Scarf',
+		],
+		unbanlist: [
+			'Accelgor', 'Ampharos', 'Dracovish', 'Noctowl', 'Dragalge', 'Corviknight', 'Frosmoth', 'Hoopa-Confined', 'Glaceon', 'Gliscor', 'Grumpig', 'Heliolisk', 'Hydreigon', 'Iron Leaves', 'Chesnaught', 'Hitmonlee', 'Obstagoon', 'Braixen', 'Luxray', 'Glimmora', 'Sandslash-Alola', 'Escavalier', 'Skeledirge', 'Spiritomb', 'Gyarados', 'Registeel', 'Cherrim', 'Crustle', 'Muk-Alola', 'Milotic', 'Hariyama', 'Turtonator', 'Sandaconda', 'Nidoking', 'Gigalith'
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes Perfect [C1]",
 		mod: 'perfectc1',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],

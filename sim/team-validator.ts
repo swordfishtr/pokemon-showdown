@@ -328,12 +328,46 @@ export class TeamValidator {
 			throw new Error(`format should be a 'Format', but was a '${this.format.effectType}'`);
 		}
 		this.dex = dex.forFormat(this.format);
+		if (this.format.customRules) {
+			this.dex = this.dex.deepClone();
+			this.applyPokemonCustomRules(this.format.customRules);
+		}
 		this.gen = this.dex.gen;
 		this.ruleTable = this.dex.formats.getRuleTable(this.format);
 
 		this.minSourceGen = this.ruleTable.minSourceGen;
 
 		this.toID = toID;
+	}
+
+	applyPokemonCustomRules(rules: string[]) {
+		for (const rule of rules) {
+			if (!rule.startsWith('#')) continue;
+
+			const body = rule.slice(1).toLowerCase();
+			const [speciesPart, addPart] = body.split('+');
+			if (!speciesPart || !addPart) continue;
+
+			const species = this.dex.species.get(speciesPart as ID);
+			if (!species.exists) continue;
+
+			if (this.dex.moves.get(addPart as ID).exists) {
+				const learnset = this.dex.learnsets.get(species.id);
+				if (!learnset.learnset) learnset.learnset = {};
+
+				const gen = this.gen; 
+				learnset.learnset[addPart as ID] = [`${gen}M`];
+				continue;
+			}
+
+			if (this.dex.abilities.get(addPart as ID).exists) {
+				const abilityName = this.dex.abilities.get(addPart as ID).name;
+
+				let slot = 0;
+				while (species.abilities[String(slot)]) slot++;
+				species.abilities[String(slot)] = abilityName;
+			}
+		}
 	}
 
 	validateTeam(

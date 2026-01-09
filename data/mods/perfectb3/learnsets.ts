@@ -1168,7 +1168,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		eventData: [
 			{generation: 3, level: 35, moves: ["waterpulse", "twister", "raindance"], pokeball: "pokeball"},
 			{generation: 4, level: 50, gender: "F", nature: "Bold", moves: ["raindance", "icebeam", "hydropump"], pokeball: "cherishball"},
-			{generation: 4, level: 50, shiny: true, gender: "M", nature: "Timid", moves: ["recover", "hydropump", "icywind"], pokeball: "cherishball"},
+			{generation: 4, level: 50, shiny: true, gender: "M", nature: "Timid", moves: ["hydropump", "icywind"], pokeball: "cherishball"},
 			{generation: 5, level: 50, shiny: 1, moves: ["hydropump", "icebeam", "mirrorcoat"], pokeball: "cherishball"},
 			{generation: 5, level: 58, gender: "M", nature: "Lax", ivs: {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 30}, moves: ["surf", "icebeam", "toxic"], pokeball: "cherishball"},
 		],

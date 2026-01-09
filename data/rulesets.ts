@@ -1506,6 +1506,21 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	// This is used for allowing e.g. gen 9 learnsets in a gen 3 format.
+	// Also used by `Allow Tradeback`
+	maxsourcegen: {
+		effectType: 'ValidatorRule',
+		name: "Max Source Gen",
+		desc: "Pokemon must be obtained from this generation or earlier.",
+		hasValue: 'positive-integer',
+		onValidateRule(value) {
+			const maxSourceGen = parseInt(value);
+			if (maxSourceGen < this.dex.gen) {
+				// console.log(this.ruleTable);
+				throw new Error(`Invalid generation ${maxSourceGen}${this.ruleTable.blame('maxsourcegen')} for a Gen ${this.dex.gen} format (${this.format.name})`);
+			}
+		},
+	},
 
 	omunobtainablemoves: {
 		effectType: 'ValidatorRule',
@@ -1646,7 +1661,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Allow Tradeback',
 		desc: "Allows Gen 1 pokemon to have moves from their Gen 2 learnsets",
-		// Implemented in team-validator.js
+		// Implemented in dex-formats.js
 	},
 	lgpenormalrules: {
 		effectType: 'ValidatorRule',

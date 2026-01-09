@@ -17,8 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
-import { Utils } from '../lib/utils';
-import { FormatData } from '../sim/dex-formats';
+import type { FormatData } from '../sim/dex-formats';
 
 const spmnm: Partial<FormatData> = {
 	// Mix and Mega
@@ -715,14 +714,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
 		mod: 'perfectb1',
 		ruleset: [
-			'Obtainable', 'NatDex Mod', 'Allow Tradeback',
-			
 			// from Custom Game
 			'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
-			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Forme Clause',
+			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Forme Clause',
 			// B1 specific
-			'One Boost Passer Clause',
+			'Max Source Gen = 9', 'One Boost Passer Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
@@ -736,14 +733,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 5] 35 Pokes Perfect [B2]",
 		mod: 'perfectb2',
 		ruleset: [
-			'Obtainable', 'NatDex Mod', 'Allow Tradeback',
-			
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
-			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
+			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
 			// B2 specific
-			'One Boost Passer Clause',
+			'Max Source Gen = 9', 'One Boost Passer Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
@@ -758,16 +753,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'perfectb3',
 		desc: 'mm wuz here',
 		ruleset: [
-			'NatDex Mod', 'Allow Tradeback',
-			// please unallow Sheer Force Nidoking
-			'Obtainable',
-			
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
-			'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
-			// Melten hates cheese now
-			'DryPass Clause',
+			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
+			// B3 specific
+			'Max Source Gen = 9', 'DryPass Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',

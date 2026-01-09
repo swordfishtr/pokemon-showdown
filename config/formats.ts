@@ -719,14 +719,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// from 35 Pokes / Natdex
 			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Forme Clause',
 			// B1 specific
-			'Max Source Gen = 9', 'One Boost Passer Clause',
+			'Max Source Gen = 9', '+Future', 'One Boost Passer Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'Stealth Rock', 'U-Turn', 'Volt Switch', 'Flip Turn', 'Teleport', 'Choice Scarf', 'Heavy-Duty Boots', 'Defog', 'Electric Terrain', 'Psychic Terrain', 'Misty Terrain', 'Grassy Terrain',
 		],
 		unbanlist: [
-			'Future', 'Empoleon', 'Articuno-Base', 'Electivire', 'Rapidash-Base', 'Klinklang', 'Farigiraf', 'Seismitoad', 'Raichu-Alola', 'Noivern', 'Altaria-Base', 'Claydol', 'Armaldo', 'Escavalier', 'Uxie', 'Glalie-Base', 'Centiskorch', 'Rotom-Base', 'Decidueye-Base', 'Spiritomb', 'Charizard-Base', 'Chesnaught', 'Weezing-Base', 'Wo-Chien', 'Lickilicky', 'Scrafty', 'Seviper', 'Bouffalant', 'Nihilego', 'Persian-Alola', 'Probopass', 'Donphan', 'Vespiquen', 'Meganium', 'Hakamo-o', 'Lapras',
+			'Empoleon', 'Articuno-Base', 'Electivire', 'Rapidash-Base', 'Klinklang', 'Farigiraf', 'Seismitoad', 'Raichu-Alola', 'Noivern', 'Altaria-Base', 'Claydol', 'Armaldo', 'Escavalier', 'Uxie', 'Glalie-Base', 'Centiskorch', 'Rotom-Base', 'Decidueye-Base', 'Spiritomb', 'Charizard-Base', 'Chesnaught', 'Weezing-Base', 'Wo-Chien', 'Lickilicky', 'Scrafty', 'Seviper', 'Bouffalant', 'Nihilego', 'Persian-Alola', 'Probopass', 'Donphan', 'Vespiquen', 'Meganium', 'Hakamo-o', 'Lapras',
 		],
 	},
 	{
@@ -738,14 +738,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// from 35 Pokes / Natdex
 			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
 			// B2 specific
-			'Max Source Gen = 9', 'One Boost Passer Clause',
+			'Max Source Gen = 9', '+Future', 'One Boost Passer Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'Stealth Rock', 'U-Turn', 'Volt Switch', 'Flip Turn', 'Teleport', 'Choice Scarf', 'Heavy-Duty Boots', 'Defog', 'Electric Terrain', 'Psychic Terrain', 'Misty Terrain', 'Grassy Terrain', 'Hidden Power',
 		],
 		unbanlist: [
-			'Future', 'Iron Treads', 'Regice', 'Scyther', 'Bombirdier', 'Shaymin-Base', 'Tentacruel', 'Camerupt-Base', 'Arcanine-Base', 'Dusknoir', 'Nidoqueen', 'Decidueye-Hisui', 'Cyclizar', 'Oranguru', 'Dudunsparce', 'Grapploct', 'Guzzlord', 'Drapion', 'Flapple', 'Rotom-Fan', 'Pinsir-Base', 'Lycanroc-Midnight', 'Passimian', 'Klinklang', 'Bronzong', 'Gardevoir-Base', 'Drifblim', 'Gourgeist-Base', 'Piloswine', 'Lapras', 'Bellibolt', 'Coalossal', 'Centiskorch', 'Feraligatr', 'Golem-Alola', 'Unfezant'
+			'Iron Treads', 'Regice', 'Scyther', 'Bombirdier', 'Shaymin-Base', 'Tentacruel', 'Camerupt-Base', 'Arcanine-Base', 'Dusknoir', 'Nidoqueen', 'Decidueye-Hisui', 'Cyclizar', 'Oranguru', 'Dudunsparce', 'Grapploct', 'Guzzlord', 'Drapion', 'Flapple', 'Rotom-Fan', 'Pinsir-Base', 'Lycanroc-Midnight', 'Passimian', 'Klinklang', 'Bronzong', 'Gardevoir-Base', 'Drifblim', 'Gourgeist-Base', 'Piloswine', 'Lapras', 'Bellibolt', 'Coalossal', 'Centiskorch', 'Feraligatr', 'Golem-Alola', 'Unfezant'
 		],
 	},
 	{
@@ -758,14 +758,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// from 35 Pokes / Natdex
 			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
 			// B3 specific
-			'Max Source Gen = 9', 'DryPass Clause',
+			'Max Source Gen = 9', '+Future', 'DryPass Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'U-turn', 'Stealth Rock', 'Hidden Power', 'Scald', 'Close Combat', 'Heavy-Duty Boots', 'Choice Scarf',
 		],
 		unbanlist: [
-			'Future', 'Accelgor', 'Ampharos', 'Dracovish', 'Noctowl', 'Dragalge', 'Corviknight', 'Frosmoth', 'Hoopa-Confined', 'Glaceon', 'Gliscor', 'Grumpig', 'Heliolisk', 'Hydreigon', 'Iron Leaves', 'Chesnaught', 'Hitmonlee', 'Obstagoon', 'Braixen', 'Luxray', 'Glimmora', 'Sandslash-Alola', 'Escavalier', 'Skeledirge', 'Spiritomb', 'Gyarados', 'Registeel', 'Cherrim', 'Crustle', 'Muk-Alola', 'Milotic', 'Hariyama', 'Turtonator', 'Sandaconda', 'Nidoking', 'Gigalith'
+			'Accelgor', 'Ampharos', 'Dracovish', 'Noctowl', 'Dragalge', 'Corviknight', 'Frosmoth', 'Hoopa-Confined', 'Glaceon', 'Gliscor', 'Grumpig', 'Heliolisk', 'Hydreigon', 'Iron Leaves', 'Chesnaught', 'Hitmonlee', 'Obstagoon', 'Braixen', 'Luxray', 'Glimmora', 'Sandslash-Alola', 'Escavalier', 'Skeledirge', 'Spiritomb', 'Gyarados', 'Registeel', 'Cherrim', 'Crustle', 'Muk-Alola', 'Milotic', 'Hariyama', 'Turtonator', 'Sandaconda', 'Nidoking', 'Gigalith'
 		],
 	},
 	{

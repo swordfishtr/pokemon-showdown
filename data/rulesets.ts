@@ -688,7 +688,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		ruleset: ['Max Level = 5'],
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species || set.name);
-			if (species.prevo && this.dex.species.get(species.prevo).gen <= this.gen) {
+			if (species.prevo && this.dex.species.get(species.prevo).gen <= this.dex.gen) {
 				return [set.species + " isn't the first in its evolution family."];
 			}
 			if (!species.nfe) {
@@ -1386,7 +1386,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				if (!typeTable.length) return [`Your team must share a type.`];
 			}
 			for (const set of team) {
-				if (this.gen === 9 && set.teraType &&
+				if (this.dex.gen === 9 && set.teraType &&
 					!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
@@ -3353,7 +3353,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				}
 			}
 
-			if (this.gen === 9 && !this.ruleTable.has('terastalclause') && this.ruleTable.has(`enforcesameteratype`)) {
+			if (this.dex.gen === 9 && !this.ruleTable.has('terastalclause') && this.ruleTable.has(`enforcesameteratype`)) {
 				problems.push("(Make sure all tera types match one of the team's two types as well)");
 				for(const set of team) {
 					if(set.teraType) rowsTera.push(set.teraType);

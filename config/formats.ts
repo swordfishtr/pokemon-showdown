@@ -715,7 +715,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
 		mod: 'perfectb1',
 		ruleset: [
-			'Obtainable', 'NatDex Mod',
+			'Obtainable', 'NatDex Mod', 'Allow Tradeback',
 			
 			// from Custom Game
 			'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
@@ -736,7 +736,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 5] 35 Pokes Perfect [B2]",
 		mod: 'perfectb2',
 		ruleset: [
-			'Obtainable', 'NatDex Mod',
+			'Obtainable', 'NatDex Mod', 'Allow Tradeback',
 			
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
@@ -758,7 +758,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'perfectb3',
 		desc: 'mm wuz here',
 		ruleset: [
-			'NatDex Mod',
+			'NatDex Mod', 'Allow Tradeback',
 			// please unallow Sheer Force Nidoking
 			'Obtainable',
 			

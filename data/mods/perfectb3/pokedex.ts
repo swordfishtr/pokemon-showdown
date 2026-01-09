@@ -57,12 +57,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 
 	sandaconda: {
 		inherit: true,
-		abilities: {0: "Shed Skin", H: Sand Veil},
+		abilities: {0: "Shed Skin", H: "Sand Veil"},
 	},
 
 	crustle: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Weak Armor", E1: "Shell Smash"},
+		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Weak Armor"},
 	},
 
 	mukalola: {
@@ -72,7 +72,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 
 	sandslashalola: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", H: "Slush Rush", E1: Refrigerate},
+		abilities: {0: "Snow Cloak", H: "Slush Rush", E1: "Refrigerate"},
 	},
 
 	nidoking: {

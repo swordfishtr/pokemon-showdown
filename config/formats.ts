@@ -719,7 +719,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// from Custom Game
 			'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
-			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Forme Clause',
+			'Obtainable', '+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause',
+			'Sleep Clause Mod', 'Forme Clause',
 			// B1 specific
 			'One Boost Passer Clause',
 		],
@@ -740,7 +741,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
-			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
+			'Obtainable', '+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause',
+			'Sleep Moves Clause', 'Forme Clause',
 			// B2 specific
 			'One Boost Passer Clause',
 		],
@@ -762,7 +764,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// from 35 Pokes / Natdex
-			'Obtainable', 'NatDex Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Moves Clause', 'Forme Clause',
+			'Obtainable', '+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause',
+			'Sleep Moves Clause', 'Forme Clause',
 			// Melten hates cheese now
 			'DryPass Clause',
 		],

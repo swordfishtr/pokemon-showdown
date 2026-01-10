@@ -440,6 +440,8 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	readonly onBegin?: (this: Battle) => void;
 	readonly noLog: boolean;
 
+	readonly teamValidatorGen?: number;
+
 	/**
 	 * Only applies to rules, not formats
 	 */
@@ -508,6 +510,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 		this.ruleTable = null;
 		this.onBegin = data.onBegin || undefined;
 		this.noLog = !!data.noLog;
+		this.teamValidatorGen = data.teamValidatorGen || undefined;
 		this.playerCount = (this.gameType === 'multi' || this.gameType === 'freeforall' ? 4 : 2);
 		assignMissingFields(this, data);
 	}

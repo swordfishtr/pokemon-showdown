@@ -714,6 +714,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
 		mod: 'perfectb1',
+		teamValidatorGen: 9,
 		ruleset: [
 			// from Custom Game
 			'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
@@ -734,6 +735,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 5] 35 Pokes Perfect [B2]",
 		mod: 'perfectb2',
+		teamValidatorGen: 9,
 		ruleset: [
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
@@ -755,6 +757,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 5] 35 Pokes Perfect [B3]",
 		mod: 'perfectb3',
 		desc: 'mm wuz here',
+		teamValidatorGen: 9,
 		ruleset: [
 			// from Custom Game
 			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',

@@ -57,7 +57,6 @@ export class RuleTable extends Map<string, string> {
 	maxTotalLevel!: number | null;
 	maxMoveCount!: number;
 	minSourceGen!: number;
-	maxSourceGen!: number;
 	minLevel!: number;
 	maxLevel!: number;
 	defaultLevel!: number;
@@ -224,7 +223,6 @@ export class RuleTable extends Map<string, string> {
 		this.maxTotalLevel = Number(this.valueRules.get('maxtotallevel')) || null;
 		this.maxMoveCount = Number(this.valueRules.get('maxmovecount')) || 4;
 		this.minSourceGen = Number(this.valueRules.get('minsourcegen'));
-		this.maxSourceGen = Number(this.valueRules.get('maxsourcegen'));
 		this.minLevel = Number(this.valueRules.get('minlevel')) || 1;
 		this.maxLevel = Number(this.valueRules.get('maxlevel')) || 100;
 		this.defaultLevel = Number(this.valueRules.get('defaultlevel')) || 0;
@@ -239,10 +237,6 @@ export class RuleTable extends Map<string, string> {
 				this.minSourceGen = 1;
 			}
 		}
-		if (!this.maxSourceGen) {
-			this.maxSourceGen = this.has('allowtradeback') ? dex.gen + 1 : dex.gen;
-		}
-		this.maxSourceGen = Utils.clampIntRange(this.maxSourceGen, 1, 9);
 
 		const timer: Partial<GameTimerSettings> = {};
 		if (this.valueRules.has('timerstarting')) {

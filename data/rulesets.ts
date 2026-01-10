@@ -688,7 +688,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		ruleset: ['Max Level = 5'],
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species || set.name);
-			if (species.prevo && this.dex.species.get(species.prevo).gen <= this.dex.gen) {
+			if (species.prevo && this.dex.species.get(species.prevo).gen <= this.gen) {
 				return [set.species + " isn't the first in its evolution family."];
 			}
 			if (!species.nfe) {
@@ -1386,7 +1386,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				if (!typeTable.length) return [`Your team must share a type.`];
 			}
 			for (const set of team) {
-				if (this.dex.gen === 9 && set.teraType &&
+				if (this.gen === 9 && set.teraType &&
 					!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
@@ -1503,21 +1503,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (minSourceGen > this.dex.gen) {
 				// console.log(this.ruleTable);
 				throw new Error(`Invalid generation ${minSourceGen}${this.ruleTable.blame('minsourcegen')} for a Gen ${this.dex.gen} format (${this.format.name})`);
-			}
-		},
-	},
-	// This is used for allowing e.g. gen 9 learnsets in a gen 3 format.
-	// Also used by `Allow Tradeback`
-	maxsourcegen: {
-		effectType: 'ValidatorRule',
-		name: "Max Source Gen",
-		desc: "Pokemon must be obtained from this generation or earlier.",
-		hasValue: 'positive-integer',
-		onValidateRule(value) {
-			const maxSourceGen = parseInt(value);
-			if (maxSourceGen < this.dex.gen) {
-				// console.log(this.ruleTable);
-				throw new Error(`Invalid generation ${maxSourceGen}${this.ruleTable.blame('maxsourcegen')} for a Gen ${this.dex.gen} format (${this.format.name})`);
 			}
 		},
 	},
@@ -1661,7 +1646,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Allow Tradeback',
 		desc: "Allows Gen 1 pokemon to have moves from their Gen 2 learnsets",
-		// Implemented in dex-formats.js
+		// Implemented in team-validator.js
 	},
 	lgpenormalrules: {
 		effectType: 'ValidatorRule',
@@ -3353,7 +3338,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				}
 			}
 
-			if (this.dex.gen === 9 && !this.ruleTable.has('terastalclause') && this.ruleTable.has(`enforcesameteratype`)) {
+			if (this.gen === 9 && !this.ruleTable.has('terastalclause') && this.ruleTable.has(`enforcesameteratype`)) {
 				problems.push("(Make sure all tera types match one of the team's two types as well)");
 				for(const set of team) {
 					if(set.teraType) rowsTera.push(set.teraType);

@@ -3031,10 +3031,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const boostPassers: string[] = [];
 
 			// Exceptions can be specified by unbanning 'Baton Pass + exception'
-			const bprule = this.dex.formats.validateRule('+move:batonpass', format).slice(1) as string;
+			const bprule = (this.dex.formats.validateRule('+move:batonpass') as string).slice(1);
 			const checkUnban = (test: string) => {
 				// console.log(`checking ${test}`);
-				const rule = this.dex.formats.validateRule(test, format).slice(1) as string;
+				const rule = (this.dex.formats.validateRule(test) as string).slice(1);
 				const unban = this.ruleTable.complexBans.some(x => x[2] > 0 && x[3].includes(rule) && x[3].includes(bprule));
 				// console.log(unban);
 				return unban;
@@ -3173,7 +3173,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					.map((id, i) => [id, stats[i]])
 					.filter(([id, stat]) => !!stat)
 				) as StatsTable;
-				this.hint(`${species.name}'s custom base stats: ${JSON.stringify(override)}`);
+				// this.hint(`${species.name}'s custom base stats: ${JSON.stringify(override)}`);
 				return { ...species, baseStats: { ...species.baseStats, ...override } };
 			}
 		},

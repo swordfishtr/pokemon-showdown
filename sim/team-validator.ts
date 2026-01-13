@@ -718,7 +718,12 @@ export class TeamValidator {
 		}
 
 		if (!set.ability) set.ability = 'No Ability';
-		if (ruleTable.has('obtainableabilities')) {
+
+		let override = ruleTable.getValidatorOverride(species, ability);
+		if (override === false) {
+			problems.push(`${name} can't have ${set.ability}.`);
+		}
+		else if (!override && ruleTable.has('obtainableabilities')) {
 			if (dex.gen <= 2 || dex.currentMod === 'gen7letsgo') {
 				set.ability = 'No Ability';
 			} else {
@@ -797,6 +802,15 @@ export class TeamValidator {
 			if (!moveName) continue;
 			const move = dex.moves.get(Utils.getString(moveName));
 			if (!move.exists) return [`"${move.name}" is an invalid move.`];
+
+			override = ruleTable.getValidatorOverride(species, move);
+			if (override !== null) {
+				if (override === false) {
+					problems.push(`${name} can't learn ${move.name}.`);
+				}
+				moveLegalityWhitelist[move.id] = true;
+				continue;
+			}
 
 			problem = this.checkMove(set, move, setHas);
 			if (problem) {
@@ -954,7 +968,45 @@ export class TeamValidator {
 				}
 			}
 		} else if (ruleTable.has('obtainablemisc') && (eventOnlyData = this.getEventOnlyData(outOfBattleSpecies))) {
-			problems.push(...this.validateEventMisc(set, species, setSources, pokemonGoProblems, eventOnlyData));
+			const { species: eventSpecies, eventData } = eventOnlyData;
+			let legal = false;
+			for (const event of eventData) {
+				if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
+				setSources.eventOnlyMinSourceGen = event.generation;
+				legal = true;
+				break;
+			}
+			if (!legal && species.gen <= 2 && dex.gen >= 7 && !this.validateSource(set, '7V', setSources, species)) {
+				legal = true;
+			}
+			if (!legal) {
+				if (!pokemonGoProblems || (pokemonGoProblems?.length)) {
+					if (eventData.length === 1) {
+						problems.push(`${species.name} is only obtainable from an event - it needs to match its event:`);
+					} else {
+						problems.push(`${species.name} is only obtainable from events - it needs to match one of its events:`);
+					}
+					for (const [i, event] of eventData.entries()) {
+						if (event.generation <= dex.gen && (event.generation >= this.minSourceGen || dex.gen > 8)) {
+							const eventInfo = event;
+							const eventNum = i + 1;
+							const eventName = eventData.length > 1 ? ` #${eventNum}` : ``;
+							const eventProblems = this.validateEvent(
+								set, setSources, eventInfo, eventSpecies, ` to be`, `from its event${eventName}`
+							);
+							if (eventProblems) problems.push(...eventProblems);
+						}
+					}
+					if (pokemonGoProblems?.length) {
+						problems.push(`Additionally, it failed to validate as a Pokemon from Pokemon GO because:`);
+						for (const pokemonGoProblem of pokemonGoProblems) {
+							problems.push(pokemonGoProblem);
+						}
+					}
+				} else {
+					setSources.isFromPokemonGo = true;
+				}
+			}
 		}
 
 		// Hardcoded forced validation for Pokemon GO
@@ -2864,61 +2916,6 @@ export class TeamValidator {
 			if(!p) return null;
 			problems.push(...p);
 		}
-		return problems;
-	}
-
-	/**
-	 * Obtainable Misc validation of event only Pokemon.
-	 * 
-	 * Can be un-separated from its original location.
-	 */
-	validateEventMisc(
-		set: PokemonSet, species: Species, setSources: PokemonSources, pokemonGoProblems: string[] | null,
-		eventOnlyData: NonNullable<ReturnType<typeof this.getEventOnlyData>>
-	) {
-		const dex = this.dex;
-		const problems: string[] = [];
-
-		const { species: eventSpecies, eventData } = eventOnlyData;
-		let legal = false;
-		for (const event of eventData) {
-			if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
-			setSources.eventOnlyMinSourceGen = event.generation;
-			legal = true;
-			break;
-		}
-		if (!legal && species.gen <= 2 && dex.gen >= 7 && !this.validateSource(set, '7V', setSources, species)) {
-			legal = true;
-		}
-		if (!legal) {
-			if (!pokemonGoProblems || (pokemonGoProblems?.length)) {
-				if (eventData.length === 1) {
-					problems.push(`${species.name} is only obtainable from an event - it needs to match its event:`);
-				} else {
-					problems.push(`${species.name} is only obtainable from events - it needs to match one of its events:`);
-				}
-				for (const [i, event] of eventData.entries()) {
-					if (event.generation <= dex.gen && (event.generation >= this.minSourceGen || dex.gen > 8)) {
-						const eventInfo = event;
-						const eventNum = i + 1;
-						const eventName = eventData.length > 1 ? ` #${eventNum}` : ``;
-						const eventProblems = this.validateEvent(
-							set, setSources, eventInfo, eventSpecies, ` to be`, `from its event${eventName}`
-						);
-						if (eventProblems) problems.push(...eventProblems);
-					}
-				}
-				if (pokemonGoProblems?.length) {
-					problems.push(`Additionally, it failed to validate as a Pokemon from Pokemon GO because:`);
-					for (const pokemonGoProblem of pokemonGoProblems) {
-						problems.push(pokemonGoProblem);
-					}
-				}
-			} else {
-				setSources.isFromPokemonGo = true;
-			}
-		}
-
 		return problems;
 	}
 

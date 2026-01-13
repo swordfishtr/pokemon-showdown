@@ -729,7 +729,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Stealth Rock', 'U-Turn', 'Volt Switch', 'Flip Turn', 'Teleport', 'Choice Scarf', 'Heavy-Duty Boots', 'Defog', 'Electric Terrain', 'Psychic Terrain', 'Misty Terrain', 'Grassy Terrain',
 		],
 		unbanlist: [
-			'Future',
 			'Empoleon', 'Articuno-Base', 'Electivire', 'Rapidash-Base', 'Klinklang', 'Farigiraf', 'Seismitoad', 'Raichu-Alola', 'Noivern', 'Altaria-Base', 'Claydol', 'Armaldo', 'Escavalier', 'Uxie', 'Glalie-Base', 'Centiskorch', 'Rotom-Base', 'Decidueye-Base', 'Spiritomb', 'Charizard-Base', 'Chesnaught', 'Weezing-Base', 'Wo-Chien', 'Lickilicky', 'Scrafty', 'Seviper', 'Bouffalant', 'Nihilego', 'Persian-Alola', 'Probopass', 'Donphan', 'Vespiquen', 'Meganium', 'Hakamo-o', 'Lapras',
 		],
 	},
@@ -751,7 +750,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Stealth Rock', 'U-Turn', 'Volt Switch', 'Flip Turn', 'Teleport', 'Choice Scarf', 'Heavy-Duty Boots', 'Defog', 'Electric Terrain', 'Psychic Terrain', 'Misty Terrain', 'Grassy Terrain', 'Hidden Power',
 		],
 		unbanlist: [
-			'Future',
 			'Iron Treads', 'Regice', 'Scyther', 'Bombirdier', 'Shaymin-Base', 'Tentacruel', 'Camerupt-Base', 'Arcanine-Base', 'Dusknoir', 'Nidoqueen', 'Decidueye-Hisui', 'Cyclizar', 'Oranguru', 'Dudunsparce', 'Grapploct', 'Guzzlord', 'Drapion', 'Flapple', 'Rotom-Fan', 'Pinsir-Base', 'Lycanroc-Midnight', 'Passimian', 'Klinklang', 'Bronzong', 'Gardevoir-Base', 'Drifblim', 'Gourgeist-Base', 'Piloswine', 'Lapras', 'Bellibolt', 'Coalossal', 'Centiskorch', 'Feraligatr', 'Golem-Alola', 'Unfezant'
 		],
 	},
@@ -774,7 +772,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'U-turn', 'Stealth Rock', 'Hidden Power', 'Scald', 'Close Combat', 'Heavy-Duty Boots', 'Choice Scarf',
 		],
 		unbanlist: [
-			'Future',
 			'Accelgor', 'Ampharos', 'Dracovish', 'Noctowl', 'Dragalge', 'Corviknight', 'Frosmoth', 'Hoopa-Confined', 'Glaceon', 'Gliscor', 'Grumpig', 'Heliolisk', 'Hydreigon', 'Iron Leaves', 'Chesnaught', 'Hitmonlee', 'Obstagoon', 'Braixen', 'Luxray', 'Glimmora', 'Sandslash-Alola', 'Escavalier', 'Skeledirge', 'Spiritomb', 'Gyarados', 'Registeel', 'Cherrim', 'Crustle', 'Muk-Alola', 'Milotic', 'Hariyama', 'Turtonator', 'Sandaconda', 'Nidoking', 'Gigalith'
 		],
 	},

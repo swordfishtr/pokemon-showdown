@@ -1,21 +1,19 @@
-// In dexes for gens <= 3, abilities['H'] is missing, so use 'E0' instead.
-
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	empoleon: {
 		inherit: true,
-		abilities: { 0: "Torrent", E0: "Competitive", E1: 'Sand Stream' },
+		abilities: { 0: "Torrent", H: "Competitive", E1: 'Sand Stream' },
 	},
 	articuno: {
 		inherit: true,
-		abilities: { 0: "Pressure", E0: "Snow Cloak", E1: 'Snow Warning' },
+		abilities: { 0: "Pressure", H: "Snow Cloak", E1: 'Snow Warning' },
 	},
 	rapidash: {
 		inherit: true,
-		abilities: { 0: "Run Away", 1: "Flash Fire", E0: "Flame Body", E1: 'Regenerator' },
+		abilities: { 0: "Run Away", 1: "Flash Fire", H: "Flame Body", E1: 'Regenerator' },
 	},
 	farigiraf: {
 		inherit: true,
-		abilities: { 0: "Cud Chew", 1: "Armor Tail", E0: "Sap Sipper", E1: 'Tough Claws' },
+		abilities: { 0: "Cud Chew", 1: "Armor Tail", H: "Sap Sipper", E1: 'Tough Claws' },
 	},
 	raichualola: {
 		inherit: true,
@@ -27,35 +25,35 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	armaldo: {
 		inherit: true,
-		abilities: { 0: "Battle Armor", E0: "Swift Swim", E1: 'Unaware' },
+		abilities: { 0: "Battle Armor", H: "Swift Swim", E1: 'Unaware' },
 	},
 	glalie: {
 		inherit: true,
-		abilities: { 0: "Inner Focus", 1: "Ice Body", E0: "Moody", E1: 'Anger Shell' },
+		abilities: { 0: "Inner Focus", 1: "Ice Body", H: "Moody", E1: 'Anger Shell' },
 	},
 	decidueye: {
 		inherit: true,
-		abilities: { 0: "Overgrow", E0: "Long Reach", E1: 'Sharpness' },
+		abilities: { 0: "Overgrow", H: "Long Reach", E1: 'Sharpness' },
 	},
 	spiritomb: {
 		inherit: true,
-		abilities: { 0: "Pressure", E0: "Infiltrator", E1: 'Cursed Body' },
+		abilities: { 0: "Pressure", H: "Infiltrator", E1: 'Cursed Body' },
 	},
 	charizard: {
 		inherit: true,
-		abilities: { 0: "Blaze", E0: "Solar Power", E1: 'Dragon\'s Maw' },
+		abilities: { 0: "Blaze", H: "Solar Power", E1: 'Dragon\'s Maw' },
 	},
 	chesnaught: {
 		inherit: true,
-		abilities: { 0: "Overgrow", E0: "Bulletproof", E1: 'Lingering Aroma' },
+		abilities: { 0: "Overgrow", H: "Bulletproof", E1: 'Lingering Aroma' },
 	},
 	seviper: {
 		inherit: true,
-		abilities: { 0: "Shed Skin", E0: "Infiltrator", E1: 'Ice Scales' },
+		abilities: { 0: "Shed Skin", H: "Infiltrator", E1: 'Ice Scales' },
 	},
 	bouffalant: {
 		inherit: true,
-		abilities: { 0: "Reckless", 1: "Sap Sipper", E0: "Soundproof", E1: 'Guts' },
+		abilities: { 0: "Reckless", 1: "Sap Sipper", H: "Soundproof", E1: 'Guts' },
 	},
 	nihilego: {
 		inherit: true,
@@ -63,75 +61,22 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	probopass: {
 		inherit: true,
-		abilities: { 0: "Sturdy", 1: "Magnet Pull", E0: "Sand Force", E1: 'Levitate' },
+		abilities: { 0: "Sturdy", 1: "Magnet Pull", H: "Sand Force", E1: 'Levitate' },
 	},
 	donphan: {
 		inherit: true,
-		abilities: { 0: "Sturdy", E0: "Sand Veil", E1: 'Rocky Payload' },
+		abilities: { 0: "Sturdy", H: "Sand Veil", E1: 'Rocky Payload' },
 	},
 	vespiquen: {
 		inherit: true,
-		abilities: { 0: "Pressure", E0: "Unnerve", E1: 'Magic Guard' },
+		abilities: { 0: "Pressure", H: "Unnerve", E1: 'Magic Guard' },
 	},
 	hakamoo: {
 		inherit: true,
-		abilities: { 0: "Bulletproof", 1: "Soundproof", E0: "Overcoat", E1: 'Sword Of Ruin' },
+		abilities: { 0: "Bulletproof", 1: "Soundproof", H: "Overcoat", E1: 'Sword Of Ruin' },
 	},
 	lapras: {
 		inherit: true,
-		abilities: { 0: "Water Absorb", 1: "Shell Armor", E0: "Hydration", E1: 'Filter' },
-	},
-
-	wochien: {
-		inherit: true,
-		abilities: { 0: "Tablets of Ruin" },
-	},
-	klinklang: {
-		inherit: true,
-		abilities: { 0: "Plus", 1: "Minus", E0: "Clear Body" },
-	},
-	escavalier: {
-		inherit: true,
-		abilities: { 0: "Swarm", 1: "Shell Armor", E0: "Overcoat" },
-	},
-	scrafty: {
-		inherit: true,
-		abilities: { 0: "Shed Skin", 1: "Moxie", E0: "Intimidate" },
-	},
-	seismitoad: {
-		inherit: true,
-		abilities: { 0: "Swift Swim", 1: "Poison Touch", E0: "Water Absorb" },
-	},
-	uxie: {
-		inherit: true,
-		abilities: { 0: "Levitate" },
-	},
-	rotom: {
-		inherit: true,
-		abilities: { 0: "Levitate" },
-	},
-	electivire: {
-		inherit: true,
-		abilities: { 0: "Motor Drive", E0: "Vital Spirit" },
-	},
-	lickilicky: {
-		inherit: true,
-		abilities: { 0: "Own Tempo", 1: "Oblivious", E0: "Cloud Nine" },
-	},
-	altaria: {
-		inherit: true,
-		abilities: { 0: "Natural Cure", E0: "Cloud Nine" },
-	},
-	meganium: {
-		inherit: true,
-		abilities: { 0: "Overgrow", E0: "Leaf Guard" },
-	},
-	weezing: {
-		inherit: true,
-		abilities: { 0: "Levitate", 1: "Neutralizing Gas", E0: "Stench" },
-	},
-	persianalola: {
-		inherit: true,
-		abilities: { 0: "Fur Coat", 1: "Technician", E0: "Rattled" },
+		abilities: { 0: "Water Absorb", 1: "Shell Armor", H: "Hydration", E1: 'Filter' },
 	},
 };

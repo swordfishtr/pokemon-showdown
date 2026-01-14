@@ -975,7 +975,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#corsola+hugepower',
 			'#absol+sheerforce',
 			'#mawile+gigatonhammer+moonlight',
-			'#tropius+galewings+clangingscales+oblivionring',
+			'#tropius+galewings+clangingscales+oblivionwing',
 			'#castform+scrappy+clangoroussoul+judgment',
 			'#camerupt+waterabsorb+aurasphere',
 			'#mightyena+fishiousrend+wish',

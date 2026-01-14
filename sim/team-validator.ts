@@ -316,7 +316,16 @@ export class PokemonSources {
 
 export class TeamValidator {
 	readonly format: Format;
+	/**
+	 * For use in rulesets and formats as `this.dex`
+	 */
 	readonly dex: ModdedDex;
+	/**
+	 * For use in team-validator.ts
+	 * 
+	 * Set with `Format.validatorMod`, defaults to `this.dex`
+	 */
+	readonly validatorDex: ModdedDex;
 	readonly gen: number;
 	readonly ruleTable: RuleTable;
 	readonly minSourceGen: number;
@@ -328,7 +337,8 @@ export class TeamValidator {
 			throw new Error(`format should be a 'Format', but was a '${this.format.effectType}'`);
 		}
 		this.dex = dex.forFormat(this.format);
-		this.gen = this.dex.gen;
+		this.validatorDex = this.format.validatorMod ? this.dex.mod(this.format.validatorMod) : this.dex;
+		this.gen = this.validatorDex.gen;
 		this.ruleTable = this.dex.formats.getRuleTable(this.format);
 
 		this.minSourceGen = this.ruleTable.minSourceGen;
@@ -357,7 +367,7 @@ export class TeamValidator {
 		} = {}
 	): string[] | null {
 		const format = this.format;
-		const dex = this.dex;
+		const dex = this.validatorDex;
 
 		let problems: string[] = [];
 		const ruleTable = this.ruleTable;
@@ -484,7 +494,7 @@ export class TeamValidator {
 	}
 
 	getEventOnlyData(species: Species, noRecurse?: boolean): { species: Species, eventData: EventInfo[] } | null {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const learnset = dex.species.getLearnsetData(species.id);
 		if (!learnset?.eventOnly) {
 			if (noRecurse) return null;
@@ -502,7 +512,7 @@ export class TeamValidator {
 	}
 
 	getValidationSpecies(set: PokemonSet): { outOfBattleSpecies: Species, tierSpecies: Species } {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 		const species = dex.species.get(set.species);
 		const item = dex.items.get(set.item);
@@ -549,7 +559,7 @@ export class TeamValidator {
 
 	validateSet(set: PokemonSet, teamHas: AnyObject): string[] | null {
 		const format = this.format;
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		let problems: string[] = [];
@@ -644,7 +654,7 @@ export class TeamValidator {
 				set.gender = 'M';
 			}
 		}
-		if (species.id === 'melmetal' && set.gigantamax && this.dex.species.getLearnsetData(species.id).eventData) {
+		if (species.id === 'melmetal' && set.gigantamax && dex.species.getLearnsetData(species.id).eventData) {
 			setSources.sourcesBefore = 0;
 			setSources.sources = ['8S0 melmetal'];
 		}
@@ -714,7 +724,12 @@ export class TeamValidator {
 		}
 
 		if (!set.ability) set.ability = 'No Ability';
-		if (ruleTable.has('obtainableabilities')) {
+
+		let override = ruleTable.getValidatorOverride(species, ability);
+		if (override === false) {
+			problems.push(`${name} can't have ${set.ability}.`);
+		}
+		else if (!override && ruleTable.has('obtainableabilities')) {
 			if (dex.gen <= 2 || dex.currentMod === 'gen7letsgo') {
 				set.ability = 'No Ability';
 			} else {
@@ -793,6 +808,15 @@ export class TeamValidator {
 			if (!moveName) continue;
 			const move = dex.moves.get(Utils.getString(moveName));
 			if (!move.exists) return [`"${move.name}" is an invalid move.`];
+
+			override = ruleTable.getValidatorOverride(species, move);
+			if (override !== null) {
+				if (override === false) {
+					problems.push(`${name} can't learn ${move.name}.`);
+				}
+				moveLegalityWhitelist[move.id] = true;
+				continue;
+			}
 
 			problem = this.checkMove(set, move, setHas);
 			if (problem) {
@@ -950,7 +974,45 @@ export class TeamValidator {
 				}
 			}
 		} else if (ruleTable.has('obtainablemisc') && (eventOnlyData = this.getEventOnlyData(outOfBattleSpecies))) {
-			problems.push(...this.validateEventMisc(set, species, setSources, pokemonGoProblems, eventOnlyData));
+			const { species: eventSpecies, eventData } = eventOnlyData;
+			let legal = false;
+			for (const event of eventData) {
+				if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
+				setSources.eventOnlyMinSourceGen = event.generation;
+				legal = true;
+				break;
+			}
+			if (!legal && species.gen <= 2 && dex.gen >= 7 && !this.validateSource(set, '7V', setSources, species)) {
+				legal = true;
+			}
+			if (!legal) {
+				if (!pokemonGoProblems || (pokemonGoProblems?.length)) {
+					if (eventData.length === 1) {
+						problems.push(`${species.name} is only obtainable from an event - it needs to match its event:`);
+					} else {
+						problems.push(`${species.name} is only obtainable from events - it needs to match one of its events:`);
+					}
+					for (const [i, event] of eventData.entries()) {
+						if (event.generation <= dex.gen && (event.generation >= this.minSourceGen || dex.gen > 8)) {
+							const eventInfo = event;
+							const eventNum = i + 1;
+							const eventName = eventData.length > 1 ? ` #${eventNum}` : ``;
+							const eventProblems = this.validateEvent(
+								set, setSources, eventInfo, eventSpecies, ` to be`, `from its event${eventName}`
+							);
+							if (eventProblems) problems.push(...eventProblems);
+						}
+					}
+					if (pokemonGoProblems?.length) {
+						problems.push(`Additionally, it failed to validate as a Pokemon from Pokemon GO because:`);
+						for (const pokemonGoProblem of pokemonGoProblems) {
+							problems.push(pokemonGoProblem);
+						}
+					}
+				} else {
+					setSources.isFromPokemonGo = true;
+				}
+			}
 		}
 
 		// Hardcoded forced validation for Pokemon GO
@@ -1065,7 +1127,7 @@ export class TeamValidator {
 
 	validateStats(set: PokemonSet, species: Species, setSources: PokemonSources, pokemonGoProblems: string[] | null) {
 		const ruleTable = this.ruleTable;
-		const dex = this.dex;
+		const dex = this.validatorDex;
 
 		const allowAVs = !ruleTable.has('lgpenormalrules');
 		const evLimit = ruleTable.evLimit;
@@ -1307,9 +1369,9 @@ export class TeamValidator {
 		let eventSpecies = species;
 		if (source.charAt(1) === 'S') {
 			const splitSource = source.substr(source.charAt(2) === 'T' ? 3 : 2).split(' ');
-			const dex = (this.dex.gen === 1 ? this.dex.mod('gen2') : this.dex);
+			const dex = (this.validatorDex.gen === 1 ? this.dex.mod('gen2') : this.validatorDex);
 			eventSpecies = dex.species.get(splitSource[1]);
-			const eventLsetData = this.dex.species.getLearnsetData(eventSpecies.id);
+			const eventLsetData = this.validatorDex.species.getLearnsetData(eventSpecies.id);
 			eventData = eventLsetData.eventData?.[parseInt(splitSource[0])];
 			if (!eventData) {
 				throw new Error(`${eventSpecies.name} from ${species.name} doesn't have data for event ${source}`);
@@ -1383,7 +1445,7 @@ export class TeamValidator {
 		if (setSources.levelUpEggMoves && eggGen >= 6) eggMoves = setSources.levelUpEggMoves;
 
 		// gen 1 eggs come from gen 2 breeding
-		const dex = this.dex.gen === 1 ? this.dex.mod('gen2') : this.dex;
+		const dex = this.validatorDex.gen === 1 ? this.dex.mod('gen2') : this.validatorDex;
 		// In Gen 5 and earlier, egg moves can only be inherited from the father
 		// we'll test each possible father separately
 		let eggGroups = species.eggGroups;
@@ -1392,7 +1454,7 @@ export class TeamValidator {
 		} else if (species.id === 'shedinja') {
 			// Shedinja and Nincada are different Egg groups; Shedinja itself is genderless
 			eggGroups = dex.species.get('nincada').eggGroups;
-		} else if (dex !== this.dex) {
+		} else if (dex !== this.validatorDex) {
 			// Gen 1 tradeback; grab the egg groups from Gen 2
 			eggGroups = dex.species.get(species.id).eggGroups;
 		}
@@ -1401,7 +1463,7 @@ export class TeamValidator {
 			throw new Error(`${species.name} has no egg groups for source ${source}`);
 		}
 		// no chainbreeding necessary if the father can be Smeargle
-		if (!getAll && eggGroups.includes('Field') && !this.dex.species.get('Smeargle').isNonstandard) return true;
+		if (!getAll && eggGroups.includes('Field') && !this.validatorDex.species.get('Smeargle').isNonstandard) return true;
 
 		// try to find a father to inherit the egg move combination from
 		for (const father of dex.species.all()) {
@@ -1449,17 +1511,18 @@ export class TeamValidator {
 	 */
 	fatherCanLearn(baseSpecies: Species, species: Species, moves: ID[], eggGen: number, pokemonBlacklist: ID[],
 		noRecurse: boolean | undefined) {
-		if (!this.dex.species.getLearnsetData(species.id).learnset) return false;
+		const dex = this.validatorDex;
+		if (!dex.species.getLearnsetData(species.id).learnset) return false;
 
 		if (species.id === 'smeargle') return true;
 		const canBreedWithSmeargle = species.eggGroups.includes('Field') &&
-			!this.dex.species.get('Smeargle').isNonstandard;
+			!dex.species.get('Smeargle').isNonstandard;
 
 		const allEggSources = new PokemonSources();
 		allEggSources.sourcesBefore = eggGen;
 		for (const move of moves) {
 			const eggSources = new PokemonSources();
-			for (const { learnset, species: curSpecies } of this.dex.species.getFullLearnset(species.id)) {
+			for (const { learnset, species: curSpecies } of dex.species.getFullLearnset(species.id)) {
 				const eggPokemon = curSpecies.prevo ? curSpecies.id : '';
 				if (learnset[move]) {
 					for (const moveSource of learnset[move]) {
@@ -1472,7 +1535,7 @@ export class TeamValidator {
 						} else {
 							if (moveSource.charAt(1) === 'E') {
 								eggSources.add(moveSource + eggPokemon, move);
-								if (eggGen === 2 && this.dex.moves.getByID(move).gen === 1) eggSources.add('1ET' + eggPokemon, move);
+								if (eggGen === 2 && dex.moves.getByID(move).gen === 1) eggSources.add('1ET' + eggPokemon, move);
 							} else {
 								eggSources.add(moveSource + eggPokemon);
 							}
@@ -1511,7 +1574,7 @@ export class TeamValidator {
 
 	motherCanLearn(species: ID, move: ID) {
 		if (!species) return false;
-		const fullLearnset = this.dex.species.getFullLearnset(species);
+		const fullLearnset = this.validatorDex.species.getFullLearnset(species);
 		for (const { learnset } of fullLearnset) {
 			if (learnset[move]) return true;
 		}
@@ -1519,7 +1582,7 @@ export class TeamValidator {
 	}
 
 	validateForme(set: PokemonSet) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const name = set.name || set.species;
 
 		const problems = [];
@@ -1583,7 +1646,7 @@ export class TeamValidator {
 					}
 				} else {
 					// Memory/Drive/Griseous Orb/Plate/Z-Crystal - Forme mismatch
-					const baseSpecies = this.dex.species.get(species.changesFrom);
+					const baseSpecies = dex.species.get(species.changesFrom);
 					problems.push(
 						`${name} needs to hold ${species.requiredItems.join(' or ')} to be in its ${species.forme} forme.`,
 						`(It will revert to its ${baseSpecies.baseForme || 'base'} forme if you remove the item or give it a different item.)`
@@ -1591,7 +1654,7 @@ export class TeamValidator {
 				}
 			}
 			if (species.requiredMove && !set.moves.map(toID).includes(toID(species.requiredMove))) {
-				const baseSpecies = this.dex.species.get(species.changesFrom);
+				const baseSpecies = dex.species.get(species.changesFrom);
 				problems.push(
 					`${name} needs to know the move ${species.requiredMove} to be in its ${species.forme} forme.`,
 					`(It will revert to its ${baseSpecies.baseForme} forme if it forgets the move.)`
@@ -1665,7 +1728,7 @@ export class TeamValidator {
 	}
 
 	checkSpecies(set: PokemonSet, species: Species, tierSpecies: Species, setHas: { [k: string]: true }) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		// https://www.smogon.com/forums/posts/8659168
@@ -1824,7 +1887,7 @@ export class TeamValidator {
 	}
 
 	checkItem(set: PokemonSet, item: Item, setHas: { [k: string]: true }) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		setHas['item:' + item.id] = true;
@@ -1872,7 +1935,7 @@ export class TeamValidator {
 	}
 
 	checkMove(set: PokemonSet, move: Move, setHas: { [k: string]: true }) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		setHas['move:' + move.id] = true;
@@ -1918,7 +1981,7 @@ export class TeamValidator {
 	}
 
 	checkAbility(set: PokemonSet, ability: Ability, setHas: { [k: string]: true }) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		setHas['ability:' + ability.id] = true;
@@ -1969,7 +2032,7 @@ export class TeamValidator {
 	}
 
 	checkNature(set: PokemonSet, nature: Nature, setHas: { [k: string]: true }) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		setHas['nature:' + nature.id] = true;
@@ -2021,7 +2084,7 @@ export class TeamValidator {
 		set: PokemonSet, setSources: PokemonSources, eventData: EventInfo, eventSpecies: Species,
 		because = ``, from = `from an event`
 	) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		let name = set.species;
 		const species = dex.species.get(set.species);
 		const maxSourceGen = this.ruleTable.has('allowtradeback') ? Utils.clampIntRange(dex.gen + 1, 1, 8) : dex.gen;
@@ -2180,10 +2243,11 @@ export class TeamValidator {
 	}
 
 	allSources(species?: Species) {
+		const dex = this.validatorDex;
 		let minSourceGen = this.minSourceGen;
-		if (this.dex.gen >= 3 && minSourceGen < 3) minSourceGen = 3;
+		if (dex.gen >= 3 && minSourceGen < 3) minSourceGen = 3;
 		if (species) minSourceGen = Math.max(minSourceGen, species.gen);
-		const maxSourceGen = this.ruleTable.has('allowtradeback') ? Utils.clampIntRange(this.dex.gen + 1, 1, 8) : this.dex.gen;
+		const maxSourceGen = this.ruleTable.has('allowtradeback') ? Utils.clampIntRange(dex.gen + 1, 1, 8) : dex.gen;
 		return new PokemonSources(maxSourceGen, minSourceGen);
 	}
 
@@ -2191,7 +2255,7 @@ export class TeamValidator {
 		species: Species, moves: string[], setSources: PokemonSources, set?: Partial<PokemonSet>,
 		name: string = species.name, moveLegalityWhitelist: { [k: string]: true | undefined } = {}
 	) {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const ruleTable = this.ruleTable;
 
 		const problems = [];
@@ -2280,12 +2344,12 @@ export class TeamValidator {
 		let problems = [];
 		let minLevel = 50; // maximum level a Pokemon can be in Pokemon GO
 		let minIVs = 15; // IVs range from 0 to 15 in Pokemon GO
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		const pokemonGoData = dex.species.getPokemonGoData(species.id);
 		if (dex.gen < 8 || this.format.mod === 'gen8dlc1') return null;
 		if (!pokemonGoData) {
 			// Handles forms and evolutions not obtainable from Pokemon GO
-			const otherSpecies = this.dex.species.learnsetParent(species);
+			const otherSpecies = dex.species.learnsetParent(species);
 			// If a Pokemon is somehow not obtainable from Pokemon GO and it must be leveled up to be evolved,
 			// validation for the game should stop because it's more optimal to get the Pokemon outside of the game
 			if (otherSpecies && !species.evoLevel) {
@@ -2417,7 +2481,7 @@ export class TeamValidator {
 		setSources = this.allSources(originalSpecies),
 		set: Partial<PokemonSet> = {}
 	): string | null {
-		const dex = this.dex;
+		const dex = this.validatorDex;
 		if (!setSources.size()) throw new Error(`Bad sources passed to checkCanLearn`);
 
 		move = dex.moves.get(move);
@@ -2456,7 +2520,7 @@ export class TeamValidator {
 		/**
 		 * The format allows Sketch to copy moves in Gen 8
 		 */
-		const canSketchPostGen7Moves = ruleTable.has('sketchpostgen7moves') || this.dex.currentMod === 'gen8bdsp';
+		const canSketchPostGen7Moves = ruleTable.has('sketchpostgen7moves') || dex.currentMod === 'gen8bdsp';
 
 		let tradebackEligible = false;
 		const fullLearnset = dex.species.getFullLearnset(originalSpecies.id);
@@ -2850,7 +2914,7 @@ export class TeamValidator {
 	 */
 	validateSetNoAbility(set: PokemonSet, extra?: string[]): ReturnType<typeof this.validateSet> {
 		const abilities: string[] = [];
-		const species = this.dex.species.get(set.species);
+		const species = this.validatorDex.species.get(set.species);
 		abilities.push(...Object.values(species.abilities));
 		if(extra) abilities.push(...extra);
 		if(!abilities.length) abilities.push(set.ability);
@@ -2860,61 +2924,6 @@ export class TeamValidator {
 			if(!p) return null;
 			problems.push(...p);
 		}
-		return problems;
-	}
-
-	/**
-	 * Obtainable Misc validation of event only Pokemon.
-	 * 
-	 * Can be un-separated from its original location.
-	 */
-	validateEventMisc(
-		set: PokemonSet, species: Species, setSources: PokemonSources, pokemonGoProblems: string[] | null,
-		eventOnlyData: NonNullable<ReturnType<typeof this.getEventOnlyData>>
-	) {
-		const dex = this.dex;
-		const problems: string[] = [];
-
-		const { species: eventSpecies, eventData } = eventOnlyData;
-		let legal = false;
-		for (const event of eventData) {
-			if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
-			setSources.eventOnlyMinSourceGen = event.generation;
-			legal = true;
-			break;
-		}
-		if (!legal && species.gen <= 2 && dex.gen >= 7 && !this.validateSource(set, '7V', setSources, species)) {
-			legal = true;
-		}
-		if (!legal) {
-			if (!pokemonGoProblems || (pokemonGoProblems?.length)) {
-				if (eventData.length === 1) {
-					problems.push(`${species.name} is only obtainable from an event - it needs to match its event:`);
-				} else {
-					problems.push(`${species.name} is only obtainable from events - it needs to match one of its events:`);
-				}
-				for (const [i, event] of eventData.entries()) {
-					if (event.generation <= dex.gen && (event.generation >= this.minSourceGen || dex.gen > 8)) {
-						const eventInfo = event;
-						const eventNum = i + 1;
-						const eventName = eventData.length > 1 ? ` #${eventNum}` : ``;
-						const eventProblems = this.validateEvent(
-							set, setSources, eventInfo, eventSpecies, ` to be`, `from its event${eventName}`
-						);
-						if (eventProblems) problems.push(...eventProblems);
-					}
-				}
-				if (pokemonGoProblems?.length) {
-					problems.push(`Additionally, it failed to validate as a Pokemon from Pokemon GO because:`);
-					for (const pokemonGoProblem of pokemonGoProblems) {
-						problems.push(pokemonGoProblem);
-					}
-				}
-			} else {
-				setSources.isFromPokemonGo = true;
-			}
-		}
-
 		return problems;
 	}
 

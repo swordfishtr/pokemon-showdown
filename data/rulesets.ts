@@ -3031,10 +3031,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const boostPassers: string[] = [];
 
 			// Exceptions can be specified by unbanning 'Baton Pass + exception'
-			const bprule = this.dex.formats.validateRule('+move:batonpass', format).slice(1) as string;
+			const bprule = (this.dex.formats.validateRule('+move:batonpass') as string).slice(1);
 			const checkUnban = (test: string) => {
 				// console.log(`checking ${test}`);
-				const rule = this.dex.formats.validateRule(test, format).slice(1) as string;
+				const rule = (this.dex.formats.validateRule(test) as string).slice(1);
 				const unban = this.ruleTable.complexBans.some(x => x[2] > 0 && x[3].includes(rule) && x[3].includes(bprule));
 				// console.log(unban);
 				return unban;
@@ -3135,6 +3135,47 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 
 			if (problems.length) return problems;
+		},
+	},
+	modbst: {
+		effectType: 'Rule',
+		name: 'Mod BST',
+		desc: 'Modify species base stats',
+		hasValue: true,
+		onValidateRule(value) {
+			const usage = 'Mod BST usage: "Mod BST = Dreepy: 90 / / / 110 / / ; Tatsugiri: / 140 / / / / ;"';
+			const parsed = value.split(';').map((rule) => {
+				rule = rule.trim();
+				if (!rule) return rule;
+				const [speciesName, statsInput] = rule.split(':', 2);
+				if (!statsInput) throw new Error(usage);
+				const species = this.dex.species.get(speciesName);
+				if (!species.exists) throw new Error(usage);
+				const stats = statsInput.split('/', 6).map((stat) => stat.trim());
+				if (stats.length !== 6) throw new Error(usage);
+				if (!stats.every((stat) => /^\d*$/.test(stat))) throw new Error(usage);
+				return `${species.id}:${stats.join('/')}`;
+			}).filter(Boolean);
+			if (!parsed.length) throw new Error('To remove BST modifications, use "! Mod BST"');
+			return parsed.join(';');
+		},
+		// This rule is essentially overriding the species pokedex.ts entry
+		// without the need for a modded pokedex.ts, so it must run before everything else.
+		onModifySpeciesPriority: 99,
+		onModifySpecies(species, target, source, effect) {
+			const rules = this.ruleTable.valueRules.get('modbst')!.split(';');
+			for (const rule of rules) {
+				const [speciesid, statsInput] = rule.split(':', 2);
+				if (speciesid !== species.id) continue;
+				const stats = statsInput.split('/', 6).map((stat) => this.clampIntRange(parseInt(stat), 1, 255));
+				const override = Object.fromEntries(
+					this.dex.stats.ids()
+					.map((id, i) => [id, stats[i]])
+					.filter(([id, stat]) => !!stat)
+				) as StatsTable;
+				// this.hint(`${species.name}'s custom base stats: ${JSON.stringify(override)}`);
+				return { ...species, baseStats: { ...species.baseStats, ...override } };
+			}
 		},
 	},
 	standardgenerations: {

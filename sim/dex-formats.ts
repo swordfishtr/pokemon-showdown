@@ -21,6 +21,12 @@ type FormatEffectType = 'Format' | 'Ruleset' | 'Rule' | 'ValidatorRule';
 export type ComplexBan = [string, string, number, string[]];
 export type ComplexTeamBan = ComplexBan;
 
+/**
+ * { species: { effect: (true: forceValid, false: forceInvalid) } }
+ * null is used to delete an override; it does not appear in a final RuleTable.
+ */
+export type ValidatorOverrides = Record<string, Record<string, boolean | null>>;
+
 export interface GameTimerSettings {
 	dcTimer: boolean;
 	dcTimerBank: boolean;
@@ -46,6 +52,7 @@ export interface GameTimerSettings {
 export class RuleTable extends Map<string, string> {
 	complexBans: ComplexBan[];
 	complexTeamBans: ComplexTeamBan[];
+	validatorOverrides: ValidatorOverrides;
 	checkCanLearn: [TeamValidator['checkCanLearn'], string] | null;
 	timer: [Partial<GameTimerSettings>, string] | null;
 	tagRules: string[];
@@ -68,6 +75,7 @@ export class RuleTable extends Map<string, string> {
 		super();
 		this.complexBans = [];
 		this.complexTeamBans = [];
+		this.validatorOverrides = {};
 		this.checkCanLearn = null;
 		this.timer = null;
 		this.tagRules = [];
@@ -200,6 +208,31 @@ export class RuleTable extends Map<string, string> {
 		} else {
 			this.complexTeamBans.push([rule, source, limit, bans]);
 		}
+	}
+
+	addValidatorOverrides(overrides: ValidatorOverrides) {
+		for (const species in overrides) {
+			this.validatorOverrides[species] ??= {};
+			for (const override in overrides[species]) {
+				if (overrides[species][override] === null) {
+					delete this.validatorOverrides[species][override];
+				} else {
+					this.validatorOverrides[species][override] = overrides[species][override];
+				}
+			}
+		}
+	}
+	getValidatorOverride(species: Species, effect: Ability | Move) {
+		// there are 2 entries to check for overrides:
+		// `pokemon:speciesid`, `basepokemon:basespeciesid`
+		// since `pokemon:` entries are more specific, they take priority
+		const effectid = `${effect.fullname.split(':', 1)}:${effect.id}`;
+		for (const pokemonid of [`pokemon:${species.id}`, `basepokemon:${toID(species.baseSpecies)}`]) {
+			if (pokemonid in this.validatorOverrides && effectid in this.validatorOverrides[pokemonid]) {
+				return this.validatorOverrides[pokemonid][effectid];
+			}
+		}
+		return null;
 	}
 
 	/** After a RuleTable has been filled out, resolve its hardcoded numeric properties */
@@ -393,10 +426,6 @@ export class RuleTable extends Map<string, string> {
 			throw new Error(`maxForcedLevel is now a rule: "Adjust Level Down = NUMBER"`);
 		}
 	}
-
-	hasComplexBans() {
-		return (this.complexBans?.length > 0) || (this.complexTeamBans?.length > 0);
-	}
 }
 
 export class Format extends BasicEffect implements Readonly<BasicEffect> {
@@ -439,6 +468,8 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	/** An optional function that runs at the start of a battle. */
 	readonly onBegin?: (this: Battle) => void;
 	readonly noLog: boolean;
+
+	readonly validatorMod?: string;
 
 	/**
 	 * Only applies to rules, not formats
@@ -508,6 +539,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 		this.ruleTable = null;
 		this.onBegin = data.onBegin || undefined;
 		this.noLog = !!data.noLog;
+		this.validatorMod = data.validatorMod || undefined;
 		this.playerCount = (this.gameType === 'multi' || this.gameType === 'freeforall' ? 4 : 2);
 		assignMissingFields(this, data);
 	}
@@ -760,7 +792,7 @@ export class DexFormats {
 
 		// apply rule repeals before other rules
 		// repeals is a ruleid:depth map (positive: unused, negative: used)
-		const ruleSpecs = ruleset.map(rule => this.validateRule(rule, format));
+		const ruleSpecs = ruleset.map(rule => this.validateRule(rule));
 		for (let ruleSpec of ruleSpecs) {
 			if (typeof ruleSpec !== 'string') continue;
 			if (ruleSpec.startsWith('^')) ruleSpec = ruleSpec.slice(1);
@@ -780,14 +812,18 @@ export class DexFormats {
 		for (let ruleSpec of ruleSpecs) {
 			// complex ban/unban
 			if (typeof ruleSpec !== 'string') {
-				if (ruleSpec[0] === 'complexTeamBan') {
-					const complexTeamBan: ComplexTeamBan = ruleSpec.slice(1) as ComplexTeamBan;
-					ruleTable.addComplexTeamBan(complexTeamBan[0], complexTeamBan[1], complexTeamBan[2], complexTeamBan[3]);
-				} else if (ruleSpec[0] === 'complexBan') {
-					const complexBan: ComplexBan = ruleSpec.slice(1) as ComplexBan;
-					ruleTable.addComplexBan(complexBan[0], complexBan[1], complexBan[2], complexBan[3]);
+				if (Array.isArray(ruleSpec)) {
+					if (ruleSpec[0] === 'complexTeamBan') {
+						const complexTeamBan = ruleSpec.slice(1) as ComplexTeamBan;
+						ruleTable.addComplexTeamBan(complexTeamBan[0], complexTeamBan[1], complexTeamBan[2], complexTeamBan[3]);
+					} else if (ruleSpec[0] === 'complexBan') {
+						const complexBan = ruleSpec.slice(1) as ComplexBan;
+						ruleTable.addComplexBan(complexBan[0], complexBan[1], complexBan[2], complexBan[3]);
+					} else {
+						throw new Error(`Unrecognized rule spec ${ruleSpec}`);
+					}
 				} else {
-					throw new Error(`Unrecognized rule spec ${ruleSpec}`);
+					ruleTable.addValidatorOverrides(ruleSpec);
 				}
 				continue;
 			}
@@ -972,9 +1008,26 @@ export class DexFormats {
 		return ruleTable;
 	}
 
-	validateRule(rule: string, format: Format | null = null) {
+	validateRule(rule: string) {
 		if (rule !== rule.trim()) throw new Error(`Rule "${rule}" should be trimmed`);
 		switch (rule.charAt(0)) {
+		case '#':
+			const overrides: ValidatorOverrides = {};
+			const rules = rule.split(/(\+|-|!)/);
+			const species = this.validateBanRule(rules.shift()!);
+			if (!species.startsWith('pokemon:') && !species.startsWith('basepokemon:')) {
+				throw new Error('Team Validator overrides must start with a Pokemon species.');
+			}
+			overrides[species] ??= {};
+			while (rules.length) {
+				const action = rules.shift()!;
+				const effect = this.validateBanRule(rules.shift()!);
+				if (!effect.startsWith('ability:') && !effect.startsWith('move:')) {
+					throw new Error('Team Validator overrides are only accepted for abilities and moves.');
+				}
+				overrides[species][effect] = action === '+' ? true : action === '-' ? false : null;
+			}
+			return overrides;
 		case '-':
 		case '*':
 		case '+':

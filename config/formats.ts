@@ -837,7 +837,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Obtainable', '+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause',
 			'Sleep Moves Clause', 'Forme Clause',
 			// Melten hates cheese now
-			'DryPass Clause',
+			'DryPass Clause', 'Gems Clause',
 
 			'#accelgor+nastyplot+stickyweb',
 			'#ampharos+drizzle+electroshot',

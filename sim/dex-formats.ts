@@ -22,7 +22,7 @@ export type ComplexBan = [string, string, number, string[]];
 export type ComplexTeamBan = ComplexBan;
 
 /**
- * { species: { move: (true: forceValid, false: forceInvalid) } }
+ * { species: { effect: (true: forceValid, false: forceInvalid) } }
  * null is used to delete an override; it does not appear in a final RuleTable.
  */
 export type ValidatorOverrides = Record<string, Record<string, boolean | null>>;

@@ -881,7 +881,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Heavy-Duty Boots', 'Choice Scarf',
 		],
 		unbanlist: [
-			'Accelgor', 'Ampharos-Base', 'Braixen', 'Cherrim-Base', 'Chesnaught', 'Corviknight', 'Crustle', 'Dracovish', 'Dragalge', 'Escavalier', 'Frosmoth', 'Gigalith', 'Glaceon', 'Glimmora', 'Gliscor', 'Grumpig', 'Gyarados-Base', 'Hariyama', 'Heliolisk', 'Hitmonlee', 'Hoopa-Confined', 'Hydreigon', 'Iron Leaves', 'Luxray', 'Milotic', 'Muk-Alola', 'Nidoking', 'Noctowl', 'Obstagoon', 'Registeel', 'Sandaconda', 'Sandslash-Alola', 'Skeledirge', 'Spiritomb', 'Turtonator',
+			'Accelgor', 'Ampharos-Base', 'Braixen', 'Cherrim-Base', 'Chesnaught', 'Corviknight', 'Crustle', 'Dracovish', 'Dragalge', 'Escavalier', 'Frosmoth', 'Gigalith', 'Glaceon', 'Glimmora', 'Gliscor', 'Grumpig', 'Gyarados-Base', 'Hariyama', 'Heliolisk', 'Hitmonlee', 'Hoopa-Confined', 'Hydreigon', 'Iron Leaves', 'Luxray', 'Milotic', 'Mismagius', 'Muk-Alola', 'Nidoking', 'Noctowl', 'Obstagoon', 'Registeel', 'Sandaconda', 'Sandslash-Alola', 'Skeledirge', 'Turtonator',
 		],
 	},
 	{

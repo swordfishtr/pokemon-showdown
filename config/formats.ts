@@ -779,7 +779,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Obtainable', '+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause',
 			'Sleep Moves Clause', 'Forme Clause',
 			// B2 specific
-			'One Boost Passer Clause',
+			'One Boost Passer Clause', 'Gems Clause',
 
 			'#irontreads+sandstream',
 			'#regice+snowwarning+aurasphere',
@@ -862,7 +862,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#sandslashalola+refrigerate+mountaingale',
 			'#escavalier+spikes',
 			'#skeledirge-torchsong',
-			'#spiritomb+magicguard+strengthsap',
+			'#mismagius-nastyplot+healingwish',
 			'#gyarados-dragondance',
 			'#registeel+magnetpull+tachyoncutter',
 			'#cherrim+geomancy',

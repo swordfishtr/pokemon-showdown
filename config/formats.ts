@@ -158,8 +158,29 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	{
+		// WIP
+		name: "[Gen 9] Re-Generations 1.1",
+		mod: 'regenerations11',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Sleep Clause Mod', 'Forme Clause',
+			'Nickname Clause', 'OHKO Clause', 'DryPass Clause', 'Moody Clause', 'Terastal Clause', 'Evasion Clause',
+			'!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
+		],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'Attract', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Revival Blessing', 'Take Heart',
+			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
+			'Shadow Tag', 'Quick Draw', 'Cute Charm',
+		],
+		unbanlist: [
+			 'Aerodactyl-Base', 'Alakazam-Base', 'Annihilape', 'Arcanine-Hisui', 'Blastoise-Base', 'Beedrill-G', 'Butterfree-G', 'Charizard-Base', 'Clefable', 'Ditto', 'Dragonite', 'Exeggutor-Alola', 'Flareon', 'Gengar-Base', 'Iron Goro', 'Iron Soke', 'Jolteon', 'Kingdra', 'Machamp', 'Muk-Base', 'Ninetales-Alola', 'Pidgeot-Base', 'Pinsir-Base', 'Rhyperior', 'Sandslash-Alola', 'Sandy Shocks', 'Scream Tail', 'Snorlax', 'Tangrowth', 'Tauros-Base', 'Trembler', 'Usurperr', 'Valkaryia', 'Vaporeon', 'Venusaur-Base',
+		],
+	},
+	{
 		name: "[Gen 9] Re-Generations 1.0",
-		mod: 'regenerations1',
+		mod: 'regenerations10',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Sleep Clause Mod', 'Forme Clause',
 			'Nickname Clause', 'OHKO Clause', 'DryPass Clause', 'Moody Clause', 'Terastal Clause', 'Evasion Clause',
@@ -827,7 +848,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 5] 35 Pokes Perfect [B3]",
-		mod: 'gen5',
+		mod: 'perfectb3',
 		desc: 'mm wuz here',
 		validatorMod: 'gen9',
 		ruleset: [

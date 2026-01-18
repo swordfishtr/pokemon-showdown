@@ -393,8 +393,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (pokemon.species.isMega) return null;
 
 			const item = pokemon.getItem();
-			if (!item.megaStone) return null;
-			return Object.values(item.megaStone)[0];
+			if (item.megaStone) {
+				if (item.megaStone[pokemon.baseSpecies.baseSpecies]) return null;
+				return item.megaStone[0];
+			}
+			return null;
 		},
 		runMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return false;
@@ -414,7 +417,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			// }
 
-			pokemon.canMegaEvo = false;
+			// Limit one mega evolution
+			for (const ally of pokemon.side.pokemon) {
+				ally.canMegaEvo = null;
+			}
+
 			return true;
 		},
 		terastallize(pokemon) {

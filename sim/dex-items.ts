@@ -48,17 +48,11 @@ export class Item extends BasicEffect implements Readonly<BasicEffect>, ItemMisc
 	 */
 	readonly onMemory?: string;
 	/**
-	 * If this is a mega stone: The name (e.g. Charizard-Mega-X) of the
-	 * forme this allows transformation into.
+	 * If this is a mega stone: A pair (e.g. Charizard: Charizard-Mega-X) of the
+	 * forme this allows transformation from and into.
 	 * undefined, if not a mega stone.
 	 */
-	readonly megaStone?: string;
-	/**
-	 * If this is a mega stone: The name (e.g. Charizard) of the
-	 * forme this allows transformation from.
-	 * undefined, if not a mega stone.
-	 */
-	readonly megaEvolves?: string;
+	readonly megaStone?: { [megaEvolves: string]: string };
 	/**
 	 * If this is a Z crystal: true if the Z Crystal is generic
 	 * (e.g. Firium Z). If species-specific, the name
@@ -123,7 +117,6 @@ export class Item extends BasicEffect implements Readonly<BasicEffect>, ItemMisc
 		this.onDrive = data.onDrive || undefined;
 		this.onMemory = data.onMemory || undefined;
 		this.megaStone = data.megaStone || undefined;
-		this.megaEvolves = data.megaEvolves || undefined;
 		this.zMove = data.zMove || undefined;
 		this.zMoveType = data.zMoveType || undefined;
 		this.zMoveFrom = data.zMoveFrom || undefined;
@@ -183,7 +176,7 @@ export class DexItems {
 	}
 
 	getByID(id: ID): Item {
-		if (id === '') return EMPTY_ITEM;
+		if (id === '' || id === 'constructor') return EMPTY_ITEM;
 		let item = this.itemCache.get(id);
 		if (item) return item;
 		if (this.dex.getAlias(id)) {

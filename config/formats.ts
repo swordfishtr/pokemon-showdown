@@ -147,7 +147,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		onValidateSet(set, format, setHas, teamHas) {
 			if (set.item) {
 				const item = this.dex.items.get(set.item);
-				if (item.megaEvolves && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
+				if (item.megaStone && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
 					return [`Mega Evolution is banned.`];
 				}
 			}
@@ -967,7 +967,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			const zUsers: string[] = ['golurk', 'flareon', 'lycanroc', 'primeape', 'rotomfrost', 'roserade', 'magmortar'];
 			const speciesid = this.toID(set.species);
 			const item = this.dex.items.get(set.item);
-			if (item.megaEvolves && this.toID(item.megaEvolves) === speciesid && !megaUsers.includes(speciesid)) {
+			if (item.megaStone && !megaUsers.includes(speciesid)) {
 				problems.push(`${set.name} is not allowed to hold a Mega Stone in E1.`);
 			}
 			if (item.zMove && !zUsers.includes(speciesid)) {

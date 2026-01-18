@@ -47,6 +47,7 @@ function getDefaultStats(): Stats {
 			gen9randombattle: { mons: {} },
 			gen9randomdoublesbattle: { mons: {} },
 			gen9babyrandombattle: { mons: {} },
+			gen9chatbats: { mons: {} },
 			gen9superstaffbrosultimate: { mons: {} },
 			gen8randombattle: { mons: {} },
 			gen7randombattle: { mons: {} },
@@ -133,7 +134,7 @@ export function getSpeciesName(set: PokemonSet, format: Format) {
 	} else if (species === "Groudon" && item.name === "Red Orb") {
 		return "Groudon-Primal";
 	} else if (item.megaStone) {
-		return item.megaStone;
+		return Object.values(item.megaStone)[0];
 	} else if (species === "Rayquaza" && moves.includes('Dragon Ascent') && !item.zMove && megaRayquazaPossible) {
 		return "Rayquaza-Mega";
 	} else if (species === "Poltchageist-Artisan") { // Babymons from here on out
@@ -185,7 +186,8 @@ async function collectStats(battle: RoomBattle, winner: ID, players: ID[]) {
 		// may need to be raised again if ladder takes off further
 		eloFloor = 1400;
 	}
-	if (!formatData || (format.mod !== 'gen9ssb' && battle.rated < eloFloor) || !winner) return;
+	if (!formatData || ((format.mod !== 'gen9ssb' && format.mod !== 'chatbats') && battle.rated < eloFloor) || !winner)
+		return;
 	checkRollover();
 	for (const p of battle.players) {
 		const team = await battle.getPlayerTeam(p);

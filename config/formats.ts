@@ -734,7 +734,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
-		mod: 'gen3',
+		mod: 'perfectb1',
 		validatorMod: 'gen9',
 		ruleset: [
 			// from Custom Game
@@ -791,7 +791,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 5] 35 Pokes Perfect [B2]",
-		mod: 'gen5',
+		mod: 'perfectb2',
 		validatorMod: 'gen9',
 		ruleset: [
 			// from Custom Game

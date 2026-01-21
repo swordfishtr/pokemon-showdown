@@ -229,8 +229,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] NatDex Draft",
 		mod: 'gen9',
-		teraPreviewDefault: true,
 		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1'],
+	},
+	{
+		name: "[Gen 9] NatDex Draft (Tera Preview)",
+		mod: 'gen9',
+		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1', 'Tera Type Preview'],
 	},
 	{
 		section: 'Partner Communities',
@@ -1123,6 +1127,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes Babies',
 		column: 3
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Jan 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes LC'],
+		unbanlist: [
+			'Bramblin', 'Chinchou', 'Clobbopus', 'Cyndaquil', 'Doduo', 'Dreepy', 'Grimer-Alola', 'Hatenna', 'Helioptile', 'Hoppip', 'Horsea', 'Inkay', 'Jangmo-o', 'Koffing', 'Larvesta', 'Lechonk', 'Magnemite', 'Mantyke', 'Mareep', 'Nidoran-F', 'Nosepass', 'Phanpy', 'Poliwag', 'Poltchageist', 'Shellos', 'Shroomish', 'Smoliv', 'Spritzee', 'Starly', 'Tentacool', 'Tinkatink', 'Tirtouga', 'Tympole', 'Whismur', 'Zorua-Hisui',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes Babies [Apr 2025]",

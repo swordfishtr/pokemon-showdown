@@ -3277,17 +3277,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: "The custom Generations Draft League ruleset",
 		teraPreviewDefault: true,
 		ruleset: [
-			'Obtainable', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause',
-			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Accuracy Clause Mod',
-			'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'NatDex Mod', 'Min Source Gen = 1',
+			'Obtainable', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause', 'Species Clause',
+			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Gems Clause',
+			'Accuracy Clause Mod', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'NatDex Mod', 'Min Source Gen = 1',
 			'Z-Move Clause', 'DryPass Clause', 'Moody Clause', 'Timer Battle Grace = 300', 'Min Level = 100', 'Max Level = 100',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 			'Attract', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Revival Blessing', 'Take Heart',
 			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
-			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
-			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 			'Shadow Tag', 'Quick Draw', 'Cute Charm',
 		],
 		onValidateSet(set, format, setHas, teamHas) {

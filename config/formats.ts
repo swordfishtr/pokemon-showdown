@@ -952,7 +952,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#milotic-recover',
 			'#hariyama+rapidspin',
 			'#turtonator-shellarmor+cloudnine',
-			'#sandaconda-sandspit+thousandarrows',
+			'#sandaconda-sandspit-glare+thousandarrows',
 			'#nidoking-sheerforce+neuroforce',
 			'#gigalith-sandstream+accelerock',
 		],

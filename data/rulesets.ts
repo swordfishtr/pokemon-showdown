@@ -3280,7 +3280,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Obtainable', 'Sketch Post-Gen 7 Moves', 'Team Preview', 'Sleep Clause Mod', 'OHKO Clause', 'Species Clause',
 			'Evasion Clause', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', 'Gems Clause',
 			'Accuracy Clause Mod', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'NatDex Mod', 'Min Source Gen = 1',
-			'Z-Move Clause', 'DryPass Clause', 'Moody Clause', 'Timer Battle Grace = 300', 'Min Level = 100', 'Max Level = 100',
+			'Z-Move Clause', 'DryPass Clause', 'Moody Clause', 'Timer Battle Grace = 300', 'Adjust Level = 100',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
@@ -3321,7 +3321,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (!set.item) return;
 			const item = this.dex.items.get(set.item);
 			if (item.megaStone && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
-				return [`Mega Evolution is banned.`];
+				return [`${item.name} is banned.`];
 			}
 		},
 	},

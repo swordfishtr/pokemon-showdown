@@ -83,33 +83,24 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 4]",
 		mod: 'generationsdraftgen4',
-		ruleset: ['Standard Generations', 'Terastal Clause'],
+		ruleset: ['Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause'],
 		unbanlist: [
-			'Abomasnow-Base', 'Abomasnow-Mega', 'Aipom', 'Ambipom', 'Azelf', 'Bastiodon', 'Bibarel', 'Bidoof', 'Blissey', 'Bonsly', 'Bronzong', 'Bronzor', 'Budew', 'Buizel', 'Buneary', 'Burmy', 'Carnivine', 'Chansey', 'Chatot', 'Cherrim-Base', 'Cherubi', 'Chimchar', 'Chimecho-Base', 'Chimecho-Mega', 'Chingling', 'Combee', 'Cranidos', 'Cresselia', 'Croagunk', 'Darkrai-Base', 'Drapion', 'Drifblim', 'Drifloon', 'Dusclops', 'Dusknoir', 'Duskull', 'Eevee-Base', 'Electabuzz', 'Electivire', 'Elekid', 'Empoleon', 'Espeon', 'Finneon', 'Flareon', 'Floatzel', 'Froslass-Base', 'Froslass-Mega', 'Gabite', 'Gallade-Base', 'Gallade-Mega', 'Garchomp-Base', 'Garchomp-Mega', 'Gardevoir-Base', 'Gardevoir-Mega', 'Gastrodon', 'Gible', 'Glaceon', 'Glalie-Base', 'Glalie-Mega', 'Glameow', 'Gligar', 'Gliscor', 'Grotle', 'Happiny', 'Heatran-Base', 'Hippopotas', 'Hippowdon', 'Honchkrow', 'Infernape', 'Jolteon', 'Kirlia', 'Kricketot', 'Kricketune', 'Leafeon', 'Lickilicky', 'Lickitung', 'Lopunny-Base', 'Lopunny-Mega', 'Lucario-Base', 'Lumineon', 'Luxio', 'Luxray', 'Magby', 'Magmar', 'Magmortar', 'Magnemite', 'Magneton', 'Magnezone', 'Mamoswine', 'Manaphy', 'Mantine', 'Mantyke', 'Mesprit', 'Mime Jr.', 'Misdreavus', 'Mismagius', 'Monferno', 'Mothim', 'Mr. Mime-Base', 'Mr. Mime-Galar', 'Mr. Rime', 'Munchlax', 'Murkrow', 'Nosepass', 'Pachirisu', 'Phione', 'Piloswine', 'Piplup', 'Porygon', 'Porygon-Z', 'Porygon2', 'Prinplup', 'Probopass', 'Purugly', 'Ralts', 'Rampardos', 'Regice', 'Regidrago', 'Regieleki', 'Regigigas', 'Regirock', 'Registeel', 'Rhydon', 'Rhyhorn', 'Rhyperior', 'Riolu', 'Roselia', 'Roserade', 'Rotom-Base', 'Rotom-Fan', 'Rotom-Frost', 'Rotom-Heat', 'Rotom-Mow', 'Rotom-Wash', 'Sandy Shocks', 'Shaymin-Base', 'Shellos', 'Shieldon', 'Shinx', 'Skorupi', 'Skuntank', 'Sneasel-Base', 'Sneasel-Hisui', 'Sneasler', 'Snorlax', 'Snorunt', 'Snover', 'Spiritomb', 'Staraptor-Base', 'Staraptor-Mega', 'Staravia', 'Starly', 'Stunky', 'Sudowoodo', 'Swinub', 'Sylveon', 'Tangela', 'Tangrowth', 'Togekiss', 'Togepi', 'Togetic', 'Torterra', 'Toxicroak', 'Turtwig', 'Umbreon', 'Uxie', 'Vaporeon', 'Vespiquen', 'Weavile', 'Wormadam-Base', 'Wormadam-Sandy', 'Wormadam-Trash', 'Yanma', 'Yanmega',
+			'Abomasnow-Base', 'Abomasnow-Mega', 'Aipom', 'Ambipom', 'Azelf', 'Bastiodon', 'Bibarel', 'Bidoof', 'Blissey', 'Bonsly', 'Bronzong', 'Bronzor', 'Budew', 'Buizel', 'Buneary', 'Burmy', 'Carnivine', 'Chansey', 'Chatot', 'Cherrim-Base', 'Cherubi', 'Chimchar', 'Chimecho-Base', 'Chimecho-Mega', 'Chingling', 'Combee', 'Cranidos', 'Cresselia', 'Croagunk', /* 'Darkrai-Base', */ 'Drapion', 'Drifblim', 'Drifloon', 'Dusclops', 'Dusknoir', 'Duskull', 'Eevee-Base', 'Electabuzz', 'Electivire', 'Elekid', 'Empoleon', 'Espeon', 'Finneon', 'Flareon', 'Floatzel', 'Froslass-Base', 'Froslass-Mega', 'Gabite', 'Gallade-Base', /* 'Gallade-Mega', */ 'Garchomp-Base', 'Garchomp-Mega', 'Gardevoir-Base', 'Gardevoir-Mega', 'Gastrodon', 'Gible', 'Glaceon', 'Glalie-Base', 'Glalie-Mega', 'Glameow', 'Gligar', 'Gliscor', 'Grotle', 'Happiny', 'Heatran-Base', 'Hippopotas', 'Hippowdon', 'Honchkrow', 'Infernape', 'Jolteon', 'Kirlia', 'Kricketot', 'Kricketune', 'Leafeon', 'Lickilicky', 'Lickitung', 'Lopunny-Base', 'Lopunny-Mega', 'Lucario-Base', 'Lumineon', 'Luxio', 'Luxray', 'Magby', 'Magmar', 'Magmortar', 'Magnemite', 'Magneton', 'Magnezone', 'Mamoswine', 'Manaphy', 'Mantine', 'Mantyke', 'Mesprit', 'Mime Jr.', 'Misdreavus', 'Mismagius', 'Monferno', 'Mothim', 'Mr. Mime-Base', 'Mr. Mime-Galar', 'Mr. Rime', 'Munchlax', 'Murkrow', 'Nosepass', 'Pachirisu', 'Phione', 'Piloswine', 'Piplup', 'Porygon', 'Porygon-Z', 'Porygon2', 'Prinplup', 'Probopass', 'Purugly', 'Ralts', 'Rampardos', 'Regice', 'Regidrago', 'Regieleki', 'Regigigas', 'Regirock', 'Registeel', 'Rhydon', 'Rhyhorn', 'Rhyperior', 'Riolu', 'Roselia', 'Roserade', 'Rotom-Base', 'Rotom-Fan', 'Rotom-Frost', 'Rotom-Heat', 'Rotom-Mow', 'Rotom-Wash', 'Sandy Shocks', 'Shaymin-Base', 'Shellos', 'Shieldon', 'Shinx', 'Skorupi', 'Skuntank', 'Sneasel-Base', 'Sneasel-Hisui', /* 'Sneasler', */ 'Snorlax', 'Snorunt', 'Snover', 'Spiritomb', 'Staraptor-Base', 'Staraptor-Mega', 'Staravia', 'Starly', 'Stunky', 'Sudowoodo', 'Swinub', 'Sylveon', 'Tangela', 'Tangrowth', 'Togekiss', 'Togepi', 'Togetic', 'Torterra', 'Toxicroak', 'Turtwig', 'Umbreon', 'Uxie', 'Vaporeon', 'Vespiquen', 'Weavile', 'Wormadam-Base', 'Wormadam-Sandy', 'Wormadam-Trash', 'Yanma', 'Yanmega',
 
-			'Abomasite', 'Chimechite', 'Froslassite', 'Galladite', 'Garchompite', 'Gardevoirite', 'Glalitite', 'Lopunnite', 'Staraptite',
+			'Abomasite', 'Chimechite', 'Froslassite', /* 'Galladite', */ 'Garchompite', 'Gardevoirite', 'Glalitite', 'Lopunnite', 'Staraptite',
 			'Belue Berry', 'Watmel Berry', 'Pamtre Berry', 'Durin Berry',
 
 			// Banlist
 			// 'Darkrai-Mega', 'Dialga-Base', 'Dialga-Origin', 'Flutter Mane', 'Garchomp-Mega-Z', 'Giratina-Base', 'Giratina-Origin', 'Heatran-Mega', 'Iron Valiant', 'Lucario-Mega', 'Lucario-Mega-Z', 'Palkia-Base', 'Palkia-Origin', 'Shaymin-Sky',
 		],
-		// Stupid hardcode
-		onValidateSet(set, format, setHas, teamHas) {
-			if (set.item) {
-				const item = this.dex.items.get(set.item);
-				if (item.megaStone && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
-					return [`${item.name} is banned.`];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 4 VGC]",
 		mod: 'generationsdraftgen4vgc',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard Generations', 'Tera Type Preview',
-			'!Sleep Clause Mod', '!DryPass Clause', '!Min Level', '!Max Level', 'Adjust Level = 50',
+			'Standard Generations', 'Tera Type Preview', '35 Pokes Mega Clause',
+			'!Sleep Clause Mod', '!DryPass Clause', '!!Adjust Level = 50',
 			'Min Team Size = 6', 'Picked Team Size = 4', 'Best Of = 3', 'Item Clause = 1',
 		],
 		unbanlist: [
@@ -121,15 +112,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			// Banlist
 			// 'Darkrai-Mega', 'Dialga-Base', 'Dialga-Origin', 'Flutter Mane', 'Garchomp-Mega-Z', 'Giratina-Base', 'Giratina-Origin', 'Heatran-Mega', 'Iron Valiant', 'Lucario-Mega', 'Lucario-Mega-Z', 'Palkia-Base', 'Palkia-Origin', 'Shaymin-Sky',
 		],
-		// Stupid hardcode
-		onValidateSet(set, format, setHas, teamHas) {
-			if (set.item) {
-				const item = this.dex.items.get(set.item);
-				if (item.megaStone && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
-					return [`${item.name} is banned.`];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 3]",
@@ -168,7 +150,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 1]",
 		mod: 'gen9',
-		ruleset: ['Standard Generations'],
+		ruleset: ['Standard Generations', '35 Pokes Mega Clause'],
 		unbanlist: [
 			'Bulbasaur', 'Ivysaur', 'Venusaur-Base', 'Charmander', 'Charmeleon', 'Charizard-Base', 'Squirtle', 'Wartortle', 'Blastoise-Base',
 			'Caterpie', 'Metapod', 'Butterfree', 'Weedle', 'Kakuna', 'Beedrill-Base', 'Pidgey', 'Pidgeotto', 'Pidgeot-Base',
@@ -193,15 +175,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Porygon-Z', 'Sylveon', 'Meltan', 'Melmetal', 'Perrserker', 'Sirfetch’d', 'Mr. Rime', 'Kleavor', 'Toedscool',
 			'Toedscruel', 'Wiglett', 'Wugtrio', 'Annihilape', 'Scream Tail', 'Sandy Shocks',
 		],
-		// Stupid hardcode
-		onValidateSet(set, format, setHas, teamHas) {
-			if (set.item) {
-				const item = this.dex.items.get(set.item);
-				if (item.megaStone && !(this.ruleTable.has(`+item:${item.id}`) || this.ruleTable.has(`+pokemontag:mega`))) {
-					return [`Mega Evolution is banned.`];
-				}
-			}
-		},
 	},
 	{
 		section: 'Re-Generations',

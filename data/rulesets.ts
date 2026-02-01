@@ -3350,9 +3350,20 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'King\'s Rock', 'Quick Claw',
+			'Battle Bond', 'Power Construct', 'Shadow Tag', 'Berserk Gene', 'Booster Energy', 'King\'s Rock', 'Quick Claw',
 			'Razor Fang', 'Last Respects', 'Shed Tail',
 		],
+		unbanlist: [
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if (set.item) {
+				const item = this.dex.items.get(set.item);
+				if (item.zMove && !(this.ruleTable.has(`+item:${item.id}`))) {
+					return [`${item.name} is banned.`];
+				}
+			}
+		},
 	},
 	standard35pokesvgc: {
 		effectType: 'ValidatorRule',

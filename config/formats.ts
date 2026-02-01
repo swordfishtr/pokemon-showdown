@@ -851,8 +851,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [A1]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
-		banlist: ['Silvally > 1', 'Light Clay'],
+		banlist: [
+			'Silvally > 1', 'Light Clay',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Kangaskhan-Base', 'Wigglytuff', 'Komala', 'Haunter', 'Golurk-Base', 'Cofagrigus', 'Glalie-Base', 'Mr. Rime', 'Kadabra', 'Medicham-Base', 'Hitmonchan', 'Poliwrath', 'Simipour', 'Mantine', 'Silvally-Flying', 'Archeops', 'Klawf', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Electrode-Base', 'Vikavolt-Base', 'Pinsir-Base', 'Wormadam-Trash', 'Simisage', 'Shiinotic', 'Victreebel-Base', 'Skuntank', 'Silvally-Dark', 'Guzzlord', 'Silvally-Dragon', 'Turtonator', 'Simisear', 'Camerupt-Base', 'Sandslash-Base',
 		],
 	},
@@ -860,8 +864,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [A2]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
-		banlist: ['Silvally > 1', 'Light Clay'],
+		banlist: [
+			'Silvally > 1', 'Light Clay',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Cacturne', 'Seviper', 'Komala', 'Leafeon', 'Copperajah', 'Rotom-Fan', 'Armaldo', 'Mr. Rime', 'Cryogonal', 'Medicham-Base', 'Silvally-Psychic', 'Silvally-Fighting', 'Toxicroak', 'Mantine', 'Purugly', 'Archeops', 'Toucannon', 'Aurorus', 'Mawile-Base', 'Togedemaru-Base', 'Frogadier', 'Vikavolt-Base', 'Pinsir-Base', 'Wugtrio', 'Dragonair', 'Shiinotic', 'Dusknoir', 'Skuntank', 'Silvally-Dark', 'Runerigus', 'Misdreavus', 'Turtonator', 'Rapidash-Base', 'Camerupt-Base', 'Sandslash-Base',
 		],
 	},
@@ -869,8 +877,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
-		banlist: ['Light Clay', 'Silvally > 1', 'Silvally-Steel + Swords Dance'],
+		banlist: [
+			'Silvally > 1', 'Light Clay', 'Silvally-Steel + Swords Dance',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Archeops', 'Aromatisse', 'Aurorus', 'Braviary-Base', 'Cacturne', 'Centiskorch', 'Copperajah', 'Donphan', 'Drampa-Base', 'Dusknoir', 'Eelektross-Base', 'Escavalier', 'Forretress', 'Gurdurr', 'Guzzlord', 'Hitmonchan', 'Kadabra', 'Kangaskhan-Base', 'Mantine', 'Mesprit', 'Mismagius', 'Mr. Rime', 'Passimian', 'Rapidash-Base', 'Rhydon', 'Roserade', 'Rotom-Fan', 'Runerigus', 'Samurott-Base', 'Silvally-Fairy', 'Silvally-Poison', 'Silvally-Steel', 'Skuntank', 'Tentacruel', 'Tsareena', 'Turtonator', 'Vikavolt-Base',
 		],
 	},
@@ -1082,8 +1094,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#avalugg+chillyreception',
 			'#dhelmise+grasspelt',
 		],
-		banlist: ['Light Clay'],
+		banlist: [
+			'Light Clay',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Dhelmise', 'Liepard', 'Weezing-Base', 'Wigglytuff', 'Aromatisse', 'Togedemaru-Base', 'Silvally-Base', 'Gogoat', 'Hitmontop', 'Solrock', 'Raichu-Alola', 'Lickilicky', 'Dedenne', 'Klinklang', 'Leavanny', 'Exeggutor-Base', 'Steelix-Base', 'Medicham-Base', 'Jynx', 'Wailord', 'Rotom-Frost', 'Magcargo', 'Camerupt-Base', 'Palossand', 'Relicanth', 'Lumineon', 'Granbull', 'Delibird', 'Talonflame', 'Haunter', 'Guzzlord', 'Mabosstiff', 'Toxicroak', 'Mothim', 'Avalugg-Base',
 		],
 	},
@@ -1091,8 +1107,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [D1]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
-		banlist: ['Eviolite', 'Download', 'Analytic'],
+		banlist: [
+			'Eviolite', 'Download', 'Analytic',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Staravia', 'Charjabug', 'Ponyta-Base', 'Krokorok', 'Quilladin', 'Porygon', 'Hattrem', 'Tinkatuff', 'Floette-Base', 'Gimmighoul-Base', 'Gastly', 'Staryu', 'Luxio', 'Cubchoo', 'Amaura', 'Gloom', 'Stufful', 'Mankey', 'Carkol', 'Yanma', 'Grimer-Alola', 'Meowth-Alola', 'Cufant', 'Vibrava', 'Voltorb-Hisui', 'Gothorita', 'Lampent', 'Slowpoke-Galar', 'Palpitoad', 'Sandshrew-Alola', 'Anorith', 'Goomy', 'Mantyke', 'Snubbull', 'Aipom',
 		],
 	},
@@ -1169,8 +1189,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#gumshoos+jawlock',
 			'#granbull+trickroom',
 		],
-		banlist: ['Light Clay'],
+		banlist: [
+			'Light Clay',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Abra', 'Absol-Base', 'Appletun', 'Armaldo', 'Banette-Base', 'Beedrill-Base', 'Camerupt-Base', 'Castform-Base', 'Corsola-Base', 'Crocalor', 'Dedenne', 'Dewgong', 'Dustox', 'Fearow', 'Frillish', 'Gastly', 'Glalie-Base', 'Granbull', 'Grumpig', 'Gumshoos-Base', 'Heatmor', 'Mawile-Base', 'Mienfoo', 'Mightyena', 'Pachirisu', 'Pidgeot-Base', 'Plusle', 'Rampardos', 'Seviper', 'Simisage', 'Stunfisk-Galar', 'Tropius', 'Wobbuffet', 'Wugtrio', 'Zweilous',
 		],
 	},
@@ -1229,7 +1253,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#silvallypoison+naturepower+sludgebomb',
 			'#mothim+hurricane+thunder',
 		],
+		banlist: [
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
 		unbanlist: [
+			'Booster Energy',
 			'Klinklang', 'Aromatisse', 'Jynx', 'Gogoat', 'Hakamo-o', 'Emolga', 'Glalie-Base', 'Magcargo', 'Leavanny', 'Dhelmise', 'Exeggutor-Base', 'Medicham-Base', 'Raichu-Alola', 'Togedemaru-Base', 'Rotom-Frost', 'Carbink', 'Wigglytuff', 'Lickilicky', 'Stoutland', 'Talonflame', 'Camerupt-Base', 'Steelix-Base', 'Palossand', 'Relicanth', 'Wailord', 'Swanna', 'Avalugg-Base', 'Hitmontop', 'Weezing-Base', 'Haunter', 'Silvally-Poison', 'Mabosstiff', 'Guzzlord', 'Mothim', 'Pinsir-Base',
 		],
 	},

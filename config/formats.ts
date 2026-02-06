@@ -72,6 +72,21 @@ const spmnm: Partial<FormatData> = {
 	},
 };
 
+const draftteams: Partial<FormatData> = {
+	validateTeam(team, options) {
+		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+			require('../sim/team-validator').TeamValidator;
+		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4]').validateTeam(team, options) ?? undefined;
+	},
+};
+const draftteamsvgc: Partial<FormatData> = {
+	validateTeam(team, options) {
+		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+			require('../sim/team-validator').TeamValidator;
+		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4 VGC]').validateTeam(team, options) ?? undefined;
+	},
+};
+
 export const Formats: import('../sim/dex-formats').FormatList = [
 
 	// region Generations Draft League
@@ -253,9 +268,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Weavile', 'Lopunny-Mega', 'Mismagius', 'Rhyperior', 'Mantine', 'Wormadam-Trash', 'Kricketune', 'Rotom-Heat', 'Grotle',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] ZygardeFGC',
@@ -265,9 +278,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Heatran-Base', 'Manaphy', 'Staraptor-Mega', 'Gligar', 'Umbreon', 'Roserade', 'Glalie-Base', 'Luxio',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] Conn',
@@ -277,9 +288,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Garchomp-Base', 'Gardevoir-Mega', 'Magneton', 'Sneasel-Base', 'Porygon', 'Skuntank', 'Monferno', 'Prinplup', 'Cresselia', 'Duskull',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] Mr.Smiles',
@@ -289,9 +298,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Azelf', 'Gastrodon', 'Rotom-Mow', 'Sylveon', 'Magmortar', 'Dusknoir', 'Staraptor-Base', 'Chatot'
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] mirav3d',
@@ -301,9 +308,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Gliscor', 'Empoleon', 'Regieleki', 'Gallade-Base', 'Floatzel', 'Murkrow', 'Mr. Mime-Galar', 'Rotom-Base',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] bbnate',
@@ -313,9 +318,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Mamoswine', 'Rotom-Wash', 'Magnezone', 'Yanmega', 'Drapion', 'Misdreavus', 'Magmar', 'Leafeon', 'Sudowoodo',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] DMBeeeez',
@@ -325,9 +328,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Garchomp-Mega', 'Togekiss', 'Vaporeon', 'Bronzong', 'Tangrowth', 'Espeon', 'Purugly', 'Hippopotas',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Ver] gaillardia',
@@ -337,9 +338,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Chimecho-Mega', 'Infernape', 'Regirock', 'Roselia', 'Sandy Shocks', 'Lumineon', 'Regidrago', 'Ambipom',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] Mizuri',
@@ -349,9 +348,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Garchomp-Base', 'Weavile', 'Chimecho-Mega', 'Togekiss', 'Mantine', 'Rotom-Base', 'Sudowoodo',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] Mailducks',
@@ -361,9 +358,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Gardevoir-Mega', 'Magnezone', 'Regidrago', 'Gligar', 'Jolteon', 'Honchkrow', 'Dusclops',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] demirab1',
@@ -373,9 +368,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Manaphy', 'Infernape', 'Rotom-Mow', 'Snorlax', 'Dusknoir', 'Rhyperior', 'Mr. Mime-Base', 'Sneasel-Hisui',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] Hannah',
@@ -385,9 +378,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Heatran-Base', 'Lopunny-Mega', 'Rotom-Wash', 'Yanmega', 'Espeon', 'Piloswine', 'Roselia', 'Prinplup',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] Staniel',
@@ -397,9 +388,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Froslass-Mega', 'Empoleon', 'Toxicroak', 'Rotom-Heat', 'Shaymin-Base', 'Staraptor-Base', 'Gabite', 'Chimecho-Base',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] htz_Attila',
@@ -409,9 +398,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Staraptor-Mega', 'Tangela', 'Drapion', 'Bronzong', 'Magmortar', 'Electivire', 'Gastrodon', 'Froslass-Base',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] Jaime Deflin',
@@ -421,9 +408,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Gliscor', 'Regieleki', 'Gardevoir-Base', 'Mamoswine', 'Vaporeon', 'Magmar', 'Misdreavus', 'Porygon',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Val] Flabermaber',
@@ -433,9 +418,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Phione', 'Togetic', 'Kricketune',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Dodo',
@@ -445,9 +428,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Garchomp-Base', 'Azelf', 'Magnezone', 'Manaphy', 'Umbreon', 'Rotom-Base', 'Sudowoodo', 'Stunky',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Marquis',
@@ -457,9 +438,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Lopunny-Mega', 'Rotom-Heat', 'Mesprit', 'Mismagius', 'Rhyperior', 'Sneasel-Base', 'Roselia', 'Munchlax', 'Prinplup', 'Bronzor',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Mr. Noob',
@@ -469,9 +448,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Gliscor', 'Regieleki', 'Roserade', 'Floatzel', 'Porygon-Z', 'Mr. Mime-Base', 'Murkrow', 'Monferno', 'Kricketune',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Maki',
@@ -481,9 +458,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Gardevoir-Mega', 'Empoleon', 'Tangrowth', 'Froslass-Base', 'Rhydon', 'Drapion', 'Rotom-Fan', 'Purugly', 'Gible',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] deltazero',
@@ -493,9 +468,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Cresselia', 'Lucario-Base', 'Gastrodon', 'Snorlax', 'Jolteon', 'Leafeon', 'Dusknoir', 'Staravia', 'Rampardos',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Dark',
@@ -505,9 +478,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Heatran-Base', 'Rotom-Wash', 'Mamoswine', 'Staraptor-Base', 'Torterra', 'Sylveon', 'Drifloon', 'Yanma',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Banjax',
@@ -517,9 +488,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Froslass-Mega', 'Infernape', 'Gligar', 'Bronzong', 'Rotom-Mow', 'Vaporeon', 'Sneasel-Hisui', 'Misdreavus', 'Porygon',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Acu] Axel',
@@ -529,9 +498,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Weavile', 'Regidrago', 'Porygon2', 'Registeel', 'Shaymin-Base', 'Mantine', 'Magmar', 'Togetic',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
-		},
+		validateTeam: draftteams.validateTeam,
 	},
 	{
 		name: '[Cor VGC] ZygardeFGC',
@@ -541,9 +508,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Staraptor-Mega', 'Rotom-Heat', 'Gastrodon', 'Azelf', 'Roserade', 'Togetic', 'Registeel', 'Toxicroak', 'Sudowoodo', 'Lickilicky',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Hog',
@@ -553,9 +518,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Porygon2', 'Rhyperior', 'Mr. Mime-Base', 'Staraptor-Base', 'Weavile', 'Lucario-Base', 'Rotom-Frost', 'Lumineon',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Skye',
@@ -565,9 +528,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Sylveon', 'Bronzong', 'Abomasnow-Mega', 'Empoleon', 'Gallade-Base', 'Magmortar', 'Dusknoir', 'Glaceon', 'Vespiquen',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Masterriolu',
@@ -577,9 +538,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Murkrow', 'Regidrago', 'Regieleki', 'Mamoswine', 'Floatzel', 'Ambipom', 'Tangrowth', 'Drapion', 'Flareon', 'Probopass',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Jaime Delfin',
@@ -589,9 +548,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Sneasler', 'Heatran-Base', 'Garchomp-Mega', 'Sandy Shocks', 'Iron Valiant', 'Vaporeon', 'Leafeon', 'Chansey', 'Blissey',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Moonbird',
@@ -601,9 +558,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Garchomp-Base', 'Chimecho-Mega', 'Gardevoir-Base', 'Rotom-Mow', 'Riolu', 'Rhydon', 'Mantine', 'Sneasel-Hisui', 'Monferno', 'Happiny',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Anthropomorphic_Blob',
@@ -613,9 +568,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Togekiss', 'Gallade-Mega', 'Rotom-Wash', 'Gliscor', 'Mismagius', 'Porygon-Z', 'Rampardos', 'Umbreon', 'Lopunny-Base', 'Drifloon',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		name: '[Cor VGC] Aves',
@@ -625,9 +578,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Froslass-Mega', 'Infernape', 'Abomasnow-Base', 'Electabuzz', 'Uxie', 'Snorlax', 'Yanmega', 'Skuntank', 'Bronzor',
 		],
-		validateTeam(team, options) {
-			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
-		},
+		validateTeam: draftteamsvgc.validateTeam,
 	},
 	{
 		section: 'Partner Communities',

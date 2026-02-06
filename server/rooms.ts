@@ -1482,7 +1482,6 @@ export class GlobalRoomState {
 			if (format.section) section = format.section;
 			if (format.column) curColumn = format.column;
 			if (!format.name) continue;
-			if (!format.challengeShow && !format.searchShow && !format.tournamentShow) continue;
 
 			if (section !== prevSection) {
 				prevSection = section;

@@ -242,6 +242,426 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1', 'Tera Type Preview'],
 	},
 	{
+		section: 'Draft Teams',
+		column: 1,
+	},
+	{
+		name: '[Ver] aedena',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Weavile', 'Lopunny-Mega', 'Mismagius', 'Rhyperior', 'Mantine', 'Wormadam-Trash', 'Kricketune', 'Rotom-Heat', 'Grotle',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] ZygardeFGC',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Heatran-Base', 'Manaphy', 'Staraptor-Mega', 'Gligar', 'Umbreon', 'Roserade', 'Glalie-Base', 'Luxio',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] Conn',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Garchomp-Base', 'Gardevoir-Mega', 'Magneton', 'Sneasel-Base', 'Porygon', 'Skuntank', 'Monferno', 'Prinplup', 'Cresselia', 'Duskull',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] Mr.Smiles',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Azelf', 'Gastrodon', 'Rotom-Mow', 'Sylveon', 'Magmortar', 'Dusknoir', 'Staraptor-Base', 'Chatot'
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] mirav3d',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gliscor', 'Empoleon', 'Regieleki', 'Gallade-Base', 'Floatzel', 'Murkrow', 'Mr. Mime-Galar', 'Rotom-Base',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] bbnate',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Mamoswine', 'Rotom-Wash', 'Magnezone', 'Yanmega', 'Drapion', 'Misdreavus', 'Magmar', 'Leafeon', 'Sudowoodo',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] DMBeeeez',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Garchomp-Mega', 'Togekiss', 'Vaporeon', 'Bronzong', 'Tangrowth', 'Espeon', 'Purugly', 'Hippopotas',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Ver] gaillardia',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Chimecho-Mega', 'Infernape', 'Regirock', 'Roselia', 'Sandy Shocks', 'Lumineon', 'Regidrago', 'Ambipom',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] Mizuri',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Garchomp-Base', 'Weavile', 'Chimecho-Mega', 'Togekiss', 'Mantine', 'Rotom-Base', 'Sudowoodo',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] Mailducks',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gardevoir-Mega', 'Magnezone', 'Regidrago', 'Gligar', 'Jolteon', 'Honchkrow', 'Dusclops',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] demirab1',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Manaphy', 'Infernape', 'Rotom-Mow', 'Snorlax', 'Dusknoir', 'Rhyperior', 'Mr. Mime-Base', 'Sneasel-Hisui',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] Hannah',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Heatran-Base', 'Lopunny-Mega', 'Rotom-Wash', 'Yanmega', 'Espeon', 'Piloswine', 'Roselia', 'Prinplup',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] Staniel',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Froslass-Mega', 'Empoleon', 'Toxicroak', 'Rotom-Heat', 'Shaymin-Base', 'Staraptor-Base', 'Gabite', 'Chimecho-Base',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] htz_Attila',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Staraptor-Mega', 'Tangela', 'Drapion', 'Bronzong', 'Magmortar', 'Electivire', 'Gastrodon', 'Froslass-Base',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] Jaime Deflin',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gliscor', 'Regieleki', 'Gardevoir-Base', 'Mamoswine', 'Vaporeon', 'Magmar', 'Misdreavus', 'Porygon',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Val] Flabermaber',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Phione', 'Togetic', 'Kricketune',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Dodo',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Garchomp-Base', 'Azelf', 'Magnezone', 'Manaphy', 'Umbreon', 'Rotom-Base', 'Sudowoodo', 'Stunky',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Marquis',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Lopunny-Mega', 'Rotom-Heat', 'Mesprit', 'Mismagius', 'Rhyperior', 'Sneasel-Base', 'Roselia', 'Munchlax', 'Prinplup', 'Bronzor',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Mr. Noob',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gliscor', 'Regieleki', 'Roserade', 'Floatzel', 'Porygon-Z', 'Mr. Mime-Base', 'Murkrow', 'Monferno', 'Kricketune',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Maki',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gardevoir-Mega', 'Empoleon', 'Tangrowth', 'Froslass-Base', 'Rhydon', 'Drapion', 'Rotom-Fan', 'Purugly', 'Gible',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] deltazero',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Cresselia', 'Lucario-Base', 'Gastrodon', 'Snorlax', 'Jolteon', 'Leafeon', 'Dusknoir', 'Staravia', 'Rampardos',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Dark',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Heatran-Base', 'Rotom-Wash', 'Mamoswine', 'Staraptor-Base', 'Torterra', 'Sylveon', 'Drifloon', 'Yanma',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Banjax',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Froslass-Mega', 'Infernape', 'Gligar', 'Bronzong', 'Rotom-Mow', 'Vaporeon', 'Sneasel-Hisui', 'Misdreavus', 'Porygon',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Acu] Axel',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Weavile', 'Regidrago', 'Porygon2', 'Registeel', 'Shaymin-Base', 'Mantine', 'Magmar', 'Togetic',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] ZygardeFGC',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Staraptor-Mega', 'Rotom-Heat', 'Gastrodon', 'Azelf', 'Roserade', 'Togetic', 'Registeel', 'Toxicroak', 'Sudowoodo', 'Lickilicky',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Hog',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Porygon2', 'Rhyperior', 'Mr. Mime-Base', 'Staraptor-Base', 'Weavile', 'Lucario-Base', 'Rotom-Frost', 'Lumineon',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Skye',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Sylveon', 'Bronzong', 'Abomasnow-Mega', 'Empoleon', 'Gallade-Base', 'Magmortar', 'Dusknoir', 'Glaceon', 'Vespiquen',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Masterriolu',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Murkrow', 'Regidrago', 'Regieleki', 'Mamoswine', 'Floatzel', 'Ambipom', 'Tangrowth', 'Drapion', 'Flareon', 'Probopass',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Jaime Delfin',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Sneasler', 'Heatran-Base', 'Garchomp-Mega', 'Sandy Shocks', 'Iron Valiant', 'Vaporeon', 'Leafeon', 'Chansey', 'Blissey',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Moonbird',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Garchomp-Base', 'Chimecho-Mega', 'Gardevoir-Base', 'Rotom-Mow', 'Riolu', 'Rhydon', 'Mantine', 'Sneasel-Hisui', 'Monferno', 'Happiny',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Anthropomorphic_Blob',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Togekiss', 'Gallade-Mega', 'Rotom-Wash', 'Gliscor', 'Mismagius', 'Porygon-Z', 'Rampardos', 'Umbreon', 'Lopunny-Base', 'Drifloon',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
+		name: '[Cor VGC] Aves',
+		challengeShow: false,
+		searchShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Froslass-Mega', 'Infernape', 'Abomasnow-Base', 'Electabuzz', 'Uxie', 'Snorlax', 'Yanmega', 'Skuntank', 'Bronzor',
+		],
+		validateTeam(team, options) {
+			return ['Please use "ND Generations Draft [Gen 4 VGC]" instead.'];
+		},
+	},
+	{
 		section: 'Partner Communities',
 		column: 1,
 	},

@@ -249,7 +249,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] aedena',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Weavile', 'Lopunny-Mega', 'Mismagius', 'Rhyperior', 'Mantine', 'Wormadam-Trash', 'Kricketune', 'Rotom-Heat', 'Grotle',
@@ -262,7 +261,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] ZygardeFGC',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Heatran-Base', 'Manaphy', 'Staraptor-Mega', 'Gligar', 'Umbreon', 'Roserade', 'Glalie-Base', 'Luxio',
@@ -275,7 +273,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] Conn',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Garchomp-Base', 'Gardevoir-Mega', 'Magneton', 'Sneasel-Base', 'Porygon', 'Skuntank', 'Monferno', 'Prinplup', 'Cresselia', 'Duskull',
@@ -288,7 +285,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] Mr.Smiles',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Azelf', 'Gastrodon', 'Rotom-Mow', 'Sylveon', 'Magmortar', 'Dusknoir', 'Staraptor-Base', 'Chatot'
@@ -301,7 +297,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] mirav3d',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Gliscor', 'Empoleon', 'Regieleki', 'Gallade-Base', 'Floatzel', 'Murkrow', 'Mr. Mime-Galar', 'Rotom-Base',
@@ -314,7 +309,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] bbnate',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Mamoswine', 'Rotom-Wash', 'Magnezone', 'Yanmega', 'Drapion', 'Misdreavus', 'Magmar', 'Leafeon', 'Sudowoodo',
@@ -327,7 +321,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] DMBeeeez',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Garchomp-Mega', 'Togekiss', 'Vaporeon', 'Bronzong', 'Tangrowth', 'Espeon', 'Purugly', 'Hippopotas',
@@ -340,7 +333,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Ver] gaillardia',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Chimecho-Mega', 'Infernape', 'Regirock', 'Roselia', 'Sandy Shocks', 'Lumineon', 'Regidrago', 'Ambipom',
@@ -353,7 +345,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] Mizuri',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Garchomp-Base', 'Weavile', 'Chimecho-Mega', 'Togekiss', 'Mantine', 'Rotom-Base', 'Sudowoodo',
@@ -366,7 +357,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] Mailducks',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Gardevoir-Mega', 'Magnezone', 'Regidrago', 'Gligar', 'Jolteon', 'Honchkrow', 'Dusclops',
@@ -379,7 +369,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] demirab1',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Manaphy', 'Infernape', 'Rotom-Mow', 'Snorlax', 'Dusknoir', 'Rhyperior', 'Mr. Mime-Base', 'Sneasel-Hisui',
@@ -392,7 +381,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] Hannah',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Heatran-Base', 'Lopunny-Mega', 'Rotom-Wash', 'Yanmega', 'Espeon', 'Piloswine', 'Roselia', 'Prinplup',
@@ -405,7 +393,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] Staniel',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Froslass-Mega', 'Empoleon', 'Toxicroak', 'Rotom-Heat', 'Shaymin-Base', 'Staraptor-Base', 'Gabite', 'Chimecho-Base',
@@ -418,7 +405,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] htz_Attila',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Staraptor-Mega', 'Tangela', 'Drapion', 'Bronzong', 'Magmortar', 'Electivire', 'Gastrodon', 'Froslass-Base',
@@ -431,7 +417,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] Jaime Deflin',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Gliscor', 'Regieleki', 'Gardevoir-Base', 'Mamoswine', 'Vaporeon', 'Magmar', 'Misdreavus', 'Porygon',
@@ -444,7 +429,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Val] Flabermaber',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Phione', 'Togetic', 'Kricketune',
@@ -457,7 +441,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Dodo',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Garchomp-Base', 'Azelf', 'Magnezone', 'Manaphy', 'Umbreon', 'Rotom-Base', 'Sudowoodo', 'Stunky',
@@ -470,7 +453,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Marquis',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Lopunny-Mega', 'Rotom-Heat', 'Mesprit', 'Mismagius', 'Rhyperior', 'Sneasel-Base', 'Roselia', 'Munchlax', 'Prinplup', 'Bronzor',
@@ -483,7 +465,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Mr. Noob',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Gliscor', 'Regieleki', 'Roserade', 'Floatzel', 'Porygon-Z', 'Mr. Mime-Base', 'Murkrow', 'Monferno', 'Kricketune',
@@ -496,7 +477,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Maki',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Gardevoir-Mega', 'Empoleon', 'Tangrowth', 'Froslass-Base', 'Rhydon', 'Drapion', 'Rotom-Fan', 'Purugly', 'Gible',
@@ -509,7 +489,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] deltazero',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Cresselia', 'Lucario-Base', 'Gastrodon', 'Snorlax', 'Jolteon', 'Leafeon', 'Dusknoir', 'Staravia', 'Rampardos',
@@ -522,7 +501,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Dark',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Heatran-Base', 'Rotom-Wash', 'Mamoswine', 'Staraptor-Base', 'Torterra', 'Sylveon', 'Drifloon', 'Yanma',
@@ -535,7 +513,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Banjax',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Froslass-Mega', 'Infernape', 'Gligar', 'Bronzong', 'Rotom-Mow', 'Vaporeon', 'Sneasel-Hisui', 'Misdreavus', 'Porygon',
@@ -548,7 +525,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Acu] Axel',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Weavile', 'Regidrago', 'Porygon2', 'Registeel', 'Shaymin-Base', 'Mantine', 'Magmar', 'Togetic',
@@ -561,7 +537,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] ZygardeFGC',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Staraptor-Mega', 'Rotom-Heat', 'Gastrodon', 'Azelf', 'Roserade', 'Togetic', 'Registeel', 'Toxicroak', 'Sudowoodo', 'Lickilicky',
@@ -574,7 +549,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Hog',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Porygon2', 'Rhyperior', 'Mr. Mime-Base', 'Staraptor-Base', 'Weavile', 'Lucario-Base', 'Rotom-Frost', 'Lumineon',
@@ -587,7 +561,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Skye',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Sylveon', 'Bronzong', 'Abomasnow-Mega', 'Empoleon', 'Gallade-Base', 'Magmortar', 'Dusknoir', 'Glaceon', 'Vespiquen',
@@ -600,7 +573,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Masterriolu',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Murkrow', 'Regidrago', 'Regieleki', 'Mamoswine', 'Floatzel', 'Ambipom', 'Tangrowth', 'Drapion', 'Flareon', 'Probopass',
@@ -613,7 +585,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Jaime Delfin',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Sneasler', 'Heatran-Base', 'Garchomp-Mega', 'Sandy Shocks', 'Iron Valiant', 'Vaporeon', 'Leafeon', 'Chansey', 'Blissey',
@@ -626,7 +597,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Moonbird',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Garchomp-Base', 'Chimecho-Mega', 'Gardevoir-Base', 'Rotom-Mow', 'Riolu', 'Rhydon', 'Mantine', 'Sneasel-Hisui', 'Monferno', 'Happiny',
@@ -639,7 +609,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Anthropomorphic_Blob',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Togekiss', 'Gallade-Mega', 'Rotom-Wash', 'Gliscor', 'Mismagius', 'Porygon-Z', 'Rampardos', 'Umbreon', 'Lopunny-Base', 'Drifloon',
@@ -652,7 +621,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Cor VGC] Aves',
 		challengeShow: false,
 		searchShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
 			'Froslass-Mega', 'Infernape', 'Abomasnow-Base', 'Electabuzz', 'Uxie', 'Snorlax', 'Yanmega', 'Skuntank', 'Bronzor',

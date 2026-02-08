@@ -14,7 +14,7 @@
  */
 
 /* eslint no-else-return: "error" */
-import { Utils, ProcessManager } from '../../lib';
+import { Utils, ProcessManager, FS } from '../../lib';
 import type { UserSettings } from '../users';
 import type { GlobalPermission, RoomPermission } from '../user-groups';
 
@@ -910,6 +910,82 @@ export const commands: Chat.ChatCommands = {
 		}, 500);
 	},
 	importinputloghelp: [`/importinputlog [inputlog] - Starts a battle with a given inputlog. Requires: + % @ ~`],
+
+	async recreatebattle(target, room, user, connection) {
+		this.canUseConsole();
+
+		const byComma = target.split(',', 2);
+		const index = parseInt(toID(byComma[1]));
+		if (Number.isNaN(index)) {
+			this.sendReply('Input log index not entered; this will display the input log as an ordered list.');
+		}
+		else {
+			this.sendReply(`Input log index entered (${index}); this will attempt to recreate the battle at that point.`);
+		}
+
+		const byDash = byComma[0].split('-', 2);
+		const input1 = toID(byDash[0]);
+		const input2 = toID(byDash[1]);
+		const battleid = parseInt(input2 || input1);
+		if (Number.isNaN(battleid)) return this.parse('/help recreatebattle');
+		const formatid = input2 && input1;
+		this.sendReply(`Format ID: ${formatid || '(Unspecified)'}, Battle ID: ${battleid}`);
+		if (formatid && !Dex.formats.get(formatid).exists) this.sendReply('Warning: This format currently does not exist.');
+
+		const logText = await (async () => {
+			for (const logMonth of await FS('logs/').readdir()) {
+				if (!/^\d+-\d+$/.test(logMonth)) continue;
+				for (const logFormat of await FS(`logs/${logMonth}/`).readdir()) {
+					if (formatid && formatid !== logFormat) continue;
+					for (const logDate of await FS(`logs/${logMonth}/${logFormat}/`).readdir()) {
+						for (const logFile of await FS(`logs/${logMonth}/${logFormat}/${logDate}/`).readdir()) {
+							if (formatid) {
+								if (logFile !== `${formatid}-${battleid}.log.json`) continue;
+							}
+							else {
+								if (!logFile.endsWith(`-${battleid}.log.json`)) continue;
+							}
+							return FS(`logs/${logMonth}/${logFormat}/${logDate}/${logFile}`).read();
+						}
+					}
+				}
+			}
+			return null;
+		})();
+		if (logText === null) return this.errorReply(`Could not find input log for ${target}`);
+		let log: AnyObject;
+		try {
+			log = JSON.parse(logText);
+		}
+		catch {
+			return this.errorReply(`Input log for ${target} is invalid.`);
+		}
+		this.sendReply(`Found input log dating ${log.timestamp}`);
+
+		const inputLog: string[] = log.inputLog;
+		if (Number.isNaN(index)) {
+			return this.sendReplyBox(`<details><summary>View input log index table</summary>${Utils.escapeHTML(inputLog.join('\n'))}</details>`);
+		}
+		else {
+			let minIndex = inputLog.findIndex((x) => x.startsWith('>player p4 '));
+			if (minIndex < 0) minIndex = inputLog.findIndex((x) => x.startsWith('>player p2 '));
+			if (index < minIndex) return this.errorReply(`Input log index for ${target} must be ${minIndex} or greater.`);
+			const inputLogText = inputLog.slice(0, index + 1).join('\n');
+			return this.parse(`/importinputlog ${inputLogText}`);
+		}
+	},
+	recreatebattlehelp: [
+		`/recreatebattle [Battle ID] - Displays an ordered list of the input log of this battle (this is NOT the turn count).`,
+		`Use this to decide at which point to recreate the battle. Examples:`,
+		`/recreatebattle gen9nd35pokesdec2025-2321.log.json`,
+		`/recreatebattle gen9nd35pokesdec2025-2321`,
+		`/recreatebattle 2321`,
+		`/recreatebattle [Battle ID], [index] - Recreates this battle at the [index] point of its input log.`,
+		`The battle will start after index and before index + 1. Examples:`,
+		`/recreatebattle gen9nd35pokesdec2025-2321.log.json, 12`,
+		`/recreatebattle gen9nd35pokesdec2025-2321, 12`,
+		`/recreatebattle 2321, 12`,
+	],
 
 	showteam: 'showset',
 	async showset(target, room, user, connection, cmd) {

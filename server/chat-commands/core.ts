@@ -916,6 +916,13 @@ export const commands: Chat.ChatCommands = {
 
 		const byComma = target.split(',', 2);
 		const index = parseInt(toID(byComma[1]));
+
+		const byDash = byComma[0].split('-', 2);
+		const input1 = toID(byDash[0]);
+		const input2 = toID(byDash[1]);
+		const battleid = parseInt(input2 || input1);
+		if (Number.isNaN(battleid)) return this.parse('/help recreatebattle');
+
 		if (Number.isNaN(index)) {
 			this.sendReply('Input log index not entered; this will display the input log as an ordered list.');
 		}
@@ -923,11 +930,6 @@ export const commands: Chat.ChatCommands = {
 			this.sendReply(`Input log index entered (${index}); this will attempt to recreate the battle at that point.`);
 		}
 
-		const byDash = byComma[0].split('-', 2);
-		const input1 = toID(byDash[0]);
-		const input2 = toID(byDash[1]);
-		const battleid = parseInt(input2 || input1);
-		if (Number.isNaN(battleid)) return this.parse('/help recreatebattle');
 		const formatid = input2 && input1;
 		this.sendReply(`Format ID: ${formatid || '(Unspecified)'}, Battle ID: ${battleid}`);
 		if (formatid && !Dex.formats.get(formatid).exists) this.sendReply('Warning: This format currently does not exist.');
@@ -964,7 +966,8 @@ export const commands: Chat.ChatCommands = {
 
 		const inputLog: string[] = log.inputLog;
 		if (Number.isNaN(index)) {
-			return this.sendReplyBox(`<details><summary>View input log index table</summary>${Utils.escapeHTML(inputLog.join('\n'))}</details>`);
+			const inputLogText = Utils.escapeHTML(inputLog.map((x, i) => `<b>${i}:</b> ${x}`).join('\n'));
+			return this.sendReplyBox(`<details><summary>View input log index table</summary>${inputLogText}</details>`);
 		}
 		else {
 			let minIndex = inputLog.findIndex((x) => x.startsWith('>player p4 '));
@@ -975,16 +978,17 @@ export const commands: Chat.ChatCommands = {
 		}
 	},
 	recreatebattlehelp: [
-		`/recreatebattle [Battle ID] - Displays an ordered list of the input log of this battle (this is NOT the turn count).`,
+		`1. /recreatebattle [Battle ID] - Displays an ordered list of the input log of this battle (this is NOT the turn count).`,
 		`Use this to decide at which point to recreate the battle. Examples:`,
 		`/recreatebattle gen9nd35pokesdec2025-2321.log.json`,
 		`/recreatebattle gen9nd35pokesdec2025-2321`,
 		`/recreatebattle 2321`,
-		`/recreatebattle [Battle ID], [index] - Recreates this battle at the [index] point of its input log.`,
+		`2. /recreatebattle [Battle ID], [index] - Recreates this battle at the [index] point of its input log.`,
 		`The battle will start after index and before index + 1. Examples:`,
 		`/recreatebattle gen9nd35pokesdec2025-2321.log.json, 12`,
 		`/recreatebattle gen9nd35pokesdec2025-2321, 12`,
 		`/recreatebattle 2321, 12`,
+		`3. You might have to manually invite the players (to their respective slots) at this point.`,
 	],
 
 	showteam: 'showset',

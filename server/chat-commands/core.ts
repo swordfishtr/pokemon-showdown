@@ -912,7 +912,7 @@ export const commands: Chat.ChatCommands = {
 	importinputloghelp: [`/importinputlog [inputlog] - Starts a battle with a given inputlog. Requires: + % @ ~`],
 
 	async recreatebattle(target, room, user, connection) {
-		this.canUseConsole();
+		if (!Users.globalAuth.atLeast(user, '~')) return this.errorReply('Access denied.');
 
 		const byComma = target.split(',', 2);
 		const index = parseInt(toID(byComma[1]));
@@ -969,15 +969,15 @@ export const commands: Chat.ChatCommands = {
 			const inputLogText = inputLog.map((x, i) => `<b>${i}:</b> ${Utils.escapeHTML(x)}`).join('<br />');
 			return this.sendReplyBox(`<details><summary>View input log index table</summary>${inputLogText}</details>`);
 		}
-		else {
-			let minIndex = inputLog.findIndex((x) => x.startsWith('>player p4 '));
-			if (minIndex < 0) minIndex = inputLog.findIndex((x) => x.startsWith('>player p2 '));
-			if (index < minIndex) return this.errorReply(`Input log index for ${target} must be ${minIndex} or greater.`);
-			const inputLogText = inputLog.slice(0, index + 1).join('\n');
-			return this.parse(`/importinputlog ${inputLogText}`);
-		}
+		let minIndex = inputLog.findIndex((x) => x.startsWith('>player p4 '));
+		if (minIndex < 0) minIndex = inputLog.findIndex((x) => x.startsWith('>player p2 '));
+		if (index < minIndex) return this.errorReply(`Input log index for ${target} must be ${minIndex} or greater.`);
+		const inputLogText = inputLog.slice(0, index + 1).join('\n');
+		this.parse(`/importinputlog ${inputLogText}`);
+		this.sendReply('Recreating battle. You might have to manually invite the players (to their respective slots) afterwards.');
 	},
 	recreatebattlehelp: [
+		`Requires ~`,
 		`1. /recreatebattle [Battle ID] - Displays an ordered list of the input log of this battle (this is NOT the turn count).`,
 		`Use this to decide at which point to recreate the battle. Examples:`,
 		`/recreatebattle gen9nd35pokesdec2025-2321.log.json`,

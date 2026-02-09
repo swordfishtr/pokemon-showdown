@@ -966,7 +966,7 @@ export const commands: Chat.ChatCommands = {
 
 		const inputLog: string[] = log.inputLog;
 		if (Number.isNaN(index)) {
-			const inputLogText = Utils.escapeHTML(inputLog.map((x, i) => `<b>${i}:</b> ${x}`).join('\n'));
+			const inputLogText = inputLog.map((x, i) => `<b>${i}:</b> ${Utils.escapeHTML(x)}`).join('\n');
 			return this.sendReplyBox(`<details><summary>View input log index table</summary>${inputLogText}</details>`);
 		}
 		else {

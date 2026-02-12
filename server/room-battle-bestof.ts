@@ -3,7 +3,7 @@ import { RoomGamePlayer, RoomGame } from "./room-game";
 import type { RoomBattlePlayerOptions, RoomBattleOptions } from './room-battle';
 import type { PrivacySetting, RoomSettings } from './rooms';
 
-const BEST_OF_IN_BETWEEN_TIME = 40;
+const BEST_OF_IN_BETWEEN_TIME = 120;
 
 export class BestOfPlayer extends RoomGamePlayer<BestOfGame> {
 	wins = 0;

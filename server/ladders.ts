@@ -151,6 +151,13 @@ class Ladder extends LadderStore {
 			connection.popup(`You can't battle yourself. The best you can do is open PS in Private Browsing (or another browser) and log into a different username, and battle that username.`);
 			return false;
 		}
+
+		const format = Dex.formats.get(this.formatid);
+		if (!format.challengeShow) {
+			connection.popup(`Error: Your format ${format.name} is not challengeable.`);
+			return false;
+		}
+
 		if (Ladder.getChallenging(user.id)) {
 			connection.popup(`You are already challenging someone. Cancel that challenge before challenging someone else.`);
 			return false;
@@ -310,7 +317,7 @@ class Ladder extends LadderStore {
 
 		const format = Dex.formats.get(this.formatid);
 		if (!format.searchShow) {
-			connection.popup(`Error: Your format ${format.id} is not ladderable.`);
+			connection.popup(`Error: Your format ${format.name} is not ladderable.`);
 			return;
 		}
 

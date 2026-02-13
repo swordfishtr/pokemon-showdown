@@ -1396,7 +1396,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [C1]",
 		mod: 'gen9',
 		ruleset: [
-			'Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause',
+			'Standard 35 Pokes',
 
 			'#liepard+bugbuzz+flamethrower',
 			'#weezing+rapidspin',

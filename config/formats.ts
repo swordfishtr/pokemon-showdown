@@ -672,7 +672,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2026]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Carracosta', 'Celebi', 'Cinccino', 'Cobalion', 'Cradily', 'Dedenne', 'Fezandipiti', 'Gabite', 'Granbull', 'Greedent', 'Hatterene', 'Heatmor', 'Houndstone', 'Indeedee-M', 'Lilligant-Base', 'Medicham-Base', 'Orbeetle', 'Oricorio-Pom-Pom', 'Overqwil', 'Pincurchin', 'Pinsir-Base', 'Rotom-Wash', 'Samurott-Base', 'Scovillain-Base', 'Sharpedo-Base', 'Shedinja', 'Shiftry', 'Steelix-Base', 'Tropius', 'Type: Null', 'Typhlosion-Hisui', 'Tyrantrum', 'Veluza', 'Vivillon', 'Whimsicott',
 		],
@@ -684,7 +684,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Mamoswine', 'Oricorio-Baile', 'Galvantula', 'Bombirdier', 'Gothitelle', 'Drampa-Base', 'Perrserker', 'Glastrier', 'Klinklang', 'Walrein', 
 			'Uxie', 'Vanilluxe', 'Serperior', 'Revavroom', 'Falinks-Base', 'Braviary-Hisui', 'Wyrdeer', 'Beedrill-Base', 'Blastoise-Base', 'Squawkabilly-Green', 
@@ -695,7 +695,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -707,7 +707,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -719,7 +719,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -731,7 +731,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -743,7 +743,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -755,7 +755,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -770,7 +770,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [May 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -785,7 +785,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Apr 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -800,7 +800,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -815,7 +815,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -830,7 +830,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -867,7 +867,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -882,7 +882,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -897,7 +897,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -912,7 +912,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -927,7 +927,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -942,7 +942,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -959,7 +959,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -974,7 +974,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [May 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -989,7 +989,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Apr 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1004,7 +1004,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1019,7 +1019,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1034,7 +1034,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1053,7 +1053,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Dec 2023]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1068,7 +1068,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2023]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1083,7 +1083,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2023 B]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1100,7 +1100,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Oct 2023]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1115,7 +1115,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2023]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1130,7 +1130,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2023]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1145,7 +1145,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2023]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
@@ -1183,7 +1183,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A1]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Silvally > 1', 'Light Clay',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
@@ -1196,7 +1196,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A2]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Silvally > 1', 'Light Clay',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
@@ -1209,7 +1209,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
+		ruleset: ['Standard 35 Pokes'],
 		banlist: [
 			'Silvally > 1', 'Light Clay', 'Silvally-Steel + Swords Dance',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
@@ -1439,7 +1439,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [D1]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause'],
+		ruleset: ['Standard 35 Pokes'],
 		banlist: [
 			'Eviolite', 'Download', 'Analytic',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
@@ -1484,7 +1484,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [F1]",
 		mod: 'gen9',
 		ruleset: [
-			'Standard 35 Pokes', '!Sleep Clause Mod', 'Sleep Moves Clause',
+			'Standard 35 Pokes',
 
 			'#dustox+simple+malignantchain',
 			'#beedrill+adaptability+headlongrush+victorydance',
@@ -1550,7 +1550,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
 		mod: 'gen9',
 		ruleset: [
-			'Standard 35 Pokes',
+			'Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod',
 
 			'#klinklang+hadronengine+spikes+superpower',
 			'#aromatisse+mistysurge+spikes',
@@ -2216,7 +2216,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Benjamin Button",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', 'Scalemons Mod'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod', 'Scalemons Mod'],
 		unbanlist: [
 			'Articuno-Base', 'Entei', 'Latias-Base', 'Heatran-Base', 'Thundurus-Base', 'Tapu Bulu', 'Regieleki', 'Venusaur-Base', 'Arctozolt', 'Ting-Lu', 'Ogerpon-Wellspring', 'Dialga-Base', 'Mamoswine', 'Celebi', 'Great Tusk', 'Meloetta-Base', 'Lugia', 'Deino', 'Lechonk', 'Arrokuda', 'Psyduck', 'Ferroseed', 'Beldum', 'Exeggcute', 'Charmander', 'Archen', 'Fomantis', 'Roggenrola', 'Tentacool', 'Munna', 'Hatenna', 'Drilbur', 'Bagon', 'Minccino', 'Whimsicott',
 		],
@@ -2225,7 +2225,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes NFE [Nov 2024]",
 		desc: '35 Pokes x NFE collab.',
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Steenee', 'Cutiefly', 'Duosion', 'Charmeleon', 'Quilladin', 'Meditite', 'Dewott', 'Aipom', 'Fletchinder', 'Poipole', 'Shelgon', 'Ivysaur', 'Pawmo', 'Growlithe-Hisui', 'Trumbeak', 'Marshtomp', 'Mudbray', 'Vanillish', 'Prinplup', 'Sliggoo-Base', 'Vibrava', 'Dartrix', 'Nidorino', 'Loudred', 'Dolliv', 'Flittle', 'Drakloak', 'Brionne', 'Whirlipede', 'Braixen', 'Murkrow', 'Crocalor', 'Krokorok', 'Flaaffy', 'Wartortle',
 		],
@@ -2235,7 +2235,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Monocolor [May 2024]",
 		desc: '35 Pokes x Monocolor collab.',
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', /* 'Force Monocolor' */],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod', /* 'Force Monocolor' */],
 		unbanlist: [
 			'Kingler', 'Scizor-Base', 'Braviary-Base', 'Crustle', 'Klawf', 'Druddigon', 'Wugtrio', 'Krookodile', 'Armarouge', 'Magmortar', 'Wailord', 'Jumpluff', 'Blastoise-Base', 'Sandslash-Alola', 'Empoleon', 'Nidoqueen', 'Eelektross-Base', 'Aurorus', 'Gastrodon-East', 'Tangrowth', 'Ribombee-Base', 'Vespiquen', 'Sunflora', 'Ampharos-Base', 'Cofagrigus', 'Hypno', 'Falinks-Base', 'Ninetales-Base', 'Typhlosion-Base', 'Exeggutor-Base', 'Carnivine', 'Kecleon', 'Yanmega', 'Araquanid-Base', 'Garbodor', 'Sceptile-Base', 'Politoed', 'Appletun', 'Tyranitar-Base', 'Golurk-Base', 'Claydol', 'Toucannon', 'Houndoom-Base', 'Toedscruel', 'Umbreon', 'Banette-Base', 'Mawile-Base', 'Snorlax', 'Seviper', 'Raticate-Alola', 'Minior-Base', 'Shiftry', 'Brambleghast', 'Perrserker', 'Dachsbun', 'Torkoal', 'Barbaracle-Base', 'Dragalge-Base', 'Clodsire', 'Dugtrio-Base', 'Drifblim', 'Aerodactyl-Base', 'Ambipom', 'Noivern', 'Weezing-Base', 'Starmie-Base', 'Goodra-Base', 'Drapion', 'Pincurchin', 'Gastrodon', 'Unfezant', 'Grafaiai', 'Hakamo-o', 'Golem-Alola', 'Probopass', 'Donphan', 'Golisopod-Base', 'Veluza', 'Steelix-Base', 'Machamp', 'Mesprit', 'Lurantis-Base', 'Bewear', 'Flamigo', 'Tinkaton', 'Clefable-Base', 'Milotic', 'Orthworm', 'Hatterene', 'Slowbro-Base', 'Togekiss', 'Frosmoth', 'Cursola', 'Amoonguss', 'Absol-Base', 'Gardevoir-Base', 'Dubwool', 'Alcremie', 'Maushold', 'Pachirisu',
 		],
@@ -2271,7 +2271,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Space-Time Smackdown",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Mightyena', 'Dusknoir', 'Uxie', 'Purugly', 'Electrode', 'Gabite', 'Hitmontop', 'Lickilicky', 'Lumineon', 'Togekiss', 'Kricketune', 'Glaceon', 'Lopunny', 'Toxicroak', 'Vespiquen', 'Drapion', 'Weavile', 'Bellossom', 'Cresselia', 'Skuntank', 'Empoleon', 'Bastiodon', 'Abomasnow', 'Rotom-Mow', 'Skarmory-Base', 'Staraptor-Base', 'Carnivine', 'Wormadam-Trash', 'Dusclops', 'Regigigas', 'Infernape', 'Rotom-Wash', 'Gliscor', 'Wormadam-Sandy', 'Rampardos',
 		],
@@ -2279,7 +2279,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Genetic Apex",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Tauros-Base', 'Charizard-Base', 'Raticate-Base', 'Aerodactyl-Base', 'Magneton', 'Machamp', 'Pikachu-Base', 'Vaporeon', 'Gengar-Base', 'Gardevoir-Base', 'Pidgeot-Base', 'Primeape', 'Swoobat', 'Rapidash-Base', 'Kabutops', 'Heatmor', 'Pincurchin', 'Nidoking', 'Tentacruel', 'Cloyster', 'Mawile-Base', 'Dubwool', 'Golduck', 'Chansey', 'Electrode-Base', 'Weezing-Base', 'Golem-Base', 'Cinccino', 'Jynx', 'Golurk-Base', 'Dugtrio-Base', 'Mienshao', 'Starmie-Base', 'Centiskorch', 'Electabuzz',
 		],
@@ -2287,7 +2287,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Mythical Island",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Exeggutor-Base', 'Celebi', 'Serperior', 'Dhelmise', 'Rapidash', 'Magmar', 'Volcarona', 'Salazzle', 'Gyarados', 'Vaporeon', 'Lumineon', 'Drednaw', 'Cramorant', 'Pikachu', 'Raichu-Base', 'Electabuzz', 'Galvantula', 'Dedenne', 'Mew', 'Sigilyph', 'Beheeyem', 'Florges', 'Slurpuff', 'Golem-Base', 'Aerodactyl', 'Primeape', 'Stonjourner', 'Weezing', 'Liepard', 'Scolipede-Base', 'Druddigon', 'Pidgeot', 'Tauros', 'Chatot', 'Shiinotic',
 		],
@@ -2295,7 +2295,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Pockets Shining Revelry",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		unbanlist: [
 			'Pachirisu', 'Pawmot', 'Raticate-Base', 'Flamigo', 'Electrode-Base', 'Wugtrio', 'Tauros-Paldea-Blaze', 'Mr. Mime-Base', 'Drifblim', 'Magmortar', 'Dondozo', 'Arbok', 'Hitmonlee', 'Charizard-Base', 'Alakazam-Base', 'Spiritomb', 'Gimmighoul-Base', 'Lucario-Base', 'Cyclizar', 'Revavroom', 'Tatsugiri-Base', 'Machamp', 'Tinkaton', 'Clodsire', 'Floragato', 'Wigglytuff', 'Lopunny-Base', 'Pinsir-Base', 'Lickilicky', 'Floatzel', 'Hitmonchan', 'Bibarel', 'Tentacruel', 'Beedrill-Base', 'Pikachu-Base',
 		],
@@ -2329,7 +2329,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Flipped [Jan 2025]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod', 'Flipped Mod'],
 		unbanlist: [
 			'Flamigo', 'Golduck', 'Braviary-Base', 'Pyroar-Base', 'Carbink', 'Persian-Alola', 'Avalugg-Base', 'Rotom-Base', 'Scyther', 'Archeops', 'Shedinja', 'Roserade', 'Dipplin', 'Oinkologne-Base', 'Toedscruel', 'Bisharp', 'Ludicolo', 'Sirfetch’d', 'Heliolisk', 'Drampa-Base', 'Watchog', 'Gourgeist-Small', 'Aegislash-Blade', 'Vikavolt-Base', 'Qwilfish-Base', 'Scrafty-Base', 'Mudsdale', 'Excadrill-Base', 'Magcargo', 'Gourgeist-Base', 'Claydol', 'Farigiraf', 'Corsola-Base', 'Mabosstiff', 'Raichu-Alola', 'Dudunsparce', 'Beartic', 'Honchkrow', 'Cobalion', 'Ninetales-Base', 'Slaking', 'Alcremie', 'Pawmot', 'Golem-Alola', 'Gothitelle', 'Cyclizar', 'Spinda', 'Hawlucha-Base', 'Diggersby', 'Venusaur-Base', 'Lurantis-Base', 'Sudowoodo', 'Braviary-Hisui',
 		],
@@ -2337,7 +2337,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Flipped [Dec 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod', 'Flipped Mod'],
 		unbanlist: [
 			'Drapion', 'Seaking', 'Jumpluff', 'Oricorio-Pa\'u', 'Duraludon', 'Spinda', 'Carracosta', 'Relicanth', 'Miltank', 'Scolipede-Base', 'Abomasnow-Base', 'Wailord', 'Centiskorch', 'Silvally-Base', 'Machamp', 'Swampert-Base', 'Cinccino', 'Maushold-Base', 'Magmortar', 'Clodsire', 'Darmanitan-Base', 'Turtonator', 'Orbeetle', 'Druddigon', 'Excadrill-Base', 'Raticate-Base', 'Houndoom-Base', 'Regice', 'Butterfree', 'Mandibuzz', 'Granbull', 'Zangoose', 'Gigalith', 'Samurott-Base', 'Wobbuffet', 'Ambipom', 'Camerupt-Base', 'Hypno', 'Purugly', 'Politoed', 'Weavile', 'Pachirisu', 'Qwilfish-Base', 'Roserade', 'Hitmonchan', 'Veluza', 'Kecleon', 'Huntail', 'Altaria-Base', 'Raichu-Alola', 'Metagross-Base', 'Articuno-Base', 'Conkeldurr',
 		],
@@ -2345,7 +2345,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Flipped [Nov 2024]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', 'Flipped Mod'],
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Sleep Clause Mod', 'Flipped Mod'],
 		unbanlist: [
 			'Nihilego', 'Samurott-Hisui', 'Milotic', 'Rillaboom', 'Snorlax', 'Entei', 'Umbreon', 'Iron Thorns', 'Hydreigon', 'Necrozma-Base', 'Musharna', 'Roserade', 'Virizion', 'Krookodile', 'Magmortar', 'Indeedee-M', 'Glastrier', 'Dondozo', 'Heracross-Base', 'Rapidash-Base', 'Terrakion', 'Vanilluxe', 'Smeargle', 'Carbink', 'Probopass', 'Iron Hands', 'Arbok', 'Meganium-Base', 'Iron Jugulis', 'Sharpedo-Base', 'Simipour', 'Hypno', 'Appletun', 'Ampharos-Base', 'Pidgeot-Base', 'Swanna', 'Gengar-Base', 'Leafeon', 'Dugtrio-Base', 'Seaking', 'Victreebel-Base', 'Emboar-Base', 'Crawdaunt', 'Exeggutor-Alola', 'Tropius', 'Glaceon', 'Vivillon-Base', 'Vespiquen', 'Pinsir-Base', 'Plusle', 'Raticate-Alola',
 		],

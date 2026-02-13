@@ -3344,7 +3344,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Standard 35 Pokes',
 		desc: "The standard ruleset for 35 Pokes metagames.",
 		ruleset: [
-			'Standard NatDex', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause', '!Species Clause', 'Forme Clause',
+			'Standard NatDex', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause',
+			'!Species Clause', 'Forme Clause', '!Sleep Clause Mod', 'Sleep Moves Clause',
 			'Terastal Clause', 'DryPass Clause', 'Moody Clause',
 			'35 Pokes Mega Clause', '35 Pokes Hidden Power Clause',
 		],
@@ -3354,7 +3355,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Razor Fang', 'Last Respects', 'Shed Tail',
 		],
 		unbanlist: [
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Yawn',
 		],
 		onValidateSet(set, format, setHas, teamHas) {
 			if (set.item) {

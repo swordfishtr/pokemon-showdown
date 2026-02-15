@@ -346,7 +346,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Garchomp-Base', 'Weavile', 'Chimecho-Mega', 'Togekiss', 'Mantine', 'Rotom-Base', 'Sudowoodo',
+			'Garchomp-Base', 'Weavile', 'Chimecho-Mega', 'Togekiss', 'Mantine', 'Rotom-Base', 'Sudowoodo', 'Munchlax',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -356,7 +356,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Gardevoir-Mega', 'Magnezone', 'Regidrago', 'Gligar', 'Jolteon', 'Honchkrow', 'Dusclops',
+			'Gardevoir-Mega', 'Magnezone', 'Regidrago', 'Gligar', 'Jolteon', 'Honchkrow', 'Dusclops', 'Lopunny-Base', 'Monferno',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -366,7 +366,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Manaphy', 'Infernape', 'Rotom-Mow', 'Snorlax', 'Dusknoir', 'Rhyperior', 'Mr. Mime-Base', 'Sneasel-Hisui',
+			'Manaphy', 'Infernape', 'Rotom-Mow', 'Snorlax', 'Dusknoir', 'Rhyperior', 'Mr. Mime-Base', 'Sneasel-Hisui', 'Croagunk',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -396,7 +396,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Staraptor-Mega', 'Tangela', 'Drapion', 'Bronzong', 'Magmortar', 'Electivire', 'Gastrodon', 'Froslass-Base',
+			'Staraptor-Mega', 'Tangela', 'Drapion', 'Bronzong', 'Magmortar', 'Electivire', 'Gastrodon', 'Froslass-Base', 'Lickilicky',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -416,7 +416,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Phione', 'Togetic', 'Kricketune',
+			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Phione', 'Togetic', 'Kricketune', 'Skorupi',
 		],
 		validateTeam: draftteams.validateTeam,
 	},

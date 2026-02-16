@@ -1001,6 +1001,9 @@ export const commands: Chat.ChatCommands = {
 		const byDash = target.split('-', 2);
 		const formatid = toID(byDash[0]);
 		const battleid = toID(byDash[1]);
+		if (!formatid || !battleid) {
+			return this.parse('/help createreplay');
+		}
 
 		if (await FS(`${dir}/${formatid}-${battleid}.json`).exists()) {
 			return this.errorReply(`Replay for ${formatid}-${battleid} already exists.`);

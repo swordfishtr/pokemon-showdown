@@ -990,6 +990,64 @@ export const commands: Chat.ChatCommands = {
 		`/recreatebattle 2321, 12`,
 		`3. You might have to manually invite the players (to their respective slots) at this point.`,
 	],
+	async createreplay(target, room, user, connection) {
+		this.canUseConsole();
+
+		const dir = Config.customreplaysdir;
+		if(typeof dir !== 'string') {
+			return this.errorReply(`Config.customreplaysdir is unconfigured.`);
+		}
+
+		const byDash = target.split('-', 2);
+		const formatid = toID(byDash[0]);
+		const battleid = toID(byDash[1]);
+
+		if (await FS(`${dir}/${formatid}-${battleid}.json`).exists()) {
+			return this.errorReply(`Replay for ${formatid}-${battleid} already exists.`);
+		}
+
+		const logText = await (async () => {
+			for (const month of await FS('logs/').readdir()) {
+				if (!/^\d+-\d+$/.test(month)) continue;
+				for (const date of await FS(`logs/${month}/${formatid}/`).readdirIfExists()) {
+					const log = await FS(`logs/${month}/${formatid}/${date}/${formatid}-${battleid}.log.json`).readIfExists();
+					if (log) return log;
+				}
+			}
+			return null;
+		})();
+
+		if (logText === null) {
+			return this.errorReply(`Log for ${formatid}-${battleid} is missing.`);
+		}
+
+		let log: AnyObject;
+		try {
+			log = JSON.parse(logText);
+		}
+		catch {
+			return this.errorReply(`Log for ${formatid}-${battleid} is invalid.`);
+		}
+
+		FS(`${dir}/${formatid}-${battleid}.json`).writeUpdate(() => `${JSON.stringify({
+			id: `${formatid}-${battleid}`,
+			password: null,
+			private: 0,
+			uploadtime: Math.trunc(Date.now() / 1000),
+			format: Dex.formats.get(formatid).name,
+			players: [log.p1, log.p2, log.p3, log.p4].filter(Boolean),
+			rating: null,
+			log: log.log.join('\n'),
+		})}\n`);
+		const url = `https://replay.generationssd.co.uk/${formatid}-${battleid}`;
+		this.sendReply(`Replay created at ${url}`);
+	},
+	createreplayhelp: [
+		`Requires ~ console access`,
+		`You're probably looking for /savereplay`,
+		`Example: /createreplay gen9nd35pokesdec2025-2321`,
+		`Replays created this way will NOT be hidden. Only use this upon request.`,
+	],
 
 	showteam: 'showset',
 	async showset(target, room, user, connection, cmd) {

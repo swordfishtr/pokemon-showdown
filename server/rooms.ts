@@ -2095,7 +2095,6 @@ export class GameRoom extends BasicRoom {
 			players: battle.players.map(p => p.name),
 			rating: rating || null,
 			log,
-			inputlog: battle.inputLog?.join('\n') || null,
 		})}\n`);
 		const url = `https://replay.generationssd.co.uk/${id}${password ? `-${password}` : ''}`;
 		connection?.popup(

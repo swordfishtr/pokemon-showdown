@@ -991,7 +991,7 @@ export const commands: Chat.ChatCommands = {
 		`3. You might have to manually invite the players (to their respective slots) at this point.`,
 	],
 	async createreplay(target, room, user, connection) {
-		this.canUseConsole();
+		if (!Users.globalAuth.atLeast(user, '~')) return this.errorReply('Access denied.');
 
 		const dir = Config.customreplaysdir;
 		if(typeof dir !== 'string') {

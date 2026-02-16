@@ -61,9 +61,40 @@ export const commands: Chat.ChatCommands = {
 		this.sendReply(`Queue added for ${p1} and ${p2} with banner ${message}`);
 		
 	},
-
 	setqueuehelp: [
 		`/setqueue player1,player2,message[,format] - Adds a queue entry so that when player1 and player2 start a battle together the server will add the banner message to the battle room. If format is provided, the banner is added only if the battle format matches. Requires: driver (%) in the room.`,
+	],
+
+	/**
+	 /setmode [text] - send a `|rated|...` banner into the current battle room
+	 requires driver+
+	*/
+	setmode(target, room, user) {
+		room = this.requireRoom();
+		if (!room.battle) {
+			throw new Chat.ErrorMessage(`/setmode must be used in a battle room.`);
+		}
+
+		const directRank = room.auth.getDirect(user.id);
+		const globalRank = Users.globalAuth.get(user.id);
+		if (!(Users.Auth.atLeast(directRank || '', '%') || Users.Auth.atLeast(globalRank || '', '%'))) {
+			throw new Chat.ErrorMessage(`Access denied - you must be a driver (%) or higher in this room (or globally) to use this command.`);
+		}
+
+		if (!target) return this.parse('/help setmode');
+
+		let message = target.trim();
+		if (!message.startsWith('|')) {
+			message = `|rated|${message}`;
+		}
+
+		room.add(message).update();
+
+		this.privateModAction(`${user.name} used /setmode ${target}`);
+		this.globalModlog(`SETMODE`, null, target);
+	},
+	setmodehelp: [
+		`/setmode [text] - Adds the given text as a banner in the current battle room. Provide plain text and, it will be sent as \`|rated|<text>\`. Requires: driver (%) or higher in the room or globally.`,
 	],
 };
 

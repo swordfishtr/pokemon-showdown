@@ -1595,6 +1595,34 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] 35 Pokes Perfect [E2]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes',],
+		banlist: ['Heat Rock', 'Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
+		unbanlist: [
+			'Aerodactyl-Base', 'Articuno-Base', 'Bellibolt', 'Camerupt-Base', 'Camerupt-Mega', 'Cyclizar', 'Druddigon', 'Exeggutor-Alola', 'Floatzel', 'Florges', 'Frosmoth', 'Gardevoir-Base', 'Glimmet', 'Gurdurr', 'Leafeon', 'Mabosstiff', 'Magneton', 'Mawile-Base', 'Mismagius', 'Muk-Base', 'Poliwrath', 'Porygon2', 'Raboot', 'Raichu-Base', 'Runerigus', 'Sableye-Base', 'Sandslash-Alola', 'Scyther', 'Shuckle', 'Slaking', 'Slowbro-Galar', 'Swampert-Base', 'Tauros-Paldea-Combat', 'Torkoal', 'Uxie', 'Wo-Chien',
+			'Cameruptite',
+		],
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const zUsers: string[] = ['raichu', 'leafeon', 'poliwrath', 'raboot'];
+			const speciesid = this.toID(set.species);
+			const item = this.dex.items.get(set.item);
+			if (item.zMove && !zUsers.includes(speciesid)) {
+				problems.push(`${set.name} is not allowed to hold a Z Crystal in E2.`);
+			}
+			if(problems.length) return problems;
+		},
+		onBegin() {
+			const megaUsers: string[] = ['blastoise', 'abomasnow', 'audino', 'banette'];
+			const zUsers: string[] = ['golurk', 'flareon', 'lycanroc', 'primeape', 'rotomfrost', 'roserade', 'magmortar'];
+			this.add('rule', `Perfect E1: Only the following Pokemon can hold Mega Stones: ${megaUsers.join(', ')}`);
+			this.add('rule', `Perfect E1: Only the following Pokemon can hold Z Crystals: ${zUsers.join(', ')}`);
+			this.add('rule', `Perfect E1: Pokemon can not have Regenerator.`);
+			this.add('rule', `Perfect E1: Pokemon can not have Dynamic Punch.`);
+		},
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
 		mod: 'gen9',
 		gameType: 'doubles',

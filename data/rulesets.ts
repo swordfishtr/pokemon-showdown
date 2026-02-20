@@ -3325,6 +3325,19 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	'35pokeszmoveclause': {
+		effectType: 'ValidatorRule',
+		name: '35 Pokes Z-Move Clause',
+		desc: "Rejects Z-Crystals with optional exceptions.",
+		onValidateSet(set, format, setHas, teamHas) {
+			if (set.item) {
+				const item = this.dex.items.get(set.item);
+				if (item.zMove && !(this.ruleTable.has(`+item:${item.id}`))) {
+					return [`${item.name} is banned.`];
+				}
+			}
+		},
+	},
 	'35pokeshiddenpowerclause': {
 		effectType: 'ValidatorRule',
 		name: '35 Pokes Hidden Power Clause',
@@ -3347,7 +3360,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Standard NatDex', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause',
 			'!Species Clause', 'Forme Clause', '!Sleep Clause Mod', 'Sleep Moves Clause',
 			'Terastal Clause', 'DryPass Clause', 'Moody Clause',
-			'35 Pokes Mega Clause', '35 Pokes Hidden Power Clause',
+			'35 Pokes Mega Clause', '35 Pokes Z-Move Clause', '35 Pokes Hidden Power Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
@@ -3357,14 +3370,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		unbanlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Yawn',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if (set.item) {
-				const item = this.dex.items.get(set.item);
-				if (item.zMove && !(this.ruleTable.has(`+item:${item.id}`))) {
-					return [`${item.name} is banned.`];
-				}
-			}
-		},
 	},
 	standard35pokesvgc: {
 		effectType: 'ValidatorRule',

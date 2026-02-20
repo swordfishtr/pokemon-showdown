@@ -1595,7 +1595,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] 35 Pokes Perfect [E2]",
+		name: "[Gen 9] ND 35 Pokes Perfect [E2]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
 		banlist: ['Heat Rock', 'Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],

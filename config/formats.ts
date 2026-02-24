@@ -1611,9 +1611,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [E2]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
-		banlist: ['Heat Rock', 'Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
+		banlist: ['Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
 		unbanlist: [
-			'Aerodactyl-Base', 'Articuno-Base', 'Bellibolt', 'Camerupt-Base', 'Camerupt-Mega', 'Cyclizar', 'Druddigon', 'Exeggutor-Alola', 'Floatzel', 'Florges', 'Frosmoth', 'Gardevoir-Base', 'Glimmet', 'Gurdurr', 'Leafeon', 'Mabosstiff', 'Magneton', 'Mawile-Base', 'Mismagius', 'Muk-Base', 'Poliwrath', 'Porygon2', 'Raboot', 'Raichu-Base', 'Runerigus', 'Sableye-Base', 'Sandslash-Alola', 'Scyther', 'Shuckle', 'Slaking', 'Slowbro-Galar', 'Swampert-Base', 'Tauros-Paldea-Combat', 'Torkoal', 'Uxie', 'Wo-Chien',
+			'Whimsicott','Trevenant','Camerupt-Base','Camerupt-Mega','Arcanine','Swampert','Floatzel','Voltorb-Hisui','Magnezone','Registeel','Escavalier','Scyther','Cramorant','Gurdurr','Tauros-Paldea-Combat','Uxie','Mr. Rime','Gardevoir','Dachsbun','Aerodactyl-Base','Glimmet','Mabosstiff','Umbreon','Sableye','Mismagius','Rhyperior','Druddigon','Cyclizar','Slaking','Raichu-Base','Leafeon','Poliwrath','Raboot','Frosmoth','Slowbro-Galar','Porygon2',
 			'Cameruptite',
 		],
 		onValidateSet(set) {

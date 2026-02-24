@@ -3377,7 +3377,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: "The standard ruleset for 35 Pokes VGC metagames.",
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Picked Team Size = Auto', 'Cancel Mod',
-			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Best Of = 3',
+			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Open Team Sheets', 'Best Of = 3',
 			'35 Pokes Mega Clause', '35 Pokes Hidden Power Clause',
 		],
 		banlist: [

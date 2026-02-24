@@ -1613,7 +1613,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
 		banlist: ['Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
 		unbanlist: [
-			'Whimsicott','Trevenant','Camerupt-Base','Camerupt-Mega','Arcanine','Swampert','Floatzel','Voltorb-Hisui','Magnezone','Registeel','Escavalier','Scyther','Cramorant','Gurdurr','Tauros-Paldea-Combat','Uxie','Mr. Rime','Gardevoir','Dachsbun','Aerodactyl-Base','Glimmet','Mabosstiff','Umbreon','Sableye','Mismagius','Rhyperior','Druddigon','Cyclizar','Slaking','Raichu-Base','Leafeon','Poliwrath','Raboot','Frosmoth','Slowbro-Galar','Porygon2',
+			'Whimsicott','Trevenant','Camerupt-Base','Camerupt-Mega','Arcanine-Base','Swampert-Base','Floatzel','Electrode-Hisui','Magnezone','Registeel','Escavalier','Scyther','Cramorant-Base','Gurdurr','Tauros-Paldea-Combat','Uxie','Mr. Rime','Gardevoir-Base','Dachsbun','Aerodactyl-Base','Glimmet','Mabosstiff','Umbreon','Sableye-Base','Mismagius','Rhyperior','Druddigon','Cyclizar','Slaking','Raichu-Base','Leafeon','Poliwrath','Raboot','Frosmoth','Slowbro-Galar','Porygon2',
 			'Cameruptite',
 		],
 		onValidateSet(set) {

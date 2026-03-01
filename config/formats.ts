@@ -675,6 +675,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Mar 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Aerodactyl-Base', 'Arctozolt', 'Armaldo', 'Armarouge', 'Bronzong', 'Centiskorch', 'Cherrim-Base', 'Cyclizar', 'Dhelmise', 'Dondozo', 'Drakloak', 'Empoleon', 'Glaceon', 'Golduck', 'Gyarados-Base', 'Jellicent', 'Jumpluff', 'Kecleon', 'Kilowattrel', 'Kingdra', 'Lunatone', 'Musharna', 'Noivern', 'Palossand', 'Pincurchin', 'Reuniclus', 'Revavroom', 'Sandslash-Alola', 'Snorlax', 'Solrock', 'Stonjourner', 'Tyranitar-Base', 'Vaporeon', 'Virizion', 'Wigglytuff',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2026]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
@@ -1853,6 +1861,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes VGC',
 		column: 3,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes VGC [Mar 2026]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Aerodactyl-Base', 'Arctozolt', 'Armaldo', 'Armarouge', 'Bronzong', 'Centiskorch', 'Cherrim-Base', 'Cyclizar', 'Dhelmise', 'Dondozo', 'Drakloak', 'Empoleon', 'Glaceon', 'Golduck', 'Gyarados-Base', 'Jellicent', 'Jumpluff', 'Kecleon', 'Kilowattrel', 'Kingdra', 'Lunatone', 'Musharna', 'Noivern', 'Palossand', 'Pincurchin', 'Reuniclus', 'Revavroom', 'Sandslash-Alola', 'Snorlax', 'Solrock', 'Stonjourner', 'Tyranitar-Base', 'Vaporeon', 'Virizion', 'Wigglytuff',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Feb 2026]",

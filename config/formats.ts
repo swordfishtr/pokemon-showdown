@@ -1637,7 +1637,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard 35 Pokes VGC', '!35 Pokes Hidden Power Clause', 'Force Open Team Sheets',
+			'Standard 35 Pokes VGC', '!35 Pokes Hidden Power Clause',
 		],
 		unbanlist: [
 			'Altaria-Base', 'Bisharp', 'Brambleghast', 'Bruxish', 'Ceruledge', 'Electrode-Hisui', 'Excadrill-Base', 'Gastrodon', 'Gothitelle', 'Hariyama', 'Hatterene', 'Heliolisk', 'Hippowdon', 'Lilligant-Hisui', 'Lucario-Base', 'Ludicolo', 'Lycanroc-Base', 'Mamoswine', 'Maushold', 'Moltres-Galar', 'Munkidori', 'Oranguru', 'Overqwil', 'Politoed', 'Primarina', 'Regidrago', 'Salamence-Base', 'Scizor-Base', 'Slaking', 'Talonflame', 'Tinkaton', 'Toedscruel', 'Torkoal', 'Weezing-Galar', 'Zoroark-Hisui',

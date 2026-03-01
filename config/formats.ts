@@ -1857,6 +1857,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Feb 2026]",
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
 			'Articuno-Galar', 'Aurorus', 'Bellossom', 'Bewear', 'Blastoise-Base', 'Dodrio', 'Entei', 'Falinks-Base', 'Flygon', 'Furret', 'Goodra-Hisui', 'Gumshoos-Base', 'Heliolisk', 'Hydrapple', 'Indeedee-F', 'Iron Thorns', 'Leavanny', 'Lickilicky', 'Ludicolo', 'Maractus', 'Meganium-Base', 'Polteageist', 'Probopass', 'Regieleki', 'Rhyperior', 'Seismitoad', 'Shiinotic', 'Slaking', 'Spidops', 'Spiritomb', 'Unfezant', 'Vanilluxe', 'Victreebel-Base', 'Weezing-Galar', 'Wyrdeer',
@@ -1865,6 +1866,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jan 2026]",
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC', 'Terastal Clause'],
 		unbanlist: [
 			'Carracosta', 'Celebi', 'Cinccino', 'Cobalion', 'Cradily', 'Dedenne', 'Fezandipiti', 'Gabite', 'Granbull', 'Greedent', 'Hatterene', 'Heatmor', 'Houndstone', 'Indeedee-M', 'Lilligant-Base', 'Medicham-Base', 'Orbeetle', 'Oricorio-Pom-Pom', 'Overqwil', 'Pincurchin', 'Pinsir-Base', 'Rotom-Wash', 'Samurott-Base', 'Scovillain-Base', 'Sharpedo-Base', 'Shedinja', 'Shiftry', 'Steelix-Base', 'Tropius', 'Type: Null', 'Typhlosion-Hisui', 'Tyrantrum', 'Veluza', 'Vivillon', 'Whimsicott',
@@ -1873,6 +1875,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2025]",
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC', 'Terastal Clause'],
 		unbanlist: [
 			'Mamoswine', 'Oricorio-Baile', 'Galvantula', 'Bombirdier', 'Gothitelle', 'Drampa-Base', 'Perrserker', 'Glastrier', 'Klinklang', 'Walrein', 
@@ -1884,6 +1887,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Nov 2025]",
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC', 'Terastal Clause'],
 		unbanlist: [
 			'Altaria-Base', 'Ampharos-Base', 'Arbok', 'Armaldo', 'Calyrex-Base', 'Castform-Base', 'Dewgong', 'Drifblim', 'Emolga', 'Fearow', 'Furret', 'Glalie-Base', 'Gumshoos-Base', 'Heliolisk', 'Jumpluff', 'Kecleon', 'Ludicolo', 'Lunatone', 'Luxray', 'Lycanroc-Midnight', 'Meowstic-M', 'Primeape', 'Pupitar', 'Pyroar-Base', 'Rampardos', 'Scovillain-Base', 'Silvally-Fairy', 'Simisage', 'Sneasel-Hisui', 'Spidops', 'Swalot', 'Thievul', 'Tinkaton', 'Whiscash', 'Zangoose',
@@ -1892,6 +1896,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Oct 2025]",
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC', 'Terastal Clause'],
 		unbanlist: [
 			'Ambipom', 'Armarouge', 'Articuno-Base', 'Basculegion-F', 'Bibarel', 'Copperajah', 'Corviknight', 'Crobat', 'Dudunsparce', 'Dugtrio-Alola', 'Farigiraf', 'Floatzel', 'Froslass-Base', 'Golem-Alola', 'Hippowdon', 'Magmortar', 'Meganium-Base', 'Moltres-Base', 'Muk-Alola', 'Munkidori', 'Nidoking', 'Ninjask', 'Orthworm', 'Perrserker', 'Porygon-Z', 'Pyukumuku', 'Sandslash-Base', 'Sigilyph', 'Simisear', 'Sirfetch’d', 'Steelix-Base', 'Tauros-Base', 'Tauros-Paldea-Aqua', 'Weezing-Galar', 'Zoroark-Base',
@@ -1900,6 +1905,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Sep 2025]",
 		mod: 'gen9',
+		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC', 'Terastal Clause'],
 		unbanlist: [
 			'Arbok', 'Avalugg-Base', 'Cacturne', 'Chesnaught-Base', 'Clodsire', 'Cobalion', 'Crawdaunt', 'Eldegoss', 'Empoleon', 'Falinks-Base', 'Feraligatr-Base', 'Ferrothorn', 'Florges', 'Galvantula', 'Grimmsnarl', 'Klawf', 'Lucario-Base', 'Ludicolo', 'Mantine', 'Marowak-Alola', 'Milotic', 'Musharna', 'Overqwil', 'Pincurchin', 'Primeape', 'Regice', 'Sceptile-Base', 'Scolipede-Base', 'Silvally-Dragon', 'Slurpuff', 'Torterra', 'Toxicroak', 'Trapinch', 'Vikavolt-Base', 'Wormadam-Base',

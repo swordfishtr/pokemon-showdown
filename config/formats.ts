@@ -1473,32 +1473,55 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 7] 35 Pokes Perfect [E1]",
 		mod: 'gen7',
-		ruleset: ['Standard', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
+		ruleset: ['Standard', '35 Pokes Mega Clause', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
 		banlist: ['All Pokemon', 'Regenerator', 'Dynamic Punch'],
 		unbanlist: [
 			'Golurk-Base', 'Flareon', 'Lycanroc-Base', 'Togedemaru-Base', 'Froslass-Base', 'Roserade', 'Magmortar', 'Abomasnow-Base', 'Abomasnow-Mega', 'Audino-Base', 'Audino-Mega', 'Banette-Base', 'Banette-Mega', 'Blastoise-Base', 'Blastoise-Mega', 'Noivern', 'Bronzong', 'Diancie-Base', 'Flygon', 'Forretress', 'Gallade-Base', 'Garbodor', 'Gigalith', 'Golisopod-Base', 'Guzzlord', 'Hariyama', 'Moltres-Base', 'Milotic', 'Miltank', 'Primeape', 'Rotom-Frost', 'Seismitoad', 'Shaymin-Base', 'Silvally-Fairy', 'Skuntank', 'Swellow', 'Vikavolt-Base', 'Xatu', 'Zoroark-Base',
+			'Blastoisinite', 'Abomasite', 'Audinite', 'Banettite',
 		],
 		onValidateSet(set) {
 			const problems: string[] = [];
-			const megaUsers = ['blastoise', 'abomasnow', 'audino', 'banette'];
 			const zUsers = ['golurk', 'flareon', 'lycanroc', 'primeape', 'rotomfrost', 'roserade', 'magmortar'];
 			const speciesid = this.toID(set.species);
 			const item = this.dex.items.get(set.item);
-			if (item.megaStone && !megaUsers.includes(speciesid)) {
-				problems.push(`${set.name} is not allowed to hold a Mega Stone in E1.`);
-			}
 			if (item.zMove && !zUsers.includes(speciesid)) {
 				problems.push(`${set.name} is not allowed to hold a Z Crystal in E1.`);
 			}
 			if(problems.length) return problems;
 		},
 		onBegin() {
-			const megaUsers = ['blastoise', 'abomasnow', 'audino', 'banette'];
-			const zUsers = ['golurk', 'flareon', 'lycanroc', 'primeape', 'rotomfrost', 'roserade', 'magmortar'];
-			this.add('rule', `Perfect E1: Only the following Pokemon can hold Mega Stones: ${megaUsers.join(', ')}`);
-			this.add('rule', `Perfect E1: Only the following Pokemon can hold Z Crystals: ${zUsers.join(', ')}`);
+			const zUsers = ['Golurk', 'Flareon', 'Lycanroc', 'Primeape', 'Rotom-Frost', 'Roserade', 'Magmortar'];
+			this.add('rule', `Perfect E1: Only the following Pokemon can hold Z Crystals:`);
+			this.add('rule', zUsers.join(', '));
 			this.add('rule', `Perfect E1: Pokemon can not have Regenerator.`);
 			this.add('rule', `Perfect E1: Pokemon can not have Dynamic Punch.`);
+		},
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Perfect [E2]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
+		banlist: ['Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
+		unbanlist: [
+			'Aerodactyl-Base', 'Arcanine-Base', 'Camerupt-Base', 'Camerupt-Mega', 'Cramorant-Base', 'Cyclizar', 'Dachsbun', 'Druddigon', 'Electrode-Hisui', 'Escavalier', 'Floatzel', 'Frosmoth', 'Gardevoir-Base', 'Glimmet', 'Gurdurr', 'Leafeon', 'Magnezone', 'Mismagius', 'Mr. Rime', 'Orthworm', 'Overqwil', 'Poliwrath', 'Porygon2', 'Raboot', 'Raichu-Base', 'Rhyperior', 'Sableye-Base', 'Scyther', 'Slaking', 'Slowbro-Galar', 'Swampert-Base', 'Tauros-Paldea-Combat', 'Trevenant', 'Umbreon', 'Uxie', 'Whimsicott',
+			'Cameruptite',
+		],
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar', 'porygon2'];
+			const speciesid = this.toID(set.species);
+			const item = this.dex.items.get(set.item);
+			if (item.zMove && !zUsers.includes(speciesid)) {
+				problems.push(`${set.name} is not allowed to hold a Z Crystal in E2.`);
+			}
+			if(problems.length) return problems;
+		},
+		onBegin() {
+			const zUsers = ['Raichu', 'Leafeon', 'Poliwrath', 'Raboot', 'Frosmoth', 'Slowbro-Galar', 'Porygon2'];
+			this.add('rule', `Perfect E2: Only the following Pokemon can hold Z Crystals:`);
+			this.add('rule', zUsers.join(', '));
+			this.add('rule', `Perfect E2: Pokemon can not have Quick Draw.`);
+			this.add('rule', `Perfect E2: Pokemon can not have Heavy-Duty Boots.`);
 		},
 	},
 	{
@@ -1564,31 +1587,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [E2]",
-		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
-		banlist: ['Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
-		unbanlist: [
-			'Whimsicott','Trevenant','Camerupt-Base','Camerupt-Mega','Arcanine-Base','Swampert-Base','Floatzel','Electrode-Hisui','Magnezone','Registeel','Escavalier','Scyther','Cramorant-Base','Gurdurr','Tauros-Paldea-Combat','Uxie','Mr. Rime','Gardevoir-Base','Dachsbun','Aerodactyl-Base','Glimmet','Mabosstiff','Umbreon','Sableye-Base','Mismagius','Rhyperior','Druddigon','Cyclizar','Slaking','Raichu-Base','Leafeon','Poliwrath','Raboot','Frosmoth','Slowbro-Galar','Porygon2',
-			'Cameruptite',
-		],
-		onValidateSet(set) {
-			const problems: string[] = [];
-			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar', 'porygon2'];
-			const speciesid = this.toID(set.species);
-			const item = this.dex.items.get(set.item);
-			if (item.zMove && !zUsers.includes(speciesid)) {
-				problems.push(`${set.name} is not allowed to hold a Z Crystal in E2.`);
-			}
-			if(problems.length) return problems;
-		},
-		onBegin() {
-			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar', 'porygon2'];
-			this.add('rule', `Perfect E2: Only the following Pokemon can hold Z Crystals: ${zUsers.join(', ')}`);
-			this.add('rule', `Perfect E2: Pokemon can not have Quick Draw.`);
-		},
-	},
-	{
 		section: '35 Pokes Perfect (WIP)',
 		column: 3
 	},
@@ -1640,7 +1638,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Klinklang', 'Aromatisse', 'Jynx', 'Gogoat', 'Hakamo-o', 'Emolga', 'Glalie-Base', 'Magcargo', 'Leavanny', 'Dhelmise', 'Exeggutor-Base', 'Medicham-Base', 'Raichu-Alola', 'Togedemaru-Base', 'Rotom-Frost', 'Carbink', 'Wigglytuff', 'Lickilicky', 'Stoutland', 'Talonflame', 'Camerupt-Base', 'Steelix-Base', 'Palossand', 'Relicanth', 'Wailord', 'Swanna', 'Avalugg-Base', 'Hitmontop', 'Weezing-Base', 'Haunter', 'Silvally-Poison', 'Mabosstiff', 'Guzzlord', 'Mothim', 'Pinsir-Base',
 		],
 	},
-	
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
 		mod: 'gen9',

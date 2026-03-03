@@ -962,6 +962,7 @@ export const commands: Chat.ChatCommands = {
 		catch {
 			return this.errorReply(`Input log for ${target} is invalid.`);
 		}
+		this.globalModlog('RECREATEBATTLE', user, `${formatid}-${battleid} ${Number.isNaN(index) ? 'DISPLAY' : 'START'}`);
 		this.sendReply(`Found input log dating ${log.timestamp}`);
 
 		const inputLog: string[] = log.inputLog;
@@ -1031,6 +1032,7 @@ export const commands: Chat.ChatCommands = {
 		catch {
 			return this.errorReply(`Log for ${formatid}-${battleid} is invalid.`);
 		}
+		this.globalModlog('CREATEREPLAY', user, `${formatid}-${battleid}`);
 
 		FS(`${dir}/${formatid}-${battleid}.json`).writeUpdate(() => `${JSON.stringify({
 			id: `${formatid}-${battleid}`,

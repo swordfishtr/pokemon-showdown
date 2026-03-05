@@ -1249,7 +1249,7 @@ function createTournament(
 		throw new Chat.ErrorMessage("You cannot have a player cap that is less than 2.");
 	}
 	if (name?.trim().length) {
-		if (output?.checkChat(name) !== name) {
+		if (output && output.checkChat(name) !== name) {
 			throw new Chat.ErrorMessage(`You cannot use filtered words in tour names.`);
 		}
 

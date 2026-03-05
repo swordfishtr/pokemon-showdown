@@ -77,7 +77,7 @@ const actions = {
 	// Added for 35PL - tryout tours
 	roomtour: {
 		help: [
-			'/cron add roomtour, [format], [generator], [mod], [name] - Starts a tournament in the current room.',
+			'/cron add roomtour, [date], [format], [generator], [mod], [name] - Starts a tournament in the current room.',
 			'Generator is one of: elimination, roundrobin. Mod is one of: 1 (for single elim), 2 (for double elim).'
 		],
 		validate(input) {

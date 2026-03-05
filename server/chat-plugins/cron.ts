@@ -179,7 +179,17 @@ export const commands: Chat.ChatCommands = {
 				return;
 			}
 
-			const timestamp =/^\d+$/.test(date) ? Number(date) : (new Date(`${date}Z`)).getTime() / 1000;
+			let timestamp: number;
+			if (date.startsWith('+')) {
+				const minutes = parseInt(date);
+				timestamp = minutes * 60 + Date.now() / 1000;
+			}
+			else if (/^\d+$/.test(date)) {
+				timestamp = parseInt(date);
+			}
+			else {
+				timestamp = (new Date(`${date}Z`)).getTime() / 1000;
+			}
 			if (Number.isNaN(timestamp)) {
 				this.errorReply(`[cron] Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
 			}

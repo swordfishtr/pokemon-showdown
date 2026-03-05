@@ -3,7 +3,6 @@
  */
 
 import { FS, Utils } from "../../lib";
-import { CommandContext } from "../chat";
 import { Auth } from "../user-groups";
 
 const INTERVAL = 60 * 1000;
@@ -22,8 +21,8 @@ interface CronEvent {
 interface CronAction {
 	help: string[],
 	/** Sanitize input and check user authority. throw if invalid. */
-	validate: (this: CommandContext, input: string) => (string | void),
-	execute: (this: { room: Room, user: User }, input: string) => any,
+	validate: (this: Chat.CommandContext, input: string) => (string | void),
+	execute: (this: Room, input: string) => any,
 }
 
 const actions = {
@@ -35,11 +34,15 @@ const actions = {
 		],
 		validate(input) {
 			this.checkChat();
-			if(!input) throw new Error('Input must be a non-empty message.');
+			input = input.trim();
+			if (!input) {
+				throw new Error('Input must be a non-empty message.');
+			}
+			return `${this.user.name},${input}`;
 		},
 		execute(input) {
-			this.room.add(`[cron] ${(new Date()).toUTCString()} ${this.user.id}: ${input}`);
-			this.room.update();
+			const [user, text] = Utils.splitFirst(input, ',');
+			this.add(`[cron] ${(new Date()).toUTCString()} ${user}: ${text}`).update();
 		},
 	},
 
@@ -52,18 +55,52 @@ const actions = {
 			this.checkCan('roomprizewinner', null, this.room!);
 			const [user, nextRank] = Utils.splitFirst(input, ',').map((x) => x.trim());
 			const userid = toID(user);
-			if(!userid) throw new Error('Invalid user');
-			if(nextRank && !Auth.isValidSymbol(nextRank)) throw new Error('Invalid rank');
+			if (!userid) {
+				throw new Error('Invalid user.');
+			}
+			if (nextRank && !Auth.isValidSymbol(nextRank)) {
+				throw new Error('Invalid rank.');
+			}
 			return `${userid},${nextRank}`;
 		},
 		execute(input) {
 			const [user, nextRank] = input.split(',');
-			if(nextRank) {
-				this.room.auth.set(user as ID, nextRank as GroupSymbol);
+			if (nextRank) {
+				this.auth.set(user as ID, nextRank as GroupSymbol);
 			}
 			else {
-				this.room.auth.delete(user as ID);
+				this.auth.delete(user as ID);
 			}
+		},
+	},
+
+	// Added for 35PL - tryout tours
+	roomtour: {
+		help: [
+			'/cron add roomtour, [format], [generator], [mod], [name] - Starts a tournament in the current room.',
+			'Generator is one of: elimination, roundrobin. Mod is one of: 1 (for single elim), 2 (for double elim).'
+		],
+		validate(input) {
+			const room = this.requireRoom();
+			this.checkCan('tournaments', null, room);
+			const [format, generator, mod, name] = Utils.splitFirst(input, ',', 4).map((x) => x.trim());
+			if (!Dex.formats.get(format).exists) {
+				throw new Error('Invalid format.');
+			}
+			if (!['elimination', 'elim', 'roundrobin', 'rr'].includes(generator)) {
+				throw new Error('Generator must be one of: elimination, roundrobin.');
+			}
+			if (!['1', '2'].includes(mod)) {
+				throw new Error('Generator mod must be one of: 1 (for single elim), 2 (for double elim).');
+			}
+			const validated = `${format},${generator},${mod},${name}`;
+			this.globalModlog('CRON ROOMTOUR', null, validated);
+			return validated;
+		},
+		execute(input) {
+			const [format, generator, mod, name] = input.split(',');
+			this.add(`[cron] Attempting to start a ${format} tournament.`).update();
+			Tournaments.createTournament(this, format, generator, undefined, false, mod, name);
 		},
 	},
 
@@ -81,24 +118,22 @@ const cron = new class {
 	readonly timer = setInterval(() => {
 		const now = Math.floor(Date.now() / 1000);
 		let save = false;
-		for(const event of this.events) {
-			if(now > event.timestamp) {
+		for (const event of this.events) {
+			if (now > event.timestamp) {
 				event.fulfilled = true;
 				save = true;
 				try {
 					const room = Rooms.get(event.roomid);
 					if(!room) throw new Error(`[cron] ${now}: Invalid room ${event.roomid}`);
-					const user = Users.getExact(event.userid);
-					if(!user) throw new Error(`[cron] ${now}: Invalid user ${event.userid}`);
-					actions[event.actionname].execute.call({ room, user }, event.input);
+					actions[event.actionname].execute.call(room, event.input);
 				}
-				catch(error: any) {
+				catch (error: any) {
 					// TODO: let it crash
-					console.log(error?.message);
+					console.log(`[cron] ${error?.message}`);
 				}
 			}
 		}
-		if(save) {
+		if (save) {
 			this.events = this.events.filter((event) => !event.fulfilled);
 			this.save();
 		}
@@ -123,7 +158,7 @@ export const commands: Chat.ChatCommands = {
 		list(target, room, user, connection, cmd, message) {
 			this.sendReply(cron.events.map((event, i) => [
 				`=== ${i + 1}. ===`,
-				`date: ${(new Date(event.timestamp)).toUTCString()}`,
+				`date: ${(new Date(event.timestamp * 1000)).toUTCString()}`,
 				`action: ${event.actionname}`,
 				`user: ${event.userid}`,
 				`room: ${event.roomid}`,
@@ -138,14 +173,14 @@ export const commands: Chat.ChatCommands = {
 
 			const isValidAction = (action: string): action is keyof typeof actions => (action in actions);
 
-			if(!isValidAction(action)) {
+			if (!isValidAction(action)) {
 				this.errorReply('[cron] Usage: /cron add [action], [date], [input]');
 				this.sendReply(`Actions: ${Object.keys(actions).join(', ')}`);
 				return;
 			}
 
 			const timestamp =/^\d+$/.test(date) ? Number(date) : (new Date(`${date}Z`)).getTime() / 1000;
-			if(Number.isNaN(timestamp)) {
+			if (Number.isNaN(timestamp)) {
 				this.errorReply(`[cron] Input date ${date} is invalid. Must be a valid HTML datetime-local value or a Showdown style Unix time.`);
 			}
 
@@ -154,7 +189,7 @@ export const commands: Chat.ChatCommands = {
 			try {
 				validatedInput = actions[action].validate.call(this, input) ?? input;
 			}
-			catch(error: any) {
+			catch (error: any) {
 				this.errorReply(`[cron] ${error?.message}`);
 				this.sendReply(actions[action].help.join('\n'));
 				return;
@@ -176,15 +211,15 @@ export const commands: Chat.ChatCommands = {
 		remove(target, room, user, connection, cmd, message) {
 			this.checkCan('bypassall', null);
 
-			if(target.endsWith('.')) target = target.slice(0, -1);
+			if (target.endsWith('.')) target = target.slice(0, -1);
 
-			if(target === '') {
+			if (target === '') {
 				this.errorReply('[cron] Usage: /cron remove [index]');
 				return this.parse('/cron list');
 			}
 
-			const index = parseInt(target);
-			if(!(index > 0) || !cron.events[index]) {
+			const index = parseInt(target) - 1;
+			if (!(index > 0) || !cron.events[index]) {
 				this.errorReply('[cron] Index must be a valid index number.');
 				return this.parse('/cron list');
 			}

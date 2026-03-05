@@ -632,9 +632,9 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		return data;
 	}
 
-	startTournament(output: Chat.CommandContext, isAutostart?: boolean) {
+	startTournament(output?: Chat.CommandContext, isAutostart?: boolean) {
 		if (this.isTournamentStarted) {
-			output.sendReply('|tournament|error|AlreadyStarted');
+			output?.sendReply('|tournament|error|AlreadyStarted');
 			return false;
 		}
 
@@ -643,9 +643,9 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 				this.room.send('|tournament|error|NotEnoughUsers');
 				this.forceEnd();
 				this.room.update();
-				output.modlog('TOUR END');
+				output?.modlog('TOUR END');
 			} else { // manual tour start without enough users
-				output.sendReply('|tournament|error|NotEnoughUsers');
+				output?.sendReply('|tournament|error|NotEnoughUsers');
 			}
 			return false;
 		}
@@ -664,7 +664,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		}
 		this.isBracketInvalidated = true;
 		this.room.add(`|tournament|start|${this.players.length}`);
-		output.modlog('TOUR START', null, `${this.players.length} players`);
+		output?.modlog('TOUR START', null, `${this.players.length} players`);
 		this.room.send('|tournament|update|{"isStarted":true}');
 		this.update();
 		return true;
@@ -804,13 +804,13 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		return true;
 	}
 
-	setAutoStartTimeout(timeout: number, output: Chat.CommandContext) {
+	setAutoStartTimeout(timeout: number, output?: Chat.CommandContext) {
 		if (this.isTournamentStarted) {
-			output.sendReply('|tournament|error|AlreadyStarted');
+			output?.sendReply('|tournament|error|AlreadyStarted');
 			return false;
 		}
 		if (timeout < AUTO_START_MINIMUM_TIMEOUT || isNaN(timeout)) {
-			output.sendReply('|tournament|error|InvalidAutoStartTimeout');
+			output?.sendReply('|tournament|error|InvalidAutoStartTimeout');
 			return false;
 		}
 
@@ -826,12 +826,12 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		return true;
 	}
 
-	setAutoDisqualifyTimeout(timeout: number, output: Chat.CommandContext) {
+	setAutoDisqualifyTimeout(timeout: number, output?: Chat.CommandContext) {
 		if (
 			isNaN(timeout) || timeout < AUTO_DISQUALIFY_WARNING_TIMEOUT ||
 			(timeout > MAX_AUTO_DISQUALIFY_TIMEOUT && timeout !== Infinity)
 		) {
-			output.sendReply('|tournament|error|InvalidAutoDisqualifyTimeout');
+			output?.sendReply('|tournament|error|InvalidAutoDisqualifyTimeout');
 			return false;
 		}
 
@@ -1217,7 +1217,7 @@ function createTournamentGenerator(
 }
 function createTournament(
 	room: Room, formatId: string | undefined, generator: string | undefined, playerCap: string | undefined,
-	isRated: boolean, generatorMod: string | undefined, name: string | undefined, output: Chat.CommandContext
+	isRated: boolean, generatorMod: string | undefined, name: string | undefined, output?: Chat.CommandContext
 ) {
 	if (room.type !== 'chat') {
 		throw new Chat.ErrorMessage("Tournaments can only be created in chat rooms.");
@@ -1230,8 +1230,8 @@ function createTournament(
 	}
 	const format = Dex.formats.get(formatId);
 	if (format.effectType !== 'Format' || !format.tournamentShow) {
-		output.errorReply(`${format.id} is not a valid tournament format.`);
-		void output.parse(`/tour formats`);
+		output?.errorReply(`${format.id} is not a valid tournament format.`);
+		void output?.parse(`/tour formats`);
 		return;
 	}
 	const settings = room.settings.tournaments;
@@ -1249,7 +1249,7 @@ function createTournament(
 		throw new Chat.ErrorMessage("You cannot have a player cap that is less than 2.");
 	}
 	if (name?.trim().length) {
-		if (output.checkChat(name) !== name) {
+		if (output?.checkChat(name) !== name) {
 			throw new Chat.ErrorMessage(`You cannot use filtered words in tour names.`);
 		}
 

@@ -2527,7 +2527,8 @@ export class TeamValidator {
 
 		let tradebackEligible = false;
 		const fullLearnset = dex.species.getFullLearnset(originalSpecies.id);
-		if (!fullLearnset.length && !(baseSpecies.id in ruleTable.validatorOverrides)) {
+		// TODO: use hasValidatorOverrides
+		if (!fullLearnset.length && !(`pokemon:${baseSpecies.id}` in ruleTable.validatorOverrides)) {
 			// It's normal for a nonstandard species not to have learnset data
 
 			// Formats should replace the `Obtainable Moves` rule if they want to

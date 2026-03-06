@@ -8,12 +8,12 @@ const common = require('./../common');
 
 let battle;
 
-describe('Stone Edge', () => {
+describe('Expanding Force', () => {
 	afterEach(() => {
 		battle.destroy();
 	});
 
-	it('should hit 80% of the time', () => {
+	it('should crit 4.17% of the time', () => {
 		battle = common.createBattle({
 			formatid: 'gen9ndgenerationsdraftgen4',
 			// Override the default seed used for tests
@@ -23,12 +23,12 @@ describe('Stone Edge', () => {
 			seed: PRNG.generateSeed(),
 		});
 		// Weak stone edge user to not KO the target
-		battle.setPlayer('p1', { team: [{ species: "Gible", level: 5, ability: 'sandveil', item: '', moves: ['stoneedge'] }] });
+		battle.setPlayer('p1', { team: [{ species: "Gible", level: 5, ability: 'sandveil', item: '', moves: ['expandingforce'] }] });
 		// Strong target that wont do anything but soak hits
-		battle.setPlayer('p2', { team: [{ species: "Chansey", ability: 'naturalcure', item: 'eviolite', moves: ['splash'] }] });
+		battle.setPlayer('p2', { team: [{ species: "Chansey", ability: 'angerpoint', item: 'eviolite', moves: ['splash'] }] });
 
 		// Number of times stone edge has hit
-		let hits = 0;
+		let crits = 0;
 		// Number of turns to play, 1000 goes over the 1000 turn limit hence 999
 		const rolls = 999;
 
@@ -37,11 +37,12 @@ describe('Stone Edge', () => {
 			// Auto will choose the only options available: stone edge for gible and splash for chansey
 			battle.makeChoices('auto', 'auto');
 			// After the turn completes, check if stone edge hit (chansey lost HP)
-			if (battle.p2.active[0].hp < battle.p2.active[0].maxhp) {
+			if (battle.p2.active[0].boosts.atk > 0) {
 				// If so increase the hit counter
-				hits++;
+				crits++;
 				// And restore chansey's HP so its not eventually KOed
 				battle.p2.active[0].hp = battle.p2.active[0].maxhp;
+				battle.p2.active[0].boosts.atk = 0;
 			} // If the move missed, we do NOT increment the hit counter.
 
 			// Regardless of if the move hit or missed, restore PP for both mon's moves so neither end up struggling
@@ -50,12 +51,12 @@ describe('Stone Edge', () => {
 		}
 
 		// Number of hits as a percentage
-		const hitRatio = hits / rolls;
+		const critPercent = (crits / rolls) * 100;
 		// multiply by 100 for proper display
-		console.log("Stone Edge hit " + (hitRatio * 100) + "% of the time.");
+		console.log(`Expanding Force crit ${critPercent}% of the time. Accepting range: 3.9577% - 4.3743`);
 		// Actual test assertion, test fails if stone edge hits less than 75% of the time or more than 85% of the time
 		// The reason for the buffer is simple: 100 uses wont always mean 80 hits and 20 misses, thats not how probability
 		// works when the odds do not change each time you perform the check.
-		assert.equal(hitRatio >= 0.75 && hitRatio <= 0.85, true);
+		assert.equal(critPercent >= 3.9577 && critPercent <= 4.3743, true);//41.666
 	});
 });

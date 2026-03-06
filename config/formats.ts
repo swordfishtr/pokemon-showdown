@@ -657,7 +657,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: 'Petpets',
 		mod: 'petpet',
 		ruleset: [
-			'Standard',
+			'Standard', 'Terastal Clause',
 
 			'#Bloop +acid +acidarmor +acidspray +acupressure +assurance +astonish +attract +barrage +bide +bittermalice +block +brutalswing +bubble +bubblebeam +captivate +chipaway +clearsmog +comeuppance +confide +confuseray +confusion +copycat +covet +craftyshield +curse +darkpulse +darkvoid +decorate +defensecurl +destinybond +dive +doodle +dreameater +embargo +encore +endeavor +entrainment +explosion +facade +faketears +falsesurrender +feint +feintattack +flatter +fling +followme +foulplay +frustration +gigadrain +glare +grudge +gunkshot +healblock +hex +hiddenpower +honeclaws +hornattack +hypnosis +imprison +lashout +leechlife +leer +lick +lunge +mefirst +meanlook +memento +mudbomb +mudshot +mudsport +mudslap +nastyplot +nightdaze +nightshade +obstruct +octazooka +painsplit +partingshot +payback +poltergeist +protect +punishment +pursuit +recover +recycle +rest +retaliate +return +round +scald +shadowball +shadowforce +shadowsneak +sludge +sludgebomb +sludgewave +snatch +soak +spite +substitute +supersonic +swagger +switcheroo +synchronoise +tarshot +taunt +thief +torment +toxic +toxicspikes +trick +trickroom +trickortreat +trumpcard +uproar +vacuumwave +venomdrench +venoshock +willowisp +wonderroom +workup',
 

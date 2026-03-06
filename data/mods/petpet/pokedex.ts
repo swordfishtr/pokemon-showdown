@@ -154,5 +154,47 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 96.2,
 		heightm: 3.2,
 		color: 'Pink',
-	}
+	},
+
+	// TODO
+	rock: {
+		num: -10114,
+		gen: 9,
+		name: 'Rock',
+		types: [],
+		baseStats: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+		abilities: { 0: 'No Ability' },
+		eggGroups: ['Undiscovered'],
+		weightkg: 0,
+	},
+	angelpuss: {
+		num: -10115,
+		gen: 9,
+		name: 'Angelpuss',
+		types: [],
+		baseStats: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+		abilities: { 0: 'No Ability' },
+		eggGroups: ['Undiscovered'],
+		weightkg: 0,
+	},
+	bython: {
+		num: -10116,
+		gen: 9,
+		name: 'Bython',
+		types: [],
+		baseStats: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+		abilities: { 0: 'No Ability' },
+		eggGroups: ['Undiscovered'],
+		weightkg: 0,
+	},
+	psimouse: {
+		num: -10117,
+		gen: 9,
+		name: 'Psimouse',
+		types: [],
+		baseStats: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+		abilities: { 0: 'No Ability' },
+		eggGroups: ['Undiscovered'],
+		weightkg: 0,
+	},
 };

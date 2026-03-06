@@ -671,7 +671,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 			'#Kadoatie +agility +assist +assurance +attract +batonpass +bide +bite +bodyslam +burningjealousy +captivate +charm +confide +copycat +covet +cut +dig +doubleteam +doubleedge +echoedvoice +embargo +encore +endeavor +endure +facade +fakeout +faketears +falseswipe +feint +feintattack +flail +foulplay +frustration +furyswipes +gigaimpact +growl +headbutt +hiddenpower +honeclaws +hypervoice +irontail +knockoff +lashout +lastresort +metalclaw +mimic +nastyplot +nightslash +nightmare +painsplit +payday +payback +playrough +protect +punishment +pursuit +quickattack +rage +rest +retaliate +return +roar +roleplay +round +scratch +screech +secretpower +shadowclaw +sing +skullbash +slash +sleeptalk +snarl +snatch +snore +spite +substitute +swagger +swift +switcheroo +tailwhip +takedown +taunt +thief +torment +trailblaze +uproar +workup',
 
-			'#Faellie +acrobatics +aerialace +agility +aircutter +airslash +alluringvoice +attract +babydolleyes +batonpass +bestow +bide +calmmind +captivate +charm +copycat +covet +dazzlinggleam +defog +disarmingvoice +dualwingbeat +encore +endeavor +endure +entrainment +extremespeed +facade +fairywind +fakeout +featherdance +flail +flash +fly +followme +frustration +furyswipes +growl +gust +headbutt +healbell +healpulse +healingwish +helpinghand +hiddenpower +hurricane +hyperbeam +hypervoice +knockoff +lastresort +lightscreen +luckychant +mefirst +move:metronome +mimic +mirrorcoat +mist +mistyterrain +moonblast +moonlight +mudslap +mysticalfire +naturalgift +naturepower +ominouswind +perishsong +playnice +playrough +pound +protect +quickattack +recover +recycle +reflect +refresh +rest +return +roost +round +safeguard +secretpower +simplebeam +sing +skillswap +skyattack +sleeptalk +splash +steelwing +substitute +sweetkiss +swift +synchronoise +tailwhip +tailwind +tickle +tidyup +uturn +weatherball +wish +workup',
+			'#Faellie +acrobatics +aerialace +agility +aircutter +airslash +alluringvoice +attract +babydolleyes +batonpass +bestow +bide +calmmind +captivate +charm +copycat +covet +dazzlinggleam +defog +disarmingvoice +dualwingbeat +encore +endeavor +endure +entrainment +facade +fairywind +fakeout +featherdance +flail +flash +fly +followme +frustration +furyswipes +growl +gust +headbutt +healbell +healpulse +healingwish +helpinghand +hiddenpower +hurricane +hyperbeam +hypervoice +knockoff +lastresort +lightscreen +luckychant +mefirst +move:metronome +mimic +mirrorcoat +mist +mistyterrain +moonblast +moonlight +mudslap +mysticalfire +naturalgift +naturepower +ominouswind +perishsong +playnice +playrough +pound +protect +quickattack +recover +recycle +reflect +refresh +rest +return +roost +round +safeguard +secretpower +simplebeam +sing +skillswap +skyattack +sleeptalk +splash +steelwing +substitute +sweetkiss +swift +synchronoise +tailwhip +tailwind +tickle +tidyup +uturn +weatherball +wish +workup',
 
 			'#Rock +accelerock +rockblast +rockpolish +rockslide +rockthrow +rocktomb +rockwrecker +rollout +stealthrock +stoneedge',
 
@@ -698,6 +698,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Bloop', 'Ettaphant', 'Faellie', 'Feepit', 'Griefer', 'Kadoatie', 'Meepit', 'Scado', 'Snowbunny', 'Spyder', 'Ukali', 'Wuzzle', 'Yullie',
 			// 'Angelpuss', 'Bython', 'Psimouse', 'Rock',
 		],
+		onChangeSet(set, format, setHas, teamHas) {
+			set.shiny = false;
+		},
 	},
 
 	// endregion

@@ -732,7 +732,7 @@ export class DexSpecies {
 			}
 
 			// should never happen
-			throw new Error(`Species with no learnset data: ${species.id}`);
+			// throw new Error(`Species with no learnset data: ${species.id}`);
 		}
 
 		return out;

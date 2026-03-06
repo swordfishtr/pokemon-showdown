@@ -661,7 +661,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 		],
 		unbanlist: [
-			'Bloop', 'Yullie', 'Spyder', 'Ukali', 'Wuzzle', 'Kadoatie', 'Faellie', 'Rock', 'Ettaphant', 'Scado', 'Feepit', 'Griefer', 'Angelpuss', 'Bython', 'Snowbunny', 'Meepit', 'Psimouse',
+			'Past', 'Bloop', 'Yullie', 'Spyder', 'Ukali', 'Wuzzle', 'Kadoatie', 'Faellie', 'Rock', 'Ettaphant', 'Scado', 'Feepit', 'Griefer', 'Angelpuss', 'Bython', 'Snowbunny', 'Meepit', 'Psimouse',
 		],
 	},
 

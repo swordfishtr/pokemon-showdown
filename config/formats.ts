@@ -693,11 +693,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 			'#Psimouse +acupressure +afteryou +allyswitch +amnesia +ancientpower +astonish +attract +aurasphere +aurorabeam +barrier +batonpass +bestow +blizzard +block +bubblebeam +calmmind +captivate +chillingwater +confide +confuseray +confusion +cosmicpower +curse +darkpulse +dazzlinggleam +destinybond +detect +disable +disarmingvoice +echoedvoice +eerieimpulse +eeriespell +embargo +encore +energyball +entrainment +expandingforce +extrasensory +facade +flash +flashcannon +flatter +focusblast +followme +foresight +frustration +futuresight +gravity +grudge +healbell +healblock +healpulse +healingwish +hex +hiddenpower +hyperbeam +hyperfang +hypervoice +icebeam +imprison +kinesis +laserfocus +lightscreen +luckychant +magiccoat +magicroom +magicalleaf +meditate +move:metronome +mimic +mindreader +miracleeye +mirrorcoat +moonblast +moonlight +mysticalfire +mysticalpower +nastyplot +nightshade +ominouswind +painsplit +partingshot +perishsong +playrough +powergem +powersplit +powerswap +powertrick +protect +psybeam +psychup +psychic +psychicnoise +psychicterrain +psychoshift +psyshock +psywave +quash +recycle +reflect +rest +return +round +safeguard +shadowball +shockwave +signalbeam +simplebeam +skillswap +speedswap +spiritbreak +spite +storedpower +substitute +supersonic +swift +synchronoise +telekinesis +teleport +terrainpulse +thunderbolt +topsyturvy +torment +toxic +triattack +trick +trickroom +waterpulse +weatherball +wonderroom +workup +zapcannon +zenheadbutt',
 		],
-		banlist: [
-			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-		],
+		banlist: ['All Pokemon'],
 		unbanlist: [
-			'Bloop', 'Yullie', 'Spyder', 'Ukali', 'Wuzzle', 'Kadoatie', 'Faellie', 'Rock', 'Ettaphant', 'Scado', 'Feepit', 'Griefer', 'Angelpuss', 'Bython', 'Snowbunny', 'Meepit', 'Psimouse',
+			'Bloop', 'Ettaphant', 'Faellie', 'Feepit', 'Griefer', 'Kadoatie', 'Meepit', 'Scado', 'Snowbunny', 'Spyder', 'Ukali', 'Wuzzle', 'Yullie',
+			// 'Angelpuss', 'Bython', 'Psimouse', 'Rock',
 		],
 	},
 

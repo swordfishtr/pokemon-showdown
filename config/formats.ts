@@ -652,19 +652,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
 		],
 	},
-	// {
-	// 	name: '[Gen 9] Petpet Battle II',
-	// 	desc: 'Petpets',
-	// 	mod: 'petpet',
-	// 	ruleset: [
-	// 		'Standard AG',
-
-	// 		'#petpet-splash+crunch',
-	// 	],
-	// 	banlist: [
-	// 		'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
-	// 	],
-	// },
+	{
+		name: '[Gen 9] Petpet Battle II',
+		desc: 'Petpets',
+		mod: 'petpet',
+		ruleset: ['Standard'],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+		],
+		unbanlist: [
+			'Bloop', 'Yullie', 'Spyder', 'Ukali', 'Wuzzle', 'Kadoatie', 'Faellie', 'Rock', 'Ettaphant', 'Scado', 'Feepit', 'Griefer', 'Angelpuss', 'Bython', 'Snowbunny', 'Meepit', 'Psimouse',
+		],
+	},
 
 	// endregion
 

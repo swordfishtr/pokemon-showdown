@@ -229,7 +229,7 @@ export const commands: Chat.ChatCommands = {
 			}
 
 			const index = parseInt(target) - 1;
-			if (!(index > 0) || !cron.events[index]) {
+			if (!(index >= 0) || !cron.events[index]) {
 				this.errorReply('[cron] Index must be a valid index number.');
 				return this.parse('/cron list');
 			}

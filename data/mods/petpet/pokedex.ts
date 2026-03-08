@@ -17,7 +17,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: 'Ettaphant',
 		types: ['Psychic'],
 		baseStats: { hp: 110, atk: 75, def: 75, spa: 80, spd: 80, spe: 62 },
-		abilities: { 0: 'Contrary', 1: 'Oblivious', H: 'Moody' },
+		abilities: { 0: 'Contrary', 1: 'Oblivious', H: 'Thick Fat' },
 		eggGroups: ['Monster'],
 		weightkg: 250.0,
 		heightm: 5.3,

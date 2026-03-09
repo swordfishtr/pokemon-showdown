@@ -1540,12 +1540,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
 		banlist: ['Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
 		unbanlist: [
-			'Aerodactyl-Base', 'Arcanine-Base', 'Camerupt-Base', 'Camerupt-Mega', 'Cramorant-Base', 'Cyclizar', 'Dachsbun', 'Druddigon', 'Electrode-Hisui', 'Escavalier', 'Floatzel', 'Frosmoth', 'Gardevoir-Base', 'Glimmet', 'Gurdurr', 'Leafeon', 'Magnezone', 'Mismagius', 'Mr. Rime', 'Orthworm', 'Overqwil', 'Poliwrath', 'Porygon2', 'Raboot', 'Raichu-Base', 'Rhyperior', 'Sableye-Base', 'Scyther', 'Slaking', 'Slowbro-Galar', 'Swampert-Base', 'Tauros-Paldea-Combat', 'Trevenant', 'Umbreon', 'Uxie', 'Whimsicott',
+			'Absol-Base', 'Aerodactyl-Base', 'Arcanine-Base', 'Camerupt-Base', 'Camerupt-Mega', 'Cramorant-Base', 'Cyclizar', 'Dachsbun', 'Druddigon', 'Electrode-Hisui', 'Escavalier', 'Floatzel', 'Frosmoth', 'Gardevoir-Base', 'Glimmet', 'Gurdurr', 'Leafeon', 'Magnezone', 'Mismagius', 'Mr. Rime', 'Orthworm', 'Overqwil', 'Poliwrath', 'Raboot', 'Raichu-Base', 'Rhyperior', 'Sableye-Base', 'Scyther', 'Slaking', 'Slowbro-Galar', 'Snorlax', 'Swampert-Base', 'Tauros-Paldea-Combat', 'Trevenant', 'Uxie', 'Whimsicott',
 			'Cameruptite',
 		],
 		onValidateSet(set) {
 			const problems: string[] = [];
-			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar', 'porygon2'];
+			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar'];
 			const speciesid = this.toID(set.species);
 			const item = this.dex.items.get(set.item);
 			if (item.zMove && !zUsers.includes(speciesid)) {
@@ -1554,7 +1554,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			if(problems.length) return problems;
 		},
 		onBegin() {
-			const zUsers = ['Raichu', 'Leafeon', 'Poliwrath', 'Raboot', 'Frosmoth', 'Slowbro-Galar', 'Porygon2'];
+			const zUsers = ['Raichu', 'Leafeon', 'Poliwrath', 'Raboot', 'Frosmoth', 'Slowbro-Galar'];
 			this.add('rule', `Perfect E2: Only the following Pokemon can hold Z Crystals:`);
 			this.add('rule', zUsers.join(', '));
 			this.add('rule', `Perfect E2: Pokemon can not have Quick Draw.`);

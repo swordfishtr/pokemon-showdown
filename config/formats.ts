@@ -1545,7 +1545,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		onValidateSet(set) {
 			const problems: string[] = [];
-			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar'];
+			const zUsers = ['raichu', 'leafeon', 'poliwrath', 'raboot', 'frosmoth', 'slowbrogalar', 'snorlax'];
 			const speciesid = this.toID(set.species);
 			const item = this.dex.items.get(set.item);
 			if (item.zMove && !zUsers.includes(speciesid)) {
@@ -1554,7 +1554,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			if(problems.length) return problems;
 		},
 		onBegin() {
-			const zUsers = ['Raichu', 'Leafeon', 'Poliwrath', 'Raboot', 'Frosmoth', 'Slowbro-Galar'];
+			const zUsers = ['Raichu', 'Leafeon', 'Poliwrath', 'Raboot', 'Frosmoth', 'Slowbro-Galar', 'Snorlax'];
 			this.add('rule', `Perfect E2: Only the following Pokemon can hold Z Crystals:`);
 			this.add('rule', zUsers.join(', '));
 			this.add('rule', `Perfect E2: Pokemon can not have Quick Draw.`);

@@ -1683,7 +1683,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Standard 35 Pokes VGC', '!35 Pokes Hidden Power Clause',
 		],
 		unbanlist: [
-			'Altaria-Base', 'Bisharp', 'Brambleghast', 'Bruxish', 'Ceruledge', 'Electrode-Hisui', 'Excadrill-Base', 'Gastrodon', 'Gothitelle', 'Hariyama', 'Hatterene', 'Heliolisk', 'Hippowdon', 'Lilligant-Hisui', 'Lucario-Base', 'Ludicolo', 'Lycanroc-Base', 'Mamoswine', 'Maushold', 'Moltres-Galar', 'Munkidori', 'Oranguru', 'Overqwil', 'Politoed', 'Primarina', 'Regidrago', 'Salamence-Base', 'Scizor-Base', 'Slaking', 'Talonflame', 'Tinkaton', 'Toedscruel', 'Torkoal', 'Weezing-Galar', 'Zoroark-Hisui',
+			'Arctovish', 'Baxcalibur-Base', 'Bisharp', 'Bruxish', 'Camerupt-Base', 'Conkeldurr', 'Drampa-Base', 'Dusclops', 'Excadrill-Base', 'Gengar-Base', 'Gigalith', 'Gothitelle', 'Hatterene', 'Heliolisk', 'Hydreigon', 'Lokix', 'Ludicolo', 'Ninetales-Alola', 'Ninetales-Base', 'Politoed', 'Primarina', 'Raikou', 'Regigigas', 'Rotom-Wash', 'Scovillain-Base', 'Serperior', 'Skeledirge', 'Slither Wing', 'Terrakion', 'Toedscruel', 'Togekiss', 'Torracat', 'Weezing-Base', 'Wo-Chien', 'Yanmega',
 		],
 	},
 	{

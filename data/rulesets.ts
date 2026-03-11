@@ -3378,7 +3378,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Picked Team Size = Auto', 'Cancel Mod',
 			'Adjust Level = 50', 'Min Source Gen = 1', 'NatDex Mod', 'VGC Timer', 'Force Open Team Sheets', 'Best Of = 3',
-			'35 Pokes Mega Clause', '35 Pokes Hidden Power Clause',
+			'35 Pokes Mega Clause', '35 Pokes Z-Move Clause', '35 Pokes Hidden Power Clause',
 		],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC', 'Battle Bond',

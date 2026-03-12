@@ -109,6 +109,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Shadow Shield", H: "Prankster" },
 		weightkg: 29.5,
 		eggGroups: ["Bug"],
+		credits: ['Hog'],
 	},
 	beedrillg: {
 		num: -6001,
@@ -118,6 +119,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Adaptability", H: "Sand Rush" },
 		weightkg: 32,
 		eggGroups: ["Bug"],
+		credits: ['Hog'],
 	},
 	usurperr: {
 		num: -6002,
@@ -127,6 +129,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Steely Spirit", H: "Pickpocket" },
 		weightkg: 130,
 		eggGroups: ["Field"],
+		credits: ['Hog'],
 	},
 	valkaryia: {
 		num: -6003,
@@ -136,6 +139,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Oblivious", H: "Cryoresonance" },
 		weightkg: 108,
 		eggGroups: ["Human-Like"],
+		credits: ['Hog'],
 	},
 	irongoro: {
 		num: -6004,
@@ -145,6 +149,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Quark Drive" },
 		weightkg: 130,
 		eggGroups: ["Undiscovered"],
+		credits: ['Hog'],
 	},
 	ironsoke: {
 		num: -6005,
@@ -154,6 +159,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Quark Drive" },
 		weightkg: 149,
 		eggGroups: ["Undiscovered"],
+		credits: ['Hog'],
 	},
 	trembler: {
 		num: -6006,
@@ -163,5 +169,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Mimicry", H: "Quick Feet" },
 		weightkg: 44,
 		eggGroups: ["Water 3", "Amorphous"],
+		credits: ['Hog'],
 	},
 };

@@ -283,6 +283,10 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	 * National Dex Tier. The Pokemon's location in the Smogon National Dex tier system.
 	 */
 	readonly natDexTier: TierTypes.Singles | TierTypes.Other;
+	/**
+	 * If a custom species: attribution to designer, artist etc.
+	 */
+	readonly credits?: string[];
 
 	constructor(data: AnyObject) {
 		super(data);
@@ -340,6 +344,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 			(this.battleOnly !== this.baseSpecies ? this.battleOnly : this.baseSpecies);
 		if (Array.isArray(this.changesFrom)) this.changesFrom = this.changesFrom[0];
 		this.pokemonGoData = data.pokemonGoData || undefined;
+		this.credits = data.credits;
 
 		if (!this.gen && this.num >= 1) {
 			if (this.num >= 906 || this.forme.includes('Paldea')) {

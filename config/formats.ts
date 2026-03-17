@@ -734,6 +734,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Carracosta', 'Celebi', 'Cinccino', 'Cobalion', 'Cradily', 'Dedenne', 'Fezandipiti', 'Gabite', 'Granbull', 'Greedent', 'Hatterene', 'Heatmor', 'Houndstone', 'Indeedee-M', 'Lilligant-Base', 'Medicham-Base', 'Orbeetle', 'Oricorio-Pom-Pom', 'Overqwil', 'Pincurchin', 'Pinsir-Base', 'Rotom-Wash', 'Samurott-Base', 'Scovillain-Base', 'Sharpedo-Base', 'Shedinja', 'Shiftry', 'Steelix-Base', 'Tropius', 'Type: Null', 'Typhlosion-Hisui', 'Tyrantrum', 'Veluza', 'Vivillon', 'Whimsicott',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		section: '35 Pokes 2025',
@@ -765,6 +772,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Ambipom', 'Armarouge', 'Articuno-Base', 'Basculegion-F', 'Bibarel', 'Copperajah', 'Corviknight', 'Crobat', 'Dudunsparce', 'Dugtrio-Alola', 'Farigiraf', 'Floatzel', 'Froslass-Base', 'Golem-Alola', 'Hippowdon', 'Magmortar', 'Meganium-Base', 'Moltres-Base', 'Muk-Alola', 'Munkidori', 'Nidoking', 'Ninjask', 'Orthworm', 'Perrserker', 'Porygon-Z', 'Pyukumuku', 'Sandslash-Base', 'Sigilyph', 'Simisear', 'Sirfetch’d', 'Steelix-Base', 'Tauros-Base', 'Tauros-Paldea-Aqua', 'Weezing-Galar', 'Zoroark-Base',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2025]",
@@ -822,6 +836,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Dustox', 'Dedenne', 'Kecleon', 'Flareon', 'Cyclizar', 'Grumpig', 'Tentacruel', 'Miltank', 'Arcanine-Base',
 			'Shelgon', 'Spinda', 'Wormadam-Sandy', 'Exploud', 'Marowak-Base', 'Hypno', 'Furret', 'Bastiodon',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2025]",
@@ -834,6 +855,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Appletun', 'Kabutops', 'Wyrdeer', 'Charizard-Base', 'Grafaiai', 'Golem-Base', 'Medicham-Base', 'Thievul', 'Lucario-Base',
 			'Mantine', 'Wormadam-Trash', 'Morpeko-Base', 'Drifblim', 'Granbull', 'Swalot', 'Aggron-Base', 'Luxray',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2025]",
@@ -846,6 +874,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Ambipom', 'Zygarde-10%', 'Tauros-Base', 'Glalie-Base', 'Golduck', 'Pangoro', 'Weezing-Base', 'Zweilous', 'Pinsir-Base',
 			'Musharna', 'Cacturne', 'Regigigas', 'Arctozolt', 'Bewear', 'Kecleon', 'Alcremie', 'Togedemaru-Base',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2025]",
@@ -987,6 +1022,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Houndstone', 'Leafeon', 'Glaceon', 'Slowking-Base', 'Manectric-Base', 'Alomomola', 'Accelgor', 'Mismagius', 'Dachsbun',
 			'Tentacruel', 'Sandslash-Base', 'Tinkaton', 'Roserade', 'Sableye-Base', 'Palossand', 'Cobalion', 'Garbodor',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2024]",
@@ -999,6 +1041,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Magmortar', 'Lilligant-Base', 'Sirfetch’d', 'Oricorio-Sensu', 'Persian-Alola', 'Farigiraf', 'Pinsir-Base', 'Primeape', 'Tatsugiri-Base',
 			'Dugtrio-Alola', 'Flygon', 'Regice', 'Ditto', 'Grafaiai', 'Pidgeot-Base', 'Palossand', 'Ribombee-Base',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2024]",
@@ -1039,6 +1088,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Dachsbun', 'Drampa-Base', 'Trevenant', 'Passimian', 'Beautifly', 'Tyranitar-Base', 'Regirock', 'Stunfisk-Galar', 'Morpeko-Base',
 			'Jumpluff', 'Heatmor', 'Froslass-Base', 'Audino-Base', 'Cetitan', 'Pincurchin', 'Cradily', 'Ninetales-Base',
 		],
+		onValidateSet(set, format, setHas, teamHas) {
+			if ([
+				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			].includes(this.dex.items.get(set.item).name)) {
+				return ['All Z Crystals are banned for the duration of 35PL II.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2023]",

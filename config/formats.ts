@@ -276,7 +276,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Heatran-Base', 'Manaphy', 'Staraptor-Mega', 'Gligar', 'Umbreon', 'Roserade', 'Glalie-Base', 'Luxio',
+			'Heatran-Base', 'Manaphy', 'Staraptor-Mega', 'Gligar', 'Umbreon', 'Roserade', 'Luxio', 'Vespiquen',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -296,7 +296,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Azelf', 'Gastrodon', 'Rotom-Mow', 'Sylveon', 'Magmortar', 'Dusknoir', 'Staraptor-Base', 'Chatot'
+			'Azelf', 'Gastrodon', 'Rotom-Mow', 'Sylveon', 'Magmortar', 'Staraptor-Base', 'Spiritomb', 'Munchlax',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -351,12 +351,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Val] Mailducks',
+		name: '[Val] Masterriolu',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Gardevoir-Mega', 'Magnezone', 'Regidrago', 'Gligar', 'Jolteon', 'Honchkrow', 'Dusclops', 'Lopunny-Base', 'Monferno',
+			'Gardevoir-Mega', 'Gligar', 'Dusclops', 'Cresselia', 'Umbreon', 'Porygon2', 'Bronzor', 'Blissey',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -391,7 +391,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Val] htz_Attila',
+		name: '[Val] Skye',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
@@ -411,12 +411,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Val] Flabermaber',
+		name: '[Val] Poloter',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Phione', 'Togetic', 'Kricketune', 'Skorupi',
+			'Hippowdon', 'Garchomp-Mega', 'Lucario-Base', 'Tangrowth', 'Mismagius', 'Togetic', 'Skorupi', 'Magneton', 'Duskull',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -536,7 +536,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Murkrow', 'Regidrago', 'Regieleki', 'Mamoswine', 'Floatzel', 'Ambipom', 'Tangrowth', 'Drapion', 'Flareon', 'Probopass',
+			'Murkrow', 'Regidrago', 'Regieleki', 'Mamoswine', 'Floatzel', 'Ambipom', 'Tangrowth', 'Flareon', 'Probopass', 'Carnivine',
 		],
 		validateTeam: draftteamsvgc.validateTeam,
 	},

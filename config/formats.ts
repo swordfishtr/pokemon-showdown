@@ -219,6 +219,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 			'Shadow Tag', 'Quick Draw', 'Cute Charm',
 		],
+		unbanlist: [
+			'Butterfree-G', 'Beedrill-G', 'Usurperr', 'Valkaryia', 'Iron Goro', 'Iron Soke', 'Trembler',
+		],
 	},
 	{
 		name: "[Gen 9] Re-Generations 1.0",
@@ -271,6 +274,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Aerodactyl-Base', 'Alakazam-Base', 'Annihilape', 'Arcanine-Hisui', 'Blastoise-Base', 'Charizard-Base', 'Clefable-Base', 'Ditto', 'Dragonite-Base', 'Exeggutor-Alola', 'Flareon', 'Gengar-Base', 'Jolteon', 'Kingdra', 'Machamp', 'Muk-Base', 'Ninetales-Alola', 'Pidgeot-Base', 'Pinsir-Base', 'Rhyperior', 'Sandslash-Alola', 'Sandy Shocks', 'Scream Tail', 'Snorlax', 'Tangrowth', 'Tauros-Base', 'Vaporeon', 'Venusaur-Base',
+			'Butterfree-G', 'Beedrill-G', 'Usurperr', 'Valkaryia', 'Iron Goro', 'Iron Soke', 'Trembler',
 		],
 	},
 	{

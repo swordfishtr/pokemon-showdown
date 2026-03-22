@@ -201,8 +201,11 @@ export class Challenges extends Map<ID, Challenge[]> {
 
 			const otherChallenges = this.get(otherid)!;
 			const otherIndex = otherChallenges.indexOf(challenge);
-			if (otherIndex >= 0) otherChallenges.splice(otherIndex, 1);
-			if (otherChallenges.length === 0) this.delete(otherid);
+			if (otherIndex >= 0) {
+				otherChallenges.splice(otherIndex, 1);
+				if (!otherChallenges.length) this.delete(otherid);
+				challenge.destroy();
+			}
 
 			if (!user && !otherUser) continue;
 			const header = `|pm|${userIdentity}|${otherIdentity}|`;

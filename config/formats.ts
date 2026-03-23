@@ -313,7 +313,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Weavile', 'Lopunny-Mega', 'Mismagius', 'Rhyperior', 'Mantine', 'Wormadam-Trash', 'Kricketune', 'Rotom-Heat', 'Grotle',
+			'Weavile', 'Lopunny-Mega', 'Mismagius', 'Rhyperior', 'Mantine', 'Rotom-Heat', 'Tangela', 'Chatot',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -353,7 +353,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Gliscor', 'Empoleon', 'Regieleki', 'Gallade-Base', 'Floatzel', 'Murkrow', 'Mr. Mime-Galar', 'Rotom-Base',
+			'Gliscor', 'Empoleon', 'Gallade-Base', 'Floatzel', 'Murkrow', 'Mr. Mime-Galar', 'Rotom-Base', 'Lucario-Base',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
@@ -603,7 +603,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Garchomp-Base', 'Chimecho-Mega', 'Gardevoir-Base', 'Rotom-Mow', 'Riolu', 'Rhydon', 'Mantine', 'Sneasel-Hisui', 'Monferno', 'Happiny',
+			'Garchomp-Base', 'Chimecho-Mega', 'Gardevoir-Base', 'Rotom-Mow', 'Riolu', 'Rhydon', 'Sneasel-Hisui', 'Monferno', 'Happiny', 'Mr. Mime-Galar',
 		],
 		validateTeam: draftteamsvgc.validateTeam,
 	},

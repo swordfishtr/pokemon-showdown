@@ -759,6 +759,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Apr 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', 'Hawlucha-Base', 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', 'Sigilyph', 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2026]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
@@ -1236,6 +1244,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add(`raw|<div class="broadcast-blue"><b>35 Factory Tier: ${this.teamGenerator.factoryTier}</b></div>`);
 		},
 	},
+
+	// region 35 Perfect
+
 	{
 		section: '35 Pokes Perfect',
 		column: 3
@@ -1687,6 +1698,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arctovish', 'Baxcalibur-Base', 'Bisharp', 'Bruxish', 'Camerupt-Base', 'Conkeldurr', 'Drampa-Base', 'Dusclops', 'Excadrill-Base', 'Gengar-Base', 'Gigalith', 'Gothitelle', 'Hatterene', 'Heliolisk', 'Hydreigon', 'Lokix', 'Ludicolo', 'Ninetales-Alola', 'Ninetales-Base', 'Politoed', 'Primarina', 'Raikou', 'Regigigas', 'Rotom-Wash', 'Scovillain-Base', 'Serperior', 'Skeledirge', 'Slither Wing', 'Terrakion', 'Toedscruel', 'Togekiss', 'Torracat', 'Weezing-Base', 'Wo-Chien', 'Yanmega',
 		],
 	},
+
+	// endregion
+
+	// region 35 Babies
+
 	{
 		section: '35 Pokes Babies',
 		column: 3
@@ -1829,6 +1845,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Corsola-Galar', 'Lotad', 'Inkay', 'Snom', 'Cetoddle', 'Noibat', 'Porygon', 'Lickitung', 'Hippopotas', 'Skwovet', 'Venipede', 'Slowpoke-Base', 'Silicobra', 'Wiglett', 'Diglett-Alola', 'Snorunt', 'Sunkern', 'Tandemaus', 'Wooper-Base', 'Clamperl', 'Flittle', 'Remoraid', 'Beldum', 'Cacnea', 'Magnemite', 'Toedscool', 'Pansage', 'Impidimp', 'Croagunk', 'Ponyta-Base', 'Slakoth', 'Blitzle', 'Charcadet', 'Minccino', 'Spoink',
 		],
 	},
+
+	// endregion
+
+	// region 35 Seniors
+
 	{
 		section: '35 Pokes Seniors',
 		column: 3
@@ -1894,9 +1915,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Forretress', 'Samurott-Hisui', 'Kyurem-White', 'Glalie-Base', 'Cresselia', 'Thundurus-Base', 'Regidrago', 'Banette-Mega', 'Dialga-Origin', 'Giratina-Origin', 'Palkia-Base', 'Arceus-Rock', 'Lunala', 'Machamp', 'Manectric-Mega', 'Naganadel', 'Pincurchin', 'Meloetta-Pirouette', 'Blissey', 'Alakazam-Mega', 'Aggron-Mega', 'Ogerpon-Hearthflame-Tera', 'Hoopa-Unbound', 'Dragapult', 'Camerupt-Mega', 'Tyranitar-Mega', 'Gothitelle', 'Skarmory-Base', 'Deoxys-Speed', 'Floette-Eternal-Base', 'Gastrodon', 'Dhelmise', 'Sceptile-Mega', 'Iron Treads', 'Victini',
 		],
 	},
+
+	// endregion
+
+	// region 35 VGC
+
 	{
 		section: '35 Pokes VGC',
 		column: 3,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes VGC [Apr 2026]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', 'Hawlucha-Base', 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', 'Sigilyph', 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Mar 2026]",
@@ -2301,6 +2336,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Typhlosion-Base', 'Marowak-Base', 'Porygon-Z', 'Jumpluff', 'Absol-Base', 'Porygon2', 'Rotom-Frost', 'Rotom-Mow',
 		],
 	},
+
+	// endregion
 
 	// endregion
 

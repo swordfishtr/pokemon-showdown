@@ -3358,7 +3358,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: "The standard ruleset for 35 Pokes metagames.",
 		ruleset: [
 			'Standard NatDex', '!Evasion Abilities Clause', 'Evasion Abilities Extended Clause',
-			'!Species Clause', 'Forme Clause', '!Sleep Clause Mod', 'Sleep Moves Clause',
+			'!Species Clause', 'Forme Clause', 'Sleep Moves Clause',
 			'Terastal Clause', 'DryPass Clause', 'Moody Clause',
 			'35 Pokes Mega Clause', '35 Pokes Z-Move Clause', '35 Pokes Hidden Power Clause',
 		],

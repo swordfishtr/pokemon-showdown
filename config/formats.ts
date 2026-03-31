@@ -1695,7 +1695,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Standard 35 Pokes VGC', '!35 Pokes Hidden Power Clause',
 		],
 		unbanlist: [
-			'Arctovish', 'Baxcalibur-Base', 'Bisharp', 'Camerupt-Base', 'Conkeldurr', 'Drampa-Base', 'Dusclops', 'Excadrill-Base', 'Gengar-Base', 'Gigalith', 'Gothitelle', 'Hatterene', 'Heliolisk', 'Hydreigon', 'Ludicolo', 'Ninetales-Alola', 'Ninetales-Base', 'Okidogi', 'Overqwil', 'Politoed', 'Primarina', 'Raikou', 'Regigigas', 'Rotom-Wash', 'Scizor-Base', 'Scovillain-Base', 'Serperior', 'Skeledirge', 'Terrakion', 'Toedscruel', 'Togekiss', 'Torracat', 'Weezing-Base', 'Wo-Chien', 'Yanmega',
+			'Arctovish', 'Baxcalibur-Base', 'Bisharp', 'Bruxish', 'Camerupt-Base', 'Conkeldurr', 'Drampa-Base', 'Dusclops', 'Excadrill-Base', 'Gengar-Base', 'Gigalith', 'Gothitelle', 'Hatterene', 'Heliolisk', 'Hydreigon', 'Ludicolo', 'Ninetales-Alola', 'Ninetales-Base', 'Okidogi', 'Overqwil', 'Politoed', 'Primarina', 'Raikou', 'Regigigas', 'Rotom-Wash', 'Scizor-Base', 'Scovillain-Base', 'Serperior', 'Skeledirge', 'Terrakion', 'Toedscruel', 'Togekiss', 'Torracat', 'Weezing-Base', 'Wo-Chien',
 		],
 	},
 

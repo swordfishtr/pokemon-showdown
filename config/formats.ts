@@ -763,7 +763,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
-			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', 'Hawlucha-Base', 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', 'Sigilyph', 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
+			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', 'Hawlucha-Base', 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', /* 'Sigilyph', */ 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
 		],
 	},
 	{
@@ -1930,7 +1930,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard 35 Pokes VGC'],
 		unbanlist: [
-			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', 'Hawlucha-Base', 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', 'Sigilyph', 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
+			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', 'Hawlucha-Base', 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', /* 'Sigilyph', */ 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
 		],
 	},
 	{

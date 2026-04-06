@@ -1637,6 +1637,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: [
+			'Standard 35 Pokes VGC', '!35 Pokes Hidden Power Clause',
+		],
+		unbanlist: [
+			'Arctovish', 'Baxcalibur-Base', 'Bisharp', 'Bruxish', 'Camerupt-Base', 'Conkeldurr', 'Drampa-Base', 'Dusclops', 'Excadrill-Base', 'Gengar-Base', 'Gigalith', 'Gothitelle', 'Hatterene', 'Heliolisk', 'Hydreigon', 'Ludicolo', 'Ninetales-Alola', 'Ninetales-Base', 'Okidogi', 'Overqwil', 'Politoed', 'Primarina', 'Raikou', 'Regigigas', 'Rotom-Wash', 'Scizor-Base', 'Scovillain-Base', 'Serperior', 'Skeledirge', 'Terrakion', 'Toedscruel', 'Togekiss', 'Torracat', 'Weezing-Base', 'Wo-Chien',
+		],
+	},
+	{
 		section: '35 Pokes Perfect (WIP)',
 		column: 3
 	},
@@ -1687,17 +1698,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Aggron-Base', 'Alakazam-Base', 'Ampharos-Base', 'Armaldo', 'Azumarill', 'Cloyster', 'Diancie-Base', 'Donphan', 'Drampa-Base', 'Electivire', 'Electrode-Hisui', 'Empoleon', 'Exeggutor-Base', 'Houndoom-Base', 'Houndstone', 'Kabutops', 'Lickilicky', 'Meganium-Base', 'Mismagius', 'Muk-Base', 'Noivern', 'Palossand', 'Pangoro', 'Pinsir-Base', 'Poliwrath', 'Rabsca', 'Rapidash-Base', 'Sandslash-Alola', 'Sneasel-Base', 'Torterra', 'Toxicroak', 'Turtonator', 'Weezing-Galar', 'Wigglytuff', 'Yanmega',
 		],
 	},
-	{
-		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
-		mod: 'gen9',
-		gameType: 'doubles',
-		ruleset: [
-			'Standard 35 Pokes VGC', '!35 Pokes Hidden Power Clause',
-		],
-		unbanlist: [
-			'Arctovish', 'Baxcalibur-Base', 'Bisharp', 'Bruxish', 'Camerupt-Base', 'Conkeldurr', 'Drampa-Base', 'Dusclops', 'Excadrill-Base', 'Gengar-Base', 'Gigalith', 'Gothitelle', 'Hatterene', 'Heliolisk', 'Hydreigon', 'Ludicolo', 'Ninetales-Alola', 'Ninetales-Base', 'Okidogi', 'Overqwil', 'Politoed', 'Primarina', 'Raikou', 'Regigigas', 'Rotom-Wash', 'Scizor-Base', 'Scovillain-Base', 'Serperior', 'Skeledirge', 'Terrakion', 'Toedscruel', 'Togekiss', 'Torracat', 'Weezing-Base', 'Wo-Chien',
-		],
-	},
+	
 
 	// endregion
 

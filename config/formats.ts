@@ -1813,15 +1813,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Babies [Apr 2024 AFD]",
-		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes LC'],
-		unbanlist: [
-			'Magikarp', 'Toxel', 'Noibat', 'Mareanie', 'Wooper-Paldea', 'Cyndaquil', 'Sinistea', 'Fomantis', 'Silicobra', 'Meowth-Galar', 'Slowpoke-Base', 'Bagon', 'Lechonk', 'Machop', 'Nosepass', 'Shroodle', 'Baltoy', 'Zigzagoon-Galar', 'Nickit', 'Froakie', 'Drilbur', 'Bounsweet', 'Porygon', 'Magnemite', 'Paras', 'Cubone', 'Sandshrew-Alola', 'Lotad',
-			'Chi-Yu', 'Duraludon', 'Scyther', 'Swirlix', 'Honedge', 'Sneasel-Base', 'Cosmog', 'Sneasel-Hisui',
-		],
-	},
-	{
 		name: "[Gen 9] ND 35 Pokes Babies [Mar 2024]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes LC'],
@@ -2091,21 +2082,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes VGC [Dec 2024 AG]",
-		mod: 'gen9',
-		gameType: 'doubles',
-		ruleset: ['Standard 35 Pokes VGC', 'Terastal Clause', '!35 Pokes Mega Clause'],
-		unbanlist: [
-			'Golem-Alola', 'Zoroark-Base', 'Pyukumuku', 'Guzzlord', 'Wugtrio', 'Garbodor', 'Aurorus', 'Morpeko-Base', 'Walrein',
-			'Roserade', 'Ribombee-Base', 'Carracosta', 'Perrserker', 'Cryogonal', 'Appletun', 'Primarina', 'Pachirisu', 'Banette-Base',
-			'Celebi', 'Avalugg-Base', 'Wo-Chien', 'Pupitar', 'Cetitan', 'Milotic', 'Scovillain-Base', 'Dipplin', 'Chandelure-Base',
-			'Toxicroak', 'Magmortar', 'Yanmega', 'Cacturne', 'Luvdisc', 'Mawile-Base', 'Jumpluff', 'Rotom-Frost',
-			'Jolteon', 'Lokix', 'Okidogi', 'Banette-Mega', 'Mawile-Mega',
-			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
-			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
-		],
-	},
-	{
 		name: "[Gen 9] ND 35 Pokes VGC [Dec 2024]",
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -2349,14 +2325,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 4,
 	},
 	{
-		name: "[Gen 9] Benjamin Button",
-		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Scalemons Mod'],
-		unbanlist: [
-			'Articuno-Base', 'Entei', 'Latias-Base', 'Heatran-Base', 'Thundurus-Base', 'Tapu Bulu', 'Regieleki', 'Venusaur-Base', 'Arctozolt', 'Ting-Lu', 'Ogerpon-Wellspring', 'Dialga-Base', 'Mamoswine', 'Celebi', 'Great Tusk', 'Meloetta-Base', 'Lugia', 'Deino', 'Lechonk', 'Arrokuda', 'Psyduck', 'Ferroseed', 'Beldum', 'Exeggcute', 'Charmander', 'Archen', 'Fomantis', 'Roggenrola', 'Tentacool', 'Munna', 'Hatenna', 'Drilbur', 'Bagon', 'Minccino', 'Whimsicott',
-		],
-	},
-	{
 		name: "[Gen 9] ND 35 Pokes NFE [Nov 2024]",
 		desc: '35 Pokes x NFE collab.',
 		mod: 'gen9',
@@ -2373,6 +2341,35 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', /* 'Force Monocolor' */],
 		unbanlist: [
 			'Kingler', 'Scizor-Base', 'Braviary-Base', 'Crustle', 'Klawf', 'Druddigon', 'Wugtrio', 'Krookodile', 'Armarouge', 'Magmortar', 'Wailord', 'Jumpluff', 'Blastoise-Base', 'Sandslash-Alola', 'Empoleon', 'Nidoqueen', 'Eelektross-Base', 'Aurorus', 'Gastrodon-East', 'Tangrowth', 'Ribombee-Base', 'Vespiquen', 'Sunflora', 'Ampharos-Base', 'Cofagrigus', 'Hypno', 'Falinks-Base', 'Ninetales-Base', 'Typhlosion-Base', 'Exeggutor-Base', 'Carnivine', 'Kecleon', 'Yanmega', 'Araquanid-Base', 'Garbodor', 'Sceptile-Base', 'Politoed', 'Appletun', 'Tyranitar-Base', 'Golurk-Base', 'Claydol', 'Toucannon', 'Houndoom-Base', 'Toedscruel', 'Umbreon', 'Banette-Base', 'Mawile-Base', 'Snorlax', 'Seviper', 'Raticate-Alola', 'Minior-Base', 'Shiftry', 'Brambleghast', 'Perrserker', 'Dachsbun', 'Torkoal', 'Barbaracle-Base', 'Dragalge-Base', 'Clodsire', 'Dugtrio-Base', 'Drifblim', 'Aerodactyl-Base', 'Ambipom', 'Noivern', 'Weezing-Base', 'Starmie-Base', 'Goodra-Base', 'Drapion', 'Pincurchin', 'Gastrodon', 'Unfezant', 'Grafaiai', 'Hakamo-o', 'Golem-Alola', 'Probopass', 'Donphan', 'Golisopod-Base', 'Veluza', 'Steelix-Base', 'Machamp', 'Mesprit', 'Lurantis-Base', 'Bewear', 'Flamigo', 'Tinkaton', 'Clefable-Base', 'Milotic', 'Orthworm', 'Hatterene', 'Slowbro-Base', 'Togekiss', 'Frosmoth', 'Cursola', 'Amoonguss', 'Absol-Base', 'Gardevoir-Base', 'Dubwool', 'Alcremie', 'Maushold', 'Pachirisu',
+		],
+	},
+	{
+		section: 'April Fools',
+		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes [Mega April]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', '!35 Pokes Mega Clause'],
+		unbanlist: [
+			'Abomasnow-Base', 'Accelgor', 'Alomomola', 'Altaria-Base', 'Arcanine-Base', 'Articuno-Base', 'Bastiodon', 'Beedrill-Base', 'Bombirdier', 'Brute Bonnet', 'Cacturne', 'Camerupt-Base', 'Charizard-Base', 'Chimecho-Base', 'Clefable-Base', 'Coalossal', 'Cobalion', 'Corsola-Base', 'Cradily', 'Crustle', 'Cyclizar', 'Dachsbun', 'Decidueye-Base', 'Dedenne', 'Dipplin', 'Donphan', 'Drampa-Base', 'Drifblim', 'Dugtrio-Alola', 'Dugtrio-Base', 'Dusknoir', 'Dustox', 'Exploud', 'Fezandipiti', 'Flareon', 'Frosmoth', 'Furret', 'Gabite', 'Garbodor', 'Gastrodon', 'Gengar-Base', 'Glaceon', 'Gogoat', 'Golduck', 'Golisopod-Base', 'Grumpig', 'Hariyama', 'Hippowdon', 'Houndstone', 'Hypno', 'Kecleon', 'Kingdra', 'Krookodile', 'Leafeon', 'Lokix', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Manectric-Base', 'Marowak-Base', 'Miltank', 'Minior-Base', 'Mismagius', 'Munkidori', 'Palossand', 'Passimian', 'Pawmot', 'Persian-Base', 'Pincurchin', 'Rabsca', 'Raichu-Alola', 'Raticate-Base', 'Roserade', 'Rotom-Base', 'Rotom-Heat', 'Sableye-Base', 'Sandaconda', 'Sandslash-Alola', 'Sandslash-Base', 'Sceptile-Base', 'Shelgon', 'Slowking-Base', 'Spinda', 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Type: Null', 'Uxie', 'Vespiquen', 'Vivillon', 'Whiscash', 'Wormadam-Sandy',
+		],
+	},
+	{
+		name: "[Gen 9] Benjamin Button",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause', 'Scalemons Mod'],
+		unbanlist: [
+			'Articuno-Base', 'Entei', 'Latias-Base', 'Heatran-Base', 'Thundurus-Base', 'Tapu Bulu', 'Regieleki', 'Venusaur-Base', 'Arctozolt', 'Ting-Lu', 'Ogerpon-Wellspring', 'Dialga-Base', 'Mamoswine', 'Celebi', 'Great Tusk', 'Meloetta-Base', 'Lugia', 'Deino', 'Lechonk', 'Arrokuda', 'Psyduck', 'Ferroseed', 'Beldum', 'Exeggcute', 'Charmander', 'Archen', 'Fomantis', 'Roggenrola', 'Tentacool', 'Munna', 'Hatenna', 'Drilbur', 'Bagon', 'Minccino', 'Whimsicott',
+		],
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes Babies [Apr 2024 AFD]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes LC'],
+		unbanlist: [
+			'Magikarp', 'Toxel', 'Noibat', 'Mareanie', 'Wooper-Paldea', 'Cyndaquil', 'Sinistea', 'Fomantis', 'Silicobra', 'Meowth-Galar', 'Slowpoke-Base', 'Bagon', 'Lechonk', 'Machop', 'Nosepass', 'Shroodle', 'Baltoy', 'Zigzagoon-Galar', 'Nickit', 'Froakie', 'Drilbur', 'Bounsweet', 'Porygon', 'Magnemite', 'Paras', 'Cubone', 'Sandshrew-Alola', 'Lotad',
+			'Chi-Yu', 'Duraludon', 'Scyther', 'Swirlix', 'Honedge', 'Sneasel-Base', 'Cosmog', 'Sneasel-Hisui',
 		],
 	},
 	{

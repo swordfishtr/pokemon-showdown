@@ -72,7 +72,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Cryoresonance",
 		num: -6000,
 		shortDesc: 'This Pokemons sound-based moves become Ice type.',
-		desc: 'blank',
+		desc: 'This Pokemons sound-based moves become Ice type.',
 	},
 
 };

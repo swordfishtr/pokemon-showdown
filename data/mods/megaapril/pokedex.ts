@@ -17,5 +17,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		eggGroups: ["Water 1", "Water 2"],
 		requiredItem: "Alomowhat",
+		credits: ['Essence', 'chemistryfruit'],
 	},
 };

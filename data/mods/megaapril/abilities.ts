@@ -45,5 +45,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			pokemon.addVolatile('truant');
 		},
 		condition: {},
+		shortDesc: 'Traunt + Regenerator + Huge Power + Huge Power + Swagger opponent on switch in.',
+		desc: 'Traunt + Regenerator + Huge Power + Huge Power + Swagger opponent on switch in.',
 	},
 };

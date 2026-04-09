@@ -8,5 +8,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
+		shortDesc: 'If held by an Alomomola, this item allows it to Mega Evolve in battle.',
+		desc: 'If held by an Alomomola, this item allows it to Mega Evolve in battle.',
 	},
 };

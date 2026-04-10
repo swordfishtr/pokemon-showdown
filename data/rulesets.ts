@@ -3345,7 +3345,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set, format, setHas, teamHas) {
 			const species = this.dex.species.get(set.species);
 			if (
-				set.moves.map(x => this.toID(this.dex.moves.get(x).realMove) || x).includes('hiddenpower') &&
+				set.moves.map(x => this.toID(this.dex.moves.get(x).realMove || x)).includes('hiddenpower' as ID) &&
 				species.baseSpecies !== 'Unown'
 			) {
 				return [`Hidden Power is banned.`];

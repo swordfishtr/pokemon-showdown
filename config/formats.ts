@@ -2354,6 +2354,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Abomasnow-Base', 'Abomasnow-Mega', 'Accelgor', 'Alomomola', 'Alomomola-Mega', 'Altaria-Base', 'Altaria-Mega', 'Arcanine-Base', 'Articuno-Base', 'Bastiodon', 'Beedrill-Base', 'Beedrill-Mega', 'Bombirdier', 'Brute Bonnet', 'Cacturne', 'Camerupt-Base', 'Camerupt-Mega', 'Charizard-Base', 'Charizard-Mega-X', 'Charizard-Mega-Y', 'Chimecho-Base', 'Chimecho-Mega', 'Clefable-Base', 'Clefable-Mega', 'Coalossal', 'Cobalion', 'Corsola-Base', 'Cradily', 'Crustle', 'Cyclizar', 'Dachsbun', 'Decidueye-Base', 'Dedenne', 'Dipplin', 'Donphan', 'Drampa-Base', 'Drampa-Mega', 'Drifblim', 'Dugtrio-Alola', 'Dugtrio-Base', 'Dusknoir', 'Dustox', 'Exploud', 'Fezandipiti', 'Flareon', 'Frosmoth', 'Furret', 'Gabite', 'Garbodor', 'Gastrodon', 'Gengar-Base', 'Gengar-Mega', 'Glaceon', 'Gogoat', 'Golduck', 'Golisopod-Base', 'Golisopod-Mega', 'Grumpig', 'Hariyama', 'Hippowdon', 'Houndstone', 'Hypno', 'Kecleon', 'Kingdra', 'Krookodile', 'Leafeon', 'Lokix', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Manectric-Base', 'Manectric-Mega', 'Marowak-Base', 'Miltank', 'Minior-Base', 'Mismagius', 'Munkidori', 'Palossand', 'Passimian', 'Pawmot', 'Persian-Base', 'Pincurchin', 'Rabsca', 'Raichu-Alola', 'Raichu-Mega-X', 'Raichu-Mega-Y', 'Raticate-Base', 'Roserade', 'Rotom-Base', 'Rotom-Heat', 'Sableye-Base', 'Sableye-Mega', 'Sandaconda', 'Sandslash-Alola', 'Sandslash-Base', 'Sceptile-Base', 'Sceptile-Mega', 'Shelgon', 'Slowking-Base', 'Spinda', 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Type: Null', 'Uxie', 'Vespiquen', 'Vivillon', 'Whiscash', 'Wormadam-Sandy',
 		],
+		onChangeSet(set, format, setHas, teamHas) {
+			if (this.toID(set.species) === 'alomomola' && set.level === 100) {
+				set.level = 99;
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Benjamin Button",

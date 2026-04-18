@@ -11,7 +11,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		forme: "Mega",
 		types: ["Water", "Fairy"],
 		baseStats: { hp: 235, atk: 195, def: 35, spa: 35, spd: 35, spe: 35 },
-		abilities: { 0: "Alcoholic" },
+		abilities: { 0: "Johning?" },
 		heightm: 1.9,
 		weightkg: 49.5,
 		color: "Pink",

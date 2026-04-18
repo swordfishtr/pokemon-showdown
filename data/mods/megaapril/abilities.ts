@@ -29,7 +29,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-immune', target);
 				} else {
 					this.boost({ atk: 2 }, target, pokemon, null, true);
-					target.addVolatile('confusion');
+					target.addVolatile('confusion', pokemon);
 				}
 			}
 

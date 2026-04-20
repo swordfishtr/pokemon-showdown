@@ -215,7 +215,7 @@ export const Avatars = new class {
 					<p>
 						{entry.allowed.map(avatar => avatar && [Avatars.img(avatar), ' '])}
 					</p>
-					Use <button class="button" name="send" value="/avatars"><code>/avatars</code></button> for usage instructions.
+					Use <button class="button" name="cmd" value="/avatars"><code>/avatars</code></button> for usage instructions.
 				</>}`
 			);
 			delete entry.notNotified;
@@ -789,7 +789,7 @@ export const commands: Chat.ChatCommands = {
 						allowed.filter(Boolean).map(avatar => (
 							<p>
 								{hasButton ? (
-									<button name="send" value={`/avatar ${avatar}`} class="button">{Avatars.img(avatar!)}</button>
+									<button name="cmd" value={`/avatar ${avatar}`} class="button">{Avatars.img(avatar!)}</button>
 								) : (
 									Avatars.img(avatar!)
 								)} {}

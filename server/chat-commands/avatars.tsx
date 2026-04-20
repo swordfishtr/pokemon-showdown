@@ -215,7 +215,7 @@ export const Avatars = new class {
 					<p>
 						{entry.allowed.map(avatar => avatar && [Avatars.img(avatar), ' '])}
 					</p>
-					Use <button class="button" data-cmd="/avatars"><code>/avatars</code></button> for usage instructions.
+					Use <button class="button" name="send" value="/avatars"><code>/avatars</code></button> for usage instructions.
 				</>}`
 			);
 			delete entry.notNotified;
@@ -789,7 +789,7 @@ export const commands: Chat.ChatCommands = {
 						allowed.filter(Boolean).map(avatar => (
 							<p>
 								{hasButton ? (
-									<button data-cmd={`/avatar ${avatar}`} class="button">{Avatars.img(avatar!)}</button>
+									<button name="send" value={`/avatar ${avatar}`} class="button">{Avatars.img(avatar!)}</button>
 								) : (
 									Avatars.img(avatar!)
 								)} {}
@@ -809,8 +809,8 @@ export const commands: Chat.ChatCommands = {
 
 		this.sendReplyBox(<>
 			{!target && [<p>
-				You can <button data-href="avatars" class="button">change your avatar</button> by clicking on it in the {}
-				<button data-href="options" class="button" aria-label="Options"><i class="fa fa-cog"></i></button> menu in the upper {}
+				You can <button name="joinRoom" value="avatars" class="button">change your avatar</button> by clicking on it in the {}
+				<button name="joinRoom" value="options" class="button" aria-label="Options"><i class="fa fa-cog"></i></button> menu in the upper {}
 				right.
 			</p>, <p>
 				Avatars from generations other than 4-5 are hidden. You can find them in this {}

@@ -762,6 +762,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes [Apr 2026]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
+		banlist: ['Arena Trap'],
 		unbanlist: [
 			'Articuno-Base', 'Brute Bonnet', 'Cacturne', 'Clefable-Base', 'Cobalion', 'Drifblim', 'Dugtrio-Base', 'Gabite', 'Gogoat', 'Hariyama', /* 'Hawlucha-Base', */ 'Hippowdon', 'Krookodile', 'Lurantis-Base', 'Lycanroc-Base', 'Mabosstiff', 'Minior-Base', 'Munkidori', 'Passimian', 'Pawmot', 'Persian-Base', 'Raichu-Alola', 'Roserade', 'Rotom-Heat', 'Sandaconda', 'Sceptile-Base', /* 'Sigilyph', */ 'Stoutland', 'Stunfisk-Base', 'Tentacruel', 'Thwackey', 'Tinkaton', 'Toedscruel', 'Tsareena', 'Uxie', 'Vivillon', 'Whiscash',
 		],

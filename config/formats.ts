@@ -1723,7 +1723,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 					'#geodudealola+levitate+accelerock',
 					'#sandile+temperflare',
 					'#gimmighoul+immunity+willowisp+painsplit',
-					'#rowlett+chlorophyll+uturn',
+					'#rowlet+chlorophyll+uturn',
 					'#litten+morningsun+knockoff',
 					'#magnemite+paraboliccharge+trace',
 					'#croagunk+thunderouskick',

@@ -2446,6 +2446,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		section: '35 Pokes 1v1',
+		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes 1v1 [May 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes 1v1'],
+		unbanlist: [
+			'Ambipom', 'Appletun', 'Azumarill', 'Banette-Base', 'Bellossom', 'Brambleghast', 'Bruxish', 'Delcatty', 'Donphan', 'Dragalge-Base', 'Drapion', 'Eiscue', 'Floatzel', 'Furfrou', 'Klefki', 'Leafeon', 'Lumineon', 'Malamar', 'Mimikyu-Base', 'Morpeko', 'Ninetales-Base', 'Ninjask', 'Orthworm', 'Perrserker', 'Pyukumuku', 'Quagsire', 'Rabsca', 'Rapidash-Galar', 'Rhydon', 'Salazzle-Base', 'Sandslash-Base', 'Tatsugiri-Curly', 'Tatsugiri-Droopy', 'Tatsugiri-Stretchy', 'Wugtrio', 'Xatu', 'Zoroark-Base',
+		],
+	},
+	{
 		section: '35 Moves',
 		column: 4,
 	},

@@ -3419,6 +3419,22 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if(problems.length) return problems;
 		},
 	},
+	standard35pokes1v1: {
+		effectType: 'ValidatorRule',
+		name: 'Standard 35 Pokes 1v1',
+		desc: "The standard ruleset for 35 Pokes 1v1 metagames.",
+		ruleset: [
+			'Standard 35 Pokes', 'Picked Team Size = 1', 'Max Team Size = 3', 'Accuracy Moves Clause',
+		],
+		banlist: [
+			'Yawn',
+			'Arceus', 'Archaludon', 'Blastoise-Mega', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Deoxys-Normal', 'Deoxys-Attack', 'Deoxys-Defense', 'Dialga', 'Dialga-Origin', 'Dragonite',
+			'Eternatus', 'Flutter Mane', 'Giratina', 'Giratina-Origin', 'Gouging Fire', 'Groudon', 'Ho-Oh', 'Jirachi', 'Kangaskhan-Mega', 'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White',
+			'Lugia', 'Lunala', 'Marshadow', 'Melmetal', 'Metagross-Mega', 'Mew', 'Mewtwo', 'Mimikyu', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Ogerpon-Cornerstone', 'Palkia',
+			'Palkia-Origin', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Snorlax', 'Solgaleo', 'Terapagos', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta',
+			'Zamazenta-Crowned', 'Zekrom', 'Moody', 'Custap Berry', 'Focus Band', 'Focus Sash', 'Fightinium Z + Detect', 'Perish Song',
+		],
+	},
 	unbanfakemons: {
 		effectType: 'ValidatorRule',
 		name: 'Unban Fakemons',

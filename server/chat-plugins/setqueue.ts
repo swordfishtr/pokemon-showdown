@@ -96,6 +96,39 @@ export const commands: Chat.ChatCommands = {
 	setmodehelp: [
 		`/setmode [text] - Adds the given text as a banner in the current battle room. Provide plain text and, it will be sent as \`|rated|<text>\`. Requires: driver (%) or higher in the room or globally.`,
 	],
+	setqueuelist(target, room, user) {
+		const globalRank = Users.globalAuth.get(user.id);
+		if (!Users.Auth.atLeast(globalRank || '', '%')) {
+			throw new Chat.ErrorMessage(
+				`Access denied - you must be a global driver (%) or higher to use this command.`
+			);
+		}
+
+		if (queue.length === 0) {
+			return this.sendReply(`The queue is empty.`);
+		}
+
+		const filtered = target ? queue.filter(entry => {
+			const targetId = toID(target);
+			return entry.p1 === targetId || entry.p2 === targetId;
+		}) : queue;
+
+		if (filtered.length === 0) {
+			return this.sendReply(`No queue entries found for ${target}.`);
+		}
+
+		let output = `|c|&|${filtered.length} queue ${filtered.length === 1 ? 'entry' : 'entries'}:\n`;
+		for (const entry of filtered) {
+			const formatStr = entry.format ? ` [${entry.format}]` : '';
+			const addedTime = new Date(entry.addedAt).toLocaleString();
+			output += `${entry.p1} vs ${entry.p2}${formatStr} - "${entry.message}" (added by ${entry.addedBy} at ${addedTime})\n`;
+		}
+
+		return this.sendReply(output);
+	},
+	setqueuelisthelp: [
+		`/setqueuelist [player] - Shows all queued entries, optionally filtered by a specific player. Requires: global driver (%) or higher.`,
+	],
 };
 
 export const handlers: Chat.Handlers = {

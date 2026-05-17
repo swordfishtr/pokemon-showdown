@@ -394,8 +394,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			const item = pokemon.getItem();
 			if (item.megaStone) {
-				if (item.megaStone[pokemon.baseSpecies.baseSpecies]) return null;
-				return item.megaStone[0];
+				return Object.values(item.megaStone)[0];
 			}
 			return null;
 		},

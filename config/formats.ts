@@ -190,6 +190,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	{
+		name: "[Gen 9] RDL Singles",
+		mod: 'gen9',
+		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1'],
+		validateTeam(team, options) {
+			return ['Not Implemented'];
+		},
+	},
+	{
+		name: "[Gen 9] RDL VGC",
+		mod: 'gen9',
+		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1'],
+		validateTeam(team, options) {
+			return ['Not Implemented'];
+		},
+	},
+	{
 		name: "[Gen 9] Dual Monotype Draft",
 		desc: 'Monotype draft with 2 types (in the less restrictive sense).',
 		mod: 'gen9',

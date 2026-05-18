@@ -211,10 +211,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1', 'Tera Type Preview'],
 	},
-	{
-		section: 'Draft Teams',
-		column: 1,
-	},
+	// {
+	// 	section: 'Draft Teams',
+	// 	column: 1,
+	// },
 	// {
 	// 	name: '[DIV] user',
 	// 	challengeShow: false,
@@ -234,40 +234,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: 'Partner Communities',
 		column: 1,
-	},
-	{
-		name: '[Gen 9] 4v4 DUU',
-		desc: 'Usage based UU VGC.',
-		mod: 'gen9',
-		gameType: 'doubles',
-		// bestOfDefault: true,
-		ruleset: [
-			'Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Evasion Moves Clause',
-		],
-		banlist: [
-			'Urshifu', 'Flutter Mane', 'Incineroar', 'Raging Bolt', 'Landorus-I', 'Rillaboom', 'Ogerpon-Wellspring', 'Ogerpon-Hearthflame', 'Tornadus-I', 'Chien-Pao', 'Amoonguss', 'Farigiraf', 'Indeedee-F', 'Iron Crown', 'Gholdengo', 'Dragonite-Base', 'Gouging Fire', 'Ursaluna', 'Chi-Yu', 'Regidrago', 'Porygon2', 'Dondozo', 'Entei', 'Ting-Lu', 'Torkoal', 'Roaring Moon',
-			// Banned via tiering action
-			'Enamorus-I', 'Articuno-Base', 'Annihilape', 'Sneasler',
-			'Commander',
-			'Bright Powder', 'King\'s Rock', 'Razor Fang',
-		],
-	},
-	{
-		name: '[Gen 9] 4v4 DUU (Bo3)',
-		desc: 'Usage based UU VGC.',
-		mod: 'gen9',
-		gameType: 'doubles',
-		// bestOfDefault: true,
-		ruleset: [
-			'Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Evasion Moves Clause', 'Best Of = 3',
-		],
-		banlist: [
-			'Urshifu', 'Flutter Mane', 'Incineroar', 'Raging Bolt', 'Landorus-I', 'Rillaboom', 'Ogerpon-Wellspring', 'Ogerpon-Hearthflame', 'Tornadus-I', 'Chien-Pao', 'Amoonguss', 'Farigiraf', 'Indeedee-F', 'Iron Crown', 'Gholdengo', 'Dragonite-Base', 'Gouging Fire', 'Ursaluna', 'Chi-Yu', 'Regidrago', 'Porygon2', 'Dondozo', 'Entei', 'Ting-Lu', 'Torkoal', 'Roaring Moon',
-			// Banned via tiering action
-			'Enamorus-I', 'Articuno-Base', 'Annihilape', 'Sneasler',
-			'Commander',
-			'Bright Powder', 'King\'s Rock', 'Razor Fang',
-		],
 	},
 	{
 		name: '[Gen 9] ND VGC LC',

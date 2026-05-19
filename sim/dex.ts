@@ -191,9 +191,13 @@ export class ModdedDex {
 		return dexes[mod || BASE_MOD].includeData();
 	}
 
-	modData(dataType: DataType, id: string) {
+	/** `force` is needed to mod data defined by the mod itself (for instance,
+	 * if you want to use modData and pokedex.ts on the same pokemon. */
+	modData(dataType: DataType, id: string, force?: boolean) {
 		if (this.isBase) return this.data[dataType][id];
-		if (this.data[dataType][id] !== dexes[this.parentMod].data[dataType][id]) return this.data[dataType][id];
+		if (!force && this.data[dataType][id] !== dexes[this.parentMod].data[dataType][id]) {
+			return this.data[dataType][id];
+		}
 		return (this.data[dataType][id] = Utils.deepClone(this.data[dataType][id]));
 	}
 
@@ -667,6 +671,15 @@ export class ModdedDex {
 						// instead of overwriting entirely
 						delete childTypedData[entryId].inherit;
 
+						// {inherit: true} can also be used to inherit parts of conditions
+						if (childTypedData[entryId].condition?.inherit) {
+							delete childTypedData[entryId].condition.inherit;
+							childTypedData[entryId].condition = {
+								...parentTypedData[entryId].condition,
+								...childTypedData[entryId].condition,
+							};
+						}
+
 						// Merge parent and child's entry, with child overwriting parent.
 						childTypedData[entryId] = { ...parentTypedData[entryId], ...childTypedData[entryId] };
 					}
@@ -687,6 +700,13 @@ export class ModdedDex {
 						childTypedData[entryId] = parentTypedData[entryId];
 					} else if (childTypedData[entryId]?.inherit) {
 						delete childTypedData[entryId].inherit;
+						if (childTypedData[entryId].condition?.inherit) {
+							delete childTypedData[entryId].condition.inherit;
+							childTypedData[entryId].condition = {
+								...parentTypedData[entryId].condition,
+								...childTypedData[entryId].condition,
+							};
+						}
 						childTypedData[entryId] = { ...parentTypedData[entryId], ...childTypedData[entryId] };
 					}
 				}

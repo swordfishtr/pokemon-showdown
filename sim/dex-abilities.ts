@@ -1,4 +1,4 @@
-import type { PokemonEventMethods, ConditionData } from './dex-conditions';
+import type { PokemonEventMethods, ConditionData, ModdedConditionData } from './dex-conditions';
 import { assignMissingFields, BasicEffect, toID } from './dex-data';
 import { Utils } from '../lib/utils';
 
@@ -23,7 +23,11 @@ interface AbilityFlags {
 export interface AbilityData extends Partial<Ability>, AbilityEventMethods, PokemonEventMethods {
 	name: string;
 }
-export type ModdedAbilityData = AbilityData | Partial<AbilityData> & { inherit: true };
+
+export type ModdedAbilityData = AbilityData | Partial<AbilityData> & {
+	inherit: true,
+	condition?: ModdedConditionData,
+};
 export interface AbilityDataTable { [abilityid: IDEntry]: AbilityData }
 export interface ModdedAbilityDataTable { [abilityid: IDEntry]: ModdedAbilityData }
 

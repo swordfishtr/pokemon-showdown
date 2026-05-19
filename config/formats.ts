@@ -210,11 +210,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: 'Monotype draft with 2 types (in the less restrictive sense).',
 		mod: 'gen9',
 		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Double Same Type Clause', 'DryPass Clause', 'Moody Clause',
+			'Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Double Same Type Clause', 'DryPass Clause',
 			'Min Level = 100', 'Min Team Size = 6',
 		],
 		banlist: [
-			'Revival Blessing', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+			'Moody', 'Revival Blessing', 'Last Respects', 'Shed Tail', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
 		],
 	},
 	{

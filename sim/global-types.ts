@@ -275,15 +275,17 @@ interface ModdedBattlePokemon {
 	lostItemForDelibird?: Item | null;
 	boostBy?: (this: Pokemon, boost: SparseBoostsTable) => boolean | number;
 	clearBoosts?: (this: Pokemon) => void;
+	clearVolatile?: (this: Pokemon, includeSwitchFlags?: boolean) => void;
 	calculateStat?: (this: Pokemon, statName: StatIDExceptHP, boost: number, modifier?: number) => number;
 	cureStatus?: (this: Pokemon, silent?: boolean) => boolean;
 	deductPP?: (
 		this: Pokemon, move: string | Move, amount?: number | null, target?: Pokemon | null | false
 	) => number;
 	eatItem?: (this: Pokemon, force?: boolean, source?: Pokemon, sourceEffect?: Effect) => boolean;
-	effectiveWeather?: (this: Pokemon) => ID;
+	effectiveWeather?: (this: Pokemon, sourceEffect?: Effect, message?: string | boolean) => ID;
 	formeChange?: (
-		this: Pokemon, speciesId: string | Species, source: Effect, isPermanent?: boolean, message?: string
+		this: Pokemon, speciesId: string | Species, source: Effect, isPermanent?: boolean, abilitySlot?: string,
+		message?: string,
 	) => boolean;
 	hasType?: (this: Pokemon, type: string | string[]) => boolean;
 	getAbility?: (this: Pokemon) => Ability;
@@ -330,8 +332,14 @@ interface ModdedBattlePokemon {
 	ignoringItem?: (this: Pokemon) => boolean;
 
 	// OM
-	getLinkedMoves?: (this: Pokemon, ignoreDisabled?: boolean) => string[];
-	hasLinkedMove?: (this: Pokemon, moveid: string) => boolean;
+	getLinkedMoves?: (this: Pokemon, ignoreDisabled?: boolean) => [ActiveMove, ActiveMove] | [];
+	hasLinkedMove?: (this: Pokemon, move: ActiveMove) => boolean;
+	getIsMoveLocked?: (this: Pokemon) => boolean;
+	getWillLockMove?: (this: Pokemon) => boolean;
+	getCanLinkMove?: (this: Pokemon, move: ActiveMove) => boolean;
+	queryLinkMove?: (
+		this: Pokemon, move: ActiveMove, ignoreDisabled?: boolean
+	) => { linkIndex: number, linkedMoves: [ActiveMove, ActiveMove] };
 }
 
 interface ModdedBattleQueue extends Partial<BattleQueue> {
@@ -380,12 +388,22 @@ interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
 	win?: (this: Battle, side?: SideID | '' | Side | null) => boolean;
 	faintMessages?: (this: Battle, lastFirst?: boolean, forceCheck?: boolean, checkWin?: boolean) => boolean | undefined;
 	tiebreak?: (this: Battle) => boolean;
+	calculatePP?: (this: Battle, move: Move, ppUps?: number) => number;
 	checkMoveMakesContact?: (
 		this: Battle, move: ActiveMove, attacker: Pokemon, defender: Pokemon, announcePads?: boolean
+	) => boolean;
+	checkMoveBypassesProtect?: (
+		this: Battle, move: ActiveMove, attacker: Pokemon, defender: Pokemon, blockStatus?: boolean
 	) => boolean;
 	checkWin?: (this: Battle, faintQueue?: Battle['faintQueue'][0]) => true | undefined;
 	fieldEvent?: (this: Battle, eventid: string, targets?: Pokemon[]) => void;
 	getAllActive?: (this: Battle, includeFainted?: boolean, includeCommanding?: boolean) => Pokemon[];
+	getTarget?: (
+		this: Battle, pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon
+	) => Pokemon | null;
+
+	// OM
+	resolveTargetLoc?: (this: Battle, targetLoc: number, action: Action, move: ActiveMove) => number;
 }
 
 /**
@@ -454,6 +472,7 @@ type TextFile<T> = T & {
 	gen6?: T,
 	gen7?: T,
 	gen8?: T,
+	champions?: T,
 };
 
 type AbilityText = TextFile<ConditionTextData & {
@@ -487,6 +506,7 @@ declare namespace RandomTeamsTypes {
 		statusCure?: number;
 		teraBlast?: number;
 		imprison?: number;
+		dynamaxUser?: number;
 	}
 	export interface FactoryTeamDetails {
 		megaCount?: number;
@@ -506,6 +526,7 @@ declare namespace RandomTeamsTypes {
 	export interface RandomSet {
 		name: string;
 		species: string;
+		speciesId?: string;
 		gender: string | boolean;
 		moves: string[];
 		ability: string;
@@ -572,5 +593,6 @@ declare namespace RandomTeamsTypes {
 		'Bulky Attacker' | 'Bulky Setup' | 'Fast Bulky Setup' | 'Bulky Support' | 'Fast Support' | 'AV Pivot' |
 		'Doubles Fast Attacker' | 'Doubles Setup Sweeper' | 'Doubles Wallbreaker' | 'Doubles Bulky Attacker' |
 		'Doubles Bulky Setup' | 'Offensive Protect' | 'Bulky Protect' | 'Doubles Support' | 'Choice Item user' |
-		'Z-Move user' | 'Staller' | 'Spinner' | 'Generalist' | 'Berry Sweeper' | 'Thief user' | 'Imprisoner';
+		'Z-Move user' | 'Staller' | 'Spinner' | 'Generalist' | 'Berry Sweeper' | 'Thief user' | 'Imprisoner' |
+		'Dynamax User';
 }

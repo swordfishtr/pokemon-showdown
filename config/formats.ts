@@ -191,19 +191,39 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] RDL Singles",
-		mod: 'gen9',
-		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1'],
-		validateTeam(team, options) {
-			return ['Not Implemented'];
-		},
+		mod: 'champions',
+		validatorMod: 'gen9',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			'Formes Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
+			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
+		],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag',
+			'King\'s Rock', 'Quick Claw', 'Razor Fang',
+			'Baton Pass', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Swagger',
+		],
+		unbanlist: [
+			'Alakazam', 'Ambipom', 'Annihilape', 'Araquanid', 'Arcanine', 'Arctozolt', 'Azelf', 'Bastiodon', 'Bewear', 'Blaziken', 'Braviary', 'Celesteela', 'Centiskorch', 'Chandelure', 'Chi-Yu', 'Claydol', 'Clefable', 'Cloyster', 'Copperajah', 'Cramorant', 'Crawdaunt', 'Cryogonal', 'Drednaw', 'Dubwool', 'Emolga', 'Espathra', 'Fearow', 'Fezandipiti', 'Furret', 'Galvantula', 'Gholdengo', 'Gogoat', 'Gothitelle', 'Gourgeist', 'Granbull', 'Hatterene', 'Haxorus', 'Hippowdon', 'Iron Hands', 'Jirachi', 'Kabutops', 'Keldeo', 'Kleavor', 'Leafeon', 'Lilligant', 'Lokix', 'Lurantis', 'Magneton', 'Banette-Mega', 'Charizard-Mega-Y', 'Froslass-Mega', 'Mawile-Mega', 'Slowbro-Mega', 'Tyranitar-Mega', 'Meloetta', 'Meowstic', 'Mienshao', 'Noctowl', 'Noivern', 'Octillery', 'Pincurchin', 'Politoed', 'Porygon-Z', 'Quaquaval', 'Raichu', 'Regice', 'Registeel', 'Reuniclus', 'Revavroom', 'Rhydon', 'Rhyperior', 'Sandaconda', 'Sandy Shocks', 'Sawk', 'Seviper', 'Sigilyph', 'Silvally', 'Sinistcha', 'Spidops', 'Suicune', 'Swanna', 'Tapu Fini', 'Tapu Koko', 'Terrakion', 'Togetic', 'Tornadus', 'Tornadus-Therian', 'Torterra', 'Tropius', 'Vanilluxe', 'Victini', 'Victreebel', 'Vivillon', 'Volbeat', 'Walking Wake', 'Weezing-Galar', 'Wigglytuff', 'Wobbuffet', 'Xatu', 'Zeraora',
+		],
 	},
 	{
 		name: "[Gen 9] RDL VGC",
-		mod: 'gen9',
-		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1'],
-		validateTeam(team, options) {
-			return ['Not Implemented'];
-		},
+		mod: 'champions',
+		validatorMod: 'gen9',
+		gameType: 'doubles',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			'Formes Clause', 'Nickname Clause',
+			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
+			'Min Team Size = 6', 'Picked Team Size = 4', 'Adjust Level = 50', 'Best Of = 3', 
+		],
+		banlist: [
+			'Hidden Power',
+		],
+		unbanlist: [
+			'Alakazam', 'Ambipom', 'Annihilape', 'Araquanid', 'Arcanine', 'Arctozolt', 'Azelf', 'Bastiodon', 'Bewear', 'Blaziken', 'Braviary', 'Celesteela', 'Centiskorch', 'Chandelure', 'Chi-Yu', 'Claydol', 'Clefable', 'Cloyster', 'Copperajah', 'Cramorant', 'Crawdaunt', 'Cryogonal', 'Drednaw', 'Dubwool', 'Emolga', 'Espathra', 'Fearow', 'Fezandipiti', 'Furret', 'Galvantula', 'Gholdengo', 'Gogoat', 'Gothitelle', 'Gourgeist', 'Granbull', 'Hatterene', 'Haxorus', 'Hippowdon', 'Iron Hands', 'Jirachi', 'Kabutops', 'Keldeo', 'Kleavor', 'Leafeon', 'Lilligant', 'Lokix', 'Lurantis', 'Magneton', 'Banette-Mega', 'Charizard-Mega-Y', 'Froslass-Mega', 'Mawile-Mega', 'Slowbro-Mega', 'Tyranitar-Mega', 'Meloetta', 'Meowstic', 'Mienshao', 'Noctowl', 'Noivern', 'Octillery', 'Pincurchin', 'Politoed', 'Porygon-Z', 'Quaquaval', 'Raichu', 'Regice', 'Registeel', 'Reuniclus', 'Revavroom', 'Rhydon', 'Rhyperior', 'Sandaconda', 'Sandy Shocks', 'Sawk', 'Seviper', 'Sigilyph', 'Silvally', 'Sinistcha', 'Spidops', 'Suicune', 'Swanna', 'Tapu Fini', 'Tapu Koko', 'Terrakion', 'Togetic', 'Tornadus', 'Tornadus-Therian', 'Torterra', 'Tropius', 'Vanilluxe', 'Victini', 'Victreebel', 'Vivillon', 'Volbeat', 'Walking Wake', 'Weezing-Galar', 'Wigglytuff', 'Wobbuffet', 'Xatu', 'Zeraora',
+		],
 	},
 	{
 		name: "[Gen 9] Dual Monotype Draft",

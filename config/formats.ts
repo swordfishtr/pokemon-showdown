@@ -195,7 +195,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		validatorMod: 'gen9',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
-			'Formes Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
+			'Forme Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
 			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
 		],
 		banlist: [
@@ -214,7 +214,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
-			'Formes Clause', 'Nickname Clause',
+			'Forme Clause', 'Nickname Clause',
 			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
 			'Min Team Size = 6', 'Picked Team Size = 4', 'Adjust Level = 50', 'Best Of = 3', 
 		],

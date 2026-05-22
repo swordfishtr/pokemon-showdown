@@ -470,6 +470,13 @@ export function mapObjectValues<T, K extends string, N>(obj: Record<K, T>, callb
 	return out as Record<K, N>;
 }
 
+export function isEmptyObject(obj?: AnyObject | null) {
+	for (const _x in obj) {
+		return false;
+	}
+	return true;
+}
+
 // backwards compatibility
 export const Utils = {
 	parseExactInt, waitUntil, html, escapeHTML,
@@ -481,5 +488,5 @@ export const Utils = {
 	bufFromHex, bufReadHex, bufWriteHex,
 	Multiset,
 
-	mapObjectValues,
+	mapObjectValues, isEmptyObject,
 };

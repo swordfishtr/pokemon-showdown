@@ -22,8 +22,7 @@ export type ComplexBan = [string, string, number, string[]];
 export type ComplexTeamBan = ComplexBan;
 
 /**
- * { species: { effect: (true: forceValid, false: forceInvalid) } }
- * null is used to delete an override; it does not appear in a final RuleTable.
+ * { species: { effect: (true: forceValid, false: forceInvalid, null: unset) } }
  */
 export type ValidatorOverrides = Record<string, Record<string, boolean | null>>;
 
@@ -216,11 +215,7 @@ export class RuleTable extends Map<string, string> {
 		for (const species in overrides) {
 			this.validatorOverrides[species] ??= {};
 			for (const override in overrides[species]) {
-				if (overrides[species][override] === null) {
-					delete this.validatorOverrides[species][override];
-				} else {
-					this.validatorOverrides[species][override] = overrides[species][override];
-				}
+				this.validatorOverrides[species][override] = overrides[species][override];
 			}
 		}
 	}
@@ -1005,6 +1000,7 @@ export class DexFormats {
 			for (const [subRule, source, limit, bans] of subRuleTable.complexTeamBans) {
 				ruleTable.addComplexTeamBan(subRule, source || subformat.name, limit, bans);
 			}
+			ruleTable.addValidatorOverrides(subRuleTable.validatorOverrides);
 			if (subRuleTable.checkCanLearn) {
 				if (ruleTable.checkCanLearn) {
 					throw new Error(

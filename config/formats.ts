@@ -1,4 +1,4 @@
-// Note: This is the list of formats
+ // Note: This is the list of formats
 // The rules that formats use are stored in data/rulesets.ts
 /*
 If you want to add custom formats, create a file in this folder named: "custom-formats.ts"
@@ -1317,17 +1317,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [D2]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes',
-					'#parasect+effectspore',
-					'#stunfiskgalar+mimicry',
-					'#delibird+vitalspirit',
 					'#ducklett+unaware+partingshot',
 					'#finneon+stakeout+bouncybubble',
 					'#cubchoo+swiftswim+glaciallance+jetpunch',
-					'#larvesta+stickyhold+firstimpression',
+					'#larvesta+poisonheal+defog',
 					'#skrelp+mortalspin',
 					'#jigglypuff+regenerator+fleurcannon', // he thinks hes wiggly 😂✌️
 					'#golett+zapcannon+crosschop',
-					'#golett-dynamicpunch',
 					'#parasect+effectspore',
 					'#togepi+shellsmash',
 					'#dreepy+dazzling+astralbarrage+flipturn',
@@ -1344,23 +1340,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 					'#smoochum+solarpower+healingwish',
 					'#chespin+battlearmor+drumbeating+spikyshield',
 					'#pawmo+stormthrow',
-					'#pineco+healorder',
+					'#pineco+healorder+thickfat',
 					'#baltoy+healbell+teleport+magicbounce',
 					'#corvisquire+windrider',
-					'#ferroseed+rapidspin',
-					'#scraggy+suckerpunch',
+					'#shieldon+rapidspin+heatproof',
+					'#deino+suckerpunch+prankster+corrosivegas+encore',
 					'#litleo+fluffy+scorchingsands',
-					'#marill-hugepower',
 					'#marill+strengthsap',
 					'#munna+competitive+chillyreception',
 					],
 		banlist: [
 			'Eviolite',
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Huge Power', 'Dynamic Punch',
 		],
 		unbanlist: [
 			'Booster Energy',
-			'Parasect', 'Corsola', 'Castform-Base', 'Stunfisk-Galar', 'Delibird', 'Ducklett', 'Finneon', 'Cubchoo', 'Larvesta', 'Skrelp', 'Jigglypuff', 'Golett', 'Togepi', 'Dreepy', 'Wooper-Paldea', 'Gible', 'Varoom', 'Geodude-Alola', 'Sandile', 'Gimmighoul-Base', 'Rowlet', 'Litten', 'Magnemite', 'Croagunk', 'Smoochum', 'Chespin', 'Pawmo', 'Pineco', 'Baltoy', 'Corvisquire', 'Ferroseed', 'Scraggy', 'Litleo', 'Marill', 'Munna',
+			'Parasect', 'Corsola-Base', 'Castform-Base', 'Stunfisk-Galar', 'Delibird', 'Ducklett', 'Finneon', 'Cubchoo', 'Larvesta', 'Skrelp', 'Jigglypuff', 'Golett', 'Togepi', 'Dreepy', 'Wooper-Paldea', 'Gible', 'Varoom', 'Geodude-Alola', 'Sandile', 'Gimmighoul-Base', 'Rowlet', 'Litten', 'Magnemite', 'Croagunk', 'Smoochum', 'Chespin', 'Pawmo', 'Pineco', 'Baltoy', 'Corvisquire', 'Heatproof', 'Deino', 'Litleo', 'Marill', 'Munna',
 		],
 	},
 	

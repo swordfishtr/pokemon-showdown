@@ -1324,7 +1324,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 					'#skrelp+mortalspin',
 					'#jigglypuff+regenerator+fleurcannon', // he thinks hes wiggly 😂✌️
 					'#golett+zapcannon+crosschop',
-					'#parasect+effectspore',
 					'#togepi+shellsmash',
 					'#dreepy+dazzling+astralbarrage+flipturn',
 					'#wooperpaldea+banefulbunker',
@@ -1355,7 +1354,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Booster Energy',
-			'Parasect', 'Corsola-Base', 'Castform-Base', 'Stunfisk-Galar', 'Delibird', 'Ducklett', 'Finneon', 'Cubchoo', 'Larvesta', 'Skrelp', 'Jigglypuff', 'Golett', 'Togepi', 'Dreepy', 'Wooper-Paldea', 'Gible', 'Varoom', 'Geodude-Alola', 'Sandile', 'Gimmighoul-Base', 'Rowlet', 'Litten', 'Magnemite', 'Croagunk', 'Smoochum', 'Chespin', 'Pawmo', 'Pineco', 'Baltoy', 'Corvisquire', 'Heatproof', 'Deino', 'Litleo', 'Marill', 'Munna',
+			'Parasect', 'Corsola-Base', 'Castform-Base', 'Stunfisk-Galar', 'Delibird', 'Ducklett', 'Finneon', 'Cubchoo', 'Larvesta', 'Skrelp', 'Jigglypuff', 'Golett', 'Togepi', 'Dreepy', 'Wooper-Paldea', 'Gible', 'Varoom', 'Geodude-Alola', 'Sandile', 'Gimmighoul-Base', 'Rowlet', 'Litten', 'Magnemite', 'Croagunk', 'Smoochum', 'Chespin', 'Pawmo', 'Pineco', 'Baltoy', 'Corvisquire', 'Heatproof', 'Deino', 'Litleo', 'Marill', 'Munna', 'Shieldon',
 		],
 	},
 	

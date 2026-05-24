@@ -96,6 +96,31 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	{
+		name: "[Gen 9] ND Generations Draft [2026 Anniversary]",
+		mod: 'generationsdraftgen4',
+		ruleset: ['Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause'],
+		unbanlist: [
+			'Abomasnow-Base', 'Abomasnow-Mega', 'Absol-Base', 'Absol-Mega', 'Aggron-Base', 'Aggron-Mega', 'Arcanine-Hisui', 'Aron', 'Articuno-Galar', 'Azelf', 'Azumarill', 'Azurill', 'Bagon', 'Bellossom', 'Blaziken-Base', 'Budew', 'Buneary', 'Carvanha', 'Celebi', 'Chimchar', 'Clamperl', 'Clefable', 'Clefairy', 'Cleffa', 'Combusken', 'Corphish', 'Corsola-Galar', 'Cranidos', 'Crawdaunt', 'Croagunk', 'Crobat', 'Croconaw', 'Cursola', 'Deoxys-Speed', 'Ditto', 'Dragonair', 'Dragonite', 'Dratini', 'Drifblim', 'Drifloon', 'Dusclops', 'Dusknoir', 'Duskull', 'Eevee-Base', 'Electabuzz', 'Electivire', 'Electrode-Hisui', 'Elekid', 'Entei', 'Exploud', 'Feraligatr', 'Flareon', 'Flygon', 'Froslass', 'Froslass-Mega', 'Gabite', 'Gallade-Base', 'Gallade-Mega', 'Garchomp-Base', 'Garchomp-Mega', 'Gardevoir-Base', 'Gardevoir-Mega', 'Gible', 'Glaceon', 'Glalie-Base', 'Glalie-Mega', 'Gligar', 'Gliscor', 'Gloom', 'Golbat', 'Gorebyss', 'Grovyle', 'Growlithe-Hisui', 'Hariyama', 'Heatran', 'Heracross-Base', 'Heracross-Mega', 'Horsea', 'Houndoom-Base', 'Houndoom-Mega', 'Houndour', 'Igglybuff', 'Infernape', 'Iron Treads', 'Iron Valiant', 'Jigglypuff', 'Jirachi', 'Jolteon', 'Kingdra', 'Kingler', 'Kirlia', 'Kleavor', 'Krabby', 'Lairon', 'Latias-Base', 'Latios-Base', 'Lombre', 'Lopunny-Base', 'Lopunny-Mega', 'Lotad', 'Loudred', 'Lucario-Base', 'Ludicolo', 'Machamp', 'Machoke', 'Machop', 'Makuhita', 'Mamoswine', 'Manaphy', 'Marill', 'Mew', 'Mime Jr.', 'Misdreavus', 'Mismagius', 'Monferno', 'Mr. Mime-Base', 'Munchlax', 'Nincada', 'Ninetales-Base', 'Oddish', 'Onix', 'Piloswine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Porygon', 'Porygon-Z', 'Porygon2', 'Raikou', 'Ralts', 'Rampardos', 'Regice', 'Regidrago', 'Regieleki', 'Registeel', 'Rhydon', 'Rhyhorn', 'Rhyperior', 'Riolu', 'Roselia', 'Roserade', 'Rotom-Mow', 'Rotom-Wash', 'Salamence-Base', 'Sandshrew-Alola', 'Sandslash-Alola', 'Sandy Shocks', 'Sceptile-Base', 'Sceptile-Mega', 'Scizor-Base', 'Scream Tail', 'Scyther', 'Seadra', 'Sharpedo-Base', 'Sharpedo-Mega', 'Shedinja', 'Shelgon', 'Skuntank', 'Slowbro-Galar', 'Slowking-Base', 'Slowking-Galar', 'Slowpoke-Base', 'Slowpoke-Galar', 'Sneasel-Base', 'Sneasel-Hisui', 'Sneasler', 'Snorlax', 'Snorunt', 'Snover', 'Staraptor', 'Staravia', 'Starly', 'Starmie', 'Staryu', 'Steelix-Base', 'Steelix-Mega', 'Stunky', 'Suicune', 'Swellow', 'Swinub', 'Taillow', 'Togekiss', 'Togepi', 'Togetic', 'Torchic', 'Totodile', 'Toxicroak', 'Trapinch', 'Treecko', 'Umbreon', 'Uxie', 'Vaporeon', 'Vibrava', 'Vileplume', 'Voltorb-Hisui', 'Vulpix-Base', 'Weavile', 'Whismur', 'Wigglytuff', 'Zubat',
+
+			'Houndoominite', 'Steelixite', 'Heracronite', 'Sceptilite', 'Aggronite', 'Sharpedonite', 'Absolite', 'Glalitite', 'Froslassite', 'Garchompite', 'Lopunnite', 'Gardevoirite', 'Galladite', 'Abomasite',
+		],
+	},
+	{
+		name: "[Gen 9] ND Generations Draft [2026 Anniversary VGC]",
+		mod: 'generationsdraftgen4',
+		gameType: 'doubles',
+		ruleset: [
+			'Standard Generations', 'Tera Type Preview', '35 Pokes Mega Clause',
+			'!Sleep Clause Mod', '!DryPass Clause', '!!Adjust Level = 50',
+			'Min Team Size = 6', 'Picked Team Size = 4', 'Best Of = 3', 'Item Clause = 1',
+		],
+		unbanlist: [
+			'Abomasnow-Base', 'Abomasnow-Mega', 'Absol-Base', 'Absol-Mega', 'Aggron-Base', 'Aggron-Mega', 'Arcanine-Hisui', 'Aron', 'Articuno-Galar', 'Azelf', 'Azumarill', 'Azurill', 'Bagon', 'Bellossom', 'Blaziken-Base', 'Budew', 'Buneary', 'Carvanha', 'Celebi', 'Chimchar', 'Clamperl', 'Clefable', 'Clefairy', 'Cleffa', 'Combusken', 'Corphish', 'Corsola-Galar', 'Cranidos', 'Crawdaunt', 'Croagunk', 'Crobat', 'Croconaw', 'Cursola', 'Deoxys-Speed', 'Ditto', 'Dragonair', 'Dragonite', 'Dratini', 'Drifblim', 'Drifloon', 'Dusclops', 'Dusknoir', 'Duskull', 'Eevee-Base', 'Electabuzz', 'Electivire', 'Electrode-Hisui', 'Elekid', 'Entei', 'Exploud', 'Feraligatr', 'Flareon', 'Flygon', 'Froslass', 'Froslass-Mega', 'Gabite', 'Gallade-Base', 'Gallade-Mega', 'Garchomp-Base', 'Garchomp-Mega', 'Gardevoir-Base', 'Gardevoir-Mega', 'Gible', 'Glaceon', 'Glalie-Base', 'Glalie-Mega', 'Gligar', 'Gliscor', 'Gloom', 'Golbat', 'Gorebyss', 'Grovyle', 'Growlithe-Hisui', 'Hariyama', 'Heatran', 'Heracross-Base', 'Heracross-Mega', 'Horsea', 'Houndoom-Base', 'Houndoom-Mega', 'Houndour', 'Igglybuff', 'Infernape', 'Iron Treads', 'Iron Valiant', 'Jigglypuff', 'Jirachi', 'Jolteon', 'Kingdra', 'Kingler', 'Kirlia', 'Kleavor', 'Krabby', 'Lairon', 'Latias-Base', 'Latios-Base', 'Lombre', 'Lopunny-Base', 'Lopunny-Mega', 'Lotad', 'Loudred', 'Lucario-Base', 'Ludicolo', 'Machamp', 'Machoke', 'Machop', 'Makuhita', 'Mamoswine', 'Manaphy', 'Marill', 'Mew', 'Mime Jr.', 'Misdreavus', 'Mismagius', 'Monferno', 'Mr. Mime-Base', 'Munchlax', 'Nincada', 'Ninetales-Base', 'Oddish', 'Onix', 'Piloswine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Porygon', 'Porygon-Z', 'Porygon2', 'Raikou', 'Ralts', 'Rampardos', 'Regice', 'Regidrago', 'Regieleki', 'Registeel', 'Rhydon', 'Rhyhorn', 'Rhyperior', 'Riolu', 'Roselia', 'Roserade', 'Rotom-Mow', 'Rotom-Wash', 'Salamence-Base', 'Sandshrew-Alola', 'Sandslash-Alola', 'Sandy Shocks', 'Sceptile-Base', 'Sceptile-Mega', 'Scizor-Base', 'Scream Tail', 'Scyther', 'Seadra', 'Sharpedo-Base', 'Sharpedo-Mega', 'Shedinja', 'Shelgon', 'Skuntank', 'Slowbro-Galar', 'Slowking-Base', 'Slowking-Galar', 'Slowpoke-Base', 'Slowpoke-Galar', 'Sneasel-Base', 'Sneasel-Hisui', 'Sneasler', 'Snorlax', 'Snorunt', 'Snover', 'Staraptor', 'Staravia', 'Starly', 'Starmie', 'Staryu', 'Steelix-Base', 'Steelix-Mega', 'Stunky', 'Suicune', 'Swellow', 'Swinub', 'Taillow', 'Togekiss', 'Togepi', 'Togetic', 'Torchic', 'Totodile', 'Toxicroak', 'Trapinch', 'Treecko', 'Umbreon', 'Uxie', 'Vaporeon', 'Vibrava', 'Vileplume', 'Voltorb-Hisui', 'Vulpix-Base', 'Weavile', 'Whismur', 'Wigglytuff', 'Zubat',
+
+			'Houndoominite', 'Steelixite', 'Heracronite', 'Sceptilite', 'Aggronite', 'Sharpedonite', 'Absolite', 'Glalitite', 'Froslassite', 'Garchompite', 'Lopunnite', 'Gardevoirite', 'Galladite', 'Abomasite',
+		],
+	},
+	{
 		name: "[Gen 9] ND Generations Draft [Gen 4]",
 		mod: 'generationsdraftgen4',
 		ruleset: ['Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause'],
@@ -108,7 +133,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 4 VGC]",
-		mod: 'generationsdraftgen4vgc',
+		mod: 'generationsdraftgen4',
 		gameType: 'doubles',
 		ruleset: [
 			'Standard Generations', 'Tera Type Preview', '35 Pokes Mega Clause',
@@ -197,7 +222,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			'Forme Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
-			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
+			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause', 'Adjust Level = 50',
 		],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag',
@@ -205,7 +230,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Baton Pass', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Swagger',
 		],
 		unbanlist: [
-			'Alakazam', 'Ambipom', 'Annihilape', 'Araquanid', 'Arcanine', 'Arctozolt', 'Azelf', 'Bastiodon', 'Bewear', 'Blaziken', 'Braviary', 'Celesteela', 'Centiskorch', 'Chandelure', 'Chi-Yu', 'Claydol', 'Clefable', 'Cloyster', 'Copperajah', 'Cramorant', 'Crawdaunt', 'Cryogonal', 'Drednaw', 'Dubwool', 'Emolga', 'Espathra', 'Fearow', 'Fezandipiti', 'Furret', 'Galvantula', 'Gholdengo', 'Gogoat', 'Gothitelle', 'Gourgeist', 'Granbull', 'Hatterene', 'Haxorus', 'Hippowdon', 'Iron Hands', 'Jirachi', 'Kabutops', 'Keldeo', 'Kleavor', 'Leafeon', 'Lilligant', 'Lokix', 'Lurantis', 'Magneton', 'Banette-Mega', 'Charizard-Mega-Y', 'Froslass-Mega', 'Mawile-Mega', 'Slowbro-Mega', 'Tyranitar-Mega', 'Meloetta', 'Meowstic', 'Mienshao', 'Noctowl', 'Noivern', 'Octillery', 'Pincurchin', 'Politoed', 'Porygon-Z', 'Quaquaval', 'Raichu', 'Regice', 'Registeel', 'Reuniclus', 'Revavroom', 'Rhydon', 'Rhyperior', 'Sandaconda', 'Sandy Shocks', 'Sawk', 'Seviper', 'Sigilyph', 'Silvally', 'Sinistcha', 'Spidops', 'Suicune', 'Swanna', 'Tapu Fini', 'Tapu Koko', 'Terrakion', 'Togetic', 'Tornadus', 'Tornadus-Therian', 'Torterra', 'Tropius', 'Vanilluxe', 'Victini', 'Victreebel', 'Vivillon', 'Volbeat', 'Walking Wake', 'Weezing-Galar', 'Wigglytuff', 'Wobbuffet', 'Xatu', 'Zeraora',
+			'Alakazam-Base', 'Ambipom', 'Annihilape', 'Araquanid-Base', 'Arcanine-Base', 'Arctozolt', 'Azelf', 'Azumarill', 'Banette-Mega', 'Bastiodon', 'Bellossom', 'Bewear', 'Blaziken-Base', 'Braviary-Base', 'Breloom', 'Celesteela', 'Centiskorch', 'Chandelure', 'Charizard-Mega-Y', 'Chi-Yu', 'Claydol', 'Clefable', 'Clodsire', 'Cloyster', 'Copperajah', 'Cramorant-Base', 'Crawdaunt', 'Cryogonal', 'Donphan', 'Drednaw', 'Dubwool', 'Emolga', 'Espathra', 'Exeggutor-Base', 'Fearow', 'Feraligatr-Mega', 'Fezandipiti', 'Froslass-Mega', 'Furret', 'Galvantula', 'Garchomp-Mega', 'Gastrodon', 'Gholdengo', 'Gogoat', 'Golem-Base', 'Gothitelle', 'Gourgeist-Base', 'Granbull', 'Great Tusk', 'Gyarados-Base', 'Hatterene', 'Haxorus', 'Hippowdon', 'Honchkrow', 'Hypno', 'Iron Hands', 'Iron Treads', 'Jirachi', 'Jumpluff', 'Kabutops', 'Keldeo-Base', 'Kingdra', 'Kleavor', 'Leafeon', 'Lilligant-Base', 'Lokix', 'Lurantis-Base', 'Magneton', 'Mamoswine', 'Manectric-Mega', 'Marowak-Base', 'Mawile-Mega', 'Meloetta-Base', 'Meowstic', 'Mienshao', 'Mr. Mime-Base', 'Munkidori', 'Nidoking', 'Noctowl', 'Noivern', 'Octillery', 'Omastar', 'Palossand', 'Pincurchin', 'Plusle', 'Politoed', 'Porygon-Z', 'Primarina', 'Purugly', 'Quagsire', 'Quaquaval', 'Raging Bolt', 'Raichu-Base', 'Regice', 'Registeel', 'Relicanth', 'Reuniclus', 'Revavroom', 'Rhydon', 'Rhyperior', 'Sandaconda', 'Sandslash-Base', 'Sandy Shocks', 'Sawk', 'Scolipede', 'Seviper', 'Sigilyph', 'Silvally', 'Sinistcha', 'Slaking', 'Slowbro-Mega', 'Slowking-Galar', 'Spidops', 'Stakataka', 'Suicune', 'Swanna', 'Tangrowth', 'Tapu Fini', 'Tapu Koko', 'Tapu Lele', 'Terrakion', 'Togetic', 'Tornadus-Base', 'Tornadus-Therian', 'Torterra', 'Tropius', 'Tyranitar-Mega', 'Vanilluxe', 'Victini', 'Victreebel', 'Vivillon', 'Volbeat', 'Walking Wake', 'Weezing-Galar', 'Whimsicott', 'Wigglytuff', 'Wobbuffet', 'Xatu', 'Yanmega', 'Zeraora', 'Zygarde-10%',
 		],
 	},
 	{
@@ -224,7 +249,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Hidden Power',
 		],
 		unbanlist: [
-			'Alakazam', 'Ambipom', 'Annihilape', 'Araquanid', 'Arcanine', 'Arctozolt', 'Azelf', 'Bastiodon', 'Bewear', 'Blaziken', 'Braviary', 'Celesteela', 'Centiskorch', 'Chandelure', 'Chi-Yu', 'Claydol', 'Clefable', 'Cloyster', 'Copperajah', 'Cramorant', 'Crawdaunt', 'Cryogonal', 'Drednaw', 'Dubwool', 'Emolga', 'Espathra', 'Fearow', 'Fezandipiti', 'Furret', 'Galvantula', 'Gholdengo', 'Gogoat', 'Gothitelle', 'Gourgeist', 'Granbull', 'Hatterene', 'Haxorus', 'Hippowdon', 'Iron Hands', 'Jirachi', 'Kabutops', 'Keldeo', 'Kleavor', 'Leafeon', 'Lilligant', 'Lokix', 'Lurantis', 'Magneton', 'Banette-Mega', 'Charizard-Mega-Y', 'Froslass-Mega', 'Mawile-Mega', 'Slowbro-Mega', 'Tyranitar-Mega', 'Meloetta', 'Meowstic', 'Mienshao', 'Noctowl', 'Noivern', 'Octillery', 'Pincurchin', 'Politoed', 'Porygon-Z', 'Quaquaval', 'Raichu', 'Regice', 'Registeel', 'Reuniclus', 'Revavroom', 'Rhydon', 'Rhyperior', 'Sandaconda', 'Sandy Shocks', 'Sawk', 'Seviper', 'Sigilyph', 'Silvally', 'Sinistcha', 'Spidops', 'Suicune', 'Swanna', 'Tapu Fini', 'Tapu Koko', 'Terrakion', 'Togetic', 'Tornadus', 'Tornadus-Therian', 'Torterra', 'Tropius', 'Vanilluxe', 'Victini', 'Victreebel', 'Vivillon', 'Volbeat', 'Walking Wake', 'Weezing-Galar', 'Wigglytuff', 'Wobbuffet', 'Xatu', 'Zeraora',
+			'Alakazam-Base', 'Ambipom', 'Annihilape', 'Appletun', 'Araquanid-Base', 'Arcanine-Base', 'Arctozolt', 'Audino-Mega', 'Azelf', 'Banette-Mega', 'Bastiodon', 'Bewear', 'Blaziken-Base', 'Braviary-Base', 'Breloom', 'Celesteela', 'Centiskorch', 'Chandelure', 'Charizard-Mega-Y', 'Chi-Yu', 'Claydol', 'Clefable', 'Clodsire', 'Cloyster', 'Comfey', 'Copperajah', 'Corviknight', 'Cramorant-Base', 'Crawdaunt', 'Cryogonal', 'Decidueye-Hisui', 'Dedenne', 'Dragapult', 'Drednaw', 'Dubwool', 'Duraludon', 'Emolga', 'Empoleon', 'Espathra', 'Fearow', 'Fezandipiti', 'Fletchinder', 'Florges', 'Froslass-Mega', 'Furret', 'Galvantula', 'Gengar-Base', 'Gholdengo', 'Gogoat', 'Golurk', 'Gothitelle', 'Gourgeist-Base', 'Granbull', 'Hatterene', 'Haxorus', 'Hippowdon', 'Iron Crown', 'Iron Hands', 'Iron Jugulis', 'Jirachi', 'Kabutops', 'Keldeo-Base', 'Kleavor', 'Leafeon', 'Ledian', 'Liepard', 'Lilligant-Base', 'Lokix', 'Lurantis-Base', 'Magearna-Base', 'Magmortar', 'Magneton', 'Mawile-Mega', 'Meloetta-Base', 'Meowstic', 'Metagross-Mega', 'Mienshao', 'Munkidori', 'Nidoking', 'Noctowl', 'Noivern', 'Octillery', 'Oricorio-Base', 'Palossand', 'Pincurchin', 'Politoed', 'Porygon-Z', 'Quaquaval', 'Raichu-Base', 'Rapidash-Base', 'Regice', 'Registeel', 'Reuniclus', 'Revavroom', 'Rhydon', 'Rhyperior', 'Riolu', 'Sandaconda', 'Sandy Shocks', 'Sawk', 'Seviper', 'Sigilyph', 'Silvally', 'Sinistcha', 'Skarmory', 'Slowbro-Mega', 'Spidops', 'Stunfisk-Galar', 'Suicune', 'Swanna', 'Sylveon', 'Tapu Fini', 'Tapu Koko', 'Tauros-Paldea-Blaze', 'Togetic', 'Tornadus-Base', 'Tornadus-Therian', 'Torterra', 'Trevenant', 'Tropius', 'Typhlosion-Hisui', 'Tyranitar-Mega', 'Vanilluxe', 'Victreebel', 'Vivillon', 'Volbeat', 'Volcarona', 'Wailord', 'Walking Wake', 'Whimsicott', 'Wigglytuff', 'Wo-Chien', 'Wobbuffet', 'Wormadam-Trash', 'Xatu', 'Zapdos-Galar', 'Zeraora'
 		],
 	},
 	{
@@ -272,40 +297,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: 'Partner Communities',
 		column: 1,
-	},
-	{
-		name: '[Gen 9] ND VGC LC',
-		desc: 'VGC with unevolved pokemon only.',
-		mod: 'gen9',
-		gameType: 'doubles',
-		// bestOfDefault: true,
-		ruleset: [
-			'Standard Doubles', 'NatDex Mod', 'Picked Team Size = 4', 'Little Cup', '!! Max Level = 50', 'Z-Move Clause', 'Terastal Clause', '!Species Clause', 'Forme Clause', 'Item Clause = 1', 'Evasion Clause', 'VGC Timer', 'Limit One Restricted', 'Open Team Sheets',
-		],
-		restricted: [
-			'Scyther', 'Tangela', 'Stantler', 'Sneasel-Hisui', 'Qwilfish-Hisui', 'Murkrow', 'Misdreavus', 'Gligar', 'Girafarig', 'Cottonee', 'Clamperl', 'Basculin-White-Striped', 'Sneasel', 'Corsola-Galar',
-		],
-		banlist: [
-			'Duraludon', 'Type: Null',
-			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
-		],
-	},
-	{
-		name: '[Gen 9] ND VGC LC (Bo3)',
-		desc: 'VGC with unevolved pokemon only.',
-		mod: 'gen9',
-		gameType: 'doubles',
-		// bestOfDefault: true,
-		ruleset: [
-			'Standard Doubles', 'NatDex Mod', 'Picked Team Size = 4', 'Little Cup', '!! Max Level = 50', 'Z-Move Clause', 'Terastal Clause', '!Species Clause', 'Forme Clause', 'Item Clause = 1', 'Evasion Clause', 'VGC Timer', 'Limit One Restricted', 'Open Team Sheets', 'Best Of = 3',
-		],
-		restricted: [
-			'Scyther', 'Tangela', 'Stantler', 'Sneasel-Hisui', 'Qwilfish-Hisui', 'Murkrow', 'Misdreavus', 'Gligar', 'Girafarig', 'Cottonee', 'Clamperl', 'Basculin-White-Striped', 'Sneasel', 'Corsola-Galar',
-		],
-		banlist: [
-			'Duraludon', 'Type: Null',
-			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
-		],
 	},
 	{
 		name: '[Gen 9] Petpet Battle II',
@@ -356,6 +347,40 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		onChangeSet(set, format, setHas, teamHas) {
 			set.shiny = false;
 		},
+	},
+	{
+		name: '[Gen 9] ND VGC LC',
+		desc: 'VGC with unevolved pokemon only.',
+		mod: 'gen9',
+		gameType: 'doubles',
+		// bestOfDefault: true,
+		ruleset: [
+			'Standard Doubles', 'NatDex Mod', 'Picked Team Size = 4', 'Little Cup', '!! Max Level = 50', 'Z-Move Clause', 'Terastal Clause', '!Species Clause', 'Forme Clause', 'Item Clause = 1', 'Evasion Clause', 'VGC Timer', 'Limit One Restricted', 'Open Team Sheets',
+		],
+		restricted: [
+			'Scyther', 'Tangela', 'Stantler', 'Sneasel-Hisui', 'Qwilfish-Hisui', 'Murkrow', 'Misdreavus', 'Gligar', 'Girafarig', 'Cottonee', 'Clamperl', 'Basculin-White-Striped', 'Sneasel', 'Corsola-Galar',
+		],
+		banlist: [
+			'Duraludon', 'Type: Null',
+			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
+		],
+	},
+	{
+		name: '[Gen 9] ND VGC LC (Bo3)',
+		desc: 'VGC with unevolved pokemon only.',
+		mod: 'gen9',
+		gameType: 'doubles',
+		// bestOfDefault: true,
+		ruleset: [
+			'Standard Doubles', 'NatDex Mod', 'Picked Team Size = 4', 'Little Cup', '!! Max Level = 50', 'Z-Move Clause', 'Terastal Clause', '!Species Clause', 'Forme Clause', 'Item Clause = 1', 'Evasion Clause', 'VGC Timer', 'Limit One Restricted', 'Open Team Sheets', 'Best Of = 3',
+		],
+		restricted: [
+			'Scyther', 'Tangela', 'Stantler', 'Sneasel-Hisui', 'Qwilfish-Hisui', 'Murkrow', 'Misdreavus', 'Gligar', 'Girafarig', 'Cottonee', 'Clamperl', 'Basculin-White-Striped', 'Sneasel', 'Corsola-Galar',
+		],
+		banlist: [
+			'Duraludon', 'Type: Null',
+			'Commander', 'Power Construct', 'Shadow Tag', 'Assist',
+		],
 	},
 
 	// endregion

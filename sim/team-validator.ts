@@ -1148,7 +1148,7 @@ export class TeamValidator {
 
 	validateStats(set: PokemonSet, species: Species, setSources: PokemonSources, pokemonGoProblems: string[] | null) {
 		const ruleTable = this.ruleTable;
-		const dex = this.validatorDex;
+		const dex = this.format.validatorModExceptStats ? this.dex : this.validatorDex;
 
 		const allowAVs = !ruleTable.has('lgpenormalrules');
 		const useStatPoints = dex.currentMod === 'champions';

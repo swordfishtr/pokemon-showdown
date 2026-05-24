@@ -469,7 +469,10 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	readonly onBegin?: (this: Battle) => void;
 	readonly noLog: boolean;
 
+	/** Team validator will use `validatorMod` instead of `mod` if present. */
 	readonly validatorMod?: string;
+	/** If true, don't use `validatorMod` for stats validation. */
+	readonly validatorModExceptStats?: boolean;
 
 	/**
 	 * Only applies to rules, not formats
@@ -544,6 +547,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 		this.onBegin = data.onBegin || undefined;
 		this.noLog = !!data.noLog;
 		this.validatorMod = data.validatorMod || undefined;
+		this.validatorModExceptStats = data.validatorModExceptStats || undefined;
 		this.playerCount = (this.gameType === 'multi' || this.gameType === 'freeforall' ? 4 : 2);
 		assignMissingFields(this, data);
 	}

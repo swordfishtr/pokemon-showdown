@@ -193,6 +193,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] RDL Singles",
 		mod: 'champions',
 		validatorMod: 'gen9',
+		validatorModExceptStats: true,
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			'Forme Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
@@ -211,6 +212,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] RDL VGC",
 		mod: 'champions',
 		validatorMod: 'gen9',
+		validatorModExceptStats: true,
 		gameType: 'doubles',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',

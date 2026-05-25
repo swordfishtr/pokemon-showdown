@@ -106,7 +106,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves',
 		],
 		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
+			const species = this.validatorDex.species.get(set.species);
 			if (species.natDexTier === 'Illegal') {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
@@ -121,8 +121,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					return [`${set.name || set.species} does not exist in the National Dex.`];
 				}
 				for (const moveid of set.moves) {
-					const move = this.dex.moves.get(moveid);
-					if (move.isNonstandard === 'Unobtainable' && move.gen === this.dex.gen || move.id === 'lightofruin') {
+					const move = this.validatorDex.moves.get(moveid);
+					if (move.isNonstandard === 'Unobtainable' && move.gen === this.validatorDex.gen || move.id === 'lightofruin') {
 						if (this.ruleTable.has(`+move:${move.id}`)) continue;
 						const problem = `${set.name}'s move ${move.name} does not exist in the National Dex.`;
 						if (this.ruleTable.has('omunobtainablemoves')) {
@@ -135,15 +135,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 			// Any item that was legal in Gen 7 (Normal Gem for example) should be usable
 			if (!set.item) return;
-			let item = this.dex.items.get(set.item);
-			let gen = this.dex.gen;
+			let item = this.validatorDex.items.get(set.item);
+			let gen = this.validatorDex.gen;
 			while (item.isNonstandard && gen >= 7) {
-				item = this.dex.forGen(gen).items.get(item.id);
+				item = this.validatorDex.forGen(gen).items.get(item.id);
 				gen--;
 			}
 			if (requireObtainable && item.isNonstandard) {
 				if (this.ruleTable.has(`+item:${item.id}`)) return;
-				return [`${set.name}'s item ${item.name} does not exist in Gen ${this.dex.gen}.`];
+				return [`${set.name}'s item ${item.name} does not exist in Gen ${this.validatorDex.gen}.`];
 			}
 		},
 		onBegin() {

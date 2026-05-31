@@ -245,7 +245,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			'Forme Clause', 'Nickname Clause',
 			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
-			'Min Team Size = 6', 'Picked Team Size = 4', 'Adjust Level = 50', 'Best Of = 3', 
+			'Min Team Size = 6', 'Picked Team Size = 4', 'Adjust Level = 50', 'Best Of = 3', 'Item Clause = 1',
 		],
 		banlist: [
 			'Hidden Power',

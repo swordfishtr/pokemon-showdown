@@ -97,7 +97,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [2026 Anniversary]",
-		mod: 'generationsdraftgen4',
+		mod: 'gen9',
 		ruleset: ['Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause'],
 		unbanlist: [
 			'Abomasnow-Base', 'Abomasnow-Mega', 'Absol-Base', 'Absol-Mega', 'Aggron-Base', 'Aggron-Mega', 'Arcanine-Hisui', 'Aron', 'Articuno-Galar', 'Azelf', 'Azumarill', 'Azurill', 'Bagon', 'Bellossom', 'Blaziken-Base', 'Budew', 'Buneary', 'Carvanha', 'Celebi', 'Chimchar', 'Clamperl', 'Clefable-Base', 'Clefairy', 'Cleffa', 'Combusken', 'Corphish', 'Corsola-Galar', 'Cranidos', 'Crawdaunt', 'Croagunk', 'Crobat', 'Croconaw', 'Cursola', 'Deoxys-Speed', 'Ditto', 'Dragonair', 'Dragonite-Base', 'Dratini', 'Drifblim', 'Drifloon', 'Dusclops', 'Dusknoir', 'Duskull', 'Eevee-Base', 'Electabuzz', 'Electivire', 'Electrode-Hisui', 'Elekid', 'Entei', 'Exploud', 'Feraligatr-Base', 'Flareon', 'Flygon', 'Froslass', 'Froslass-Mega', 'Gabite', 'Gallade-Base', 'Gallade-Mega', 'Garchomp-Base', 'Garchomp-Mega', 'Gardevoir-Base', 'Gardevoir-Mega', 'Gible', 'Glaceon', 'Glalie-Base', 'Glalie-Mega', 'Gligar', 'Gliscor', 'Gloom', 'Golbat', 'Gorebyss', 'Grovyle', 'Growlithe-Hisui', 'Hariyama', 'Heatran-Base', 'Heracross-Base', 'Heracross-Mega', 'Horsea', 'Houndoom-Base', 'Houndoom-Mega', 'Houndour', 'Igglybuff', 'Infernape', 'Iron Treads', 'Iron Valiant', 'Jigglypuff', 'Jirachi', 'Jolteon', 'Kingdra', 'Kingler', 'Kirlia', 'Kleavor', 'Krabby', 'Lairon', 'Latias-Base', 'Latios-Base', 'Lombre', 'Lopunny-Base', 'Lopunny-Mega', 'Lotad', 'Loudred', 'Lucario-Base', 'Ludicolo', 'Machamp', 'Machoke', 'Machop', 'Makuhita', 'Mamoswine', 'Manaphy', 'Marill', 'Mew', 'Mime Jr.', 'Misdreavus', 'Mismagius', 'Monferno', 'Mr. Mime-Base', 'Munchlax', 'Nincada', 'Ninetales-Base', 'Oddish', 'Onix', 'Piloswine', 'Poliwag', 'Poliwhirl', 'Poliwrath', 'Porygon', 'Porygon-Z', 'Porygon2', 'Raikou', 'Ralts', 'Rampardos', 'Regice', 'Regidrago', 'Regieleki', 'Registeel', 'Rhydon', 'Rhyhorn', 'Rhyperior', 'Riolu', 'Roselia', 'Roserade', 'Rotom-Mow', 'Rotom-Wash', 'Salamence-Base', 'Sandshrew-Alola', 'Sandslash-Alola', 'Sandy Shocks', 'Sceptile-Base', 'Sceptile-Mega', 'Scizor-Base', 'Scream Tail', 'Scyther', 'Seadra', 'Sharpedo-Base', 'Sharpedo-Mega', 'Shedinja', 'Shelgon', 'Skuntank', 'Slowbro-Galar', 'Slowking-Base', 'Slowking-Galar', 'Slowpoke-Base', 'Slowpoke-Galar', 'Sneasel-Base', 'Sneasel-Hisui', 'Sneasler', 'Snorlax', 'Snorunt', 'Snover', 'Staraptor-Base', 'Staravia', 'Starly', 'Starmie-Base', 'Staryu', 'Steelix-Base', 'Steelix-Mega', 'Stunky', 'Suicune', 'Swellow', 'Swinub', 'Taillow', 'Togekiss', 'Togepi', 'Togetic', 'Torchic', 'Totodile', 'Toxicroak', 'Trapinch', 'Treecko', 'Umbreon', 'Uxie', 'Vaporeon', 'Vibrava', 'Vileplume', 'Voltorb-Hisui', 'Vulpix-Base', 'Weavile', 'Whismur', 'Wigglytuff', 'Zubat',
@@ -107,7 +107,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [2026 Anniversary VGC]",
-		mod: 'generationsdraftgen4',
+		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
 			'Standard Generations', 'Tera Type Preview', '35 Pokes Mega Clause',

@@ -1213,7 +1213,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Huge Power', 'Dynamic Punch',
 		],
 		unbanlist: [
-			'Booster Energy',
+			'Booster Energy', 'Noxious Torque',
 			'Parasect', 'Corsola-Base', 'Delcatty', 'Tentacool', 'Delibird', 'Sandygast', 'Finneon', 'Cubchoo', 'Larvesta', 'Skrelp', 'Jigglypuff', 'Golett', 'Togepi', 'Dreepy', 'Stunky', 'Gible', 'Varoom', 'Geodude-Alola', 'Sandile', 'Gimmighoul-Base', 'Dolliv', 'Litten', 'Magnemite', 'Croagunk', 'Smoochum', 'Skiploom', 'Pancham', 'Pineco', 'Natu', 'Corvisquire', 'Heatproof', 'Deino', 'Litleo', 'Marill', 'Munna', 'Shieldon',
 		],
 	},

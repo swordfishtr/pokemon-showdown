@@ -372,7 +372,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Snorlax', 'Gallade-Base', 'Staraptor-Base', 'Heatran-Base', 'Ludicolo', 'Aggron-Mega', 'Regieleki', 'Kingdra', 'Absol',
+			'Snorlax', 'Gallade-Base', 'Staraptor-Base', 'Heatran-Base', 'Ludicolo', 'Aggron-Mega', 'Regieleki', 'Kingdra', 'Absol-Base',
 		],
 		validateTeam: draftteams.validateTeam,
 	},

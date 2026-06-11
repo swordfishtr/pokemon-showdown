@@ -72,20 +72,20 @@ const spmnm: Partial<FormatData> = {
 	},
 };
 
-// const draftteams: Partial<FormatData> = {
-// 	validateTeam(team, options) {
-// 		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
-// 			require('../sim/team-validator').TeamValidator;
-// 		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4]').validateTeam(team, options) ?? undefined;
-// 	},
-// };
-// const draftteamsvgc: Partial<FormatData> = {
-// 	validateTeam(team, options) {
-// 		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
-// 			require('../sim/team-validator').TeamValidator;
-// 		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4 VGC]').validateTeam(team, options) ?? undefined;
-// 	},
-// };
+const draftteams: Partial<FormatData> = {
+	validateTeam(team, options) {
+		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+			require('../sim/team-validator').TeamValidator;
+		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4]').validateTeam(team, options) ?? undefined;
+	},
+};
+const draftteamsvgc: Partial<FormatData> = {
+	validateTeam(team, options) {
+		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+			require('../sim/team-validator').TeamValidator;
+		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4 VGC]').validateTeam(team, options) ?? undefined;
+	},
+};
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 
@@ -276,10 +276,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard Draft', '+Unobtainable', '+Past', 'Min Source Gen = 1', 'Tera Type Preview'],
 	},
-	// {
-	// 	section: 'Draft Teams',
-	// 	column: 1,
-	// },
+	{
+		section: 'Draft Teams',
+		column: 1,
+	},
 	// {
 	// 	name: '[DIV] user',
 	// 	challengeShow: false,
@@ -296,6 +296,86 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// 	unbanlist: [],
 	// 	validateTeam: draftteamsvgc.validateTeam,
 	// },
+	{
+		name: '[Col] Hog',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Froslass-Mega', 'Arcanine-Hisui', 'Electabuzz', 'Hariyama', 'Gardevoir-Base', 'Crawdaunt', 'Swellow', 'Duskull', 'Voltorb-Hisui',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Col] Mizuri',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gardevoir-Mega', 'Salamence-Base', 'Sneasler', 'Electivire', 'Scizor-Base', 'Starmie-Base', 'Bellossom', 'Wigglytuff',
+		],
+		validateTeam: draftteamsvgc.validateTeam,
+	},
+	{
+		name: '[Col] Aves',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Lopunny-Mega', 'Iron Treads', 'Rotom-Wash', 'Latias-Base', 'Clefable-Base', 'Ninetales-Base', 'Vileplume', 'Misdreavus', 'Corsola-Galar',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Col] TRod63',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Porygon2', 'Sandslash-Alola', 'Abomasnow-Mega', 'Suicune', 'Drifblim', 'Flygon', 'Infernape', 'Riolu', 'Cursola',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Col] SupaJello',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Dragonite-Base', 'Blaziken-Base', 'Azumarill', 'Mamoswine', 'Crobat', 'Celebi', 'Raikou', 'Dusknoir', 'Exploud', 'Trapinch',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Col] Blob',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Togekiss', 'Jirachi', 'Entei', 'Rhyperior', 'Uxie', 'Regidrago', 'Lopunny-Base', 'Lombre',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Col] Masterriolu',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Mew', 'Clefairy', 'Manaphy', 'Kleavor', 'Iron Valiant', 'Garchomp-Base', 'Piloswine', 'Electrode-Hisui',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Col] Moomoogaming',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Snorlax', 'Gallade-Base', 'Staraptor-Base', 'Heatran-Base', 'Ludicolo', 'Aggron-Mega', 'Regieleki', 'Kingdra', 'Absol',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
 	{
 		section: 'Partner Communities',
 		column: 1,

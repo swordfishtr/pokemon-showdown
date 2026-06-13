@@ -76,14 +76,14 @@ const draftteams: Partial<FormatData> = {
 	validateTeam(team, options) {
 		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
 			require('../sim/team-validator').TeamValidator;
-		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4]').validateTeam(team, options) ?? undefined;
+		return new TeamValidator('[Gen 9] ND Generations Draft [2026 Anniversary]').validateTeam(team, options) ?? undefined;
 	},
 };
 const draftteamsvgc: Partial<FormatData> = {
 	validateTeam(team, options) {
 		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
 			require('../sim/team-validator').TeamValidator;
-		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 4 VGC]').validateTeam(team, options) ?? undefined;
+		return new TeamValidator('[Gen 9] ND Generations Draft [2026 Anniversary VGC]').validateTeam(team, options) ?? undefined;
 	},
 };
 
@@ -296,6 +296,86 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// 	unbanlist: [],
 	// 	validateTeam: draftteamsvgc.validateTeam,
 	// },
+	{
+		name: '[Rev] DMBeeeez',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Iron Valiant', 'Garchomp-Mega', 'Mew', 'Arcanine-Hisui', 'Crobat', 'Suicune', 'Jolteon', 'Corsola-Galar',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] Mr. Smiles',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Gallade-Mega', 'Azumarill', 'Gliscor', 'Roserade', 'Starmie-Base', 'Entei', 'Electrode-Hisui', 'Swellow', 'Shedinja',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] bbnate',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Sneasler', 'Gardevoir-Mega', 'Scizor-Base', 'Rotom-Wash', 'Salamence-Base', 'Mamoswine', 'Umbreon', 'Aggron-Base',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] PumpkinCD',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Froslass-Mega', 'Weavile', 'Slowking-Galar', 'Sandy Shocks', 'Vaporeon', 'Flygon', 'Hariyama', 'Togetic', 'Kingler', 'Sandslash-Alola',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] Conn',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Iron Treads', 'Dragonite-Base', 'Scream Tail', 'Blaziken-Base', 'Raikou', 'Roselia', 'Munchlax', 'Mismagius', 'Absol-Mega',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] Dragapult',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Steelix-Mega', 'Heatran-Base', 'Deoxys-Speed', 'Regidrago', 'Slowking-Base', 'Snorlax', 'Glalie-Base', 'Trapinch', 'Articuno-Galar', 'Ninetales-Base',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] Hannah',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Garchomp-Base', 'Azelf', 'Manaphy', 'Heracross-Mega', 'Registeel', 'Regieleki', 'Staraptor-Base', 'Exploud', 'Houndoom-Base',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[Rev] Axel',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Latios-Base', 'Lopunny-Mega', 'Porygon2', 'Gligar', 'Clefable-Base', 'Crawdaunt', 'Jirachi', 'Flareon',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
 	{
 		name: '[Col] Hog',
 		challengeShow: false,

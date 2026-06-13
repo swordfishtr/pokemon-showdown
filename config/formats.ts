@@ -1367,6 +1367,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 					'#marill+lightningrod+strengthsap+roar',
 					'#munna+regenerator+chillyreception',
 					'#tentacool+frisk',
+					'Limit One Restricted',
 					],
 		banlist: [
 			'Analytic', 'Huge Power', 'Hustle',
@@ -1377,6 +1378,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Booster Energy', 'Noxious Torque',
 			'Parasect', 'Luvdisc', 'Delcatty', 'Tentacool', 'Delibird', 'Sandygast', 'Finneon', 'Cubchoo', 'Larvesta', 'Skrelp', 'Jigglypuff', 'Golett', 'Togepi', 'Dreepy', 'Stunky', 'Gible', 'Varoom', 'Geodude-Alola', 'Sandile', 'Gimmighoul-Base', 'Dolliv', 'Litten', 'Magnemite', 'Croagunk', 'Smoochum', 'Skiploom', 'Pancham', 'Pineco', 'Natu', 'Corvisquire', 'Heatproof', 'Deino', 'Litleo', 'Marill', 'Munna', 'Shieldon',
 		],
+		restricted: [
+			'Delcatty', 'Luvdisc', 'Parasect', 'Delibird',
+		],
+
+
 	},
 	{
 		name: "[Gen 7] 35 Pokes Perfect [E1]",

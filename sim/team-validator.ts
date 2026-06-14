@@ -1881,6 +1881,11 @@ export class TeamValidator {
 					if (!existenceTag && nonexistentCheck) continue;
 					return null;
 				}
+				if (tag.name.startsWith('ND ') && ruleTable.isRestrictedSpecies(species)) {
+					// this is here temporarily to enable species to be "restricted" in formats where they
+					// must also be "unbanned" after a `-allpokemon` in order to be usable.
+					continue;
+				}
 				if (existenceTag) {
 					// for a nicer error message
 					nonexistentCheck = 'banned';

@@ -109,14 +109,14 @@ export class RuleTable extends Map<string, string> {
 	}
 
 	isRestricted(thing: string) {
-		if (this.has(`+${thing}`)) return false;
+		// if (this.has(`+${thing}`)) return false;
 		return this.has(`*${thing}`);
 	}
 
 	isRestrictedSpecies(species: Species) {
-		if (this.has(`+pokemon:${species.id}`)) return false;
+		// if (this.has(`+pokemon:${species.id}`)) return false;
 		if (this.has(`*pokemon:${species.id}`)) return true;
-		if (this.has(`+basepokemon:${toID(species.baseSpecies)}`)) return false;
+		// if (this.has(`+basepokemon:${toID(species.baseSpecies)}`)) return false;
 		if (this.has(`*basepokemon:${toID(species.baseSpecies)}`)) return true;
 		for (const tagid in Tags) {
 			const tag = Tags[tagid as ID];
@@ -124,12 +124,12 @@ export class RuleTable extends Map<string, string> {
 				if ((tag.speciesFilter || tag.genericFilter)!(species)) return true;
 			}
 		}
-		for (const tagid in Tags) {
-			const tag = Tags[tagid as ID];
-			if (this.has(`+pokemontag:${tagid}`)) {
-				if ((tag.speciesFilter || tag.genericFilter)!(species)) return false;
-			}
-		}
+		// for (const tagid in Tags) {
+		// 	const tag = Tags[tagid as ID];
+		// 	if (this.has(`+pokemontag:${tagid}`)) {
+		// 		if ((tag.speciesFilter || tag.genericFilter)!(species)) return false;
+		// 	}
+		// }
 		return this.has(`*pokemontag:allpokemon`);
 	}
 

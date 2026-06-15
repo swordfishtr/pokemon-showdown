@@ -110,7 +110,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard Generations', 'Tera Type Preview', '35 Pokes Mega Clause',
+			'Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause',
 			'!Sleep Clause Mod', '!DryPass Clause', '!!Adjust Level = 50',
 			'Min Team Size = 6', 'Picked Team Size = 4', 'Best Of = 3', 'Item Clause = 1',
 		],

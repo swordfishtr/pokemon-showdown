@@ -17,7 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
-import { FormatData } from '../sim/dex-formats';
+import type { FormatData, RuleTable } from '../sim/dex-formats';
 
 const spmnm: Partial<FormatData> = {
 	// Mix and Mega
@@ -601,13 +601,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Carracosta', 'Celebi', 'Cinccino', 'Cobalion', 'Cradily', 'Dedenne', 'Fezandipiti', 'Gabite', 'Granbull', 'Greedent', 'Hatterene', 'Heatmor', 'Houndstone', 'Indeedee-M', 'Lilligant-Base', 'Medicham-Base', 'Orbeetle', 'Oricorio-Pom-Pom', 'Overqwil', 'Pincurchin', 'Pinsir-Base', 'Rotom-Wash', 'Samurott-Base', 'Scovillain-Base', 'Sharpedo-Base', 'Shedinja', 'Shiftry', 'Steelix-Base', 'Tropius', 'Type: Null', 'Typhlosion-Hisui', 'Tyrantrum', 'Veluza', 'Vivillon', 'Whimsicott',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		section: '35 Pokes 2025',
@@ -639,13 +632,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Ambipom', 'Armarouge', 'Articuno-Base', 'Basculegion-F', 'Bibarel', 'Copperajah', 'Corviknight', 'Crobat', 'Dudunsparce', 'Dugtrio-Alola', 'Farigiraf', 'Floatzel', 'Froslass-Base', 'Golem-Alola', 'Hippowdon', 'Magmortar', 'Meganium-Base', 'Moltres-Base', 'Muk-Alola', 'Munkidori', 'Nidoking', 'Ninjask', 'Orthworm', 'Perrserker', 'Porygon-Z', 'Pyukumuku', 'Sandslash-Base', 'Sigilyph', 'Simisear', 'Sirfetch’d', 'Steelix-Base', 'Tauros-Base', 'Tauros-Paldea-Aqua', 'Weezing-Galar', 'Zoroark-Base',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Sep 2025]",
@@ -703,13 +689,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Dustox', 'Dedenne', 'Kecleon', 'Flareon', 'Cyclizar', 'Grumpig', 'Tentacruel', 'Miltank', 'Arcanine-Base',
 			'Shelgon', 'Spinda', 'Wormadam-Sandy', 'Exploud', 'Marowak-Base', 'Hypno', 'Furret', 'Bastiodon',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2025]",
@@ -722,13 +701,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Appletun', 'Kabutops', 'Wyrdeer', 'Charizard-Base', 'Grafaiai', 'Golem-Base', 'Medicham-Base', 'Thievul', 'Lucario-Base',
 			'Mantine', 'Wormadam-Trash', 'Morpeko-Base', 'Drifblim', 'Granbull', 'Swalot', 'Aggron-Base', 'Luxray',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2025]",
@@ -741,13 +713,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Ambipom', 'Zygarde-10%', 'Tauros-Base', 'Glalie-Base', 'Golduck', 'Pangoro', 'Weezing-Base', 'Zweilous', 'Pinsir-Base',
 			'Musharna', 'Cacturne', 'Regigigas', 'Arctozolt', 'Bewear', 'Kecleon', 'Alcremie', 'Togedemaru-Base',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Jan 2025]",
@@ -889,13 +854,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Houndstone', 'Leafeon', 'Glaceon', 'Slowking-Base', 'Manectric-Base', 'Alomomola', 'Accelgor', 'Mismagius', 'Dachsbun',
 			'Tentacruel', 'Sandslash-Base', 'Tinkaton', 'Roserade', 'Sableye-Base', 'Palossand', 'Cobalion', 'Garbodor',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Mar 2024]",
@@ -908,13 +866,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Magmortar', 'Lilligant-Base', 'Sirfetch’d', 'Oricorio-Sensu', 'Persian-Alola', 'Farigiraf', 'Pinsir-Base', 'Primeape', 'Tatsugiri-Base',
 			'Dugtrio-Alola', 'Flygon', 'Regice', 'Ditto', 'Grafaiai', 'Pidgeot-Base', 'Palossand', 'Ribombee-Base',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Feb 2024]",
@@ -955,13 +906,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Dachsbun', 'Drampa-Base', 'Trevenant', 'Passimian', 'Beautifly', 'Tyranitar-Base', 'Regirock', 'Stunfisk-Galar', 'Morpeko-Base',
 			'Jumpluff', 'Heatmor', 'Froslass-Base', 'Audino-Base', 'Cetitan', 'Pincurchin', 'Cradily', 'Ninetales-Base',
 		],
-		onValidateSet(set, format, setHas, teamHas) {
-			if ([
-				'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			].includes(this.dex.items.get(set.item).name)) {
-				return ['All Z Crystals are banned for the duration of 35PL II.'];
-			}
-		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes [Nov 2023]",
@@ -2205,8 +2149,145 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// region 35 Pokes Extended
 
 	{
-		section: '35 Pokes Collabs',
+		section: '35 Pokes Tours',
 		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes All-Stars",
+		desc: '35 Pokes month vs month format using the modern ruleset.',
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		validateTeam(team, options) {
+			// validating using modern ruleset; only the allowed pokemon list needs to be swapped.
+			const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+				require('../sim/team-validator').TeamValidator;
+			const val = new TeamValidator('[Gen 9] ND 35 Pokes [Jun 2026]');
+			const months: string[] = [
+				'[Gen 9] ND 35 Pokes [Jun 2026]',
+				'[Gen 9] ND 35 Pokes [May 2026]',
+				'[Gen 9] ND 35 Pokes [Apr 2026]',
+				'[Gen 9] ND 35 Pokes [Mar 2026]',
+				'[Gen 9] ND 35 Pokes [Feb 2026]',
+				'[Gen 9] ND 35 Pokes [Jan 2026]',
+				'[Gen 9] ND 35 Pokes [Dec 2025]',
+				'[Gen 9] ND 35 Pokes [Nov 2025]',
+				'[Gen 9] ND 35 Pokes [Oct 2025]',
+				'[Gen 9] ND 35 Pokes [Sep 2025]',
+				'[Gen 9] ND 35 Pokes [Aug 2025]',
+				// '[Gen 9] ND 35 Pokes [Jul 2025]',
+				'[Gen 9] ND 35 Pokes [Jun 2025]',
+				'[Gen 9] ND 35 Pokes [May 2025]',
+				'[Gen 9] ND 35 Pokes [Apr 2025]',
+				'[Gen 9] ND 35 Pokes [Mar 2025]',
+				'[Gen 9] ND 35 Pokes [Feb 2025]',
+				'[Gen 9] ND 35 Pokes [Jan 2025]',
+				'[Gen 9] ND 35 Pokes [Dec 2024]',
+				'[Gen 9] ND 35 Pokes [Nov 2024]',
+				'[Gen 9] ND 35 Pokes [Oct 2024]',
+				'[Gen 9] ND 35 Pokes [Sep 2024]',
+				'[Gen 9] ND 35 Pokes [Aug 2024]',
+				// '[Gen 9] ND 35 Pokes [Jul 2024]',
+				'[Gen 9] ND 35 Pokes [Jun 2024]',
+				'[Gen 9] ND 35 Pokes [May 2024]',
+				'[Gen 9] ND 35 Pokes [Apr 2024]',
+				'[Gen 9] ND 35 Pokes [Mar 2024]',
+				'[Gen 9] ND 35 Pokes [Feb 2024]',
+				'[Gen 9] ND 35 Pokes [Jan 2024]',
+				'[Gen 9] ND 35 Pokes [Dec 2023]',
+				'[Gen 9] ND 35 Pokes [Nov 2023]',
+				// '[Gen 9] ND 35 Pokes [Oct 2023 B]',
+				'[Gen 9] ND 35 Pokes [Oct 2023]',
+				'[Gen 9] ND 35 Pokes [Sep 2023]',
+				'[Gen 9] ND 35 Pokes [Aug 2023]',
+				'[Gen 9] ND 35 Pokes [Jul 2023]',
+			];
+			let shortestErrors: string[] = [];
+			let closestFormat = '';
+			for (const month of months) {
+				const format = Dex.formats.get(month);
+				if (!format.exists) continue;
+				// using a new array here to avoid jankiness from iterating and deleting.
+				for (const key of [...val.ruleTable.keys()]) {
+					if (key.startsWith('+pokemon:') || key.startsWith('+basepokemon:')) {
+						val.ruleTable.delete(key);
+					}
+				}
+				for (const x of format.unbanlist) {
+					const rule = this.dex.formats.validateBanRule(x);
+					if (rule.startsWith('pokemon:') || rule.startsWith('basepokemon:')) {
+						val.ruleTable.set('+' + rule, '');
+					}
+				}
+				const errors = val.validateTeam(team, options);
+				if (!errors?.length) {
+					// team is valid for this month
+					return;
+				}
+				if (!shortestErrors.length || shortestErrors.length > errors.length) {
+					shortestErrors = errors;
+					closestFormat = month;
+				}
+			}
+			return [
+				'Your team is not valid for any of the legal months. Keep in mind that the modern ruleset is used ' +
+				`in all months: Sleep Moves Clause, Shed Tail ban, etc. The closest format (${closestFormat}) gives these errors:`,
+				...shortestErrors,
+			];
+		},
+		onBegin() {
+			// i wish we could just carry this information over from the validator ^^
+			const months: [string, RuleTable][] = [
+				'[Gen 9] ND 35 Pokes [Jun 2026]',
+				'[Gen 9] ND 35 Pokes [May 2026]',
+				'[Gen 9] ND 35 Pokes [Apr 2026]',
+				'[Gen 9] ND 35 Pokes [Mar 2026]',
+				'[Gen 9] ND 35 Pokes [Feb 2026]',
+				'[Gen 9] ND 35 Pokes [Jan 2026]',
+				'[Gen 9] ND 35 Pokes [Dec 2025]',
+				'[Gen 9] ND 35 Pokes [Nov 2025]',
+				'[Gen 9] ND 35 Pokes [Oct 2025]',
+				'[Gen 9] ND 35 Pokes [Sep 2025]',
+				'[Gen 9] ND 35 Pokes [Aug 2025]',
+				// '[Gen 9] ND 35 Pokes [Jul 2025]',
+				'[Gen 9] ND 35 Pokes [Jun 2025]',
+				'[Gen 9] ND 35 Pokes [May 2025]',
+				'[Gen 9] ND 35 Pokes [Apr 2025]',
+				'[Gen 9] ND 35 Pokes [Mar 2025]',
+				'[Gen 9] ND 35 Pokes [Feb 2025]',
+				'[Gen 9] ND 35 Pokes [Jan 2025]',
+				'[Gen 9] ND 35 Pokes [Dec 2024]',
+				'[Gen 9] ND 35 Pokes [Nov 2024]',
+				'[Gen 9] ND 35 Pokes [Oct 2024]',
+				'[Gen 9] ND 35 Pokes [Sep 2024]',
+				'[Gen 9] ND 35 Pokes [Aug 2024]',
+				// '[Gen 9] ND 35 Pokes [Jul 2024]',
+				'[Gen 9] ND 35 Pokes [Jun 2024]',
+				'[Gen 9] ND 35 Pokes [May 2024]',
+				'[Gen 9] ND 35 Pokes [Apr 2024]',
+				'[Gen 9] ND 35 Pokes [Mar 2024]',
+				'[Gen 9] ND 35 Pokes [Feb 2024]',
+				'[Gen 9] ND 35 Pokes [Jan 2024]',
+				'[Gen 9] ND 35 Pokes [Dec 2023]',
+				'[Gen 9] ND 35 Pokes [Nov 2023]',
+				// '[Gen 9] ND 35 Pokes [Oct 2023 B]',
+				'[Gen 9] ND 35 Pokes [Oct 2023]',
+				'[Gen 9] ND 35 Pokes [Sep 2023]',
+				'[Gen 9] ND 35 Pokes [Aug 2023]',
+				'[Gen 9] ND 35 Pokes [Jul 2023]',
+			]
+				.map((x) => this.dex.formats.get(x))
+				.filter((x) => x.exists)
+				.map((x) => [x.name, this.dex.formats.getRuleTable(x)]);
+			let buf = 'raw|<div class="broadcast-blue"><b>Months represented in this battle:</b>';
+			for (const side of this.sides) {
+				const month = months.find(([name, ruleTable]) =>
+					side.pokemon.every(({ species }) => !ruleTable.isBannedSpecies(species))
+				);
+				buf += `<br><b>${side.name}: ${month?.[0] ?? '?'}</b>`;
+			}
+			buf += `</div>`;
+			this.add(buf);
+		},
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes NFE [Nov 2024]",

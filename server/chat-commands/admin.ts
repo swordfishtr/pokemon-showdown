@@ -1662,6 +1662,38 @@ export const commands: Chat.ChatCommands = {
 			this.sendReply('Failed.');
 		}
 	},
+
+	async genusage(target, room, user, connection, cmd, message) {
+		if (!Users.globalAuth.atLeast(user, '@')) {
+			this.errorReply('Access denied.');
+			return;
+		}
+		// makes it impossible to inject malicious bash
+		let formatid = toID(target);
+		if (!formatid) {
+			this.sendReply(
+				`Please also provide a format. Here's a list of current formats:\n` +
+				Dex.formats.all().filter(({ id }) => id.startsWith('gen')).map(({ name }) => name).join('\n')
+			);
+			return;
+		}
+		this.sendReply(`Generating usage stats for ${target} ...`);
+		if (!formatid.startsWith('gen')) {
+			formatid = `gen${Dex.gen}${formatid}` as ID;
+		}
+		if (!Dex.formats.get(formatid).exists) {
+			this.errorReply(`Format "${formatid}" does not exist.`);
+			return;
+		}
+		const [errcode, stdout, stderr] = await bash(`./GensUsage.sh ${formatid}`, this, '/home/hog/usage-stats/');
+		if (stdout) {
+			this.sendReply(stdout);
+		}
+		if (stderr) {
+			this.errorReply(stderr);
+		}
+		this.sendReply(`Exit code ${errcode} (${errcode ? 'failure' : 'success'})`);
+	},
 };
 
 export const pages: Chat.PageTable = {

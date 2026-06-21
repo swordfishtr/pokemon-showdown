@@ -1664,7 +1664,7 @@ export const commands: Chat.ChatCommands = {
 	},
 
 	async genusage(target, room, user, connection, cmd, message) {
-		if (!Users.globalAuth.atLeast(user, '@')) {
+		if (!Users.globalAuth.atLeast(user, '%')) {
 			this.errorReply('Access denied.');
 			return;
 		}

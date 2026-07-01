@@ -554,6 +554,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Jul 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Accelgor', 'Aggron-Base', 'Carbink', 'Carracosta', 'Clodsire', 'Cloyster', 'Emboar-Base', 'Florges', 'Heatmor', 'Heliolisk', 'Heracross-Base', 'Hydreigon', 'Illumise', 'Klinklang', 'Kricketune', 'Lanturn', 'Linoone-Base', 'Lucario-Base', 'Malamar-Base', 'Mawile-Base', 'Mismagius', 'Mothim', 'Purugly', 'Rampardos', 'Raticate-Base', 'Samurott-Base', 'Seaking', 'Seismitoad', 'Slowbro-Base', 'Sudowoodo', 'Tyrantrum', 'Vaporeon', 'Vileplume', 'Zangoose', 'Zebstrika',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Jun 2026]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
@@ -1727,6 +1735,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes VGC [Jul 2026]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Accelgor', 'Aggron-Base', 'Carbink', 'Carracosta', 'Clodsire', 'Cloyster', 'Emboar-Base', 'Florges', 'Heatmor', 'Heliolisk', 'Heracross-Base', 'Hydreigon', 'Illumise', 'Klinklang', 'Kricketune', 'Lanturn', 'Linoone-Base', 'Lucario-Base', 'Malamar-Base', 'Mawile-Base', 'Mismagius', 'Mothim', 'Purugly', 'Rampardos', 'Raticate-Base', 'Samurott-Base', 'Seaking', 'Seismitoad', 'Slowbro-Base', 'Sudowoodo', 'Tyrantrum', 'Vaporeon', 'Vileplume', 'Zangoose', 'Zebstrika',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jun 2026]",
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -2345,6 +2362,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes 1v1',
 		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes 1v1 [Jul 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes 1v1'],
+		unbanlist: [
+			'Accelgor', 'Aggron-Base', 'Carbink', 'Carracosta', 'Clodsire', 'Cloyster', 'Emboar-Base', 'Florges', 'Heatmor', 'Heliolisk', 'Heracross-Base', 'Hydreigon', 'Illumise', 'Klinklang', 'Kricketune', 'Lanturn', 'Linoone-Base', 'Lucario-Base', 'Malamar-Base', 'Mawile-Base', 'Mismagius', 'Mothim', 'Purugly', 'Rampardos', 'Raticate-Base', 'Samurott-Base', 'Seaking', 'Seismitoad', 'Slowbro-Base', 'Sudowoodo', 'Tyrantrum', 'Vaporeon', 'Vileplume', 'Zangoose', 'Zebstrika',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes 1v1 [Jun 2026]",

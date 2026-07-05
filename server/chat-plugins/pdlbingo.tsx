@@ -83,7 +83,9 @@ export const bingo = new class {
 		this.boards[index] = [];
 		const board = this.boards[index];
 		const speciesPool = new Set(this.format === 'natdex'
-			? Dex.species.all().map(({ id }) => id)
+			? Dex.species.all()
+				.filter((x) => !['Illegal', 'Unreleased', 'CAP', 'CAP LC', 'CAP NFE', 'AG', 'Uber', '(Uber)'].includes(x.natDexTier))
+				.map(({ id }) => id)
 			: formats[this.format]);
 		// this is not quite the same logic that PDL uses
 		// -- theirs is not properly random -- but this should work fine.
@@ -217,6 +219,8 @@ export const bingo = new class {
 
 };
 
+export const destroy = () => bingo.off();
+
 export const commands: Chat.ChatCommands = {
 
 	pdlbingo: {
@@ -252,7 +256,7 @@ export const commands: Chat.ChatCommands = {
 			}
 			this.runBroadcast();
 			this.sendReplyBox(
-				<div class="ladder" style={{ display: 'flex', flexWrap: 'wrap' }}>
+				<div class="ladder" style={{ display: 'flex', 'flex-wrap': 'wrap' }}>
 					{bingo.boards.map((board, boardIndex) => (
 						<div class="infobox">
 							<table>
@@ -272,8 +276,7 @@ export const commands: Chat.ChatCommands = {
 									</tr>
 									{Array(5).fill(null).map((_, row) => (
 										<tr>
-											{board.slice(row * 5, (row + 1) * 5)
-												.map(([num, id]) => (
+											{board.filter((_, cell) => cell % 5 === row).map(([num, id]) => (
 												<td>
 													<img
 														src={`https://www.smogon.com/forums/media/minisprites/${bingo.smogonID(Dex.species.get(id).name)}.png`}

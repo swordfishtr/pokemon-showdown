@@ -231,10 +231,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		section: 'Draft Events',
-		column: 1,
-	},
-	{
 		name: "[Gen 9] Dual Monotype Draft",
 		desc: 'Monotype draft with 2 types (in the less restrictive sense).',
 		mod: 'gen9',
@@ -583,6 +579,43 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: 'Partner Communities',
 		column: 1,
+	},
+	{
+		name: '[Gen 9] PDL Bingo',
+		desc: '',
+		mod: 'gen9',
+		ruleset: [
+		],
+		validateTeam(team, options) {
+			if (!options?.user) {
+				return ['This format requires a username for team validation.'];
+			}
+			const plugin = (Chat.plugins.pdlbingo as typeof import('../server/chat-plugins/pdlbingo'))?.bingo;
+			if (!plugin) {
+				return ['Chat plugin "pdlbingo" required by this format not found.'];
+			}
+			const draft = plugin.getTeam(options.user);
+			if (!draft) {
+				return ['You are not playing in this bingo.'];
+			}
+			const problems: string[] = [];
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				const baseSpecies = this.dex.species.get(species.baseSpecies);
+				if (
+					draft.includes(species.id) ||
+					(baseSpecies.cosmeticFormes?.includes(species.name) && draft.includes(baseSpecies.id))
+				) {
+					// acceptable pokemon
+					continue;
+				}
+				problems.push(`You have not drawn ${set.name} in this bingo.`);
+			}
+			if (problems.length) {
+				return problems;
+			}
+			return this.baseValidateTeam(team, options) || undefined;
+		},
 	},
 	{
 		name: '[Gen 9] 4v4 DUU',

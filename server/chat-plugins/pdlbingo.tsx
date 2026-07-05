@@ -74,14 +74,6 @@ export const bingo = new class {
 		return this.format !== null;
 	}
 
-	getFullSet() {
-		return new Set((function*() {
-			for (let i = 0; i < 75; i++) {
-				yield i as BingoNum;
-			}
-		})());
-	}
-
 	// we're generating a fresh board and assigning it.
 	// each cell holds a number between 0 - 75 and a species.
 	generateBoard(index: number) {
@@ -93,16 +85,19 @@ export const bingo = new class {
 		const speciesPool = new Set(this.format === 'natdex'
 			? Dex.species.all().map(({ id }) => id)
 			: formats[this.format]);
-		const numPool = this.getFullSet();
-		for (let i = 0; i < 25; i++) {
-			// this is not quite the same logic that PDL uses
-			// -- theirs is not properly random -- but this should work fine.
-			const num = this.rng.sample([...numPool]);
-			numPool.delete(num);
-			const species = this.rng.sample([...speciesPool]);
-			speciesPool.delete(species);
-			board[i] = [num, species];
+		// this is not quite the same logic that PDL uses
+		// -- theirs is not properly random -- but this should work fine.
+		for (let i = 0; i < 5; i++) {
+			const numPool = new Set(Array(15).fill(null).map((_, numInRange) => (i * 15) + numInRange + 1 as BingoNum));
+			for (let j = 0; j < 5; j++) {
+				const num = this.rng.sample([...numPool]);
+				numPool.delete(num);
+				const species = this.rng.sample([...speciesPool]);
+				speciesPool.delete(species);
+				board[(i * 5) + j] = [num, species];
+			}
 		}
+		board.sort(([a], [b]) => a - b);
 	}
 
 	// we're drawing a number from the available pool.
@@ -110,7 +105,7 @@ export const bingo = new class {
 		if (!this.isOn()) {
 			throw new Error('Can not roll a number because the plugin is off.');
 		}
-		const unrolled = [...this.getFullSet()].filter((x) => !this.rolls.has(x));
+		const unrolled = Array(75).fill(null).map((_, i) => i + 1 as BingoNum).filter((x) => !this.rolls.has(x));
 		if (!unrolled.length) {
 			this.off();
 			throw new Error('PDL Bingo ran out of numbers');
@@ -216,6 +211,10 @@ export const bingo = new class {
 		return true;
 	}
 
+	smogonID(text: string) {
+		return text.toLowerCase().replace(/[^a-z0-9 -]+/g, '').replace(/ +/g, '-') as ID;
+	}
+
 };
 
 export const commands: Chat.ChatCommands = {
@@ -251,8 +250,9 @@ export const commands: Chat.ChatCommands = {
 			if (!bingo.boards.length) {
 				throw new Chat.ErrorMessage('There are no boards currently.');
 			}
+			this.runBroadcast();
 			this.sendReplyBox(
-				<div class="ladder">
+				<div class="ladder" style={{ display: 'flex', flexWrap: 'wrap' }}>
 					{bingo.boards.map((board, boardIndex) => (
 						<div class="infobox">
 							<table>
@@ -273,12 +273,11 @@ export const commands: Chat.ChatCommands = {
 									{Array(5).fill(null).map((_, row) => (
 										<tr>
 											{board.slice(row * 5, (row + 1) * 5)
-												.map(([num, id]) => [num, Dex.species.get(id)] as const)
-												.map(([num, species]) => (
+												.map(([num, id]) => (
 												<td>
 													<img
-														src={`https://www.smogon.com/forums/media/minisprites/${species.spriteid}.png`}
-														alt={species.id}
+														src={`https://www.smogon.com/forums/media/minisprites/${bingo.smogonID(Dex.species.get(id).name)}.png`}
+														alt={id}
 													></img>
 													{num}
 												</td>

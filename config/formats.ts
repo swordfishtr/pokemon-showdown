@@ -598,6 +598,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			if (!draft) {
 				return ['You are not playing in this bingo.'];
 			}
+			if (draft.length < 6) {
+				return ['You have not drafted a full team yet; wait for the rolls to conclude.'];
+			}
 			const problems: string[] = [];
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);

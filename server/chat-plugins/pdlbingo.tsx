@@ -8,6 +8,7 @@
  */
 
 import { PRNG } from "../../sim";
+import type { Tournament } from "../tournaments";
 
 type RequiredField<T, K extends keyof T> = T & { [F in K]: NonNullable<T[F]> };
 
@@ -47,9 +48,7 @@ export const bingo = new class {
 	format: keyof typeof formats | null = null;
 
 	// each board is 25 pairs of unique number and species
-	boards: [BingoNum, ID][][] | null = null;
-	// userid, boards index
-	players: Record<ID, number> | null = null;
+	boards: { board: { num: BingoNum, id: ID }[], owner: ID | null }[] | null = null;
 	// this is what we've rolled so far
 	rolls: Set<BingoNum> | null = null;
 	// when started, rolls every 5 seconds
@@ -57,33 +56,31 @@ export const bingo = new class {
 	// ?
 	timerCallback: (() => boolean) | null = null;
 
-	off() {
+	off(): boolean {
 		if (!this.isOn()) {
 			return false;
 		}
 		this.rng = null!;
 		this.format = null!;
 		this.boards = null!;
-		this.players = null!;
 		this.rolls = null!;
 		this.stopTimer();
 		return true;
 	}
 
-	on(format?: typeof this.format) {
+	on(format?: typeof this.format): boolean {
 		if (this.isOn()) {
 			return false;
 		}
 		this.rng = new PRNG();
 		this.format = format || 'natdex';
 		this.boards = [];
-		this.players = {} as any;
 		this.rolls = new Set();
 		// don't set timer -- that should be done after player signups.
 		return true;
 	}
 
-	isOn(): this is RequiredField<typeof this, 'rng' | 'format' | 'boards' | 'players' | 'rolls'> {
+	isOn(): this is RequiredField<typeof this, 'rng' | 'format' | 'boards' | 'rolls'> {
 		return this.format !== null;
 	}
 
@@ -93,8 +90,8 @@ export const bingo = new class {
 		if (!this.isOn()) {
 			throw new Error('Can not generate a board because the plugin is off.');
 		}
-		this.boards[index] = [];
-		const board = this.boards[index];
+		this.boards[index] = { board: [], owner: this.boards[index]?.owner || null };
+		const { board } = this.boards[index];
 		const speciesPool = new Set(formats[this.format]);
 		// this is not the same logic that PDL uses -- they have ranges for each cell.
 		for (let i = 0; i < 5; i++) {
@@ -104,14 +101,14 @@ export const bingo = new class {
 				numPool.delete(num);
 				const species = this.rng.sample([...speciesPool]);
 				speciesPool.delete(species);
-				board[(i * 5) + j] = [num, species];
+				board[(i * 5) + j] = { num, id: species };
 			}
 		}
-		board.sort(([a], [b]) => a - b);
+		board.sort((a, b) => a.num - b.num);
 	}
 
 	// we're drawing a number from the available pool.
-	roll() {
+	roll(): BingoNum {
 		if (!this.isOn()) {
 			throw new Error('Can not roll a number because the plugin is off.');
 		}
@@ -127,63 +124,32 @@ export const bingo = new class {
 
 	// we've drawn a number from the available pool;
 	// we're checking whether a board has a matching number.
-	findBoardSpecies(index: number, roll: BingoNum) {
+	findBoardSpecies(index: number, roll: BingoNum): ID | null {
 		if (!this.isOn()) {
 			throw new Error('Can not check board because the plugin is off.');
 		}
-		const board = this.boards[index];
-		const cell = board?.find(([num]) => num === roll);
+		const board = this.boards[index]?.board;
+		const cell = board?.find(({ num }) => num === roll);
 		if (!cell) {
 			return null;
 		}
-		return cell[1];
-	}
-
-	// add a player and assign the first available board to them.
-	// returns false if there are no free boards.
-	addPlayer(player: ID) {
-		if (!this.isOn()) {
-			throw new Error('Can not add player because the plugin is off.');
-		}
-		let next = null;
-		const taken = Object.values(this.players);
-		for (let i = 0; i < this.boards.length; i++) {
-			if (!taken.includes(i)) {
-				next = i;
-				break;
-			}
-		}
-		if (next === null) {
-			return false;
-		}
-		this.players[player] = next;
-		return true;
-	}
-
-	removePlayer(player: ID) {
-		if (!this.isOn()) {
-			throw new Error('Can not remove player because the plugin is off.');
-		}
-		if (!(player in this.players)) {
-			return false;
-		}
-		delete this.players[player];
-		return true;
+		return cell.id;
 	}
 
 	// we have players with boards assigned to them, and we've been drawing numbers.
 	// we're calculating a player's current team, 0 - 6 pokemon.
-	getTeam(player: ID) {
+	getTeam(player: ID): ID[] | null {
 		if (!this.isOn()) {
 			throw new Error('Can not get team because the plugin is off.');
 		}
-		if (!(player in this.players)) {
+		const index = this.boards.findIndex((board) => board.owner === player);
+		if (index < 0) {
 			return null;
 		}
 		const team: ID[] = [];
 		// the first up to 6 matching pokemon will be the team
 		for (const roll of this.rolls) {
-			const species = this.findBoardSpecies(this.players[player], roll);
+			const species = this.findBoardSpecies(index, roll);
 			if (species) {
 				team.push(species);
 				if (team.length === 6) {
@@ -203,7 +169,7 @@ export const bingo = new class {
 		this.timerCallback?.();
 	}
 
-	startTimer() {
+	startTimer(): boolean {
 		if (this.timer) {
 			return false;
 		}
@@ -211,7 +177,7 @@ export const bingo = new class {
 		return true;
 	}
 
-	stopTimer() {
+	stopTimer(): boolean {
 		if (!this.timer) {
 			return false;
 		}
@@ -221,7 +187,7 @@ export const bingo = new class {
 		return true;
 	}
 
-	smogonID(text: string) {
+	smogonID(text: string): ID {
 		const parsed = text.toLowerCase().replace(/[^a-z0-9 -]+/g, '').replace(/ +/g, '-');
 		if (parsed.startsWith('pumpkaboo')) {
 			return 'pumpkaboo' as ID;
@@ -243,8 +209,8 @@ export const commands: Chat.ChatCommands = {
 		prep: 'prepare',
 		prepare(target, room, user, connection, cmd, message) {
 			const format = toID(target);
-			if (format && !(format === 'natdex' || (format in formats))) {
-				throw new Chat.ErrorMessage(`Valid formats: natdex, ${Object.keys(formats).join(', ')}.`);
+			if (format && !(format in formats)) {
+				throw new Chat.ErrorMessage(`Valid formats: ${Object.keys(formats).join(', ')}.`);
 			}
 			if(!bingo.on(format as any)) {
 				throw new Chat.ErrorMessage('Bingo is already on.');
@@ -271,18 +237,12 @@ export const commands: Chat.ChatCommands = {
 			}
 			this.runBroadcast();
 			this.sendReplyBox(
-				// TODO: CSS
-				// .pdlbingo { display: flex; flex-wrap: wrap; }
-				// .pdlbingo th { text-align: center; }
 				<div class="pdlbingo ladder">
 					{bingo.boards.map((board, boardIndex) => (
-						<div class="infobox">
+						<button class="button" data-cmd={`/pdlbingo pick ${boardIndex}`} disabled={!!board.owner}>
 							<table>
 								<caption>
-									{boardIndex}. {Object.entries(bingo.players)
-										.filter(([userid, i]) => i === boardIndex)
-										.map(([userid]) => userid)
-										.join(', ') || '-'}
+									{`${boardIndex}. ${board.owner || '-'}`}
 								</caption>
 								<tbody>
 									<tr>
@@ -294,7 +254,7 @@ export const commands: Chat.ChatCommands = {
 									</tr>
 									{Array(5).fill(null).map((_, row) => (
 										<tr>
-											{board.filter((_, cell) => cell % 5 === row).map(([num, id]) => (
+											{board.board.filter((_, cell) => cell % 5 === row).map(({ num, id }) => (
 												<td>
 													<img
 														src={`https://www.smogon.com/forums/media/minisprites/${bingo.smogonID(Dex.species.get(id).name)}.png`}
@@ -307,7 +267,7 @@ export const commands: Chat.ChatCommands = {
 									))}
 								</tbody>
 							</table>
-						</div>
+						</button>
 					))}
 				</div>
 			);

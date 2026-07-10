@@ -2220,8 +2220,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 				require('../sim/team-validator').TeamValidator;
 			const val = new TeamValidator('[Gen 9] ND 35 Pokes [Jun 2026]');
 
-			// cloning jun26 ruletable so we don't have to write over it.
-			const rt = this.dex.deepClone(val.ruleTable) as RuleTable;
+			// shallow copying jun26 ruletable so we don't have to write over it.
+			const rt = new Map() as RuleTable;
+			for (const k in val.ruleTable) {
+				// @ts-expect-error harmless
+				rt[k] = val.ruleTable[k];
+			}
 			for (const [k, v] of val.ruleTable) {
 				rt.set(k, v);
 			}

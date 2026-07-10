@@ -254,6 +254,46 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Raichunite X', 'Raichunite Y', 'Clefablite', 'Victreebelite', 'Starminite', 'Dragoninite', 'Meganiumite', 'Feraligite', 'Skarmorite', 'Chimechite', 'Absolite Z', 'Staraptite', 'Garchompite Z', 'Lucarionite Z', 'Froslassite', 'Heatranite', 'Darkranite', 'Emboarite', 'Excadrite', 'Scolipite', 'Scraftinite', 'Eelektrossite', 'Chandelurite', 'Golurkite', 'Chesnaughtite', 'Delphoxite', 'Greninjite', 'Pyroarite', 'Floettite', 'Meowsticite', 'Malamarite', 'Barbaracite', 'Dragalgite', 'Hawluchanite', 'Zygardite', 'Crabominite', 'Golisopite', 'Drampanite', 'Magearnite', 'Zeraorite', 'Falinksite', 'Scovillainite', 'Glimmoranite', 'Tatsugirinite', 'Baxcalibrite',
 		],
 	},
+	// {
+	// 	name: '[Gen 9] PDL Bingo',
+	// 	desc: '',
+	// 	mod: 'gen9',
+	// 	ruleset: [
+	// 	],
+	// 	validateTeam(team, options) {
+	// 		if (!options?.user) {
+	// 			return ['This format requires a username for team validation.'];
+	// 		}
+	// 		const plugin = (Chat.plugins.pdlbingo as typeof import('../server/chat-plugins/pdlbingo'))?.bingo;
+	// 		if (!plugin) {
+	// 			return ['Chat plugin "pdlbingo" required by this format not found.'];
+	// 		}
+	// 		const draft = plugin.getTeam(options.user);
+	// 		if (!draft) {
+	// 			return ['You are not playing in this bingo.'];
+	// 		}
+	// 		if (draft.length < 6) {
+	// 			return ['You have not drafted a full team yet; wait for the rolls to conclude.'];
+	// 		}
+	// 		const problems: string[] = [];
+	// 		for (const set of team) {
+	// 			const species = this.dex.species.get(set.species);
+	// 			const baseSpecies = this.dex.species.get(species.baseSpecies);
+	// 			if (
+	// 				draft.includes(species.id) ||
+	// 				(baseSpecies.cosmeticFormes?.includes(species.name) && draft.includes(baseSpecies.id))
+	// 			) {
+	// 				// acceptable pokemon
+	// 				continue;
+	// 			}
+	// 			problems.push(`You have not drawn ${set.name} in this bingo.`);
+	// 		}
+	// 		if (problems.length) {
+	// 			return problems;
+	// 		}
+	// 		return this.baseValidateTeam(team, options) || undefined;
+	// 	},
+	// },
 	{
 		name: "[Gen 9] Dual Monotype Draft",
 		desc: 'Monotype draft with 2 types (in the less restrictive sense).',
@@ -2179,6 +2219,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
 				require('../sim/team-validator').TeamValidator;
 			const val = new TeamValidator('[Gen 9] ND 35 Pokes [Jun 2026]');
+
+			// cloning jun26 ruletable so we don't have to write over it.
+			const rt = this.dex.deepClone(val.ruleTable) as RuleTable;
+			for (const [k, v] of val.ruleTable) {
+				rt.set(k, v);
+			}
+
+			// @ts-expect-error harmless, but shouldn't be done carelessly
+			val.ruleTable = rt;
+
 			const months: string[] = [
 				'[Gen 9] ND 35 Pokes [Jun 2026]',
 				'[Gen 9] ND 35 Pokes [May 2026]',
@@ -2224,15 +2274,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 				const format = Dex.formats.get(month);
 				if (!format.exists) continue;
 				// using a new array here to avoid jankiness from iterating and deleting.
-				for (const key of [...val.ruleTable.keys()]) {
+				for (const key of [...rt.keys()]) {
 					if (key.startsWith('+pokemon:') || key.startsWith('+basepokemon:')) {
-						val.ruleTable.delete(key);
+						rt.delete(key);
 					}
 				}
 				for (const x of format.unbanlist) {
 					const rule = this.dex.formats.validateBanRule(x);
 					if (rule.startsWith('pokemon:') || rule.startsWith('basepokemon:')) {
-						val.ruleTable.set('+' + rule, '');
+						rt.set('+' + rule, '');
 					}
 				}
 				const errors = val.validateTeam(team, options);

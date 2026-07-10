@@ -17,7 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
-import type { FormatData, RuleTable } from '../sim/dex-formats';
+import { type FormatData, RuleTable } from '../sim/dex-formats';
 
 const spmnm: Partial<FormatData> = {
 	// Mix and Mega
@@ -2221,7 +2221,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			const val = new TeamValidator('[Gen 9] ND 35 Pokes [Jun 2026]');
 
 			// shallow copying jun26 ruletable so we don't have to write over it.
-			const rt = new Map() as RuleTable;
+			const rt = new RuleTable();
 			for (const k in val.ruleTable) {
 				// @ts-expect-error harmless
 				rt[k] = val.ruleTable[k];

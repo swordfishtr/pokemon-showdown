@@ -8,12 +8,8 @@
  */
 
 import { PRNG, Utils } from "../../sim";
+import type { Tournament } from "../tournaments";
 import * as JSX from '../chat-jsx';
-import { Chat } from '../chat';
-import { Dex, toID } from '../../sim/dex';
-import { Rooms } from '../rooms';
-import { type Tournament, Tournaments } from "../tournaments";
-import { Users } from '../users';
 
 type RequiredField<T, K extends keyof T> = T & { [F in K]: NonNullable<T[F]> };
 

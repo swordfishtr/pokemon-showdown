@@ -365,6 +365,7 @@ export class TeamValidator {
 		team: PokemonSet[] | null,
 		options: {
 			removeNicknames?: boolean,
+			user?: ID,
 			skipSets?: { [name: string]: { [key: string]: boolean } },
 		} = {}
 	): string[] | null {
@@ -378,6 +379,7 @@ export class TeamValidator {
 		team: PokemonSet[] | null,
 		options: {
 			removeNicknames?: boolean,
+			user?: ID,
 			skipSets?: { [name: string]: { [key: string]: boolean } },
 		} = {}
 	): string[] | null {

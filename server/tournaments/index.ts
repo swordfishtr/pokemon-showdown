@@ -187,15 +187,16 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 			if (room) room.tour = null;
 		}
 		this.setEnded();
+		Chat.runHandlers('onTournamentEnd', this);
 		this.room.game = null;
 	}
 	getRemainingPlayers() {
 		return this.players.filter(player => !player.isDisqualified && !player.isEliminated);
 	}
 
-	setGenerator(generator: Generator, output: Chat.CommandContext) {
+	setGenerator(generator: Generator, output?: Chat.CommandContext) {
 		if (this.isTournamentStarted) {
-			output.sendReply('|tournament|error|BracketFrozen');
+			output?.sendReply('|tournament|error|BracketFrozen');
 			return;
 		}
 
@@ -452,6 +453,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		user.sendTo(this.room, '|tournament|update|{"isJoined":true}');
 		this.isBracketInvalidated = true;
 		this.update();
+		Chat.runHandlers('onTournamentPlayerJoin', this, player);
 		if (this.playerCount === this.playerCap) {
 			if (this.autostartcap === true) {
 				this.startTournament(output);
@@ -479,6 +481,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		if (user) user.sendTo(this.room, '|tournament|update|{"isJoined":false}');
 		this.isBracketInvalidated = true;
 		this.update();
+		Chat.runHandlers('onTournamentPlayerLeave', this, player);
 	}
 	replaceUser(user: User, replacementUser: User, output: Chat.CommandContext) {
 		if (!this.isTournamentStarted) {
@@ -561,6 +564,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 			const challengeUser = Users.getExact(challengePlayer.id);
 			if (challengeUser) this.updateFor(challengeUser);
 		}
+		Chat.runHandlers('onTournamentPlayerChange', this, player, user.id);
 
 		this.room.add(`|tournament|replace|${user.name}|${replacementUser.name}`);
 		return true;
@@ -667,6 +671,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		output?.modlog('TOUR START', null, `${this.players.length} players`);
 		this.room.send('|tournament|update|{"isStarted":true}');
 		this.update();
+		Chat.runHandlers('onTournamentStart', this);
 		return true;
 	}
 	getAvailableMatches() {
@@ -1086,6 +1091,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		}
 
 		this.updateFor(user);
+		Chat.runHandlers('onTournamentPlayerChange', this, this.playerTable[user.id], oldUserid);
 	}
 	onBattleJoin(room: GameRoom, user: User) {
 		if (!room.p1 || !room.p2) return;
@@ -1274,6 +1280,7 @@ function createTournament(
 		if (settings.allowModjoin === false) tour.setModjoin(false);
 		if (settings.allowScouting === false) tour.setScouting(false);
 	}
+	Chat.runHandlers('onTournamentCreate', tour);
 	return tour;
 }
 
@@ -1554,7 +1561,7 @@ const commands: Chat.ChatCommands = {
 			if (Monitor.countPrepBattle(connection.ip, connection)) {
 				return;
 			}
-			const result = await TeamValidatorAsync.get(tournament.fullFormat).validateTeam(user.battleSettings.team);
+			const result = await TeamValidatorAsync.get(tournament.fullFormat).validateTeam(user.battleSettings.team, { user: user.id });
 			if (result.startsWith('1')) {
 				connection.popup("Your team is valid for this tournament.");
 			} else {

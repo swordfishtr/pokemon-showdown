@@ -524,6 +524,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly validateSet?: (this: TeamValidator, set: PokemonSet, teamHas: AnyObject) => string[] | null;
 	declare readonly validateTeam?: (this: TeamValidator, team: PokemonSet[], options?: {
 		removeNicknames?: boolean,
+		user?: ID,
 		skipSets?: { [name: string]: { [key: string]: boolean } },
 	}) => string[] | void;
 	declare readonly section?: string;

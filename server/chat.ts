@@ -34,6 +34,7 @@ import { Dex } from '../sim';
 import { PrivateMessages } from './private-messages';
 import * as pathModule from 'path';
 import * as JSX from './chat-jsx';
+import type { Tournament, TournamentPlayer } from './tournaments';
 
 export type PageHandler = (this: PageContext, query: string[], user: User, connection: Connection)
 => Promise<string | null | void | JSX.VNode> | string | null | void | JSX.VNode;
@@ -91,6 +92,14 @@ interface Handlers {
 	onMessageOffline: (context: Chat.CommandContext, message: string, targetUserID: ID) => void;
 	onBattleJoin: (slot: string, user: User, battle: RoomBattle) => void;
 	onPunishUser: (type: string, user: User, room?: Room | null) => void;
+
+	// GENERATIONS
+	onTournamentCreate: (tour: Tournament) => void;
+	onTournamentStart: (tour: Tournament) => void;
+	onTournamentEnd: (tour: Tournament) => void;
+	onTournamentPlayerJoin: (tour: Tournament, player: TournamentPlayer) => void;
+	onTournamentPlayerChange: (tour: Tournament, player: TournamentPlayer, previous: ID) => void;
+	onTournamentPlayerLeave: (tour: Tournament, player: TournamentPlayer) => void;
 }
 
 export interface ChatPlugin {

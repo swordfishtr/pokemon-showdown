@@ -11,7 +11,7 @@ import { TeamValidator } from '../sim/team-validator';
 import * as ConfigLoader from './config-loader';
 
 export const PM = new QueryProcessManager<{
-	formatid: string, options?: { removeNicknames?: boolean }, team: string,
+	formatid: string, options?: { removeNicknames?: boolean, user?: ID }, team: string,
 }>('team-validator', module, message => {
 	const { formatid, options, team } = message;
 	const parsedTeam = Teams.unpack(team);

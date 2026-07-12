@@ -264,7 +264,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			if (!options?.user) {
 				return ['This format requires a username for team validation.'];
 			}
-			const plugin = (Chat.plugins.pdlbingo as typeof import('../server/chat-plugins/pdlbingo'))?.bingo;
+			const plugin: typeof import('../server/chat-plugins/pdlbingo').bingo =
+				require('../server/chat-plugins/pdlbingo')?.bingo;
 			if (!plugin) {
 				return ['Chat plugin "pdlbingo" required by this format not found.'];
 			}

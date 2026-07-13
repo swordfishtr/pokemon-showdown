@@ -3,6 +3,7 @@ import { assignMissingFields, toID, BasicEffect } from './dex-data';
 import type { EventMethods } from './dex-conditions';
 import type { SpeciesData } from './dex-species';
 import { Tags } from '../data/tags';
+import type { TeamValidatorOptions } from './team-validator';
 
 const DEFAULT_MOD = 'gen9';
 
@@ -473,6 +474,11 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	readonly validatorMod?: string;
 	/** If true, don't use `validatorMod` for stats validation. */
 	readonly validatorModExceptStats?: boolean;
+	/**
+	 * Team validation happens on a separate NodeJS process, with a separate global object.
+	 * Formats that must query a chat plugin for validation can use this interface to do so.
+	 */
+	readonly validatorCallback?: (team: string, options: TeamValidatorOptions) => string | AnyObject | Promise<string | AnyObject>;
 
 	/**
 	 * Only applies to rules, not formats
@@ -522,11 +528,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 		this: TeamValidator, team: PokemonSet[], format: Format, teamHas: AnyObject
 	) => string[] | void;
 	declare readonly validateSet?: (this: TeamValidator, set: PokemonSet, teamHas: AnyObject) => string[] | null;
-	declare readonly validateTeam?: (this: TeamValidator, team: PokemonSet[], options?: {
-		removeNicknames?: boolean,
-		user?: ID,
-		skipSets?: { [name: string]: { [key: string]: boolean } },
-	}) => string[] | void;
+	declare readonly validateTeam?: (this: TeamValidator, team: PokemonSet[], options?: TeamValidatorOptions) => string[] | void;
 	declare readonly section?: string;
 	declare readonly column?: number;
 
@@ -549,6 +551,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 		this.noLog = !!data.noLog;
 		this.validatorMod = data.validatorMod || undefined;
 		this.validatorModExceptStats = data.validatorModExceptStats || undefined;
+		this.validatorCallback = data.validatorCallback || undefined;
 		this.playerCount = (this.gameType === 'multi' || this.gameType === 'freeforall' ? 4 : 2);
 		assignMissingFields(this, data);
 	}

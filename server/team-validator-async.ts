@@ -7,11 +7,12 @@
  * @license MIT
  */
 
-import { TeamValidator } from '../sim/team-validator';
+import { QueryProcessManager } from '../lib/process-manager';
+import { TeamValidator, type TeamValidatorOptions } from '../sim/team-validator';
 import * as ConfigLoader from './config-loader';
 
 export const PM = new QueryProcessManager<{
-	formatid: string, options?: { removeNicknames?: boolean, user?: ID }, team: string,
+	formatid: string, options?: TeamValidatorOptions, team: string,
 }>('team-validator', module, message => {
 	const { formatid, options, team } = message;
 	const parsedTeam = Teams.unpack(team);
@@ -52,11 +53,18 @@ export class TeamValidatorAsync {
 		this.format = Dex.formats.get(format);
 	}
 
-	validateTeam(team: string, options?: { removeNicknames?: boolean, user?: ID }) {
+	async validateTeam(team: string, options: TeamValidatorOptions = {}): Promise<string> {
 		let formatid = this.format.id;
 		if (this.format.customRules) formatid += '@@@' + this.format.customRules.join(',');
 		if (team.length > (25 * 1024 - 6)) { // don't even let it go to the child process
-			return Promise.resolve('0Your team is over 25KB. Please use a smaller team.');
+			return '0Your team is over 25KB. Please use a smaller team.';
+		}
+		if (this.format.validatorCallback && !options.callbackResult) {
+			const callbackResult = await this.format.validatorCallback(team, options);
+			if (typeof callbackResult === 'string') {
+				return `0${callbackResult}`;
+			}
+			options.callbackResult = callbackResult;
 		}
 		return PM.query({ formatid, options, team });
 	}
@@ -76,8 +84,6 @@ export const get = TeamValidatorAsync.get;
  * Process manager
  *********************************************************/
 
-import { QueryProcessManager } from '../lib/process-manager';
-
 if (!PM.isParentProcess) {
 	ConfigLoader.ensureLoaded();
 	global.Monitor = {
@@ -85,7 +91,7 @@ if (!PM.isParentProcess) {
 			const repr = JSON.stringify([error.name, error.message, source, details]);
 			process.send!(`THROW\n@!!@${repr}\n${error.stack}`);
 		},
-	};
+	} as any;
 
 	if (Config.crashguard) {
 		process.on('uncaughtException', (err: Error) => {

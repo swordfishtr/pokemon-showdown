@@ -329,6 +329,13 @@ export class PokemonSources {
 	}
 }
 
+export interface TeamValidatorOptions {
+	callbackResult?: AnyObject,
+	removeNicknames?: boolean,
+	skipSets?: { [name: string]: { [key: string]: boolean } },
+	user?: ID,
+}
+
 export class TeamValidator {
 	readonly format: Format;
 	/**
@@ -363,11 +370,7 @@ export class TeamValidator {
 
 	validateTeam(
 		team: PokemonSet[] | null,
-		options: {
-			removeNicknames?: boolean,
-			user?: ID,
-			skipSets?: { [name: string]: { [key: string]: boolean } },
-		} = {}
+		options: TeamValidatorOptions = {}
 	): string[] | null {
 		if (team && this.format.validateTeam) {
 			return this.format.validateTeam.call(this, team, options) || null;
@@ -377,11 +380,7 @@ export class TeamValidator {
 
 	baseValidateTeam(
 		team: PokemonSet[] | null,
-		options: {
-			removeNicknames?: boolean,
-			user?: ID,
-			skipSets?: { [name: string]: { [key: string]: boolean } },
-		} = {}
+		options: TeamValidatorOptions = {}
 	): string[] | null {
 		const format = this.format;
 		const dex = this.validatorDex;

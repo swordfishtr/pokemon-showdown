@@ -262,6 +262,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard AG', 'NatDex Mod',
 			'DryPass Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Forme Clause', 'Terastal Clause',
+		],
+		banlist: [
 			'Moody', 'Snow Cloak', 'Sand Veil', 'Tangled Feet',
 			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
 			'Swagger', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Take Heart', 'Hidden Power',

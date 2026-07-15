@@ -1491,6 +1491,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Perfect [H1]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes Ubers'],
+		unbanlist: [
+			'Genesect', 'Palkia-Origin', 'Lugia', 'Metagross-Mega', 'Manectric-Mega', 'Magearna-Base', 'Magearna-Original', 'Chi-Yu', 'Roaring Moon', 'Excadrill-Mega', 'Scizor-Mega', 'Ferrothorn', 'Zapdos-Base', 'Zamazenta-Crowned', 'Blissey', 'Urshifu-Rapid-Strike', 'Dialga-Origin', 'Alomomola', 'Giratina-Origin', 'Tyranitar-Mega', 'Glimmora-Mega', 'Tapu Koko', 'Delphox-Mega', 'Heatran-Base', 'Sneasler', 'Arceus-Ice', 'Altaria-Mega', 'Arceus-Grass', 'Iron Treads', 'Landorus-Therian', 'Araquanid-Base', 'Tapu Fini', 'Garchomp-Base', 'Pecharunt', 'Terapagos-Terastal', 'Iron Valiant',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes Perfect [Z1]",
 		mod: 'gen9',
 		ruleset: [
@@ -1564,8 +1572,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Aggron-Base', 'Alakazam-Base', 'Ampharos-Base', 'Armaldo', 'Azumarill', 'Cloyster', 'Diancie-Base', 'Donphan', 'Drampa-Base', 'Electivire', 'Electrode-Hisui', 'Empoleon', 'Exeggutor-Base', 'Houndoom-Base', 'Houndstone', 'Kabutops', 'Lickilicky', 'Meganium-Base', 'Mismagius', 'Muk-Base', 'Noivern', 'Palossand', 'Pangoro', 'Pinsir-Base', 'Poliwrath', 'Rabsca', 'Rapidash-Base', 'Sandslash-Alola', 'Sneasel-Base', 'Torterra', 'Toxicroak', 'Turtonator', 'Weezing-Galar', 'Wigglytuff', 'Yanmega',
 		],
 	},
-	
-	
 
 	// endregion
 

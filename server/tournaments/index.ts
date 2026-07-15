@@ -1247,6 +1247,7 @@ function createTournament(
 			throw new Chat.ErrorMessage(`A ${format.name} tournament was made too recently.`);
 		}
 	}
+	generator ??= 'elimination';
 	if (!getGenerator(generator)) {
 		const generators = Object.keys(TournamentGenerators).join(', ');
 		throw new Chat.ErrorMessage([`${generator} is not a valid type.`, `Valid types: ${generators}`]);
@@ -1404,7 +1405,7 @@ const commands: Chat.ChatCommands = {
 			room = this.requireRoom();
 			this.checkCan('tournaments', null, room);
 			const [format, generator, cap, mod, name] = target.split(',').map(item => item.trim());
-			if (!target || !format || !generator) {
+			if (!target || !format) {
 				return this.sendReply(`Usage: /tour ${cmd} <format>, <type> [, <comma-separated arguments>]`);
 			}
 

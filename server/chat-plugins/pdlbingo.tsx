@@ -45,6 +45,7 @@ type BingoNum = number & { __isBingoNum: true };
 type BingoBoard = { board: { num: BingoNum, id: ID }[], owner: ID | null };
 
 const ROLL_INTERVAL = 5 * 1000;
+const UHTML_ID = 'pdlbingo';
 
 export const bingo = new class {
 
@@ -173,14 +174,10 @@ export const bingo = new class {
 	}
 
 	// we have players with boards assigned to them, and we've been drawing numbers.
-	// we're calculating a player's current team, 0 - 6 pokemon.
-	getTeam(player: ID): ID[] | null {
+	// we're calculating a player's current team, 0 - 6 pokemon if `all` is falsy.
+	getTeam(index: number, all?: boolean): ID[] | null {
 		if (!this.isOn()) {
 			throw new Error('Can not get team because the plugin is off.');
-		}
-		const index = this.boards.findIndex((board) => board.owner === player);
-		if (index < 0) {
-			return null;
 		}
 		const team: ID[] = [];
 		// the first up to 6 matching pokemon will be the team
@@ -188,12 +185,23 @@ export const bingo = new class {
 			const species = this.findBoardSpecies(index, roll);
 			if (species) {
 				team.push(species);
-				if (team.length === 6) {
+				if (!all && team.length === 6) {
 					break;
 				}
 			}
 		}
 		return team;
+	}
+
+	getPlayerTeam(player: ID): ID[] | null {
+		if (!this.isOn()) {
+			throw new Error('Can not get team because the plugin is off.');
+		}
+		const index = this.boards.findIndex((board) => board.owner === player);
+		if (index < 0) {
+			return null;
+		}
+		return this.getTeam(index);
 	}
 
 	tickTimer() {
@@ -211,29 +219,30 @@ export const bingo = new class {
 					: roll <= 60
 						? 'G'
 						: 'O';
-		let buf = `[PDL Bingo] Rolled ${letter}${roll}`;
-		for (const { board, owner } of this.boards) {
+		Rooms.lobby!.addRaw(`[PDL Bingo] Rolled <strong>${letter}${roll}</strong>`);
+		for (let i = 0; i < this.boards.length; i++) {
+			const { board, owner } = this.boards[i];
 			let cell;
-			if (owner && (cell = board.find(({ num }) => num === roll))) {
-				buf += `\n[PDL Bingo] ${owner} marks ${cell.id} on their board!`;
+			if (owner && this.getTeam(i, true)!.length <= 6 && (cell = board.find(({ num }) => num === roll))) {
+				Rooms.lobby!.addRaw(`[PDL Bingo] <strong>${owner}</strong> marks <strong>${Dex.species.getByID(cell.id).name}</strong> on their board!`);
 			}
 		}
-		Rooms.lobby!.send(buf);
-		if (this.tour.players.every(({ id }) => this.getTeam(id)!.length >= 6)) {
+		if (this.tour.players.every(({ id }) => this.getPlayerTeam(id)!.length >= 6)) {
 			// done rolling!
 			this.stopTimer();
 			const teams = JSX.render(
 				<div class="infobox">
 					Everyone has a full team, so calling numbers is over, and you may begin playing!
 					<ul>
-						{this.boards.filter(({ owner }) => owner).map(({ board, owner }) => (
-							<li>{owner}: {board.filter(({ num }) => this.rolls.has(num)).map(({ id }) => this.smogonIcon(id))}</li>
+						{this.boards.filter(({ owner }) => owner).map(({ owner }) => (
+							<li>{owner}: {this.getPlayerTeam(owner!)!.map((id) => this.smogonIcon(id))}</li>
 						))}
 					</ul>
 				</div>
 			);
-			Rooms.lobby!.addRaw(teams).update();
+			Rooms.lobby!.addRaw(teams);
 		}
+		Rooms.lobby!.update();
 	}
 
 	startTimer(): boolean {
@@ -261,6 +270,9 @@ export const bingo = new class {
 		}
 		if (parsed.startsWith('gourgeist')) {
 			return 'gourgeist' as ID;
+		}
+		if (parsed.startsWith('basculin')) {
+			return 'basculin' as ID;
 		}
 		return parsed as ID;
 	}
@@ -313,25 +325,43 @@ export const bingo = new class {
 		);
 	}
 
-	renderBoardTable(): JSX.VNode {
-		if (!bingo.boards?.length) {
-			return (<div class="infobox message-error">(no boards)</div>);
+	renderBoardTable(message?: JSX.VNode): JSX.VNode {
+		if (!this.isOn() || !this.boards.length) {
+			return (
+				<div class="pdlbingo ladder">
+					<div class="infobox message-error">(no boards)</div>
+					{message && (
+						<div class="infobox">[PDL Bingo] {message}</div>
+					)}
+				</div>
+			);
 		}
 		return (
 			<div class="pdlbingo ladder">
-				{bingo.boards.map((board, boardIndex) => (
+				{this.boards.map((board, boardIndex) => (
 					<button class="button" data-cmd={`/pdlbingo pick ${boardIndex + 1}`} disabled={!!board.owner}>
 						{bingo.renderBoard(boardIndex)}
 					</button>
 				))}
+				{message}
 			</div>
 		);
 	}
 
-	getMessage(player?: ID, first?: boolean): string {
-		return `|uhtml${first ? '' : 'change'}|pdlbingo|` + JSX.render(bingo.renderBoardTable()) + player
-			? `<div class="infobox">[PDL Bingo] <strong>${player}</strong>'s turn to pick a board.</div>`
-			: `<div class="infobox">[PDL Bingo] Picking is over, here is the result. Beginning to call numbers.</div>`;
+	renderMessage(): string {
+		let message;
+		if (this.isOn()) {
+			if (!this.tour.isTournamentStarted) {
+				message = (<div class="infobox">[PDL Bingo] Picking will start once the tour signups close.</div>);
+			}
+			else {
+				const next = this.tour.players.find(({ id }) => !this.boards.some(({ owner }) => owner === id));
+				message = next
+					? <div class="infobox">[PDL Bingo] <strong>{next.name}</strong>'s turn to pick a board.</div>
+					: <div class="infobox">[PDL Bingo] Picking is over, here is the result. Beginning to call numbers.</div>;
+			}
+		}
+		return JSX.render(this.renderBoardTable(message));
 	}
 
 };
@@ -341,8 +371,16 @@ export const destroy = () => bingo.off();
 export const commands: Chat.ChatCommands = {
 	pdlbingo: {
 
-		''() {
-			return this.parse('/help pdlbingo');
+		''(target, room, user, connection, cmd, message) {
+			if (bingo.isOn()) {
+				this.sendReply('Bingo is already on!');
+				return this.parse('/help pdlbingo');
+			}
+			if (!Users.globalAuth.atLeast(user, '+')) {
+				throw new Chat.ErrorMessage('You must be at least + rank to handle bingo.');
+			}
+			// on main, you have to also specify `, elim`
+			return this.parse('/tour create gen9pdlbingo');
 		},
 
 		pick(target, room, user, connection, cmd, message) {
@@ -367,8 +405,8 @@ export const commands: Chat.ChatCommands = {
 			if (typeof result === 'string') {
 				throw new Chat.ErrorMessage(`Could not assign the board to you because: ${result}.`);
 			};
-			const next = bingo.tour.players.find(({ id }) => bingo.boards.every(({ owner }) => owner !== id));
-			Rooms.lobby!.add(bingo.getMessage(next?.id)).update();
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
+			const next = bingo.tour.players.find(({ id }) => !bingo.boards.some(({ owner }) => owner === id));
 			if (!next) {
 				bingo.startTimer();
 			}
@@ -396,9 +434,9 @@ export const commands: Chat.ChatCommands = {
 			if (typeof result === 'string') {
 				throw new Chat.ErrorMessage(`Could not assign the board to ${receiver} because: ${result}.`);
 			};
-			const next = bingo.tour.players.find(({ id }) => bingo.boards.every(({ owner }) => owner !== id));
-			Rooms.lobby!.add(bingo.getMessage(next?.id)).update();
-			Rooms.lobby!.send(`[PDL Bingo] ${user.name} force assigned board #${index} to ${receiver}.`);
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
+			Rooms.lobby!.add(`[PDL Bingo] ${user.name} force assigned board #${index} to ${receiver}.`);
+			const next = bingo.tour.players.find(({ id }) => !bingo.boards.some(({ owner }) => owner === id));
 			if (!next) {
 				bingo.startTimer();
 			}
@@ -423,11 +461,35 @@ export const commands: Chat.ChatCommands = {
 			}
 			const finalIndex = Math.min(index, bingo.boards.length);
 			bingo.generateBoard(finalIndex);
-			this.sendReply('[PDL Bingo] It is done.');
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
 		},
 		generatehelp: [
 			'/pdlbingo generate [board index]',
 			'Generates a fresh board at index, writing over any previous board, but keeping the previous owner.',
+			'Requires + rank.',
+		],
+
+		format(target, room, user, connection, cmd, message) {
+			if (!bingo.isOn()) {
+				throw new Chat.ErrorMessage('Bingo is currently off.');
+			}
+			if (!Users.globalAuth.atLeast(user, '+')) {
+				throw new Chat.ErrorMessage('You must be at least + rank to handle boards.');
+			}
+			const format = toID(target) as 'natdex';
+			if (!formats[format]) {
+				return this.parse('/help pdlbingo format');
+			}
+			bingo.format = format;
+			for (let i = 0; i < bingo.boards.length; i++) {
+				bingo.generateBoard(i);
+			}
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
+		},
+		formathelp: [
+			'/pdlbingo format [format]',
+			'Re-generates all current and future boards using the specified format, keeping their owners.',
+			'Valid formats are: natdex, paldex, galardex, sinnohdex, hoenndex.',
 			'Requires + rank.',
 		],
 
@@ -442,11 +504,8 @@ export const commands: Chat.ChatCommands = {
 			if (isNaN(index)) {
 				return this.parse('/help pdlbingo delete');
 			}
-			const [deleted] = bingo.boards.splice(index, 1);
-			this.sendReply(`[PDL Bingo] ${deleted
-				? `Deleted ${deleted.owner ? `${deleted.owner}'s` : 'an ownerless'} board, leaving ${bingo.boards.length} boards.`
-				: 'Did not delete any board.'
-			}`);
+			bingo.boards.splice(index, 1);
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
 		},
 		deletehelp: [
 			'/pdlbingo delete [board index]',
@@ -457,10 +516,16 @@ export const commands: Chat.ChatCommands = {
 	},
 
 	pdlbingohelp: [
+		'To start a bingo tour, simply create a tour using the bingo format: /tour create gen9pdlbingo',
+		'Or use the shorthand command: /pdlbingo',
+		'A chat plugin made for bingo will then kick in and display the table of boards in lobby.',
+		'To start board picking, start the tour: /tour start',
+		'From there, follow the instructions from the plugin.',
 		'Command help:',
 		'/help pdlbingo pick',
 		'/help pdlbingo give',
 		'/help pdlbingo generate',
+		'/help pdlbingo format',
 		'/help pdlbingo delete',
 	],
 };
@@ -478,32 +543,21 @@ export const handlers: Chat.Handlers = {
 			for (let i = 0; i < 18; i++) {
 				bingo.generateBoard(i);
 			}
-			Rooms.lobby!.add('[PDL Bingo] 18 boards have been generated; start the tournament to begin picking.').update();
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
 			// we wait now, for the host to close signups.
 		}
 	},
 	onTournamentStart(tour) {
+		// at this point in time, `tour.players` has just been shuffled.
 		if (bingo.isBingoTour(tour)) {
 			tour.setAutoDisqualifyTimeout(Infinity);
 			// now we begin board picking
-			Rooms.lobby!.add(bingo.getMessage(tour.players[0]?.id, true)).update();
+			Rooms.lobby!.uhtmlchange(UHTML_ID, bingo.renderMessage());
 		}
 	},
 	onTournamentEnd(tour) {
 		if (bingo.isBingoTour(tour) && bingo.off()) {
 			Rooms.lobby!.add('[PDL Bingo] The tournament has ended, so the Bingo plugin is now off. Thanks for playing!').update();
-		}
-	},
-	onTournamentPlayerJoin(tour, player) {
-		if (bingo.isBingoTour(tour) && tour.isTournamentStarted) {
-			// player added to the tournament after start
-			// this should not be possible
-			let buf = `[PDL Bingo] Player ${player.id} entered mid-tour`;
-			const result = bingo.assignPlayer(player.id);
-			buf += typeof result === 'number'
-				? ` and was auto-assigned board #${result}.`
-				: ` but was not auto-assigned a board because: ${result}.`;
-			Rooms.lobby!.add(buf).update();
 		}
 	},
 	onTournamentPlayerChange(tour, player, previous) {
@@ -526,6 +580,11 @@ export const handlers: Chat.Handlers = {
 				// no need to announce this rlly
 				board.owner = null;
 			}
+		}
+	},
+	onRoomJoin(room, user, connection) {
+		if (bingo.isOn() && room === Rooms.lobby) {
+			connection.send(`|uhtml|${UHTML_ID}|${bingo.renderMessage()}`);
 		}
 	},
 };

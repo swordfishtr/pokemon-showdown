@@ -258,6 +258,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: '[Gen 9] PDL Bingo',
 		desc: 'PDL Bingo speedtour format',
 		mod: 'gen9',
+		searchShow: false,
 		ruleset: ['Standard AG', 'NatDex Mod'],
 		validatorCallback(team, options) {
 			if (!options?.user) {
@@ -267,7 +268,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			if (!plugin) {
 				return 'Chat plugin "pdlbingo" required by this format not found.';
 			}
-			return { draft: plugin.getTeam(options.user) };
+			if (!plugin.isOn()) {
+				return 'Bingo is currently off.';
+			}
+			return { draft: plugin.getPlayerTeam(options.user) };
 		},
 		validateTeam(team, options) {
 			if (options?.callbackResult?.error) {

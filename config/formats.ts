@@ -259,7 +259,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: 'PDL Bingo speedtour format',
 		mod: 'gen9',
 		searchShow: false,
-		ruleset: ['Standard AG', 'NatDex Mod'],
+		ruleset: [
+			'Standard AG', 'NatDex Mod',
+			'DryPass Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Forme Clause', 'Terastal Clause',
+			'Moody', 'Snow Cloak', 'Sand Veil', 'Tangled Feet',
+			'Focus Band', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Berserk Gene',
+			'Swagger', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Take Heart', 'Hidden Power',
+		],
 		validatorCallback(team, options) {
 			if (!options?.user) {
 				return 'This format requires a username for team validation.';
@@ -301,6 +307,29 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 				return problems;
 			}
 			return this.baseValidateTeam(team, options) || undefined;
+		},
+		onValidateSet(set, format, setHas, teamHas) {
+			const problems: string[] = [];
+			for(const x of set.moves) {
+				const move = Dex.moves.get(x);
+				const onlyConfuses = (
+					move.category === 'Status' &&
+					move.volatileStatus === 'confusion' &&
+					move.secondary === null
+				);
+				if(onlyConfuses) {
+					problems.push(`${move.name} is a move used solely to confuse the opponent, which is banned in PDL Bingo.`);
+				}
+				const onlyDropsAccuracy = (
+					move.category === 'Status' &&
+					move.boosts?.accuracy &&
+					move.boosts.accuracy < 0
+				);
+				if(onlyDropsAccuracy) {
+					problems.push(`${move.name} is a move used solely to lower the opponent's accuracy, which is banned in PDL Bingo.`);
+				}
+			}
+			return problems;
 		},
 	},
 	{

@@ -1494,6 +1494,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND 35 Pokes Perfect [H1]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
+		banlist: ['Burn Drive', 'Chill Drive', 'Douse Drive', 'Shock Drive'],
 		unbanlist: [
 			'Genesect-Base', 'Palkia-Origin', 'Lugia', 'Metagross-Mega', 'Manectric-Mega', 'Magearna-Base', 'Magearna-Original', 'Chi-Yu', 'Roaring Moon', 'Excadrill-Mega', 'Scizor-Mega', 'Ferrothorn', 'Zapdos-Base', 'Zamazenta-Crowned', 'Blissey', 'Urshifu-Rapid-Strike', 'Dialga-Origin', 'Alomomola', 'Giratina-Origin', 'Tyranitar-Mega', 'Glimmora-Mega', 'Tapu Koko', 'Delphox-Mega', 'Heatran-Base', 'Sneasler', 'Arceus-Ice', 'Altaria-Mega', 'Arceus-Grass', 'Iron Treads', 'Landorus-Therian', 'Araquanid-Base', 'Tapu Fini', 'Garchomp-Base', 'Pecharunt', 'Terapagos-Terastal', 'Iron Valiant',
 		],

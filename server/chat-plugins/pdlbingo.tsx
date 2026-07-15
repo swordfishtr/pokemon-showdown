@@ -339,7 +339,7 @@ export const bingo = new class {
 		return (
 			<div class="pdlbingo ladder">
 				{this.boards.map((board, boardIndex) => (
-					<button class="button" data-cmd={`/pdlbingo pick ${boardIndex + 1}`} disabled={!!board.owner}>
+					<button class="button" name="cmd" value={`/pdlbingo pick ${boardIndex + 1}`} disabled={!!board.owner}>
 						{bingo.renderBoard(boardIndex)}
 					</button>
 				))}

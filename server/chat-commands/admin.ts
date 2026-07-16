@@ -1694,6 +1694,15 @@ export const commands: Chat.ChatCommands = {
 		}
 		this.sendReply(`Exit code ${errcode} (${errcode ? 'failure' : 'success'})`);
 	},
+
+	async deploysamples(target, room, user, connection, cmd, message) {
+		if (!this.canUseConsole()) {
+			throw new Chat.ErrorMessage('Access denied.');
+		}
+		const [errcode] = await bash('git pull', this, '/home/hog/pokemon-showdown-client/');
+		this.globalModlog('DEPLOYSAMPLES', user, `${errcode}`);
+		this.sendReply(errcode === 0 ? 'Success' : `Failure (error code ${errcode})`);
+	}
 };
 
 export const pages: Chat.PageTable = {

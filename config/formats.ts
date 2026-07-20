@@ -1126,7 +1126,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		banlist: [
-			'Silvally > 1', 'Light Clay', 'Silvally-Steel + Swords Dance',
+			'Silvally > 1', 'Light Clay', 'Silvally-Steel + Swords Dance', 'Silvally-Fairy + Swords Dance', 'Shell Smash',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
 		unbanlist: [

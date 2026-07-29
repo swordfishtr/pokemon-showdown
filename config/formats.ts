@@ -1559,6 +1559,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A4]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		banlist: [
+			'Silvally > 1', 'Light Clay', 'Shell Smash',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
+		unbanlist: [
+			'Booster Energy',
+			'Regigigas', 'Vikavolt', 'Samurott-Base', 'Tentacruel', 'Donphan', 'Silvally-Ground', 'Silvally-Ghost', 'Silvally-Bug', 'Rapidash-Base', 'Copperajah', 'Togedemaru-Base', 'Drampa', 'Escavalier', 'Mesprit', 'Mismagius', 'Roserade', 'Cloyster', 'Steelix-Base', 'Hitmontop', 'Dhelmise', 'Druddigon', 'Florges', 'Fezandipiti', 'Gigalith', 'Persian-Alola', 'Cradily', 'Jellicent', 'Mandibuzz', 'Kilowattrel', 'Noivern', 'Sneasel-Base', 'Sneasel-Hisui', 'Charizard-Base', 'Scyther', 'Jynx', 'Crabominable-Base', 'Lickilicky',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
 		mod: 'gen9',
 		ruleset: [

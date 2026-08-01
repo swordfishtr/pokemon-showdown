@@ -634,6 +634,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Aug 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Arcanine-Base', 'Arctozolt', 'Ariados', 'Ceruledge', 'Crabominable-Base', 'Crawdaunt', 'Cyclizar', 'Dachsbun', 'Decidueye-Base', 'Donphan', 'Dragalge-Base', 'Espeon', 'Exeggutor-Base', 'Feraligatr-Base', 'Gardevoir-Base', 'Garganacl', 'Glalie-Base', 'Grafaiai', 'Kecleon', 'Kingler', 'Mabosstiff', 'Mandibuzz', 'Munkidori', 'Obstagoon', 'Omastar', 'Parasect', 'Politoed', 'Swanna', 'Tentacruel', 'Trevenant', 'Ursaring', 'Vikavolt-Base', 'Wigglytuff', 'Wormadam-Trash', 'Yanmega',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Jul 2026]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
@@ -1836,6 +1844,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes VGC [Aug 2026]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Arcanine-Base', 'Arctozolt', 'Ariados', 'Ceruledge', 'Crabominable-Base', 'Crawdaunt', 'Cyclizar', 'Dachsbun', 'Decidueye-Base', 'Donphan', 'Dragalge-Base', 'Espeon', 'Exeggutor-Base', 'Feraligatr-Base', 'Gardevoir-Base', 'Garganacl', 'Glalie-Base', 'Grafaiai', 'Kecleon', 'Kingler', 'Mabosstiff', 'Mandibuzz', 'Munkidori', 'Obstagoon', 'Omastar', 'Parasect', 'Politoed', 'Swanna', 'Tentacruel', 'Trevenant', 'Ursaring', 'Vikavolt-Base', 'Wigglytuff', 'Wormadam-Trash', 'Yanmega',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes VGC [Jul 2026]",
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -2477,6 +2494,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes 1v1',
 		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes 1v1 [Aug 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes 1v1'],
+		unbanlist: [
+			'Arcanine-Base', 'Arctozolt', 'Ariados', 'Ceruledge', 'Crabominable-Base', 'Crawdaunt', 'Cyclizar', 'Dachsbun', 'Decidueye-Base', 'Donphan', 'Dragalge-Base', 'Espeon', 'Exeggutor-Base', 'Feraligatr-Base', 'Gardevoir-Base', 'Garganacl', 'Glalie-Base', 'Grafaiai', 'Kecleon', 'Kingler', 'Mabosstiff', 'Mandibuzz', 'Munkidori', 'Obstagoon', 'Omastar', 'Parasect', 'Politoed', 'Swanna', 'Tentacruel', 'Trevenant', 'Ursaring', 'Vikavolt-Base', 'Wigglytuff', 'Wormadam-Trash', 'Yanmega',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes 1v1 [Jul 2026]",

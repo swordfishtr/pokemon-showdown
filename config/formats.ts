@@ -646,7 +646,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
-			'Accelgor', 'Aggron-Base', 'Carbink', 'Carracosta', 'Clodsire', 'Cloyster', 'Emboar-Base', 'Florges', 'Heatmor', 'Heliolisk', 'Heracross-Base', 'Hydreigon', 'Illumise', 'Klinklang', 'Kricketune', 'Lanturn', 'Linoone-Base', 'Lucario-Base', 'Malamar-Base', 'Mawile-Base', 'Mismagius', 'Mothim', 'Purugly', 'Rampardos', 'Raticate-Base', 'Samurott-Base', 'Seaking', 'Seismitoad', 'Slowbro-Base', 'Sudowoodo', 'Tyrantrum', 'Vaporeon', 'Vileplume', 'Zangoose', 'Zebstrika',
+			'Accelgor', 'Aggron-Base', 'Carbink', 'Carracosta', 'Clodsire', /* 'Cloyster', */ 'Emboar-Base', 'Florges', 'Heatmor', 'Heliolisk', 'Heracross-Base', 'Hydreigon', 'Illumise', 'Klinklang', 'Kricketune', 'Lanturn', 'Linoone-Base', 'Lucario-Base', 'Malamar-Base', 'Mawile-Base', 'Mismagius', 'Mothim', 'Nidoqueen', 'Purugly', 'Rampardos', 'Raticate-Base', 'Samurott-Base', 'Seaking', 'Seismitoad', 'Slowbro-Base', 'Sudowoodo', 'Tyrantrum', 'Vaporeon', 'Vileplume', 'Zangoose', 'Zebstrika',
 		],
 	},
 	{

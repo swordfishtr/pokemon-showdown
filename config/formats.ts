@@ -634,6 +634,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes [Sep 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		unbanlist: [
+			'Araquanid-Base', 'Arcanine-Hisui', 'Archeops', 'Bellossom', 'Boltund', 'Escavalier', 'Farigiraf', 'Gothitelle', 'Gyarados-Base', 'Kabutops', 'Kilowattrel', 'Klawf', 'Magmortar', 'Mamoswine', 'Metagross-Base', 'Miltank', 'Oricorio-Base', 'Orthworm', 'Persian-Base', 'Pinsir-Base', 'Polteageist', 'Pyukumuku', 'Rotom-Mow', 'Scizor-Base', 'Shiftry', 'Simisear', 'Skarmory-Base', 'Slowbro-Galar', 'Slurpuff', 'Thievul', 'Torkoal', 'Toxtricity-Base', 'Turtonator', 'Tyranitar-Base', 'Wailord',
+		],
+	},
+	{
 		name: "[Gen 9] ND 35 Pokes [Aug 2026]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
@@ -1143,6 +1151,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] ND 35 Pokes Perfect [A4]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes'],
+		banlist: [
+			'Silvally > 1', 'Light Clay', 'Shell Smash',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
+		],
+		unbanlist: [
+			'Booster Energy',
+			'Aerodactyl-Base', 'Cacturne', 'Cloyster', 'Copperajah', 'Crobat', 'Dhelmise', 'Diancie-Base', 'Donphan', 'Drampa-Base', 'Drapion', 'Druddigon', 'Duraludon', 'Empoleon', 'Farigiraf', 'Florges', 'Gastrodon', 'Glastrier', 'Hariyama', 'Hitmontop', 'Jellicent', 'Jolteon', 'Mandibuzz', 'Mesprit', 'Mismagius', 'Rapidash-Base', 'Regigigas', 'Roserade', 'Runerigus', 'Shaymin-Base', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Sneasel-Base', 'Stakataka', 'Talonflame', 'Tentacruel', 'Toxicroak',
+		],
+	},
+	{
 		name: "[Gen 3] 35 Pokes Perfect [B1]",
 		mod: 'perfectb1',
 		validatorMod: 'gen9',
@@ -1567,19 +1588,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A4]",
-		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
-		banlist: [
-			'Silvally > 1', 'Light Clay', 'Shell Smash',
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-		],
-		unbanlist: [
-			'Booster Energy',
-			'Regigigas', 'Vikavolt', 'Samurott-Base', 'Tentacruel', 'Donphan', 'Silvally-Ground', 'Silvally-Ghost', 'Silvally-Bug', 'Rapidash-Base', 'Copperajah', 'Togedemaru-Base', 'Drampa', 'Escavalier', 'Mesprit', 'Mismagius', 'Roserade', 'Cloyster', 'Steelix-Base', 'Hitmontop', 'Dhelmise', 'Druddigon', 'Florges', 'Fezandipiti', 'Gigalith', 'Persian-Alola', 'Cradily', 'Jellicent', 'Mandibuzz', 'Kilowattrel', 'Noivern', 'Sneasel-Base', 'Sneasel-Hisui', 'Charizard-Base', 'Scyther', 'Jynx', 'Crabominable-Base', 'Lickilicky',
-		],
-	},
-	{
 		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
 		mod: 'gen9',
 		ruleset: [
@@ -1842,6 +1850,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes VGC',
 		column: 3,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes VGC [Sep 2026]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard 35 Pokes VGC'],
+		unbanlist: [
+			'Araquanid-Base', 'Arcanine-Hisui', 'Archeops', 'Bellossom', 'Boltund', 'Escavalier', 'Farigiraf', 'Gothitelle', 'Gyarados-Base', 'Kabutops', 'Kilowattrel', 'Klawf', 'Magmortar', 'Mamoswine', 'Metagross-Base', 'Miltank', 'Oricorio-Base', 'Orthworm', 'Persian-Base', 'Pinsir-Base', 'Polteageist', 'Pyukumuku', 'Rotom-Mow', 'Scizor-Base', 'Shiftry', 'Simisear', 'Skarmory-Base', 'Slowbro-Galar', 'Slurpuff', 'Thievul', 'Torkoal', 'Toxtricity-Base', 'Turtonator', 'Tyranitar-Base', 'Wailord',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes VGC [Aug 2026]",
@@ -2494,6 +2511,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: '35 Pokes 1v1',
 		column: 4,
+	},
+	{
+		name: "[Gen 9] ND 35 Pokes 1v1 [Sep 2026]",
+		mod: 'gen9',
+		ruleset: ['Standard 35 Pokes 1v1'],
+		unbanlist: [
+			'Araquanid-Base', 'Arcanine-Hisui', 'Archeops', 'Bellossom', 'Boltund', 'Escavalier', 'Farigiraf', 'Gothitelle', 'Gyarados-Base', 'Kabutops', 'Kilowattrel', 'Klawf', 'Magmortar', 'Mamoswine', 'Metagross-Base', 'Miltank', 'Oricorio-Base', 'Orthworm', 'Persian-Base', 'Pinsir-Base', 'Polteageist', 'Pyukumuku', 'Rotom-Mow', 'Scizor-Base', 'Shiftry', 'Simisear', 'Skarmory-Base', 'Slowbro-Galar', 'Slurpuff', 'Thievul', 'Torkoal', 'Toxtricity-Base', 'Turtonator', 'Tyranitar-Base', 'Wailord',
+		],
 	},
 	{
 		name: "[Gen 9] ND 35 Pokes 1v1 [Aug 2026]",

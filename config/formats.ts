@@ -215,46 +215,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	{
-		name: "[Gen 9] RDL Singles",
-		mod: 'champions',
-		validatorMod: 'gen9',
-		validatorModExceptStats: true,
-		ruleset: [
-			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
-			'Forme Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
-			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause', 'Adjust Level = 50',
-		],
-		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag',
-			'King\'s Rock', 'Quick Claw', 'Razor Fang',
-			'Baton Pass', 'Hidden Power', 'Last Respects', 'Shed Tail', 'Swagger',
-		],
-		unbanlist: [
-			'Raichu-Mega-X', 'Raichu-Mega-Y', 'Clefable-Mega', 'Victreebel-Mega', 'Starmie-Mega', 'Dragonite-Mega', 'Meganium-Mega', 'Feraligatr-Mega', 'Skarmory-Mega', 'Chimecho-Mega', 'Absol-Mega-Z', 'Staraptor-Mega', 'Garchomp-Mega-Z', 'Lucario-Mega-Z', 'Froslass-Mega', 'Heatran-Mega', 'Darkrai-Mega', 'Emboar-Mega', 'Excadrill-Mega', 'Scolipede-Mega', 'Scrafty-Mega', 'Eelektross-Mega', 'Chandelure-Mega', 'Golurk-Mega', 'Chesnaught-Mega', 'Delphox-Mega', 'Greninja-Mega', 'Pyroar-Mega', 'Floette-Mega', 'Meowstic-M-Mega', 'Meowstic-F-Mega', 'Malamar-Mega', 'Barbaracle-Mega', 'Dragalge-Mega', 'Hawlucha-Mega', 'Zygarde-Mega', 'Crabominable-Mega', 'Golisopod-Mega', 'Drampa-Mega', 'Magearna-Mega', 'Magearna-Original-Mega', 'Zeraora-Mega', 'Falinks-Mega', 'Scovillain-Mega', 'Glimmora-Mega', 'Tatsugiri-Curly-Mega', 'Tatsugiri-Droopy-Mega', 'Tatsugiri-Stretchy-Mega', 'Baxcalibur-Mega',
-			'Raichunite X', 'Raichunite Y', 'Clefablite', 'Victreebelite', 'Starminite', 'Dragoninite', 'Meganiumite', 'Feraligite', 'Skarmorite', 'Chimechite', 'Absolite Z', 'Staraptite', 'Garchompite Z', 'Lucarionite Z', 'Froslassite', 'Heatranite', 'Darkranite', 'Emboarite', 'Excadrite', 'Scolipite', 'Scraftinite', 'Eelektrossite', 'Chandelurite', 'Golurkite', 'Chesnaughtite', 'Delphoxite', 'Greninjite', 'Pyroarite', 'Floettite', 'Meowsticite', 'Malamarite', 'Barbaracite', 'Dragalgite', 'Hawluchanite', 'Zygardite', 'Crabominite', 'Golisopite', 'Drampanite', 'Magearnite', 'Zeraorite', 'Falinksite', 'Scovillainite', 'Glimmoranite', 'Tatsugirinite', 'Baxcalibrite',
-		],
-	},
-	{
-		name: "[Gen 9] RDL VGC",
-		mod: 'champions',
-		validatorMod: 'gen9',
-		validatorModExceptStats: true,
-		gameType: 'doubles',
-		ruleset: [
-			'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
-			'Forme Clause', 'Nickname Clause',
-			'Champions Natdex Mod', 'Terastal Clause', '35 Pokes Z-Move Clause',
-			'Min Team Size = 6', 'Picked Team Size = 4', 'Adjust Level = 50', 'Best Of = 3', 'Item Clause = 1',
-		],
-		banlist: [
-			'Hidden Power',
-		],
-		unbanlist: [
-			'Raichu-Mega-X', 'Raichu-Mega-Y', 'Clefable-Mega', 'Victreebel-Mega', 'Starmie-Mega', 'Dragonite-Mega', 'Meganium-Mega', 'Feraligatr-Mega', 'Skarmory-Mega', 'Chimecho-Mega', 'Absol-Mega-Z', 'Staraptor-Mega', 'Garchomp-Mega-Z', 'Lucario-Mega-Z', 'Froslass-Mega', 'Heatran-Mega', 'Darkrai-Mega', 'Emboar-Mega', 'Excadrill-Mega', 'Scolipede-Mega', 'Scrafty-Mega', 'Eelektross-Mega', 'Chandelure-Mega', 'Golurk-Mega', 'Chesnaught-Mega', 'Delphox-Mega', 'Greninja-Mega', 'Pyroar-Mega', 'Floette-Mega', 'Meowstic-M-Mega', 'Meowstic-F-Mega', 'Malamar-Mega', 'Barbaracle-Mega', 'Dragalge-Mega', 'Hawlucha-Mega', 'Zygarde-Mega', 'Crabominable-Mega', 'Golisopod-Mega', 'Drampa-Mega', 'Magearna-Mega', 'Magearna-Original-Mega', 'Zeraora-Mega', 'Falinks-Mega', 'Scovillain-Mega', 'Glimmora-Mega', 'Tatsugiri-Curly-Mega', 'Tatsugiri-Droopy-Mega', 'Tatsugiri-Stretchy-Mega', 'Baxcalibur-Mega',
-			'Raichunite X', 'Raichunite Y', 'Clefablite', 'Victreebelite', 'Starminite', 'Dragoninite', 'Meganiumite', 'Feraligite', 'Skarmorite', 'Chimechite', 'Absolite Z', 'Staraptite', 'Garchompite Z', 'Lucarionite Z', 'Froslassite', 'Heatranite', 'Darkranite', 'Emboarite', 'Excadrite', 'Scolipite', 'Scraftinite', 'Eelektrossite', 'Chandelurite', 'Golurkite', 'Chesnaughtite', 'Delphoxite', 'Greninjite', 'Pyroarite', 'Floettite', 'Meowsticite', 'Malamarite', 'Barbaracite', 'Dragalgite', 'Hawluchanite', 'Zygardite', 'Crabominite', 'Golisopite', 'Drampanite', 'Magearnite', 'Zeraorite', 'Falinksite', 'Scovillainite', 'Glimmoranite', 'Tatsugirinite', 'Baxcalibrite',
-		],
-	},
-	{
 		name: '[Gen 9] PDL Bingo',
 		desc: 'PDL Bingo speedtour format',
 		mod: 'gen9',
@@ -1153,9 +1113,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] ND 35 Pokes Perfect [A4]",
 		mod: 'gen9',
-		ruleset: ['Standard 35 Pokes'],
+		ruleset: ['Standard 35 Pokes', 'No Freeze Mod'],
 		banlist: [
-			'Silvally > 1', 'Light Clay', 'Shell Smash',
+			'Silvally > 1', 'Light Clay', 'Shell Smash', 'Belly Drum', 'Diamond Storm',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
 		unbanlist: [

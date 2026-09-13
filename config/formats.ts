@@ -76,14 +76,14 @@ const draftteams: Partial<FormatData> = {
 	validateTeam(team, options) {
 		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
 			require('../sim/team-validator').TeamValidator;
-		return new TeamValidator('[Gen 9] ND Generations Draft [2026 Anniversary]').validateTeam(team, options) ?? undefined;
+		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 5]').validateTeam(team, options) ?? undefined;
 	},
 };
 const draftteamsvgc: Partial<FormatData> = {
 	validateTeam(team, options) {
 		const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
 			require('../sim/team-validator').TeamValidator;
-		return new TeamValidator('[Gen 9] ND Generations Draft [2026 Anniversary VGC]').validateTeam(team, options) ?? undefined;
+		return new TeamValidator('[Gen 9] ND Generations Draft [Gen 5 VGC]').validateTeam(team, options) ?? undefined;
 	},
 };
 
@@ -94,6 +94,37 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: 'Generations Draft',
 		column: 1,
+	},
+	{
+		name: "[Gen 9] ND Generations Draft [Gen 5]",
+		mod: 'gen9',
+		ruleset: ['Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause', '!Gems Clause'],
+		unbanlist: [
+			'Accelgor', 'Alomomola', 'Amoonguss', 'Archen', 'Archeops', 'Audino-Base', 'Audino-Mega', 'Axew', 'Basculegion-Base', 'Basculegion-F', 'Basculin-Base', 'Basculin-Blue-Striped', 'Basculin-White-Striped', 'Beartic', 'Beheeyem', 'Bisharp', 'Blitzle', 'Boldore', 'Bouffalant', 'Braviary-Base', 'Braviary-Hisui', 'Brute Bonnet', 'Carracosta', 'Chandelure-Base', 'Chandelure-Mega', 'Cinccino', 'Cobalion', 'Cofagrigus', 'Conkeldurr', 'Cottonee', 'Crustle', 'Cryogonal', 'Cubchoo', 'Darmanitan-Base', 'Darmanitan-Galar', 'Darumaka-Base', 'Darumaka-Galar', 'Deerling', 'Deino', 'Dewott', 'Drilbur', 'Druddigon', 'Ducklett', 'Duosion', 'Durant', 'Dwebble', 'Eelektrik', 'Eelektross-Base', 'Eelektross-Mega', 'Elgyem', 'Emboar-Base', 'Emboar-Mega', 'Emolga', 'Enamorus-Base', 'Enamorus-Therian', 'Escavalier', 'Excadrill-Base', 'Excadrill-Mega', 'Ferroseed', 'Ferrothorn', 'Foongus', 'Fraxure', 'Frillish', 'Galvantula', 'Garbodor', 'Gigalith', 'Golett', 'Golurk-Base', 'Golurk-Mega', 'Gothita', 'Gothitelle', 'Gothorita', 'Gurdurr', 'Haxorus', 'Heatmor', 'Herdier', 'Hydreigon', 'Iron Boulder', 'Iron Crown', 'Iron Jugulis', 'Iron Leaves', 'Jellicent', 'Joltik', 'Karrablast', 'Keldeo-Base', 'Kingambit', 'Klang', 'Klink', 'Klinklang', 'Krokorok', 'Krookodile', 'Kyurem-Base', 'Lampent', 'Landorus-Base', 'Landorus-Therian', 'Larvesta', 'Leavanny', 'Liepard', 'Lilligant-Base', 'Lilligant-Hisui', 'Lillipup', 'Litwick', 'Mandibuzz', 'Maractus', 'Meloetta-Base', 'Mienfoo', 'Mienshao', 'Minccino', 'Munna', 'Musharna', 'Oshawott', 'Palpitoad', 'Panpour', 'Pansage', 'Pansear', 'Patrat', 'Pawniard', 'Petilil', 'Pidove', 'Pignite', 'Purrloin', 'Reuniclus', 'Roggenrola', 'Rufflet', 'Runerigus', 'Samurott-Base', 'Samurott-Hisui', 'Sandile', 'Sawk', 'Sawsbuck', 'Scolipede-Base', 'Scolipede-Mega', 'Scrafty-Base', 'Scrafty-Mega', 'Scraggy', 'Seismitoad', 'Serperior', 'Servine', 'Sewaddle', 'Shelmet', 'Sigilyph', 'Simipour', 'Simisage', 'Simisear', 'Slither Wing', 'Snivy', 'Solosis', 'Stoutland', 'Stunfisk-Base', 'Stunfisk-Galar', 'Swadloon', 'Swanna', 'Swoobat', 'Tepig', 'Terrakion', 'Throh', 'Thundurus-Base', 'Thundurus-Therian', 'Timburr', 'Tirtouga', 'Tornadus-Base', 'Tornadus-Therian', 'Tranquill', 'Trubbish', 'Tympole', 'Tynamo', 'Unfezant', 'Vanillish', 'Vanillite', 'Vanilluxe', 'Venipede', 'Victini', 'Virizion', 'Volcarona', 'Vullaby', 'Watchog', 'Whimsicott', 'Whirlipede', 'Woobat', 'Yamask-Base', 'Yamask-Galar', 'Zebstrika', 'Zoroark-Base', 'Zoroark-Hisui', 'Zorua-Base', 'Zorua-Hisui', 'Zweilous',
+
+			'Audinite', 'Chandelurite', 'Eelektrossite', 'Emboarite', 'Excadrite', 'Golurkite', 'Scolipite', 'Scraftinite',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem', 'Grass Gem', 'Ground Gem', 'Ice Gem', 'Normal Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
+			'Belue Berry', 'Watmel Berry', 'Pamtre Berry', 'Durin Berry',
+		],
+	},
+	{
+		name: "[Gen 9] ND Generations Draft [Gen 5 VGC]",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: [
+			'Standard Generations', 'Tera Type Preview', '35 Pokes Mega Clause', '!Gems Clause',
+			'!Sleep Clause Mod', '!DryPass Clause', '!!Adjust Level = 50',
+			'Min Team Size = 6', 'Picked Team Size = 4', 'Best Of = 3', 'Item Clause = 1',
+		],
+		unbanlist: [
+			'Last Respects', 'Shed Tail', 'Take Heart',
+
+			'Accelgor', 'Alomomola', 'Amoonguss', 'Archen', 'Archeops', 'Audino-Base', 'Audino-Mega', 'Axew', 'Basculegion-Base', 'Basculegion-F', 'Basculin-Base', 'Basculin-Blue-Striped', 'Basculin-White-Striped', 'Beartic', 'Beheeyem', 'Bisharp', 'Blitzle', 'Boldore', 'Bouffalant', 'Braviary-Base', 'Braviary-Hisui', 'Brute Bonnet', 'Carracosta', 'Chandelure-Base', 'Chandelure-Mega', 'Cinccino', 'Cobalion', 'Cofagrigus', 'Conkeldurr', 'Cottonee', 'Crustle', 'Cryogonal', 'Cubchoo', 'Darmanitan-Base', 'Darmanitan-Galar', 'Darumaka-Base', 'Darumaka-Galar', 'Deerling', 'Deino', 'Dewott', 'Drilbur', 'Druddigon', 'Ducklett', 'Duosion', 'Durant', 'Dwebble', 'Eelektrik', 'Eelektross-Base', 'Eelektross-Mega', 'Elgyem', 'Emboar-Base', 'Emboar-Mega', 'Emolga', 'Enamorus-Base', 'Enamorus-Therian', 'Escavalier', 'Excadrill-Base', 'Excadrill-Mega', 'Ferroseed', 'Ferrothorn', 'Foongus', 'Fraxure', 'Frillish', 'Galvantula', 'Garbodor', 'Gigalith', 'Golett', 'Golurk-Base', 'Golurk-Mega', 'Gothita', 'Gothitelle', 'Gothorita', 'Gurdurr', 'Haxorus', 'Heatmor', 'Herdier', 'Hydreigon', 'Iron Boulder', 'Iron Crown', 'Iron Jugulis', 'Iron Leaves', 'Iron Moth', 'Jellicent', 'Joltik', 'Karrablast', 'Keldeo-Base', 'Kingambit', 'Klang', 'Klink', 'Klinklang', 'Krokorok', 'Krookodile', 'Kyurem-Base', 'Lampent', 'Landorus-Base', 'Landorus-Therian', 'Larvesta', 'Leavanny', 'Liepard', 'Lilligant-Base', 'Lilligant-Hisui', 'Lillipup', 'Litwick', 'Mandibuzz', 'Maractus', 'Meloetta-Base', 'Mienfoo', 'Mienshao', 'Minccino', 'Munna', 'Musharna', 'Oshawott', 'Palpitoad', 'Panpour', 'Pansage', 'Pansear', 'Patrat', 'Pawniard', 'Petilil', 'Pidove', 'Pignite', 'Purrloin', 'Reuniclus', 'Roggenrola', 'Rufflet', 'Runerigus', 'Samurott-Base', 'Samurott-Hisui', 'Sandile', 'Sawk', 'Sawsbuck', 'Scolipede-Base', 'Scolipede-Mega', 'Scrafty-Base', 'Scrafty-Mega', 'Scraggy', 'Seismitoad', 'Serperior', 'Servine', 'Sewaddle', 'Shelmet', 'Sigilyph', 'Simipour', 'Simisage', 'Simisear', 'Slither Wing', 'Snivy', 'Solosis', 'Stoutland', 'Stunfisk-Base', 'Stunfisk-Galar', 'Swadloon', 'Swanna', 'Swoobat', 'Tepig', 'Terrakion', 'Throh', 'Thundurus-Base', 'Thundurus-Therian', 'Timburr', 'Tirtouga', 'Tornadus-Base', 'Tornadus-Therian', 'Tranquill', 'Trubbish', 'Tympole', 'Tynamo', 'Unfezant', 'Vanillish', 'Vanillite', 'Vanilluxe', 'Venipede', 'Victini', 'Virizion', 'Volcarona', 'Vullaby', 'Watchog', 'Whimsicott', 'Whirlipede', 'Woobat', 'Yamask-Base', 'Yamask-Galar', 'Zebstrika', 'Zoroark-Base', 'Zoroark-Hisui', 'Zorua-Base', 'Zorua-Hisui', 'Zweilous',
+
+			'Abomasite', 'Chimechite', 'Froslassite', 'Galladite', 'Garchompite', 'Glalitite', 'Staraptite',
+			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem', 'Grass Gem', 'Ground Gem', 'Ice Gem', 'Normal Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
+			'Belue Berry', 'Watmel Berry', 'Pamtre Berry', 'Durin Berry',
+		],
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [2026 Anniversary]",
@@ -337,162 +368,242 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// 	validateTeam: draftteamsvgc.validateTeam,
 	// },
 	{
-		name: '[Rev] DMBeeeez',
+		name: '[TRU] bbnate',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Iron Valiant', 'Garchomp-Mega', 'Mew', 'Arcanine-Hisui', 'Crobat', 'Suicune', 'Jolteon', 'Corsola-Galar',
+			'Amoonguss', 'Basculin-Base', 'Basculin-Blue-Striped', 'Dwebble', 'Eelektross-Base', 'Kyurem-Base', 'Landorus-Base', 'Reuniclus', 'Roggenrola',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] Mr. Smiles',
+		name: '[TRU] Batman',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Gallade-Mega', 'Azumarill', 'Gliscor', 'Roserade', 'Starmie-Base', 'Entei', 'Electrode-Hisui', 'Swellow', 'Shedinja',
+			'Alomomola', 'Cinccino', 'Enamorus-Therian', 'Keldeo-Base', 'Musharna', 'Stunfisk-Base', 'Victini', 'Whirlipede',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] bbnate',
+		name: '[TRU] Pizza of the Hut',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Sneasler', 'Gardevoir-Mega', 'Scizor-Base', 'Rotom-Wash', 'Salamence-Base', 'Mamoswine', 'Umbreon', 'Aggron-Base',
+			'Chandelure-Mega', 'Cobalion', 'Garbodor', 'Landorus-Base', 'Meloetta-Base', 'Seismitoad', 'Whimsicott', 'Zweilous',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] PumpkinCD',
+		name: '[TRU] Mailducks',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Froslass-Mega', 'Weavile', 'Slowking-Galar', 'Sandy Shocks', 'Vaporeon', 'Flygon', 'Hariyama', 'Togetic', 'Kingler', 'Sandslash-Alola',
+			'Audino-Mega', 'Cryogonal', 'Enamorus-Base', 'Haxorus', 'Iron Crown', 'Liepard', 'Runerigus', 'Sewaddle', 'Zebstrika',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] Conn',
+		name: '[TRU] Mr.Smiles',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Iron Treads', 'Dragonite-Base', 'Scream Tail', 'Blaziken-Base', 'Raikou', 'Roselia', 'Munchlax', 'Mismagius', 'Absol-Mega',
+			'Carracosta', 'Darmanitan-Base', 'Excadrill-Mega', 'Joltik', 'Mienshao', 'Swanna', 'Tornadus-Base', 'Zoroark-Hisui',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] Dragapult',
+		name: '[TRU] NPC',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Steelix-Mega', 'Heatran-Base', 'Deoxys-Speed', 'Regidrago', 'Slowking-Base', 'Snorlax', 'Glalie-Base', 'Trapinch', 'Articuno-Galar', 'Ninetales-Base',
+			'Darmanitan-Galar', 'Excadrill-Base', 'Ferroseed', 'Gigalith', 'Herdier', 'Jellicent', 'Scolipede-Mega', 'Thundurus-Base',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] Hannah',
+		name: '[TRU] Masterriolu',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Garchomp-Base', 'Azelf', 'Manaphy', 'Heracross-Mega', 'Registeel', 'Regieleki', 'Staraptor-Base', 'Exploud', 'Houndoom-Base',
+			'Basculegion-F', 'Boldore', 'Eelektrik', 'Ferrothorn', 'Hydreigon', 'Krookodile', 'Scrafty-Mega', 'Servine', 'Simisear',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Rev] Axel',
+		name: '[TRU] Axel',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Latios-Base', 'Lopunny-Mega', 'Porygon2', 'Gligar', 'Clefable-Base', 'Crawdaunt', 'Jirachi', 'Flareon',
+			'Cottonee', 'Crustle', 'Golurk-Mega', 'Klinklang', 'Mandibuzz', 'Samurott-Hisui', 'Vanilluxe', 'Volcarona',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] Hog',
+		name: '[IDE] Hannah',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Froslass-Mega', 'Arcanine-Hisui', 'Electabuzz', 'Hariyama', 'Gardevoir-Base', 'Crawdaunt', 'Swellow', 'Duskull', 'Voltorb-Hisui',
+			'Audino-Base', 'Darmanitan-Galar', 'Druddigon', 'Eelektross-Mega', 'Keldeo-Base', 'Serperior', 'Sewaddle', 'Sigilyph',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] Mizuri',
+		name: '[IDE] SOM',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Gardevoir-Mega', 'Salamence-Base', 'Sneasler', 'Electivire', 'Scizor-Base', 'Starmie-Base', 'Bellossom', 'Wigglytuff',
-		],
-		validateTeam: draftteamsvgc.validateTeam,
-	},
-	{
-		name: '[Col] Aves',
-		challengeShow: false,
-		searchShow: false,
-		ruleset: ['Standard Generations'],
-		unbanlist: [
-			'Lopunny-Mega', 'Iron Treads', 'Rotom-Wash', 'Latias-Base', 'Clefable-Base', 'Ninetales-Base', 'Vileplume', 'Misdreavus', 'Corsola-Galar',
+			'Audino-Mega', 'Beartic', 'Cobalion', 'Elgyem', 'Kyurem-Base', 'Samurott-Hisui', 'Scolipede-Base', 'Stunfisk-Galar', 'Vanilluxe',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] TRod63',
+		name: '[IDE] Conn',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Porygon2', 'Sandslash-Alola', 'Abomasnow-Mega', 'Suicune', 'Drifblim', 'Flygon', 'Infernape', 'Riolu', 'Cursola',
+			'Enamorus-Therian', 'Excadrill-Mega', 'Frillish', 'Galvantula', 'Kingambit', 'Sawk', 'Venipede', 'Victini',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] SupaJello',
+		name: '[IDE] Brooks Y.',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Dragonite-Base', 'Blaziken-Base', 'Azumarill', 'Mamoswine', 'Crobat', 'Celebi', 'Raikou', 'Dusknoir', 'Exploud', 'Trapinch',
+			'Darmanitan-Base', 'Duosion', 'Hydreigon', 'Iron Crown', 'Landorus-Therian', 'Stoutland', 'Swanna', 'Virizion', 'Whirlipede',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] Blob',
+		name: '[IDE] aedena',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Togekiss', 'Jirachi', 'Entei', 'Rhyperior', 'Uxie', 'Regidrago', 'Lopunny-Base', 'Lombre',
+			'Archeops', 'Chandelure-Mega', 'Ferrothorn', 'Gurdurr', 'Krookodile', 'Leavanny', 'Simipour', 'Zoroark-Hisui',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] Masterriolu',
+		name: '[IDE] Shhmur',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Mew', 'Clefairy', 'Manaphy', 'Kleavor', 'Iron Valiant', 'Garchomp-Base', 'Piloswine', 'Electrode-Hisui',
+			'Bouffalant', 'Enamorus-Base', 'Excadrill-Base', 'Gigalith', 'Samurott-Base', 'Servine', 'Simisear', 'Tornadus-Therian',
 		],
 		validateTeam: draftteams.validateTeam,
 	},
 	{
-		name: '[Col] Moomoogaming',
+		name: '[IDE] Shrewstorm',
 		challengeShow: false,
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Snorlax', 'Gallade-Base', 'Staraptor-Base', 'Heatran-Base', 'Ludicolo', 'Aggron-Mega', 'Regieleki', 'Kingdra', 'Absol-Base',
+			'Basculin-White-Striped', 'Golurk-Mega', 'Mienshao', 'Reuniclus', 'Simisage', 'Thundurus-Base', 'Volcarona', 'Zebstrika',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[IDE] Slinky',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Alomomola', 'Cryogonal', 'Garbodor', 'Haxorus', 'Joltik', 'Landorus-Therian', 'Lilligant-Base', 'Scrafty-Base',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] TRod63',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Basculegion-F', 'Carracosta', 'Landorus-Base', 'Scraggy', 'Servine', 'Stunfisk-Base', 'Volcarona', 'Whimsicott',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] aedena',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Basculegion-Base', 'Bisharp', 'Emboar-Mega', 'Emolga', 'Gurdurr', 'Landorus-Therian', 'Lilligant-Base', 'Swoobat',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] Dragapult',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Basculin-White-Striped', 'Boldore', 'Eelektross-Mega', 'Fraxure', 'Galvantula', 'Slither Wing', 'Swanna', 'Victini', 'Zoroark-Hisui',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] Masterriolu',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Basculin-Base', 'Basculin-Blue-Striped', 'Bouffalant', 'Excadrill-Mega', 'Ferroseed', 'Foongus', 'Kyurem-Base', 'Thundurus-Therian', 'Tornadus-Base',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] Blob',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Audino-Mega', 'Eelektross-Base', 'Enamorus-Therian', 'Golett', 'Gothitelle', 'Jellicent', 'Kingambit', 'Zoroark-Base',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] skye',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Chandelure-Base', 'Escavalier', 'Golurk-Mega', 'Mandibuzz', 'Mienshao', 'Reuniclus', 'Roggenrola', 'Zorua-Hisui',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] SupaJello',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Braviary-Base', 'Brute Bonnet', 'Chandelure-Mega', 'Conkeldurr', 'Larvesta', 'Liepard', 'Musharna', 'Simipour',
+		],
+		validateTeam: draftteams.validateTeam,
+	},
+	{
+		name: '[ABS] Brooks Y.',
+		challengeShow: false,
+		searchShow: false,
+		ruleset: ['Standard Generations'],
+		unbanlist: [
+			'Amoonguss', 'Cobalion', 'Cofagrigus', 'Cottonee', 'Frillish', 'Purrloin', 'Scrafty-Mega', 'Thundurus-Base',
 		],
 		validateTeam: draftteams.validateTeam,
 	},

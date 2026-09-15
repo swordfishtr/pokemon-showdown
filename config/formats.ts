@@ -97,8 +97,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 5]",
-		mod: 'gen9',
-		ruleset: ['Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause', '!Gems Clause'],
+		mod: 'champions',
+		ruleset: [
+			'Standard Generations', 'Terastal Clause', '35 Pokes Mega Clause', '!Gems Clause',
+			'!!Adjust Level = 100',
+		],
 		unbanlist: [
 			'Accelgor', 'Alomomola', 'Amoonguss', 'Archen', 'Archeops', 'Audino-Base', 'Audino-Mega', 'Axew', 'Basculegion-Base', 'Basculegion-F', 'Basculin-Base', 'Basculin-Blue-Striped', 'Basculin-White-Striped', 'Beartic', 'Beheeyem', 'Bisharp', 'Blitzle', 'Boldore', 'Bouffalant', 'Braviary-Base', 'Braviary-Hisui', 'Brute Bonnet', 'Carracosta', 'Chandelure-Base', 'Chandelure-Mega', 'Cinccino', 'Cobalion', 'Cofagrigus', 'Conkeldurr', 'Cottonee', 'Crustle', 'Cryogonal', 'Cubchoo', 'Darmanitan-Base', 'Darmanitan-Galar', 'Darumaka-Base', 'Darumaka-Galar', 'Deerling', 'Deino', 'Dewott', 'Drilbur', 'Druddigon', 'Ducklett', 'Duosion', 'Durant', 'Dwebble', 'Eelektrik', 'Eelektross-Base', 'Eelektross-Mega', 'Elgyem', 'Emboar-Base', 'Emboar-Mega', 'Emolga', 'Enamorus-Base', 'Enamorus-Therian', 'Escavalier', 'Excadrill-Base', 'Excadrill-Mega', 'Ferroseed', 'Ferrothorn', 'Foongus', 'Fraxure', 'Frillish', 'Galvantula', 'Garbodor', 'Gigalith', 'Golett', 'Golurk-Base', 'Golurk-Mega', 'Gothita', 'Gothitelle', 'Gothorita', 'Gurdurr', 'Haxorus', 'Heatmor', 'Herdier', 'Hydreigon', 'Iron Boulder', 'Iron Crown', 'Iron Jugulis', 'Iron Leaves', 'Jellicent', 'Joltik', 'Karrablast', 'Keldeo-Base', 'Kingambit', 'Klang', 'Klink', 'Klinklang', 'Krokorok', 'Krookodile', 'Kyurem-Base', 'Lampent', 'Landorus-Base', 'Landorus-Therian', 'Larvesta', 'Leavanny', 'Liepard', 'Lilligant-Base', 'Lilligant-Hisui', 'Lillipup', 'Litwick', 'Mandibuzz', 'Maractus', 'Meloetta-Base', 'Mienfoo', 'Mienshao', 'Minccino', 'Munna', 'Musharna', 'Oshawott', 'Palpitoad', 'Panpour', 'Pansage', 'Pansear', 'Patrat', 'Pawniard', 'Petilil', 'Pidove', 'Pignite', 'Purrloin', 'Reuniclus', 'Roggenrola', 'Rufflet', 'Runerigus', 'Samurott-Base', 'Samurott-Hisui', 'Sandile', 'Sawk', 'Sawsbuck', 'Scolipede-Base', 'Scolipede-Mega', 'Scrafty-Base', 'Scrafty-Mega', 'Scraggy', 'Seismitoad', 'Serperior', 'Servine', 'Sewaddle', 'Shelmet', 'Sigilyph', 'Simipour', 'Simisage', 'Simisear', 'Slither Wing', 'Snivy', 'Solosis', 'Stoutland', 'Stunfisk-Base', 'Stunfisk-Galar', 'Swadloon', 'Swanna', 'Swoobat', 'Tepig', 'Terrakion', 'Throh', 'Thundurus-Base', 'Thundurus-Therian', 'Timburr', 'Tirtouga', 'Tornadus-Base', 'Tornadus-Therian', 'Tranquill', 'Trubbish', 'Tympole', 'Tynamo', 'Unfezant', 'Vanillish', 'Vanillite', 'Vanilluxe', 'Venipede', 'Victini', 'Virizion', 'Volcarona', 'Vullaby', 'Watchog', 'Whimsicott', 'Whirlipede', 'Woobat', 'Yamask-Base', 'Yamask-Galar', 'Zebstrika', 'Zoroark-Base', 'Zoroark-Hisui', 'Zorua-Base', 'Zorua-Hisui', 'Zweilous',
 
@@ -106,10 +109,64 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem', 'Grass Gem', 'Ground Gem', 'Ice Gem', 'Normal Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 			'Belue Berry', 'Watmel Berry', 'Pamtre Berry', 'Durin Berry',
 		],
+		checkCanLearn(move, species, setSources, set) {
+			if (!this.ruleTable.has('natdexmod')) return this.checkCanLearn(move, species, setSources, set);
+			const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+				require('../sim/team-validator').TeamValidator;
+			const natDex = TeamValidator.get(`gen9nationaldexag`)
+				.checkCanLearn(move, species, this.allSources(species), set);
+			if (typeof natDex === 'string') return this.checkCanLearn(move, species, setSources, set);
+			return natDex;
+		},
+		onValidateSet(set) {
+			if (!this.ruleTable.has('natdexmod')) return;
+			const species = this.dex.species.get(set.species);
+			let tier = species.tier;
+			if (tier === 'Illegal') tier = this.dex.mod('gen9').species.get(species.name).natDexTier;
+			if (tier === 'Illegal') {
+				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
+				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			const requireObtainable = this.ruleTable.has('obtainable');
+			if (requireObtainable) {
+				if (species.natDexTier === "Unreleased") {
+					const basePokemon = this.toID(species.baseSpecies);
+					if (this.ruleTable.has(`+pokemon:${species.id}`) || this.ruleTable.has(`+basepokemon:${basePokemon}`) ||
+						this.ruleTable.has('+pokemontag:unobtainable')) {
+						return;
+					}
+					return [`${set.name || set.species} does not exist in the National Dex.`];
+				}
+				for (const moveid of set.moves) {
+					const move = this.dex.moves.get(moveid);
+					if (move.isNonstandard === 'Unobtainable' && move.gen === this.dex.gen) {
+						if (this.ruleTable.has(`+move:${move.id}`)) continue;
+						const problem = `${set.name}'s move ${move.name} does not exist in the National Dex.`;
+						if (this.ruleTable.has('omunobtainablemoves')) {
+							const { outOfBattleSpecies } = this.getValidationSpecies(set);
+							if (!this.omCheckCanLearn(move, outOfBattleSpecies, this.allSources(outOfBattleSpecies), set, problem)) continue;
+						}
+						return [problem];
+					}
+				}
+			}
+			// Any item that was legal in Gen 7 (Normal Gem for example) should be usable
+			if (!set.item) return;
+			let item = this.dex.items.get(set.item);
+			let gen = this.dex.gen;
+			while (item.isNonstandard && gen >= 7) {
+				item = this.dex.forGen(gen).items.get(item.id);
+				gen--;
+			}
+			if (requireObtainable && item.isNonstandard) {
+				if (this.ruleTable.has(`+item:${item.id}`)) return;
+				return [`${set.name}'s item ${item.name} does not exist in Gen ${this.dex.gen}.`];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [Gen 5 VGC]",
-		mod: 'gen9',
+		mod: 'champions',
 		gameType: 'doubles',
 		ruleset: [
 			'Standard Generations', 'Terastal Clause', 'Tera Type Preview', '35 Pokes Mega Clause', '!Gems Clause',
@@ -125,6 +182,60 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Bug Gem', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem', 'Grass Gem', 'Ground Gem', 'Ice Gem', 'Normal Gem', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem',
 			'Belue Berry', 'Watmel Berry', 'Pamtre Berry', 'Durin Berry',
 		],
+		checkCanLearn(move, species, setSources, set) {
+			if (!this.ruleTable.has('natdexmod')) return this.checkCanLearn(move, species, setSources, set);
+			const TeamValidator: typeof import('../sim/team-validator').TeamValidator =
+				require('../sim/team-validator').TeamValidator;
+			const natDex = TeamValidator.get(`gen9nationaldexag`)
+				.checkCanLearn(move, species, this.allSources(species), set);
+			if (typeof natDex === 'string') return this.checkCanLearn(move, species, setSources, set);
+			return natDex;
+		},
+		onValidateSet(set) {
+			if (!this.ruleTable.has('natdexmod')) return;
+			const species = this.dex.species.get(set.species);
+			let tier = species.tier;
+			if (tier === 'Illegal') tier = this.dex.mod('gen9').species.get(species.name).natDexTier;
+			if (tier === 'Illegal') {
+				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
+				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			const requireObtainable = this.ruleTable.has('obtainable');
+			if (requireObtainable) {
+				if (species.natDexTier === "Unreleased") {
+					const basePokemon = this.toID(species.baseSpecies);
+					if (this.ruleTable.has(`+pokemon:${species.id}`) || this.ruleTable.has(`+basepokemon:${basePokemon}`) ||
+						this.ruleTable.has('+pokemontag:unobtainable')) {
+						return;
+					}
+					return [`${set.name || set.species} does not exist in the National Dex.`];
+				}
+				for (const moveid of set.moves) {
+					const move = this.dex.moves.get(moveid);
+					if (move.isNonstandard === 'Unobtainable' && move.gen === this.dex.gen) {
+						if (this.ruleTable.has(`+move:${move.id}`)) continue;
+						const problem = `${set.name}'s move ${move.name} does not exist in the National Dex.`;
+						if (this.ruleTable.has('omunobtainablemoves')) {
+							const { outOfBattleSpecies } = this.getValidationSpecies(set);
+							if (!this.omCheckCanLearn(move, outOfBattleSpecies, this.allSources(outOfBattleSpecies), set, problem)) continue;
+						}
+						return [problem];
+					}
+				}
+			}
+			// Any item that was legal in Gen 7 (Normal Gem for example) should be usable
+			if (!set.item) return;
+			let item = this.dex.items.get(set.item);
+			let gen = this.dex.gen;
+			while (item.isNonstandard && gen >= 7) {
+				item = this.dex.forGen(gen).items.get(item.id);
+				gen--;
+			}
+			if (requireObtainable && item.isNonstandard) {
+				if (this.ruleTable.has(`+item:${item.id}`)) return;
+				return [`${set.name}'s item ${item.name} does not exist in Gen ${this.dex.gen}.`];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] ND Generations Draft [2026 Anniversary]",

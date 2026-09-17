@@ -3080,7 +3080,7 @@ export const commands: Chat.ChatCommands = {
 			}
 			else connection.send(`|accessreplay|${success ? 0 : 1}|${target}|${response}`);
 		}
-		const parts = /^https?:\/\/replay.generationssd.co.uk\/(.+)/.exec(target);
+		const parts = /^https?:\/\/replay.generationssd.co.(?:uk|za)\/(.+)/.exec(target);
 		if(!parts) {
 			return send(false, 'Invalid url.');
 		}
@@ -3096,7 +3096,7 @@ export const commands: Chat.ChatCommands = {
 		if(!user.hasConsoleAccess(connection) && !data.players.map(toID).includes(user.id)) {
 			return send(false, 'Your username is not a player in this replay.');
 		}
-		let buf = `https://replay.generationssd.co.uk/${data.id}`;
+		let buf = `https://replay.generationssd.co.za/${data.id}`;
 		if(data.password) buf += `-${data.password}`;
 		send(true, buf);
 	},

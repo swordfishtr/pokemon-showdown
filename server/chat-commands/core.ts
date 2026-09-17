@@ -1048,7 +1048,7 @@ export const commands: Chat.ChatCommands = {
 			rating: null,
 			log: log.log.join('\n'),
 		})}\n`);
-		const url = `https://replay.generationssd.co.uk/${formatid}-${battleid}`;
+		const url = `https://replay.generationssd.co.za/${formatid}-${battleid}`;
 		this.sendReply(`Replay created at ${url}`);
 	},
 	createreplayhelp: [

@@ -2104,7 +2104,7 @@ export class GameRoom extends BasicRoom {
 			rating: rating || null,
 			log,
 		})}\n`);
-		const url = `https://replay.generationssd.co.uk/${id}${password ? `-${password}` : ''}`;
+		const url = `https://replay.generationssd.co.za/${id}${password ? `-${password}` : ''}`;
 		connection?.popup(
 			`|html|<p>Your replay is being saved. It will be available shortly at:</p><p> ` +
 			`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +

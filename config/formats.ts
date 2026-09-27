@@ -554,7 +554,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		ruleset: ['Standard Generations'],
 		unbanlist: [
-			'Cottonee', 'Crustle', 'Golurk-Mega', 'Klinklang', 'Mandibuzz', 'Samurott-Hisui', 'Vanilluxe', 'Volcarona',
+			'Cottonee', 'Stunfisk-Galar', 'Iron Boulder', 'Klinklang', 'Mandibuzz', 'Samurott-Hisui', 'Vanilluxe', 'Volcarona',
 		],
 		validateTeam: draftteams.validateTeam,
 	},

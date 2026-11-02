@@ -768,7 +768,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		unbanlist: [
-			'Alakazam-Base', 'Ludicolo', 'Gorebyss', 'Dugtrio-Alola', 'Bruxish', 'Camerupt-Base', 'Absol-Base', 'Furret', 'Samurott-Base', 'Heracross-Base', 'Sawk', 'Pachirisu', 'Regirock', 'Illumise', 'Bastiodon', 'Lycanroc-Midnight', 'Maractus', 'Tropius', 'Swampert-Base', 'Scrafty-Base', 'Lapras', 'Vanilluxe', 'Kingler', 'Snorlax', 'Bouffalant', 'Omastar', 'Tyrantrum', 'Shuckle', 'Hitmonchan', 'Noctowl', 'Dodrio', 'Zangoose', 'Floatzel', 'Mismagius', 'Machamp'
+			'Alakazam-Base', 'Ludicolo', 'Gorebyss', 'Dugtrio-Alola', 'Bruxish', 'Camerupt-Base', 'Absol-Base', 'Furret', 'Samurott-Base', 'Heracross-Base', 'Sawk', 'Pachirisu', 'Regirock', 'Illumise', 'Bastiodon', 'Lycanroc-Midnight', 'Maractus', 'Tropius', 'Swampert-Base', 'Scrafty-Base', 'Lapras', 'Vanilluxe', 'Kingler', 'Snorlax', 'Bouffalant', 'Omastar', 'Tyrantrum', 'Shuckle', 'Hitmonchan', 'Noctowl', 'Dodrio', 'Zangoose', 'Floatzel', 'Mismagius', 'Machamp',
 		],
 	},
 	{

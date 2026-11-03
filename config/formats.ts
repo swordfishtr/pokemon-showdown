@@ -3072,12 +3072,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard 35 Pokes',
 
-			'#steelix-rockhead+clearbody+moonblast+diamondstorm',
+			'#steelix+clearbody+moonblast+diamondstorm',
 			'#wigglytuff+regenerator+hugepower',
-			'#lunatone-levitate+drizzle+baddreams+nightdaze+darkpulse+lunardance',
-			'#solrock-levitate+orichalcumpulse+vitalspirit',
+			'#lunatone+drizzle+baddreams+nightdaze+darkpulse+lunardance',
+			'#solrock+orichalcumpulse+vitalspirit',
 			'#hariyama-bellydrum+rapidspin',
-			'#walrein-bellydrum+slackoff'
+			'#walrein+slackoff'
 		],
 		banlist: [
 			'Light Clay',

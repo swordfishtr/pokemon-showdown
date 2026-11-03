@@ -1,4 +1,20 @@
 export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
+	// NEO Pokemon
+	steelixneo: {
+		num: -8000,
+		gen: 9,
+		name: "Steelix-Neo",
+		types: ["Steel", "Fairy"],
+		baseStats: { hp: 65, atk: 85, def: 140, spa: 85, spd: 80, spe: 30 },
+		abilities: { 0: "Sturdy", 1: "Clear Body", H: "Sheer Force" },
+		heightm: 9.2,
+		weightkg: 400,
+		color: "Gray",
+		eggGroups: ["Mineral"],
+	},
+	// End of NEO Pokemon
+
+	// Start of Regular Pokemon
 	bulbasaur: {
 		num: 1,
 		name: "Bulbasaur",

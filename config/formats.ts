@@ -3077,14 +3077,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'#lunatone+drizzle+baddreams+nightdaze+darkpulse+lunardance',
 			'#solrock+orichalcumpulse+vitalspirit',
 			'#hariyama-bellydrum+rapidspin',
-			'#walrein+slackoff'
+			'#walrein+slackoff',
+			'#fearow+bravebird+guts'
 		],
 		banlist: [
 			'Light Clay',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
 		unbanlist: [
-			'Walrein', 'Hariyama', 'Lunatone', 'Wigglytuff', 'Solrock', 'Steelix-Base',
+			'Fearow', 'Walrein', 'Hariyama', 'Lunatone', 'Wigglytuff', 'Solrock', 'Steelix-Base',
 		],
 	},
 	{

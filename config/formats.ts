@@ -1217,14 +1217,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// region 35 Perfect
+	// region Perfect Vision
 
 	{
-		section: '35 Pokes Perfect',
+		section: 'Perfect Vision',
 		column: 3
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A1]",
+		name: "[Gen 9] ND Perfect Vision [A1]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause'],
 		banlist: [
@@ -1237,7 +1237,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A2]",
+		name: "[Gen 9] ND Perfect Vision [A2]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!Sleep Moves Clause'],
 		banlist: [
@@ -1250,7 +1250,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A3]",
+		name: "[Gen 9] ND Perfect Vision [A3]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		banlist: [
@@ -1263,7 +1263,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [A4]",
+		name: "[Gen 9] ND Perfect Vision [A4]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', 'No Freeze Mod'],
 		banlist: [
@@ -1276,7 +1276,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 3] 35 Pokes Perfect [B1]",
+		name: "[Gen 3] Perfect Vision [B1]",
 		mod: 'perfectb1',
 		validatorMod: 'gen9',
 		ruleset: [
@@ -1333,7 +1333,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 5] 35 Pokes Perfect [B2]",
+		name: "[Gen 5] Perfect Vision [B2]",
 		mod: 'perfectb2',
 		validatorMod: 'gen9',
 		ruleset: [
@@ -1390,7 +1390,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 5] 35 Pokes Perfect [B3]",
+		name: "[Gen 5] Perfect Vision [B3]",
 		mod: 'perfectb3',
 		desc: 'mm wuz here',
 		validatorMod: 'gen9',
@@ -1449,7 +1449,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [C1]",
+		name: "[Gen 9] ND Perfect Vision [C1]",
 		mod: 'gen9',
 		ruleset: [
 			'Standard 35 Pokes',
@@ -1493,7 +1493,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [D1]",
+		name: "[Gen 9] ND Perfect Vision [D1]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes'],
 		banlist: [
@@ -1506,7 +1506,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [D2]",
+		name: "[Gen 9] ND Perfect Vision [D2]",
 		mod: 'gen9',
 		ruleset: [
 			'Standard 35 Pokes',
@@ -1558,7 +1558,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 7] 35 Pokes Perfect [E1]",
+		name: "[Gen 7] Perfect Vision [E1]",
 		mod: 'gen7',
 		ruleset: ['Standard', '35 Pokes Mega Clause', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
 		banlist: ['All Pokemon', 'Regenerator', 'Dynamic Punch'],
@@ -1585,7 +1585,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [E2]",
+		name: "[Gen 9] ND Perfect Vision [E2]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes', '!35 Pokes Z-Move Clause'],
 		banlist: ['Heavy-Duty Boots', 'Light Clay', 'Quick Draw'],
@@ -1612,7 +1612,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [F1]",
+		name: "[Gen 9] ND Perfect Vision [F1]",
 		mod: 'gen9',
 		ruleset: [
 			'Standard 35 Pokes',
@@ -1663,7 +1663,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [H1]",
+		name: "[Gen 9] ND Perfect Vision [H1]",
 		mod: 'gen9',
 		ruleset: ['Standard 35 Pokes Ubers'],
 		banlist: ['Burn Drive', 'Chill Drive', 'Douse Drive', 'Shock Drive'],
@@ -1673,7 +1673,25 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [Z1]",
+		name: "[Gen 9] ND Perfect Vision [I1]",
+		mod: 'gen9',
+		ruleset: [
+			'Standard 35 Pokes',
+			'Limit One Restricted',
+		],
+		banlist: [
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Light Clay',
+			'Dynamic Punch',
+		],
+		unbanlist: [
+			'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile', 'Starmie', 'Iron Treads', 'Cyclizar', 'Terapagos', 'Skarmory-Base', 'Moltres', 'Camerupt', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Latias-Base', 'Ferrothorn', 'Rotom-Heat', "Rhyperior',
+		],
+		restricted: [
+			'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile',
+		],
+	},
+	{
+		name: "[Gen 9] ND Perfect Vision [Z1]",
 		mod: 'gen9',
 		ruleset: [
 			'Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause', 'Z-Move Clause', 'Terastal Clause',
@@ -1684,7 +1702,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [VGC-1]",
+		name: "[Gen 9] ND Perfect Vision [VGC-1]",
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
@@ -1696,11 +1714,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	
 	{
-		section: '35 Pokes Perfect (WIP)',
+		section: 'Perfect Vision (WIP)',
 		column: 3
 	},
 	{
-		name: "[Gen 9] ND 35 Pokes Perfect [C2]",
+		name: "[Gen 9] ND Perfect Vision [C2]",
 		mod: 'gen9',
 		ruleset: [
 			'Standard 35 Pokes',

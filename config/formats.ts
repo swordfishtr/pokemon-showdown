@@ -1233,7 +1233,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch',
 		],
 		unbanlist: [
-			'Hidden Power', 'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo-Base', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Latias-Base', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior',
+			'Hidden Power', 'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo-Base', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha-Base', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Latias-Base', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior',
 		],
 		restricted: [
 			'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Latias-Base', 'Weavile',

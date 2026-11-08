@@ -1218,9 +1218,29 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 
 	// region Perfect Vision
-
 	{
-		section: 'Perfect Vision',
+		section: 'Perfect Vision - Current',
+		column: 3
+	},
+	{
+		name: "[Gen 9] ND Perfect Vision [I1]",
+		mod: 'gen9',
+		ruleset: [
+			'Standard 35 Pokes',
+			'Limit One Restricted',
+		],
+		banlist: [
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch',
+		],
+		unbanlist: [
+			'Hidden Power', 'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo-Base', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Latias-Base', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior',
+		],
+		restricted: [
+			'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Latias-Base', 'Weavile',
+		],
+	},
+	{
+		section: 'Perfect Vision - Previous',
 		column: 3
 	},
 	{
@@ -1670,24 +1690,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: [
 			'Genesect-Base', 'Palkia-Origin', 'Lugia', 'Metagross-Mega', 'Manectric-Mega', 'Magearna-Base', 'Magearna-Original', 'Chi-Yu', 'Roaring Moon', 'Excadrill-Mega', 'Scizor-Mega', 'Ferrothorn', 'Zapdos-Base', 'Zamazenta-Crowned', 'Blissey', 'Urshifu-Rapid-Strike', 'Dialga-Origin', 'Alomomola', 'Giratina-Origin', 'Tyranitar-Mega', 'Glimmora-Mega', 'Tapu Koko', 'Delphox-Mega', 'Heatran-Base', 'Sneasler', 'Arceus-Ice', 'Altaria-Mega', 'Arceus-Grass', 'Iron Treads', 'Landorus-Therian', 'Araquanid-Base', 'Tapu Fini', 'Garchomp-Base', 'Pecharunt', 'Terapagos-Terastal', 'Iron Valiant',
 			'Delphoxite', 'Excadrite', 'Glimmoranite', 'Piercing Drill',
-		],
-	},
-	{
-		name: "[Gen 9] ND Perfect Vision [I1]",
-		mod: 'gen9',
-		ruleset: [
-			'Standard 35 Pokes',
-			'Limit One Restricted',
-		],
-		banlist: [
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Light Clay',
-			'Dynamic Punch',
-		],
-		unbanlist: [
-			'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Kanto', 'Camerupt', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Latias-Base', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior',
-		],
-		restricted: [
-			'Tapu Koko', 'Scizor', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Hatterene', 'Weavile',
 		],
 	},
 	{

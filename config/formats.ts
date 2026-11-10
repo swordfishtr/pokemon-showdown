@@ -1226,18 +1226,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND Perfect Vision [I1]",
 		mod: 'gen9',
 		ruleset: [
-			'Standard 35 Pokes',
-			'Limit One Restricted',
+			'Standard AG', 'NatDex Mod',
+			'DryPass Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Forme Clause', 'Terastal Clause', 'Species Clause', 'Nickname Clause', 'Evasion Clause',
 		],
 		banlist: [
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch', 'All Pokemon',
 		],
 		unbanlist: [
 			'Scizorite', 'Venusaurite', 'Cameruptite', 
 			'Hidden Power', 'Hatterene', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Base', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt-Mega', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo-Base', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha-Base', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior',
 		],
 		restricted: [
-			'Tapu Koko', 'Scizor-Mega', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur-Mega', 'Latias-Base', 'Weavile',
+			'Tapu Koko', 'Scizor', 'Scizor-Mega', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Venusaur-Mega', 'Latias-Base', 'Weavile',
 		],
 	},
 	{

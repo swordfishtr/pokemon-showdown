@@ -1231,12 +1231,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Limit One Restricted',
 		],
 		banlist: [
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch', 'Uber', 'OU', 'UU', 'RU',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch',
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 		],
 		unbanlist: [
 			'Scizorite', 'Venusaurite', 'Cameruptite', 
-			'Tapu Koko', 'Scizor', 'Scizor-Mega', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Venusaur-Mega', 'Latias-Base', 'Weavile',
 			'Hidden Power', 'Hatterene', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Base', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt-Mega', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo-Base', 'Tinkaton', 'Flygon', 'Mienshao', 'Sinistcha-Base', 'Metagross-Base', 'Typhlosion-Hisui', 'Jellicent', 'Mamoswine', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior',
 		],
 		restricted: [

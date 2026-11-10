@@ -1227,7 +1227,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: [
 			'Standard Natdex',
-			'DryPass Clause', 'Sleep Moves Clause',
+			'DryPass Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'No Freeze Mod',
 			'Limit One Restricted',
 		],
 		banlist: [

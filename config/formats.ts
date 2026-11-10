@@ -1227,7 +1227,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: [
 			'Standard Natdex',
-			'DryPass Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Forme Clause', 'Terastal Clause', 'Species Clause', 'Nickname Clause', 'Evasion Clause',
+			'DryPass Clause',
 			'Limit One Restricted',
 		],
 		banlist: [

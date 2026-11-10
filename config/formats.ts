@@ -1227,11 +1227,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		ruleset: [
 			'Standard Natdex',
-			'DryPass Clause',
+			'DryPass Clause', 'Sleep Moves Clause',
 			'Limit One Restricted',
 		],
 		banlist: [
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
 		],
 		unbanlist: [

@@ -1226,11 +1226,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] ND Perfect Vision [I1]",
 		mod: 'gen9',
 		ruleset: [
-			'Standard Natdex',
-			'DryPass Clause', 'Sleep Clause Mod', 'OHKO Clause', 'Forme Clause', 'Terastal Clause', 'Species Clause', 'Nickname Clause', 'Evasion Clause',
+			'Standard 35 Pokes',
+			'Limit One Restricted',
 		],
 		banlist: [
-			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch', 'All Pokemon',
+			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z', 'Eviolite', 'Dynamic Punch',
 		],
 		unbanlist: [
 			'Scizorite', 'Venusaurite', 'Cameruptite', 

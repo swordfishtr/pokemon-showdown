@@ -24,6 +24,18 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Green",
 		eggGroups: ["Mineral"],
 	},
+	wigglytuffneo: {
+		num: -8002,
+		gen: 9,
+		name: "Wigglytuff-Neo",
+		types: ["Fairy", "Fighting"],
+		baseStats: { hp: 140, atk: 45, def: 45, spa: 85, spd: 50, spe: 70 },
+		abilities: { 0: "Regenerator", H: "Huge Power" },
+		heightm: 1,
+		weightkg: 20,
+		color: "Pink",
+		eggGroups: ["Fairy"],
+	},
 	// End of NEO Pokemon
 
 	// Start of Regular Pokemon

@@ -3096,19 +3096,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Standard 35 Pokes',
 
 			'#steelixneo',
-			'#wigglytuff+regenerator+hugepower',
-			'#lunatone+drizzle+baddreams+nightdaze+darkpulse+lunardance',
-			'#solrock+orichalcumpulse+vitalspirit',
-			'#hariyama-bellydrum+rapidspin',
-			'#walrein+slackoff',
-			'#fearow+bravebird+guts'
+			'#golurkneo',
+			'#wigglytuffneo',
 		],
 		banlist: [
-			'Light Clay',
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
 		unbanlist: [
-			'Fearow', 'Walrein', 'Hariyama', 'Lunatone', 'Wigglytuff', 'Solrock', 'Steelix-Neo',
+			'Steelix-Neo', 'Wigglytuff-Neo', 'Golurk-Neo', 
 		],
 	},
 	{

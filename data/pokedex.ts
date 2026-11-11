@@ -5,7 +5,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		gen: 9,
 		name: "Fearow-Neo",
 		types: ["Dark", "Flying"],
-		baseStats: { hp: 90, atk: 30, def: 65, spa: 100, spd: 65, spe: 100 },
+		baseStats: { hp: 90, atk: 60, def: 60, spa: 100, spd: 60, spe: 100 },
 		abilities: { 0: "Intimidate", H: "Lightning Rod" },
 		heightm: 2.2,
 		weightkg: 50,

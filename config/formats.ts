@@ -1228,11 +1228,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard Natdex',
 			'DryPass Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'No Freeze Mod',
-			'Limit One Restricted',
+			'Limit One Restricted', 'Terastal Clause'
 		],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
-			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC',
+			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL', 'ND UU', 'ND RUBL', 'ND RU', 'ND NFE', 'ND LC', 'Shed Tail',
 		],
 		unbanlist: [
 			'Scizorite', 'Venusaurite', 'Cameruptite', 

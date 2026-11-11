@@ -3095,15 +3095,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard 35 Pokes',
 
-			'#steelixneo',
-			'#golurkneo',
+			'#fearowneo',
 			'#wigglytuffneo',
+			'#steelixneo',
+			'#mantineneo',
+			'#cacturneneoeast',
+			'#cacturneneowest',
+			'#golurkneo',
 		],
 		banlist: [
 			'Ultranecrozium Z', 'Solganium Z', 'Lunalium Z', 'Mewnium Z', 'Marshadium Z',
 		],
 		unbanlist: [
-			'Steelix-Neo', 'Wigglytuff-Neo', 'Golurk-Neo', 
+			'Fearow-Neo', 'Wigglytuff-Neo', 'Steelix-Neo', 'Mantine-Neo', 'Cacturne-Neo East', 'Cacturne-Neo West', 'Golurk-Neo', 
 		],
 	},
 	{

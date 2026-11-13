@@ -1146,7 +1146,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Copperajah', 'Dhelmise', 'Mudsdale', 'Veluza', 'Bellossom', 'Tropius', 'Cramorant-Base', 'Jellicent', 'Boltund',
 			'Scolipede-Base', 'Typhlosion-Base', 'Klefki', 'Metagross-Base', 'Swoobat', 'Honchkrow', 'Cursola', 'Revavroom', 'Swampert-Base',
 			'Garbodor', 'Electivire', 'Slurpuff', 'Jynx', 'Bombirdier', 'Mismagius', 'Wyrdeer', 'Lanturn', 'Carnivine',
-			'Kangaskhan-Base', 'Bellibolt', 'Kingdra', 'Perrserker', 'Steelix-Base', 'Alcremie', 'Heliolisk', 'Beartic',
+			'Kangaskhan-Base', 'Bellibolt', 'Kingdra', 'Perrserker', 'Steelix-Base', 'Alcremie', 'Heliolisk', 'Beartic', 'Rayquaza-Mega', 
 		],
 	},
 	{

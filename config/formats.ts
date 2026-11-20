@@ -1236,7 +1236,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		unbanlist: [
 			'Scizorite', 'Venusaurite', 'Cameruptite', 
-			'Hidden Power', 'Scizor-Mega', 'Venusaur-Mega', 'Hatterene', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Base', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt-Mega', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo', 'Tinkaton', 'Dracozolt', 'Mienshao', 'Sinistcha-Base', 'Metagross-Base', 'Mimikyu', 'Jellicent', 'Mamoswine', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior', 'Porygon2', 'Bisharp', 'Overqwil', 'Ogerpon-Base',
+			'Hidden Power', 'Scizor-Mega', 'Venusaur-Mega', 'Hatterene', 'Starmie-Base', 'Iron Treads', 'Cyclizar', 'Terapagos-Base', 'Terapagos-Terastal', 'Skarmory-Base', 'Moltres-Base', 'Camerupt-Mega', 'Magnezone', 'Nidoqueen', 'Hippowdon', 'Clodsire', 'Sylveon', 'Vaporeon', 'Swampert-Base', 'Celebi', 'Empoleon', 'Dragalge-Base', 'Chesnaught-Base', 'Thundurus-Base', 'Reuniclus', 'Slowbro-Base', 'Keldeo', 'Tinkaton', 'Dracozolt', 'Mienshao', 'Sinistcha-Base', 'Metagross-Base', 'Mimikyu-Base', 'Jellicent', 'Mamoswine', 'Ferrothorn', 'Rotom-Heat', 'Rhyperior', 'Porygon2', 'Bisharp', 'Overqwil', 'Ogerpon-Base',
 		],
 		restricted: [
 			'Tapu Koko', 'Scizor', 'Scizor-Mega', 'Cinderace', 'Tapu Fini', 'Tapu Bulu', 'Tyranitar-Base', 'Venusaur', 'Venusaur-Mega', 'Latias-Base', 'Weavile',
